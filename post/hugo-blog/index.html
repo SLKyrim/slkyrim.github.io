@@ -23,9 +23,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Single Long" />
-  <meta name="description" content="安装Hugo 在终端输入： 1 brew install hugo" />
+  <meta name="description" content="自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug" />
 
-  <meta name="keywords" content="Hugo, theme, jane" />
+  <meta name="keywords" content="Single Long, Blog" />
 
 
 
@@ -60,23 +60,23 @@
 
 
 <meta property="og:title" content="Hugo搭建博客" />
-<meta property="og:description" content="安装Hugo 在终端输入： 1 brew install hugo" />
+<meta property="og:description" content="自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/hugo-blog/" />
 <meta property="article:published_time" content="2020-07-30T16:56:43+08:00" />
-<meta property="article:modified_time" content="2020-07-30T18:45:55+08:00" />
+<meta property="article:modified_time" content="2020-07-30T21:37:14+08:00" />
 <meta itemprop="name" content="Hugo搭建博客">
-<meta itemprop="description" content="安装Hugo 在终端输入： 1 brew install hugo">
+<meta itemprop="description" content="自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug">
 <meta itemprop="datePublished" content="2020-07-30T16:56:43+08:00" />
-<meta itemprop="dateModified" content="2020-07-30T18:45:55+08:00" />
-<meta itemprop="wordCount" content="16">
+<meta itemprop="dateModified" content="2020-07-30T21:37:14+08:00" />
+<meta itemprop="wordCount" content="1911">
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="Hugo,github,utterances,blog," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hugo搭建博客"/>
-<meta name="twitter:description" content="安装Hugo 在终端输入： 1 brew install hugo"/>
+<meta name="twitter:description" content="自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -123,6 +123,20 @@
           
           
             <a class="menu-item-link" href="https://slkyrim.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
           
         
       </li>
@@ -243,6 +257,28 @@
 
       </li>
     
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
+          
+
+        
+
+      </li>
+    
 
     
     
@@ -266,9 +302,12 @@
         <time datetime="2020-07-30" class="post-time">
           2020-07-30
         </time>
-        
-        <span class="more-meta"> 约 16 字 </span>
-          <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <div class="post-category">
+            <a href="https://slkyrim.github.io/categories/%E5%A4%87%E5%BF%98/"> 备忘 </a>
+            
+          </div>
+        <span class="more-meta"> 约 1911 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
 
         
         
@@ -285,7 +324,25 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#安装hugo">安装Hugo</a></li>
+    <li><a href="#1安装环境">1、安装环境</a></li>
+    <li><a href="#2安装hugo">2、安装Hugo</a></li>
+    <li><a href="#3本地部署博客">3、本地部署博客</a>
+      <ul>
+        <li><a href="#31生成博客">3.1、生成博客</a></li>
+        <li><a href="#32配置主题">3.2、配置主题</a></li>
+        <li><a href="#33本地部署">3.3、本地部署</a></li>
+      </ul>
+    </li>
+    <li><a href="#4远端部署博客">4、远端部署博客</a>
+      <ul>
+        <li><a href="#41在github上建立博客远端仓库">4.1、在github上建立博客远端仓库</a></li>
+        <li><a href="#42写博文">4.2、写博文</a></li>
+        <li><a href="#43建立博客主体的git仓库">4.3、建立博客主体的git仓库</a></li>
+        <li><a href="#44将修改后的博客同步到远端">4.4、将修改后的博客同步到远端</a></li>
+      </ul>
+    </li>
+    <li><a href="#5额外功能评论功能">5、额外功能：评论功能</a></li>
+    <li><a href="#6结语">6、结语</a></li>
   </ul>
 </nav>
   </div>
@@ -293,7 +350,14 @@
 
     
     <div class="post-content">
-      <h2 id="安装hugo">安装Hugo</h2>
+      <p>自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。</p>
+<p>截至本文写成日期，本博客主要基于<a href="https://github.com/xianmin/hugo-theme-jane">hugo-theme-jane</a>搭建，感谢作者<a href="https://github.com/xianmin">xianmin</a></p>
+<h2 id="1安装环境">1、安装环境</h2>
+<p>macOS Catalina 10.15.4</p>
+<p>确保本地已安装Git和Homebrew。</p>
+<h2 id="2安装hugo">2、安装Hugo</h2>
+<p>视频参考：<a href="https://www.bilibili.com/video/BV1q4411i7gL">点击这里</a></p>
+<p>其它操作系统可以到Hugo官网下载对应的<a href="https://github.com/gohugoio/hugo/releases">安装包</a>进行手动安装。</p>
 <p>在终端输入：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -303,7 +367,135 @@
 <pre class="chroma"><code class="language-Shell" data-lang="Shell">brew install hugo
 </code></pre></td></tr></table>
 </div>
+</div><p>每次用brew安装都会卡在更新上，有两种解决方法：</p>
+<ul>
+<li>1、开另一个终端重新输入以上命令。如果第一个终端更新完成，则会下载更新版本的软件，那么之后再更新软件</li>
+<li>2、按Control+C停止更新，直接开始下载软件</li>
+</ul>
+<p>在终端输入以下命令:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo version
+</code></pre></td></tr></table>
 </div>
+</div><p>如果出现如下安装的hugo版本号则说明hugo已安装成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">Hugo Static Site Generator v0.74.3/extended darwin/amd64 BuildDate: unknown
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3本地部署博客">3、本地部署博客</h2>
+<h3 id="31生成博客">3.1、生成博客</h3>
+<p>输入以下命令生成博客：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo new site myBlog
+</code></pre></td></tr></table>
+</div>
+</div><p>这样便会生成一个名字为myBlog（根据个人需要自行命名）的文件夹，里面是博客的框架。</p>
+<h3 id="32配置主题">3.2、配置主题</h3>
+<p>Hugo有很多主题可以直接拿来用，这里采用的是<a href="https://github.com/xianmin">xianmin</a>的<a href="https://github.com/xianmin/hugo-theme-jane">jane</a>主题，可以去他的Github库里看具体配置流程。</p>
+<p>这里简述一下流程，先cd到博客文件夹路径下，我这里是myBlog，进入后输入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">git clone https://github.com/xianmin/hugo-theme-jane.git --depth<span class="o">=</span><span class="m">1</span> themes/jane
+</code></pre></td></tr></table>
+</div>
+</div><p>下载好主题后要在myBlog路径下对<strong>config.toml</strong>配置文件进行配置，这里推荐直接拷贝<a href="https://github.com/xianmin">xianmin</a>的<a href="https://github.com/xianmin/xianmin.org/blob/master/config.toml">配置文件</a>。因为现在还没有建立远端git仓库，所以里面的<strong>enableGitInfo</strong>要先设置为false，不然之后会报错。</p>
+<h3 id="33本地部署">3.3、本地部署</h3>
+<p>输入以下命令开始部署博客：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo server
+</code></pre></td></tr></table>
+</div>
+</div><p>这时在浏览器中输入<a href="http://localhost:1313/">http://localhost:1313/</a>就可以看到博客部署到本地上了。</p>
+<h2 id="4远端部署博客">4、远端部署博客</h2>
+<h3 id="41在github上建立博客远端仓库">4.1、在github上建立博客远端仓库</h3>
+<p>比如我的Github用户名为SLKyrim，那么需要建立一个名为 slkyrim.github.io 的仓库（大小写不区分）作为博客的远端仓库。</p>
+<p>然后需要更改config.toml中的<strong>baseURL</strong>设置为建立的这个仓库的域名，这里是&quot;https://slkyrim.github.io/&quot;。</p>
+<p>输入以下命令生成博客在前端的文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo --buildDrafts
+</code></pre></td></tr></table>
+</div>
+</div><p>这时应该会在myBlog路径下生成一个public文件夹，这里面存放博客的前端文件。</p>
+<p>然后cd进public文件夹，依次输入以下命令将这些前端文件推到Github的远端仓库中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">git init
+git add .
+git commit -m <span class="s2">&#34;First Commit&#34;</span>
+git remote add origin https://github.com/SLKyrim/slkyrim.github.io.git 【注意这里要换成你的远程仓库的地址】
+git push -u origin master
+</code></pre></td></tr></table>
+</div>
+</div><p>这时在浏览其中输入你远端博客的域名即可访问你的博客，这里是我的博客的域名<a href="https://slkyrim.github.io/">https://slkyrim.github.io/</a>。</p>
+<h3 id="42写博文">4.2、写博文</h3>
+<p>这时博客空空如也，自然要写些博文。</p>
+<p>下图是我所理解的基于Hugo的博客文件结构</p>
+<p><img src="https://github.com/SLKyrim/myBlog/blob/master/static/blog_file_struct.png" alt="Hugo博客文件结构"></p>
+<p>所以我们应该在content文件夹下的post文件夹里放置我们的Markdown博文文件。</p>
+<h3 id="43建立博客主体的git仓库">4.3、建立博客主体的git仓库</h3>
+<p>之前我们把配置文件config.toml中的enableGitInfo设为false，是因为我们还没给博客主体建立git仓库，于是我们cd回博客的主路径myBlog，然后输入命令建立博客主体的git仓库。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">git init
+</code></pre></td></tr></table>
+</div>
+</div><p>建<strong>主体仓库</strong>好后，我直接用<a href="https://desktop.github.com/">Github Desktop</a>将博客主体推到我的Github上，并把主题theme/jane和前端文件public都设置进gitignore。这样我们就能把config.toml中的enableGitInfo设为true，并将[params.gitInfo]中gitRepo设为<strong>主体仓库</strong>的路径，这样我们每次修改博文的时候同步到<strong>主体仓库</strong>后都会自动更新修改时间。</p>
+<h3 id="44将修改后的博客同步到远端">4.4、将修改后的博客同步到远端</h3>
+<p>写好博文后，输入以下命令重新生成新的public文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo
+</code></pre></td></tr></table>
+</div>
+</div><p>把新生成的public推送到远端仓库即可将修改同步到远端博客。</p>
+<h2 id="5额外功能评论功能">5、额外功能：评论功能</h2>
+<p>博客有评论功能会觉得和读者有互动（真希望会有呢），可以一起交流进步。</p>
+<p>这里选用<a href="https://utteranc.es/">utterances</a>通过Github issue来支持静态博客评论功能。轻量且安全。</p>
+<p>又要在Github上创建一个仓库专门用来存放评论的issue。创建好<strong>评论仓库</strong>后，安装<a href="https://github.com/apps/utterances">utterances APP</a>，并选择安装在<strong>评论仓库</strong>上。并在配置文件config.toml里[params.utteranc]中的repo路径设置为<strong>评论仓库</strong>。这样我们的博客便拥有评论功能了。</p>
+<h2 id="6结语">6、结语</h2>
+<p>建立个人博客，一共在Github上创建了三个仓库：</p>
+<ul>
+<li>远端仓库：存放博客public前端文件的，只有把更新的配置同步到这个仓库，远端博客才会更新</li>
+<li>主体仓库：存放博客主体文件的，包括博文，图片等。</li>
+<li>评论仓库：存放基于Github issue的评论的仓库，轻量且安全。</li>
+</ul>
+
     </div>
 
     
@@ -318,11 +510,11 @@
     <span class="item-content">
       2020-07-30
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/98ede7ee2ea965770978515acda48629a3c4db39" title="Body of my blog">
-          (98ede7e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/28bcbd72f55d2beac1082536e719a3ed21a8cbf4" title="Hugo搭建博客">
+          (28bcbd7)
         </a>
         
-          <br>Body of my blog
+          <br>Hugo搭建博客
         
       
     </span>
@@ -339,7 +531,13 @@
     
 
     <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="https://slkyrim.github.io/tags/hugo/">Hugo</a>
+          <a href="https://slkyrim.github.io/tags/github/">github</a>
+          <a href="https://slkyrim.github.io/tags/utterances/">utterances</a>
+          <a href="https://slkyrim.github.io/tags/blog/">blog</a>
+          
+        </div>
 
       
       <nav class="post-nav">

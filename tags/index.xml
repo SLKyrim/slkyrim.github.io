@@ -6,9 +6,46 @@
     <description>Recent content in Tags on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <lastBuildDate>Thu, 30 Jul 2020 16:56:43 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>blog</title>
+      <link>https://slkyrim.github.io/tags/blog/</link>
+      <pubDate>Thu, 30 Jul 2020 16:56:43 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://slkyrim.github.io/tags/github/</link>
+      <pubDate>Thu, 30 Jul 2020 16:56:43 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://slkyrim.github.io/tags/hugo/</link>
+      <pubDate>Thu, 30 Jul 2020 16:56:43 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utterances</title>
+      <link>https://slkyrim.github.io/tags/utterances/</link>
+      <pubDate>Thu, 30 Jul 2020 16:56:43 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/tags/utterances/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
