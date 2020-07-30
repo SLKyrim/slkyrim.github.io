@@ -69,7 +69,7 @@
 <meta itemprop="description" content="自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug">
 <meta itemprop="datePublished" content="2020-07-30T16:56:43+08:00" />
 <meta itemprop="dateModified" content="2020-07-30T21:37:14+08:00" />
-<meta itemprop="wordCount" content="1911">
+<meta itemprop="wordCount" content="1921">
 
 
 
@@ -306,7 +306,7 @@
             <a href="https://slkyrim.github.io/categories/%E5%A4%87%E5%BF%98/"> 备忘 </a>
             
           </div>
-        <span class="more-meta"> 约 1911 字 </span>
+        <span class="more-meta"> 约 1921 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
 
         
@@ -460,7 +460,20 @@ git push -u origin master
 <h3 id="42写博文">4.2、写博文</h3>
 <p>这时博客空空如也，自然要写些博文。</p>
 <p>下图是我所理解的基于Hugo的博客文件结构</p>
-<p><img src="https://github.com/SLKyrim/myBlog/blob/master/static/blog_file_struct.png" alt="Hugo博客文件结构"></p>
+
+<link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
+<div class="box">
+<figure  itemprop="associatedMedia"
+  itemscope itemtype="http://schema.org/ImageObject" >
+    <div class="img">
+      <img itemprop="thumbnail" src="/blog_file_struct.png" />
+    </div>
+    <a href="/blog_file_struct.png" itemprop="contentUrl"></a>
+      <figcaption><h4>Hugo博客文件结构</h4>
+      </figcaption>
+  </figure>
+</div>
+
 <p>所以我们应该在content文件夹下的post文件夹里放置我们的Markdown博文文件。</p>
 <h3 id="43建立博客主体的git仓库">4.3、建立博客主体的git仓库</h3>
 <p>之前我们把配置文件config.toml中的enableGitInfo设为false，是因为我们还没给博客主体建立git仓库，于是我们cd回博客的主路径myBlog，然后输入命令建立博客主体的git仓库。</p>
