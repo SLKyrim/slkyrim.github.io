@@ -6,10 +6,154 @@
     <description>Recent content in Posts on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 31 Jul 2020 11:13:32 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 12:28:32 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode_20200719周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200719_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:28:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200719_weekly/</guid>
+      <description>目录 换酒问题 子树中标签相同的节点数 最多的不重叠子字符串 找到最接近目标值的函数值 总结 换酒问题 小区便利店正在促销，用 numExchange 个空酒瓶可以兑换一瓶新酒。</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200712周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200712_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:27:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200712_weekly/</guid>
+      <description>目录 好数对的数目 仅含1的子串数 概率最大的路径 服务中心的最佳位置 总结 好数对的数目 给你一个整数数组 nums 。如果一组数字 (i,j) 满足 nums[i] == nums[j] 且 i &amp;lt; j ，就可以认</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200711双周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200711_biweekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:26:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200711_biweekly/</guid>
+      <description>目录 转变日期格式 子数组和排序后的区间和 三次操作后最大值与最小值的最小差 石子游戏IV 总结 转变日期格式 给你一个字符串 date ，它的格式为 Day Month Year ，其中：</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200705周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200705_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:25:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200705_weekly/</guid>
+      <description>目录 目录 判断能否形成等差数列 示例 思路1 代码1 所有蚂蚁掉下来前的最后一刻 示例 思路1 代码1 统计全1子矩形 示例 思路1 代码1 最多K次交换相邻数位后得</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200628周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200628_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:24:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200628_weekly/</guid>
+      <description>目录 目录 判断路径是否相交 示例 思路1 代码1 检查数组对是否可以被k整除 示例 思路1 代码1 思路2 代码2 满足条件的子序列数目 示例 思路1 代码1 满足不等式</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200627双周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200627_biweekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:23:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200627_biweekly/</guid>
+      <description>目录 目录 去掉最低工资和最高工资后的工资平均值 示例 思路1 代码1 n的第k个因子 示例 思路1 代码1 删掉一个元素以后全为1的最长子数组 示例 思路1 代码1</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200614周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200614_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:22:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200614_weekly/</guid>
+      <description>目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第K个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200531周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200531_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:21:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200531_weekly/</guid>
+      <description>目录 数组中两元素的最大乘积 切割后面积最大的蛋糕 重新规划路线 两个盒子中球的颜色数相同的概率 总结 数组中两元素的最大乘积 给你一个整数数组 nums，</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200524周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200524_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:20:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200524_weekly/</guid>
+      <description>目录 5416. 检查单词是否为句中其他单词的前缀 5417. 定长子串中元音的最大数目 5418. 二叉树中的伪回文路径 5419. 两个子序列的最大点积 总结 5416. 检查单词是否为句中其他单词</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200517周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200517_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:19:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200517_weekly/</guid>
+      <description>目录 5408. 在既定时间做作业的学生人数 5409. 重新排列句子中的单词 5410. 收藏清单 5411. 圆形靶内的最大飞镖数量 总结 5408. 在既定时间做作业的学生人数 给你两个整数数组 st</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200510周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200510_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:18:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200510_weekly/</guid>
+      <description>目录 5404. 用栈操作构建数组 5405. 形成两个异或相等数组的三元组数目 5406. 收集树上所有苹果的最少时间 5407. 切披萨的方案数 总结 5404. 用栈操作构建数组 给你一个目标数组 target</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200503周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200503_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:17:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200503_weekly/</guid>
+      <description>目录 5400. 旅行终点站 5401. 是否所有1都至少相隔k个元素 5402. 绝对值不超过限制的最长连续子数组 5403. 有序矩阵中的第k个最小数组和 总结 5400. 旅行终点站 给你一份旅游线</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200426周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200426_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:16:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200426_weekly/</guid>
+      <description>目录 5392. 分割字符串的最大得分 5393. 可获得的最大点数 5394. 对角线遍历 II 5395. 带限制的子序列和 总结 5392. 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200419周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200419_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:15:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200419_weekly/</guid>
+      <description>目录 5388. 重新格式化字符串 5389. 点菜展示表 5390. 数青蛙 5391. 生成数组 总结 5388. 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200418双周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:14:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</guid>
+      <description>目录 5372. 逐步求和得到正数的最小值 5373. 和为 K 的最少斐波那契数字数目 5374. 长度为 n 的开心字符串中字典序第 k 小的字符串 5375. 恢复数组 总结 5372. 逐步求和得到正数的最</description>
+    </item>
+    
+    <item>
+      <title>力扣杯2020春季全国编程大赛_个人赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_2020_spring/</link>
+      <pubDate>Fri, 31 Jul 2020 12:13:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_2020_spring/</guid>
+      <description>目录 LCP 06. 拿硬币 LCP 07. 传递信息 LCP 08. 剧情触发事件 LCP 09. 最小跳跃次数 LCP 10. 二叉树任务调度 总结 LCP 06. 拿硬币 在数组coins中有n个数，每个数表示一堆硬币包含</description>
+    </item>
     
     <item>
       <title>腾讯PCG2020春招后台开发笔试</title>

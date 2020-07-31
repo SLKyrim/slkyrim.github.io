@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>力扣杯2020春季全国编程大赛_个人赛 - Single Long</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Single Long" />
+  <meta name="description" content="目录 LCP 06. 拿硬币 LCP 07. 传递信息 LCP 08. 剧情触发事件 LCP 09. 最小跳跃次数 LCP 10. 二叉树任务调度 总结 LCP 06. 拿硬币 在数组coins中有n个数，每个数表示一堆硬币包含" />
+
+  <meta name="keywords" content="Single Long, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<link rel="canonical" href="https://slkyrim.github.io/post/leetcode_2020_spring/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="力扣杯2020春季全国编程大赛_个人赛" />
+<meta property="og:description" content="目录 LCP 06. 拿硬币 LCP 07. 传递信息 LCP 08. 剧情触发事件 LCP 09. 最小跳跃次数 LCP 10. 二叉树任务调度 总结 LCP 06. 拿硬币 在数组coins中有n个数，每个数表示一堆硬币包含" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://slkyrim.github.io/post/leetcode_2020_spring/" />
+<meta property="article:published_time" content="2020-07-31T12:13:32+08:00" />
+<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta itemprop="name" content="力扣杯2020春季全国编程大赛_个人赛">
+<meta itemprop="description" content="目录 LCP 06. 拿硬币 LCP 07. 传递信息 LCP 08. 剧情触发事件 LCP 09. 最小跳跃次数 LCP 10. 二叉树任务调度 总结 LCP 06. 拿硬币 在数组coins中有n个数，每个数表示一堆硬币包含">
+<meta itemprop="datePublished" content="2020-07-31T12:13:32+08:00" />
+<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
+<meta itemprop="wordCount" content="4400">
+
+
+
+<meta itemprop="keywords" content="Leetcode," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="力扣杯2020春季全国编程大赛_个人赛"/>
+<meta name="twitter:description" content="目录 LCP 06. 拿硬币 LCP 07. 传递信息 LCP 08. 剧情触发事件 LCP 09. 最小跳跃次数 LCP 10. 二叉树任务调度 总结 LCP 06. 拿硬币 在数组coins中有n个数，每个数表示一堆硬币包含"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">龍</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      龍
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">力扣杯2020春季全国编程大赛_个人赛</h1>
+      
+      <div class="post-meta">
+        <time datetime="2020-07-31" class="post-time">
+          2020-07-31
+        </time>
+        <div class="post-category">
+            <a href="https://slkyrim.github.io/categories/leetcode%E6%AF%94%E8%B5%9B/"> Leetcode比赛 </a>
+            
+          </div>
+        <span class="more-meta"> 约 4400 字 </span>
+          <span class="more-meta"> 预计阅读 9 分钟 </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录">目录</a>
+      <ul>
+        <li><a href="#lcp-06-拿硬币">LCP 06. 拿硬币</a></li>
+        <li><a href="#lcp-07-传递信息">LCP 07. 传递信息</a></li>
+        <li><a href="#lcp-08-剧情触发事件">LCP 08. 剧情触发事件</a></li>
+        <li><a href="#lcp-09-最小跳跃次数">LCP 09. 最小跳跃次数</a></li>
+        <li><a href="#lcp-10-二叉树任务调度">LCP 10. 二叉树任务调度</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#lcp-06-拿硬币-1">LCP 06. 拿硬币</a>
+      <ul>
+        <li><a href="#示例">示例</a></li>
+        <li><a href="#我的思路">我的思路</a></li>
+        <li><a href="#我的代码">我的代码</a></li>
+        <li><a href="#别人的思路">别人的思路</a></li>
+        <li><a href="#别人的代码">别人的代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#lcp-07-传递信息-1">LCP 07. 传递信息</a>
+      <ul>
+        <li><a href="#示例-1">示例</a></li>
+        <li><a href="#我的思路-1">我的思路</a></li>
+        <li><a href="#我的代码-1">我的代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#lcp-08-剧情触发事件-1">LCP 08. 剧情触发事件</a>
+      <ul>
+        <li><a href="#示例-2">示例</a></li>
+        <li><a href="#我的思路-2">我的思路</a></li>
+        <li><a href="#我的代码-2">我的代码</a></li>
+        <li><a href="#别人的思路-1">别人的思路</a></li>
+        <li><a href="#别人的代码-1">别人的代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#lcp-09-最小跳跃次数-1">LCP 09. 最小跳跃次数</a>
+      <ul>
+        <li><a href="#示例-3">示例</a></li>
+        <li><a href="#别人的思路-2">别人的思路</a></li>
+        <li><a href="#别人的代码-2">别人的代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#lcp-10-二叉树任务调度-1">LCP 10. 二叉树任务调度</a>
+      <ul>
+        <li><a href="#示例-4">示例</a></li>
+        <li><a href="#别人的思路-3">别人的思路</a></li>
+        <li><a href="#别人的代码-3">别人的代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结-1">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="目录">目录</h2>
+<blockquote>
+<h3 id="lcp-06-拿硬币">LCP 06. 拿硬币</h3>
+<h3 id="lcp-07-传递信息">LCP 07. 传递信息</h3>
+<h3 id="lcp-08-剧情触发事件">LCP 08. 剧情触发事件</h3>
+<h3 id="lcp-09-最小跳跃次数">LCP 09. 最小跳跃次数</h3>
+<h3 id="lcp-10-二叉树任务调度">LCP 10. 二叉树任务调度</h3>
+<h3 id="总结">总结</h3>
+</blockquote>
+<h2 id="lcp-06-拿硬币-1">LCP 06. 拿硬币</h2>
+<p>在数组coins中有n个数，每个数表示一堆硬币包含的硬币数。每次任选一堆，那种其中的一枚或两枚，求拿完所有硬币的最少次数。</p>
+<p>来源：力扣（LeetCode）<br>
+链接：https://leetcode-cn.com/problems/na-ying-bi/</p>
+<h3 id="示例">示例</h3>
+<blockquote>
+<p>输入：[4, 2, 1]<br>
+输出：4<br>
+解释：第一堆至少要拿2次，第二堆至少拿1次，第三堆至少拿1次</p>
+</blockquote>
+<h3 id="我的思路">我的思路</h3>
+<p>非常简单。偶数硬币堆直接除以2即为拿完最少次数；奇数硬币堆整除2后还要再加1，例如3个硬币，至少要拿2次，3整除2得1，1再加1得2</p>
+<h3 id="我的代码">我的代码</h3>
+<pre><code>class Solution:
+    def minCount(self, coins: List[int]) -&gt; int:
+        res = 0
+        for coin in coins:
+            if coin % 2 == 0:
+                res += coin // 2
+            else:
+                res += coin // 2 + 1
+        return res
+</code></pre>
+<h3 id="别人的思路">别人的思路</h3>
+<p>榜首对奇数堆是先加1再整除2，甚至可一行代码解决</p>
+<h3 id="别人的代码">别人的代码</h3>
+<pre><code>class Solution:
+    def minCount(self, coins: List[int]) -&gt; int:
+        return sum((x + 1) // 2 for x in coins)
+</code></pre>
+<h2 id="lcp-07-传递信息-1">LCP 07. 传递信息</h2>
+<p>小朋友 A 在和 ta 的小伙伴们玩传信息游戏，游戏规则如下：</p>
+<ul>
+<li>有 n 名玩家，所有玩家编号分别为 0 ～ n-1，其中小朋友 A 的编号为 0</li>
+<li>每个玩家都有固定的若干个可传信息的其他玩家（也可能没有）。传信息的关系是单向的（比如 A 可以向 B 传信息，但 B 不能向 A 传信息）。</li>
+<li>每轮信息必须需要传递给另一个人，且信息可重复经过同一个人</li>
+</ul>
+<p>给定总玩家数 <strong>n</strong>，以及按 <strong>[玩家编号, 对应可传递玩家编号]</strong> 关系组成的二维数组 <strong>relation</strong>。返回信息从小 A (编号 0 ) 经过 k 轮传递到编号为 n-1 的小伙伴处的方案数；若不能到达，返回 0。</p>
+<p>来源：力扣（LeetCode）<br>
+链接：https://leetcode-cn.com/problems/chuan-di-xin-xi</p>
+<h3 id="示例-1">示例</h3>
+<blockquote>
+<p>输入：n = 5, relation = [[0,2],[2,1],[3,4],[2,3],[1,4],[2,0],[0,4]], k = 3<br>
+输出：3<br>
+解释：信息从小 A 编号 0 处开始，经 3 轮传递，到达编号 4。共有 3 种方案，分别是 0-&gt;2-&gt;0-&gt;4， 0-&gt;2-&gt;1-&gt;4， 0-&gt;2-&gt;3-&gt;4。</p>
+</blockquote>
+<h3 id="我的思路-1">我的思路</h3>
+<p>需要用DFS查询。先用哈希表<strong>tmp</strong>存储每个编号的人能够访问的编号。然后设置一个DFS递归函数，函数传递的是当前人所能访问的编号列表<strong>ds</strong>以及当前已传递的轮次<strong>cur</strong>。当传递轮次<strong>cur</strong>达到<strong>k</strong>时，判断此时编号<strong>n-1</strong>是否在可访问列表<strong>ds</strong>，若存在则保存方案数的全局<strong>self.res</strong>加1，否则<strong>self.res</strong>不变，之后退出递归。对每个访问列表<strong>ds</strong>，用for循环遍历其可访问的编号，并对这些编号进行DFS递归直到退出递归。</p>
+<h3 id="我的代码-1">我的代码</h3>
+<pre><code>class Solution:
+    def numWays(self, n, relation, k):
+        tmp = {}
+        for key, val in relation:
+            try:
+                tmp[key] += [val]
+            except:
+                tmp[key] = [val]
+
+        self.res = 0
+
+        def dfs(ds, cur):
+            if cur == k:
+                if n - 1 in ds:
+                    self.res += 1
+                return
+            for d in ds:
+                try:
+                    dfs(tmp[d], cur + 1)
+                except:
+                    continue
+        
+        dfs(tmp[0], 1)
+        return self.res
+</code></pre>
+<h2 id="lcp-08-剧情触发事件-1">LCP 08. 剧情触发事件</h2>
+<p>在战略游戏中，玩家往往需要发展自己的势力来触发各种新的剧情。一个势力的主要属性有三种，分别是文明等级（C），资源储备（R）以及人口数量（H）。在游戏开始时（第 0 天），三种属性的值均为 0。</p>
+<p>随着游戏进程的进行，每一天玩家的三种属性都会对应增加，我们用一个二维数组 <strong>increase</strong> 来表示每天的增加情况。这个二维数组的每个元素是一个长度为 3 的一维数组，例如 [[1,2,1],[3,4,2]] 表示第一天三种属性分别增加 1,2,1 而第二天分别增加 3,4,2。</p>
+<p>所有剧情的触发条件也用一个二维数组 <strong>requirements</strong> 表示。这个二维数组的每个元素是一个长度为 3 的一维数组，对于某个剧情的触发条件 c[i], r[i], h[i]，如果当前 C &gt;= c[i] 且 R &gt;= r[i] 且 H &gt;= h[i] ，则剧情会被触发。</p>
+<p>根据所给信息，请计算每个剧情的触发时间，并以一个数组返回。如果某个剧情不会被触发，则该剧情对应的触发时间为 -1 。</p>
+<p>来源：力扣（LeetCode）<br>
+链接：https://leetcode-cn.com/problems/ju-qing-hong-fa-shi-jian</p>
+<h3 id="示例-2">示例</h3>
+<blockquote>
+<p>输入：<br>
+increase = [[2,8,4],[2,5,0],[10,9,8]]  <br>
+requirements = [[2,11,3],[15,10,7],[9,17,12],[8,1,14]]<br>
+输出: [2,-1,3,-1]<br>
+解释：<br>
+初始时，C = 0，R = 0，H = 0<br>
+第 1 天，C = 2，R = 8，H = 4<br>
+第 2 天，C = 4，R = 13，H = 4，此时触发剧情 0<br>
+第 3 天，C = 14，R = 22，H = 12，此时触发剧情 2<br>
+剧情 1 和 3 无法触发。</p>
+</blockquote>
+<h3 id="我的思路-2">我的思路</h3>
+<p>首先用 <strong>c</strong>, <strong>r</strong>, <strong>h</strong> 三个列表存储C，R，H三个变量在游戏过程中每天的值，这个通过遍历 <strong>increase</strong> 可得。</p>
+<p>接着遍历 <strong>requirements</strong> 来获得答案。首先判断遍历过程中每个 <strong>req</strong> 是否超过 <strong>c</strong>, <strong>r</strong>, <strong>h</strong> 中的最大值，超过的话则此 <strong>req</strong> 的要求一定无法满足，用-1表示；若可满足要求，由于 <strong>c</strong>, <strong>r</strong>, <strong>h</strong> 都是升序数列，则用 <strong>二分查找</strong> 在 <strong>c</strong>, <strong>r</strong>, <strong>h</strong> 中找到第一个大于等于 <strong>req</strong> 的要求的数的位置索引，这三个指标索引的最大值即为可触发该情节的天数。</p>
+<p>关于实现二分查找 <strong>BiSearch()函数</strong> 的一些细节，由于 <strong>c</strong>, <strong>r</strong>, <strong>h</strong> 中可能存在相同数，而满足要求的数如果在数列中有相同数时，则查找的位置索引应该是这些相同数中排在最前面的那个数的。这个问题卡了我很久，最后用了一个while循环来找排在最前面的那个数的索引。</p>
+<h3 id="我的代码-2">我的代码</h3>
+<pre><code>class Solution:
+    def getTriggerTime(self, increase, requirements):
+        res = list()
+        c, r, h = [0], [0], [0]
+        for nums in increase:
+            c.append(c[-1] + nums[0])
+            r.append(r[-1] + nums[1])
+            h.append(h[-1] + nums[2])
+            
+        def biSearch(target, arr):
+            &quot;&quot;&quot;
+            在升序序列arr中找到第一个大于等于target的数的下标
+            &quot;&quot;&quot;
+            left, right = 0, len(arr) - 1
+            ind = -1
+            while left &lt;= right:
+                mid = left + (right - left) // 2
+                if arr[mid] == target:
+                    while mid - 1 &gt;= 0 and arr[mid - 1] == arr[mid]:
+                        mid -= 1
+                    return mid
+                if arr[mid] &gt; target:
+                    ind = mid
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            return ind
+        
+        for req in requirements:
+            if req[0] &gt; c[-1] or req[1] &gt; r[-1] or req[2] &gt; h[-1]:
+                res.append(-1)
+                continue
+            req_c = biSearch(req[0], c)
+            req_r = biSearch(req[1], r)
+            req_h = biSearch(req[2], h)
+            res.append(max(req_c, req_r, req_h))
+        
+        return res
+</code></pre>
+<h3 id="别人的思路-1">别人的思路</h3>
+<p>使用了模组 <strong>bisect.bisect_left()</strong> 来实现我上面所提到的二分查找功能。
+<strong>bisect.bisect_left(a, x, lo=0, hi=len(a))</strong> 的实际说明为：查找在有序列表a中插入x的index。lo和hi用于指定查找区间，默认查找整个列表。如果x已存在，则返回其左边一个位置的索引。</p>
+<h3 id="别人的代码-1">别人的代码</h3>
+<pre><code>class Solution:
+    def getTriggerTime(self, increase, requirements):
+        n = len(increase)
+        C, R, H = [0] * (n + 1), [0] * (n + 1), [0] * (n + 1)
+        for i in range(n):
+            C[i+1] = C[i] + increase[i][0]
+            R[i+1] = R[i] + increase[i][1]
+            H[i+1] = H[i] + increase[i][2]
+        a = []
+        for c, r, h in requirements:
+            i1 = bisect.bisect_left(C, c)
+            i2 = bisect.bisect_left(R, r)
+            i3 = bisect.bisect_left(H, h)
+            if i1 &lt;= n and i2 &lt;= n and i3 &lt;= n:
+                a.append(max(i1, i2, i3))
+            else:
+                a.append(-1)
+        return a
+</code></pre>
+<h2 id="lcp-09-最小跳跃次数-1">LCP 09. 最小跳跃次数</h2>
+<p>为了给刷题的同学一些奖励，力扣团队引入了一个弹簧游戏机。游戏机由 N 个特殊弹簧排成一排，编号为 0 到 N-1。初始有一个小球在编号 0 的弹簧处。若小球在编号为 i 的弹簧处，通过按动弹簧，可以选择把小球向右弹射 jump[i] 的距离，或者向左弹射到任意左侧弹簧的位置。也就是说，在编号为 i 弹簧处按动弹簧，小球可以弹向 0 到 i-1 中任意弹簧或者 i+jump[i] 的弹簧（若 i+jump[i]&gt;=N ，则表示小球弹出了机器）。小球位于编号 0 处的弹簧时不能再向左弹。</p>
+<p>为了获得奖励，你需要将小球弹出机器。请求出最少需要按动多少次弹簧，可以将小球从编号 0 弹簧弹出整个机器，即向右越过编号 N-1 的弹簧。</p>
+<p>来源：力扣（LeetCode）<br>
+链接：https://leetcode-cn.com/problems/zui-xiao-tiao-yue-ci-shu</p>
+<h3 id="示例-3">示例</h3>
+<blockquote>
+<p>输入：jump = [2, 5, 1, 1, 1, 1] <br>
+输出：3 <br>
+解释：小 Z 最少需要按动 3 次弹簧，小球依次到达的顺序为 0 -&gt; 2 -&gt; 1 -&gt; 6，最终小球弹出了机器。</p>
+</blockquote>
+<h3 id="别人的思路-2">别人的思路</h3>
+<p>动态规划。将 <strong>dp[i]</strong> 设为从第i个弹簧弹出机器的最小次数。
+从后往前进行记忆化搜索。</p>
+<ul>
+<li>1、当i + jump[i] &gt;= len(jump)时，表示可以从第i个弹簧直接弹出机器，故设dp[i] = 1</li>
+<li>2、当1不成立时，首先计算从第i个弹簧向右跳时，弹出机器所需最小次数，dp[i] = dp[i + jump[i]] + 1</li>
+<li>3、基于当前的dp[i]更新（i+1，i+jump[i]）范围内的dp[j]，其中 i+1 &lt;= j &lt;= i + jump[i]。实现这里的功能是代码中的while循环。由于右边界i + jump[i] 可能会超过jump的索引范围，故while循环加了两个约束条件，即j &lt; len(jump) 和 j &lt; i + jump[i]。还有一个关键的约束条件 dp[j] &gt; dp[i]，如果不加入此条件将会超时，由于dp[i]在dp[j]的左边，即可从第j个弹簧往左跳到第i个弹簧，故当dp[j] &gt; dp[i]时，可从第j个弹簧往左跳到第i个弹簧以此获得更少的次数dp[j] = dp[i] + 1; 而当dp[j] &gt; dp[i] 不成立时，说明此前的while循环中有更优解，故从此处剪枝。</li>
+</ul>
+<h3 id="别人的代码-2">别人的代码</h3>
+<pre><code>class Solution:
+    def minJump(self, jump):
+        dp = [0] * len(jump)
+        for i in range(len(jump) - 1, -1, -1):
+            if i + jump[i] &gt;= len(jump):
+                dp[i] = 1
+            else:
+                dp[i] = dp[i + jump[i]] + 1
+            j = i + 1
+            while j &lt; len(jump) and j &lt; i + jump[i] and dp[j] &gt; dp[i]:
+                dp[j] = min(dp[j], dp[i] + 1) # 可优化为dp[j] = dp[i] + 1
+                j += 1
+        return dp[0]
+</code></pre>
+<h2 id="lcp-10-二叉树任务调度-1">LCP 10. 二叉树任务调度</h2>
+<p>任务调度优化是计算机性能优化的关键任务之一。在任务众多时，不同的调度策略可能会得到不同的总体执行时间，因此寻求一个最优的调度方案是非常有必要的。</p>
+<p>通常任务之间是存在依赖关系的，即对于某个任务，你需要先完成他的前导任务（如果非空），才能开始执行该任务。我们保证任务的依赖关系是一棵二叉树，其中 root 为根任务，root.left 和 root.right 为他的两个前导任务（可能为空），root.val 为其自身的执行时间。</p>
+<p>在一个 CPU 核执行某个任务时，我们可以在任何时刻暂停当前任务的执行，并保留当前执行进度。在下次继续执行该任务时，会从之前停留的进度开始继续执行。暂停的时间可以不是整数。</p>
+<p>现在，系统有两个 CPU 核，即我们可以同时执行两个任务，但是同一个任务不能同时在两个核上执行。给定这颗任务树，请求出所有任务执行完毕的最小时间。</p>
+<p>来源：力扣（LeetCode）<br>
+链接：https://leetcode-cn.com/problems/er-cha-shu-ren-wu-diao-du</p>
+<h3 id="示例-4">示例</h3>
+<blockquote>
+<p>输入：root = [47, 74, 31]<br>
+输出：121<br>
+解释：根节点的左右节点可以并行执行31分钟，剩下的43+47分钟只能串行执行，因此总体执行时间是121分钟。<br>
+<img src="https://pic.leetcode-cn.com/3522fbf8ce4ebb20b79019124eb9870109fdfe97fe9da99f6c20c07ceb1c60b3-image.png" alt="示例1"></p>
+</blockquote>
+<blockquote>
+<p>输入：root = [1, 3, 2, null, null, 4, 4]
+输出：7.5
+解释：0.5s并行处理根节点的左节点（3-0.5=2.5）以及处理一个孙子节点（4-0.5=3.5），再0.5s处理根节点的左节点（2.5-0.5=2）以及处理另一个孙子节点（4-0.5=3.5），接下来3.5s并行处理两个孙子节点，接下来2s并行处理左右子节点，最后1s处理根节点。共0.5+0.5+3.5+2+1=7.5s。  <br>
+<img src="https://pic.leetcode-cn.com/bef743a12591aafb9047dd95d335b8083dfa66e8fdedc63f50fd406b4a9d163a-image.png" alt="示例2"></p>
+</blockquote>
+<h3 id="别人的思路-3">别人的思路</h3>
+<p>DFS递归。DFS自底向上，每次返回两个数，分别代表执行完当前节点的最小耗时 <strong>minTime</strong> 以及串行处理完当前节点前置子任务的总时间<strong>preTime</strong>。双核并行处理前置子任务的最优解（自小耗时）为 <strong>preTime / 2</strong>，最优解只是理想情况，故需要与完成左右前置子任务的最小耗时比较（非理想情况下，这两者中至少有一者会比并行最优解大），取三者中最大值加上当前节点所需时间可得 <strong>minTime</strong>。该方法可以绕开 <strong>考虑双核如何分配并行</strong> 这一个困难问题。</p>
+<h3 id="别人的代码-3">别人的代码</h3>
+<pre><code>class Solution:
+    def minimalExecTime(self, root: TreeNode) -&gt; float:
+        
+        def dfs(node):
+            &quot;&quot;&quot;
+            返回:res
+            res[0]执行完当前节点的最小耗时
+            res[1]串行处理完node子任务的时间
+            &quot;&quot;&quot;
+            if not node:
+                return [0, 0]
+            leftTime = dfs(node.left)
+            rightTime = dfs(node.right)
+            preTime = leftTime[1] + rightTime[1]
+            minTime = max(leftTime[0], rightTime[0], preTime / 2) + node.val
+            return [minTime, preTime + node.val]
+
+        return dfs(root)[0]
+</code></pre>
+<h2 id="总结-1">总结</h2>
+<p>本次竞赛AC了前三题，后两题基本就看了下题目，没思路就没做了。排名（1193/4093)，在前30%。<br>
+做完4月19日的周赛后，复盘了五个小时才复盘完，效率太低了。<br>
+DFS一直很难，所幸这次解决了一道DFS的题（<strong>LCP 07. 传递信息</strong>），算是有所进步。<br>
+二分查找边界定义依然不够熟练，（<strong>LCP 08. 剧情触发事件</strong>）罚时了很多。在没有测试用例的提示下，找bug确实也很不容易。<br>
+<strong>LCP 09. 最小跳跃次数</strong> 是 <strong>跳跃游戏</strong> 类型的题型，DP依然不熟练。<br>
+<strong>LCP 10. 二叉树任务调度</strong> 对当前水平来说还是很难的DFS，题解思路也没完全看懂。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Single Long</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-07-31
+      
+        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
+          (0c3097e)
+        </a>
+        
+          <br>Sync Leetcode Weekly Reviews
+        
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/leetcode_20200418_biweekly/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Leetcode_20200418双周赛</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/tencent_pcg_backend2020/">
+            <span class="next-text nav-default">腾讯PCG2020春招后台开发笔试</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "SLKyrim/comments-for-myBlog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:623962644@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/SLKyrim" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://slkyrim.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2020
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Single Long
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

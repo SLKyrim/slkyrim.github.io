@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Leetcode_20200510周赛 - Single Long</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Single Long" />
+  <meta name="description" content="目录 5404. 用栈操作构建数组 5405. 形成两个异或相等数组的三元组数目 5406. 收集树上所有苹果的最少时间 5407. 切披萨的方案数 总结 5404. 用栈操作构建数组 给你一个目标数组 target" />
+
+  <meta name="keywords" content="Single Long, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<link rel="canonical" href="https://slkyrim.github.io/post/leetcode_20200510_weekly/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="Leetcode_20200510周赛" />
+<meta property="og:description" content="目录 5404. 用栈操作构建数组 5405. 形成两个异或相等数组的三元组数目 5406. 收集树上所有苹果的最少时间 5407. 切披萨的方案数 总结 5404. 用栈操作构建数组 给你一个目标数组 target" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200510_weekly/" />
+<meta property="article:published_time" content="2020-07-31T12:18:32+08:00" />
+<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta itemprop="name" content="Leetcode_20200510周赛">
+<meta itemprop="description" content="目录 5404. 用栈操作构建数组 5405. 形成两个异或相等数组的三元组数目 5406. 收集树上所有苹果的最少时间 5407. 切披萨的方案数 总结 5404. 用栈操作构建数组 给你一个目标数组 target">
+<meta itemprop="datePublished" content="2020-07-31T12:18:32+08:00" />
+<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
+<meta itemprop="wordCount" content="3159">
+
+
+
+<meta itemprop="keywords" content="Leetcode," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode_20200510周赛"/>
+<meta name="twitter:description" content="目录 5404. 用栈操作构建数组 5405. 形成两个异或相等数组的三元组数目 5406. 收集树上所有苹果的最少时间 5407. 切披萨的方案数 总结 5404. 用栈操作构建数组 给你一个目标数组 target"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">龍</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      龍
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Leetcode_20200510周赛</h1>
+      
+      <div class="post-meta">
+        <time datetime="2020-07-31" class="post-time">
+          2020-07-31
+        </time>
+        <div class="post-category">
+            <a href="https://slkyrim.github.io/categories/leetcode%E6%AF%94%E8%B5%9B/"> Leetcode比赛 </a>
+            
+          </div>
+        <span class="more-meta"> 约 3159 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录">目录</a>
+      <ul>
+        <li><a href="#5404-用栈操作构建数组">5404. 用栈操作构建数组</a></li>
+        <li><a href="#5405-形成两个异或相等数组的三元组数目">5405. 形成两个异或相等数组的三元组数目</a></li>
+        <li><a href="#5406-收集树上所有苹果的最少时间">5406. 收集树上所有苹果的最少时间</a></li>
+        <li><a href="#5407-切披萨的方案数">5407. 切披萨的方案数</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#5404-用栈操作构建数组-1">5404. 用栈操作构建数组</a>
+      <ul>
+        <li><a href="#示例">示例</a></li>
+        <li><a href="#我的思路">我的思路</a></li>
+        <li><a href="#我的代码">我的代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#5405-形成两个异或相等数组的三元组数目-1">5405. 形成两个异或相等数组的三元组数目</a>
+      <ul>
+        <li><a href="#示例-1">示例</a></li>
+        <li><a href="#我的思路-1">我的思路</a></li>
+        <li><a href="#我的代码-1">我的代码</a></li>
+        <li><a href="#别人的思路">别人的思路</a></li>
+        <li><a href="#别人的代码">别人的代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#5406-收集树上所有苹果的最少时间-1">5406. 收集树上所有苹果的最少时间</a>
+      <ul>
+        <li><a href="#示例-2">示例</a></li>
+        <li><a href="#我的思路-2">我的思路</a></li>
+        <li><a href="#我的代码-2">我的代码</a></li>
+        <li><a href="#别人的思路-1">别人的思路</a></li>
+        <li><a href="#别人的代码-1">别人的代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#5407-切披萨的方案数-1">5407. 切披萨的方案数</a>
+      <ul>
+        <li><a href="#示例-3">示例</a></li>
+        <li><a href="#别人的思路-2">别人的思路</a></li>
+        <li><a href="#别人的代码-2">别人的代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结-1">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="目录">目录</h2>
+<blockquote>
+<h3 id="5404-用栈操作构建数组">5404. 用栈操作构建数组</h3>
+<h3 id="5405-形成两个异或相等数组的三元组数目">5405. 形成两个异或相等数组的三元组数目</h3>
+<h3 id="5406-收集树上所有苹果的最少时间">5406. 收集树上所有苹果的最少时间</h3>
+<h3 id="5407-切披萨的方案数">5407. 切披萨的方案数</h3>
+<h3 id="总结">总结</h3>
+</blockquote>
+<h2 id="5404-用栈操作构建数组-1">5404. 用栈操作构建数组</h2>
+<p>给你一个目标数组 target 和一个整数 n。每次迭代，需要从  list = {1,2,3&hellip;, n} 中依序读取一个数字。</p>
+<p>请使用下述操作来构建目标数组 target ：</p>
+<p>Push：从 list 中读取一个新元素， 并将其推入数组中。
+Pop：删除数组中的最后一个元素。
+如果目标数组构建完成，就停止读取更多元素。
+题目数据保证目标数组严格递增，并且只包含 1 到 n 之间的数字。</p>
+<p>请返回构建目标数组所用的操作序列。</p>
+<p>题目数据保证答案是唯一的。</p>
+<p>来源：力扣（LeetCode） <br>
+链接：https://leetcode-cn.com/problems/build-an-array-with-stack-operations</p>
+<h3 id="示例">示例</h3>
+<blockquote>
+<p>输入：target = [1,3], n = 3<br>
+输出：[&ldquo;Push&rdquo;,&ldquo;Push&rdquo;,&ldquo;Pop&rdquo;,&ldquo;Push&rdquo;] <br>
+解释：  <br>
+读取 1 并自动推入数组 -&gt; [1]<br>
+读取 2 并自动推入数组，然后删除它 -&gt; [1] <br>
+读取 3 并自动推入数组 -&gt; [1,3]</p>
+</blockquote>
+<h3 id="我的思路">我的思路</h3>
+<p>对 [1, n] 的范围进行遍历，用一个cnt记录已填进target的数的数目。如果当前遍历到的数不在target内，则用push加pop操作；如果当前遍历到的数在target内，则push该数，cnt加1。<br>
+当cnt超过target数组长度时说明已完成target的构建，退出遍历。（这里没考虑到被罚时了） <br>
+仅遍历一次，时间复杂度O(n)</p>
+<h3 id="我的代码">我的代码</h3>
+<pre><code>class Solution:
+    def buildArray(self, target: List[int], n: int) -&gt; List[str]:
+        res = []
+        cnt = 0
+        for i in range(1, n + 1):
+            try:
+                if target[cnt] != i:
+                    res += [&quot;Push&quot;,&quot;Pop&quot;]
+                else:
+                    res += [&quot;Push&quot;]
+                    cnt += 1
+            except:
+                break
+        return res
+</code></pre>
+<h2 id="5405-形成两个异或相等数组的三元组数目-1">5405. 形成两个异或相等数组的三元组数目</h2>
+<p>给你一个整数数组 arr 。</p>
+<p>现需要从数组中取三个下标 i、j 和 k ，其中 (0 &lt;= i &lt; j &lt;= k &lt; arr.length) 。</p>
+<p>a 和 b 定义如下：</p>
+<p>a = arr[i] ^ arr[i + 1] ^ &hellip; ^ arr[j - 1] <br>
+b = arr[j] ^ arr[j + 1] ^ &hellip; ^ arr[k] <br>
+注意：^ 表示 按位异或 操作。</p>
+<p>请返回能够令 a == b 成立的三元组 (i, j , k) 的数目。</p>
+<p>来源：力扣（LeetCode） <br>
+链接：https://leetcode-cn.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor</p>
+<h3 id="示例-1">示例</h3>
+<blockquote>
+<p>输入：arr = [2,3,1,6,7]<br>
+输出：4 <br>
+解释：满足题意的三元组分别是 (0,1,2), (0,2,2), (2,3,4) 以及 (2,4,4)</p>
+</blockquote>
+<h3 id="我的思路-1">我的思路</h3>
+<p>四重循环求a和b，时间复杂度O(n^4)，超时</p>
+<h3 id="我的代码-1">我的代码</h3>
+<pre><code>class Solution:
+    def countTriplets(self, arr: List[int]) -&gt; int:
+        res = 0
+        for k in range(1, len(arr)):
+            for j in range(1, k + 1):
+                for i in range(j):
+                    a, b = arr[i], arr[j]
+                    for t in range(i + 1, j):
+                        a ^= arr[t]
+                    for t in range(j + 1, k + 1):
+                        b ^= arr[t]
+                    if a == b:
+                        res += 1
+        return res
+</code></pre>
+<h3 id="别人的思路">别人的思路</h3>
+<p>a^b = a[i]^a[i+1]^&hellip;^a[k];  <br>
+如果a=b,则异或运算a^b = 0（异或，相同为0，不同为非0); <br>
+故对不同i，对不同k，如果满足a^b=0，则中间有k-i种j可以满足条件。
+遍历i和k，时间复杂度O(n^2)</p>
+<h3 id="别人的代码">别人的代码</h3>
+<pre><code>class Solution:
+    def countTriplets(self, arr) -&gt; int:
+        if len(arr) &lt; 2:
+            return 0
+        n = len(arr)
+        res = 0
+        for i in range(n):
+            tmp = arr[i]
+            for k in range(i + 1, n):
+                tmp ^= arr[k]
+                if tmp == 0:
+                    res += k - i
+        return res
+</code></pre>
+<h2 id="5406-收集树上所有苹果的最少时间-1">5406. 收集树上所有苹果的最少时间</h2>
+<p>给你一棵有 n 个节点的无向树，节点编号为 0 到 n-1 ，它们中有一些节点有苹果。通过树上的一条边，需要花费 1 秒钟。你从 节点 0 出发，请你返回最少需要多少秒，可以收集到所有苹果，并回到节点 0 。</p>
+<p>无向树的边由 edges 给出，其中 edges[i] = [fromi, toi] ，表示有一条边连接 from 和 toi 。除此以外，还有一个布尔数组 hasApple ，其中 hasApple[i] = true 代表节点 i 有一个苹果，否则，节点 i 没有苹果。</p>
+<p>来源：力扣（LeetCode）  <br>
+链接：https://leetcode-cn.com/problems/minimum-time-to-collect-all-apples-in-a-tree</p>
+<h3 id="示例-2">示例</h3>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/10/min_time_collect_apple_1.png" alt="tu"></p>
+<blockquote>
+<p>输入：n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], hasApple = [false,false,true,false,true,true,false] <br>
+输出：8  <br>
+解释：上图展示了给定的树，其中红色节点表示有苹果。一个能收集到所有苹果的最优方案由绿色箭头表示。</p>
+</blockquote>
+<h3 id="我的思路-2">我的思路</h3>
+<p>首先遍历 edges 用字典 tree 存储各个节点对应层数，O(n)；<br>
+然后遍历 tree 得到最大层数，O(n)；其实可以在遍历edges时就可以做到；  <br>
+声明存储索引即对应层数的level，如level[2]表示存储第2层节点的列表；以及存储每层需要经过的节点个数levelCnt，如levelCnt[2]表示存储第2层需要经过的节点个数； <br>
+再次遍历 tree 得到每层的节点，O(n)；   <br>
+从底层往上遍历level，遍历每层level的节点nodes，并遍历 edges 找到 node 的父节点，标记为需要经过的节点，O(m * n^2), m为level层的节点数； <br>
+遍历 levelCnt，每层需要的时间 = 该层需要经过的节点数 * 2。 <br>
+总的时间复杂度 O(m * n^2)， 超时。</p>
+<h3 id="我的代码-2">我的代码</h3>
+<pre><code>class Solution:
+    def minTime(self, n: int, edges, hasApple) -&gt; int:
+        if len(set(hasApple)) == 1 and hasApple[0] == False:
+            return 0
+
+        tree = {0: 0}
+        for edge in edges:
+            tree[edge[1]] = tree[edge[0]] + 1
+        maxLevel = 0
+        for k, v in tree.items():
+            if v &gt; maxLevel:
+                maxLevel = v
+        level = [[] for i in range(maxLevel + 1)]
+        levelCnt = [0 for i in range(maxLevel + 1)]
+        for k, v in tree.items():
+            level[v].append(k)
+        for i in range(maxLevel, -1, -1):
+            for node in level[i]:
+                if hasApple[node] == True:
+                    for edge in edges:
+                        if edge[1] == node:
+                            hasApple[edge[0]] = True
+                            break
+                    levelCnt[i] += 1
+        res = 0
+        for i in range(1, maxLevel + 1):
+            res += 2 * levelCnt[i]
+        return res
+</code></pre>
+<h3 id="别人的思路-1">别人的思路</h3>
+<p>钻了用例的空子。用例的路径都是从根往叶遍历。 <br>
+从后往前遍历路径，即从叶往根遍历树，孩子节点是苹果，则必会经过其父节点，故父节点也等同于有苹果，设为True。 <br>
+再从根往叶遍历重新设置过的路径，除根节点外，每个为True的节点都要经过2次。</p>
+<h3 id="别人的代码-1">别人的代码</h3>
+<pre><code>class Solution:
+    def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -&gt; int:
+        res = 0
+        for i in range(len(edges) - 1, -1, -1):
+            if hasApple[edges[i][1]] == True:
+                hasApple[edges[i][0]] = True
+        for i in range(len(edges)):
+            if hasApple[edges[i][1]] == True:
+                res += 2
+        return res
+</code></pre>
+<h2 id="5407-切披萨的方案数-1">5407. 切披萨的方案数</h2>
+<p>给你一个 rows x cols 大小的矩形披萨和一个整数 k ，矩形包含两种字符： &lsquo;A&rsquo; （表示苹果）和 &lsquo;.&rsquo; （表示空白格子）。你需要切披萨 k-1 次，得到 k 块披萨并送给别人。</p>
+<p>切披萨的每一刀，先要选择是向垂直还是水平方向切，再在矩形的边界上选一个切的位置，将披萨一分为二。如果垂直地切披萨，那么需要把左边的部分送给一个人，如果水平地切，那么需要把上面的部分送给一个人。在切完最后一刀后，需要把剩下来的一块送给最后一个人。</p>
+<p>请你返回确保每一块披萨包含 至少 一个苹果的切披萨方案数。由于答案可能是个很大的数字，请你返回它对 10^9 + 7 取余的结果。</p>
+<p>来源：力扣（LeetCode）  <br>
+链接：https://leetcode-cn.com/problems/number-of-ways-of-cutting-a-pizza</p>
+<h3 id="示例-3">示例</h3>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/10/ways_to_cut_apple_1.png" alt=""></p>
+<p>输入：pizza = [&ldquo;A..&rdquo;,&ldquo;AAA&rdquo;,&rdquo;&hellip;&quot;], k = 3 <br>
+输出：3  <br>
+解释：上图展示了三种切披萨的方案。注意每一块披萨都至少包含一个苹果。</p>
+<h3 id="别人的思路-2">别人的思路</h3>
+<p>先用<a href="https://www.cnblogs.com/-Ackerman/p/11162651.html">二维前缀和</a>求得以(0,0)为左上角，(i,j)为右下角的区域内的苹果数num[i][j]；<br>
+然后DFS+DP穷举水平切和垂直切后有苹果的情况，dp[i][j][x]表示剩余披萨左上角坐标为(i,j)时，已切出x块。<br>
+状态转移方程为dp[i][j][x] += dp[row][col][x - 1], 该式于原来的以(row,col)为左上角的披萨被切为以（i，j)为左上角的一部分和剩余部分都包含苹果时成立。</p>
+<h3 id="别人的代码-2">别人的代码</h3>
+<pre><code>class Solution:
+    def ways(self, pizza, k: int) -&gt; int:
+        row = len(pizza)
+        col = len(pizza[0])
+        mod = 10 ** 9 + 7
+
+        ## 动态规划求num，num是二维前缀和
+        num = [[0 for i in range(col)] for i in range(row)] # num[i][j] 表示以[0][0]为左上角，[i][j]为右下角的区域包含的苹果数
+        if pizza[0][0] == 'A':
+            num[0][0] = 1
+        for i in range(1, row):
+            num[i][0] = num[i - 1][0] + (pizza[i][0] == 'A')
+        for i in range(1, col):
+            num[0][i] = num[0][i - 1] + (pizza[0][i] == 'A')
+        for i in range(1, row):
+            for j in range(1, col):
+                num[i][j] = num[i - 1][j] + num[i][j - 1] - num[i - 1][j - 1] + (pizza[i][j] == 'A')
+
+        def hasA(num, sr, sc, er, ec):
+            &quot;&quot;&quot;
+            判断该区域是否有苹果
+            (sr, sc): 该区域的左上角坐标
+            (er, ec): 该区域的右下角坐标
+            &quot;&quot;&quot;
+            num1 = 0  # num2和num3的交叉区域的苹果数
+            num2 = 0  # 待判断区域上面的区域内苹果数
+            num3 = 0  # 待判断区域左面的区域内苹果数
+            if sr != 0 and sc != 0:
+                num1 = num[sr - 1][sc - 1]
+            if sr != 0:
+                num2 = num[sr - 1][ec]
+            if sc != 0:
+                num3 = num[er][sc - 1]
+            return num[er][ec] - num2 - num3 + num1 &gt; 0
+
+        dp = [[[0 for i in range(k + 1)] for i in range(col)] for i in range(row)]  # dp[i][j][k] 代表剩余披萨的左上角坐标为[i][j]时，已切分的披萨数
+
+        dp[0][0][1] = 1
+
+        for x in range(2, k + 1):
+            for i in range(row):
+                for j in range(col):
+                    if dp[i][j][x - 1] == 0:
+                        continue
+                    # 水平切
+                    for z in range(i + 1, row):
+                        if hasA(num, i, j, z - 1, col - 1) and hasA(num, z, j, row - 1, col - 1):
+                            dp[z][j][x] += dp[i][j][x - 1]
+                            dp[z][j][x] %= mod
+                    # 垂直切
+                    for z in range(j + 1, col):
+                        if hasA(num, i, j, row - 1, z - 1) and hasA(num, i, z, row - 1, col - 1):
+                            dp[i][z][x] += dp[i][j][x - 1]
+                            dp[i][z][x] %= mod
+
+        res = 0
+        for i in range(row):
+            for j in range(col):
+                res += dp[i][j][k]
+                res %= mod
+        return res
+</code></pre>
+<h2 id="总结-1">总结</h2>
+<p>太弱了，没法总结。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Single Long</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-07-31
+      
+        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
+          (0c3097e)
+        </a>
+        
+          <br>Sync Leetcode Weekly Reviews
+        
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/leetcode_20200517_weekly/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Leetcode_20200517周赛</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/leetcode_20200503_weekly/">
+            <span class="next-text nav-default">Leetcode_20200503周赛</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "SLKyrim/comments-for-myBlog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:623962644@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/SLKyrim" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://slkyrim.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2020
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Single Long
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
