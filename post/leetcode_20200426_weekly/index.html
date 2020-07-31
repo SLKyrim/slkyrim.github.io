@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Single Long" />
-  <meta name="description" content="目录 5392. 分割字符串的最大得分 5393. 可获得的最大点数 5394. 对角线遍历 II 5395. 带限制的子序列和 总结 5392. 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请" />
+  <meta name="description" content="目录 分割字符串的最大得分 可获得的最大点数 对角线遍历ii 带限制的子序列和 总结 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请你计算并" />
 
   <meta name="keywords" content="Single Long, Blog" />
 
@@ -60,23 +60,23 @@
 
 
 <meta property="og:title" content="Leetcode_20200426周赛" />
-<meta property="og:description" content="目录 5392. 分割字符串的最大得分 5393. 可获得的最大点数 5394. 对角线遍历 II 5395. 带限制的子序列和 总结 5392. 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请" />
+<meta property="og:description" content="目录 分割字符串的最大得分 可获得的最大点数 对角线遍历ii 带限制的子序列和 总结 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请你计算并" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200426_weekly/" />
 <meta property="article:published_time" content="2020-07-31T12:16:32+08:00" />
-<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="name" content="Leetcode_20200426周赛">
-<meta itemprop="description" content="目录 5392. 分割字符串的最大得分 5393. 可获得的最大点数 5394. 对角线遍历 II 5395. 带限制的子序列和 总结 5392. 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请">
+<meta itemprop="description" content="目录 分割字符串的最大得分 可获得的最大点数 对角线遍历ii 带限制的子序列和 总结 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请你计算并">
 <meta itemprop="datePublished" content="2020-07-31T12:16:32+08:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
-<meta itemprop="wordCount" content="2384">
+<meta itemprop="dateModified" content="2020-07-31T16:08:41+08:00" />
+<meta itemprop="wordCount" content="2438">
 
 
 
-<meta itemprop="keywords" content="Leetcode," />
+<meta itemprop="keywords" content="Leetcode,字符串,数组,矩阵,动态规划,单调栈," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode_20200426周赛"/>
-<meta name="twitter:description" content="目录 5392. 分割字符串的最大得分 5393. 可获得的最大点数 5394. 对角线遍历 II 5395. 带限制的子序列和 总结 5392. 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请"/>
+<meta name="twitter:description" content="目录 分割字符串的最大得分 可获得的最大点数 对角线遍历ii 带限制的子序列和 总结 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请你计算并"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -306,7 +306,7 @@
             <a href="https://slkyrim.github.io/categories/leetcode%E6%AF%94%E8%B5%9B/"> Leetcode比赛 </a>
             
           </div>
-        <span class="more-meta"> 约 2384 字 </span>
+        <span class="more-meta"> 约 2438 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
 
         
@@ -324,16 +324,8 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#目录">目录</a>
-      <ul>
-        <li><a href="#5392-分割字符串的最大得分">5392. 分割字符串的最大得分</a></li>
-        <li><a href="#5393-可获得的最大点数">5393. 可获得的最大点数</a></li>
-        <li><a href="#5394-对角线遍历-ii">5394. 对角线遍历 II</a></li>
-        <li><a href="#5395-带限制的子序列和">5395. 带限制的子序列和</a></li>
-        <li><a href="#总结">总结</a></li>
-      </ul>
-    </li>
-    <li><a href="#5392-分割字符串的最大得分-1">5392. 分割字符串的最大得分</a>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#分割字符串的最大得分">分割字符串的最大得分</a>
       <ul>
         <li><a href="#示例">示例</a></li>
         <li><a href="#我的思路">我的思路</a></li>
@@ -342,7 +334,7 @@
         <li><a href="#别人的代码">别人的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5393-可获得的最大点数-1">5393. 可获得的最大点数</a>
+    <li><a href="#可获得的最大点数">可获得的最大点数</a>
       <ul>
         <li><a href="#示例-1">示例</a></li>
         <li><a href="#我的思路-1">我的思路</a></li>
@@ -350,21 +342,21 @@
         <li><a href="#别人的代码-1">别人的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5394-对角线遍历-ii-1">5394. 对角线遍历 II</a>
+    <li><a href="#对角线遍历ii">对角线遍历ii</a>
       <ul>
         <li><a href="#示例-2">示例</a></li>
         <li><a href="#别人的思路-2">别人的思路</a></li>
         <li><a href="#别人的代码-2">别人的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5395-带限制的子序列和-1">5395. 带限制的子序列和</a>
+    <li><a href="#带限制的子序列和">带限制的子序列和</a>
       <ul>
         <li><a href="#示例-3">示例</a></li>
         <li><a href="#别人的思路-3">别人的思路</a></li>
         <li><a href="#别人的代码-3">别人的代码</a></li>
       </ul>
     </li>
-    <li><a href="#总结-1">总结</a></li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
   </div>
@@ -373,18 +365,18 @@
     
     <div class="post-content">
       <h2 id="目录">目录</h2>
-<blockquote>
-<h3 id="5392-分割字符串的最大得分">5392. 分割字符串的最大得分</h3>
-<h3 id="5393-可获得的最大点数">5393. 可获得的最大点数</h3>
-<h3 id="5394-对角线遍历-ii">5394. 对角线遍历 II</h3>
-<h3 id="5395-带限制的子序列和">5395. 带限制的子序列和</h3>
-<h3 id="总结">总结</h3>
-</blockquote>
-<h2 id="5392-分割字符串的最大得分-1">5392. 分割字符串的最大得分</h2>
+<ul>
+<li><a href="#%E5%88%86%E5%89%B2%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E5%BE%97%E5%88%86">分割字符串的最大得分</a></li>
+<li><a href="#%E5%8F%AF%E8%8E%B7%E5%BE%97%E7%9A%84%E6%9C%80%E5%A4%A7%E7%82%B9%E6%95%B0">可获得的最大点数</a></li>
+<li><a href="#%E5%AF%B9%E8%A7%92%E7%BA%BF%E9%81%8D%E5%8E%86ii">对角线遍历ii</a></li>
+<li><a href="#%E5%B8%A6%E9%99%90%E5%88%B6%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%E5%92%8C">带限制的子序列和</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+<h2 id="分割字符串的最大得分">分割字符串的最大得分</h2>
 <p>给你一个由若干 0 和 1 组成的字符串 s ，请你计算并返回将该字符串分割成两个 非空 子字符串（即 左 子字符串和 右 子字符串）所能获得的最大得分。</p>
 <p>「分割字符串的得分」为 左 子字符串中 0 的数量加上 右 子字符串中 1 的数量。</p>
 <p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/maximum-score-after-splitting-a-string</p>
+链接：<a href="https://leetcode-cn.com/problems/maximum-score-after-splitting-a-string">https://leetcode-cn.com/problems/maximum-score-after-splitting-a-string</a></p>
 <h3 id="示例">示例</h3>
 <blockquote>
 <p>输入：s = &ldquo;011101&rdquo;<br>
@@ -402,34 +394,65 @@
 看漏要求左右字串都是非空子集而被罚时。
 因为count()是O(n)的，故整体是O(n**2)的，但未超时</p>
 <h3 id="我的代码">我的代码</h3>
-<pre><code>class Solution:
-    def maxScore(self, s: str) -&gt; int:
-        res = 0
-        for i in range(1, len(s)):
-            tmp = s[:i].count(&quot;0&quot;) + s[i:].count(&quot;1&quot;)
-            if tmp &gt; res:
-                res = tmp
-        return res
-</code></pre>
-<h3 id="别人的思路">别人的思路</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">maxScore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">s</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;0&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">tmp</span> <span class="o">&gt;</span> <span class="n">res</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="别人的思路">别人的思路</h3>
 <p>先统计字符串中1的个数，然后从左往右遍历，当为1时，1的个数减1，0的个数加1，每次求和留最大值。<br>
 时间复杂度降低为O(n)</p>
 <h3 id="别人的代码">别人的代码</h3>
-<pre><code>class Solution:
-    def maxScore(self, s: str) -&gt; int:
-        res, c0, c1 = 0, 0, 0
-        for ch in s:
-            if ch == '1':
-                c1 += 1
-        for i in range(len(s) - 1):
-            if s[i] == '1':
-                c1 -= 1
-            else:
-                c0 += 1
-            res = max(res, c1 + c0)
-        return res
-</code></pre>
-<h2 id="5393-可获得的最大点数-1">5393. 可获得的最大点数</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">maxScore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">res</span><span class="p">,</span> <span class="n">c0</span><span class="p">,</span> <span class="n">c1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ch</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+                <span class="n">c1</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+                <span class="n">c1</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">c0</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">c1</span> <span class="o">+</span> <span class="n">c0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="可获得的最大点数">可获得的最大点数</h2>
 <p>几张卡牌 排成一行，每张卡牌都有一个对应的点数。点数由整数数组 cardPoints 给出。</p>
 <p>每次行动，你可以从行的开头或者末尾拿一张卡牌，最终你必须正好拿 k 张卡牌。</p>
 <p>你的点数就是你拿到手中的所有卡牌的点数之和。</p>
@@ -441,7 +464,7 @@
 <li>1 &lt;= k &lt;= cardPoints.length</li>
 </ul>
 <p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/maximum-points-you-can-obtain-from-cards</p>
+链接：<a href="https://leetcode-cn.com/problems/maximum-points-you-can-obtain-from-cards">https://leetcode-cn.com/problems/maximum-points-you-can-obtain-from-cards</a></p>
 <h3 id="示例-1">示例</h3>
 <blockquote>
 <p>输入：cardPoints = [1,2,3,4,5,6,1], k = 3<br>
@@ -456,24 +479,42 @@
 同理，如果右边选了两个数，那么左边只能选k-2个数。因此此时的和为新的 tmp 减去左边第k-1个数再加上右边第二个数，继续以此更新 tmp。<br>
 循环k次。故总体时间复杂度为O(2k)。</p>
 <h3 id="别人的代码-1">别人的代码</h3>
-<pre><code>class Solution:
-    def maxScore(self, cardPoints: List[int], k: int) -&gt; int:
-        res, tmp = 0, 0
-        for i in range(k):
-            tmp += cardPoints[i]
-        res = tmp # 左边k个数的和也要加入比较
-        left, right = k - 1, len(cardPoints) - 1
-        while left &gt;= 0:
-            tmp = tmp - cardPoints[left] + cardPoints[right]
-            res = max(res, tmp)
-            left -= 1
-            right -= 1
-        return res
-</code></pre>
-<h2 id="5394-对角线遍历-ii-1">5394. 对角线遍历 II</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">maxScore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cardPoints</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">res</span><span class="p">,</span> <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+            <span class="n">tmp</span> <span class="o">+=</span> <span class="n">cardPoints</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span> <span class="c1"># 左边k个数的和也要加入比较</span>
+        <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cardPoints</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">left</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span> <span class="o">-</span> <span class="n">cardPoints</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">+</span> <span class="n">cardPoints</span><span class="p">[</span><span class="n">right</span><span class="p">]</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">tmp</span><span class="p">)</span>
+            <span class="n">left</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="对角线遍历ii">对角线遍历ii</h2>
 <p>给你一个列表 nums ，里面每一个元素都是一个整数列表。请你依照下面各图的规则，按顺序返回 nums 中对角线上的整数。</p>
 <p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/diagonal-traverse-ii/</p>
+链接：<a href="https://leetcode-cn.com/problems/diagonal-traverse-ii/">https://leetcode-cn.com/problems/diagonal-traverse-ii/</a></p>
 <h3 id="示例-2">示例</h3>
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/23/sample_2_1784.png" alt="示例"></p>
 <blockquote>
@@ -483,18 +524,31 @@
 <h3 id="别人的思路-2">别人的思路</h3>
 <p>首先可以看到每条对角线对应的位置的横纵坐标和是递增且唯一的，如第一条对角线的横纵坐标和为0，第二条对角线的横纵坐标和为1，第三条的为2&hellip;<br>
 而具体对每一条对角线，列数越小的越在前。<br>
-因此，可以将每个元素的信息做一个元组，元组结构为（行列和值，列值，数值）。将这些元组做成一个列表并用sort()进行排序，sort()默认按元组从左到右的构成进行排序。</p>
+因此，可以将每个元素的信息做一个元组，元组结构为（行列和值，列值，数值）。将这些元组做成一个列表并用sort()进行排序，<strong>sort()默认按元组从左到右的构成进行排序</strong>。</p>
 <h3 id="别人的代码-2">别人的代码</h3>
-<pre><code>class Solution:
-    def findDiagonalOrder(self, nums: List[List[int]]) -&gt; List[int]:
-        tmp = []
-        for i in range(len(nums)):
-            for j in range(len(nums[i])):
-                tmp.append((i + j, j, nums[i][j]))
-        tmp.sort()
-        return [x[2] for x in tmp]
-</code></pre>
-<h2 id="5395-带限制的子序列和-1">5395. 带限制的子序列和</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">findDiagonalOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+                <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]))</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tmp</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="带限制的子序列和">带限制的子序列和</h2>
 <p>给你一个整数数组 nums 和一个整数 k ，请你返回 非空 子序列元素和的最大值，子序列需要满足：子序列中每两个 相邻 的整数 nums[i] 和 nums[j] ，它们在原数组中的下标 i 和 j 满足 i &lt; j 且 j - i &lt;= k 。</p>
 <p>数组的子序列定义为：将数组中的若干个数字删除（可以删除 0 个数字），剩下的数字按照原本的顺序排布。</p>
 <p>提示：</p>
@@ -503,7 +557,7 @@
 <li>-10^4 &lt;= nums[i] &lt;= 10^4</li>
 </ul>
 <p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/constrained-subset-sum</p>
+链接：<a href="https://leetcode-cn.com/problems/constrained-subset-sum">https://leetcode-cn.com/problems/constrained-subset-sum</a></p>
 <h3 id="示例-3">示例</h3>
 <blockquote>
 <p>输入：nums = [10,-2,-10,-5,20], k = 2<br>
@@ -515,26 +569,49 @@
 dp[i]表示以第i个值为结尾的最大子序列和，则有转移状态方程：dp[i] = max(nums[i], max(dp[j]) + nums[i])，其中 max(0, i - k) &lt;= j &lt;= i - 1。
 用单调栈维护最大dp[j]的索引，实现查询最大dp[j]时的时间复杂度为O(1)</p>
 <h3 id="别人的代码-3">别人的代码</h3>
-<pre><code>class Solution:
-    def constrainedSubsetSum(self, nums: List[int], k: int) -&gt; int:
-        n = len(nums)
-        dp = [0] * n
-        dp[0] = nums[0] # 因为子序列非空
-        res = nums[0]
-        # 单调栈记录dp[i]的索引值，越在左边，对应的dp[i]越大，即stack[0]表示当前栈中最大的dp[i]
-        stack = [0] 
-        for i in range(1, n):
-            dp[i] = max(nums[i], dp[stack[0]] + nums[i])
-            while stack and dp[stack[-1]] &lt;= dp[i]:
-                stack.pop() # 维护stack单调递减
-            stack.append(i)
-            # 这个等号：如k=2，索引3-索引1等于，但之间有3个值，故用等号限定为两个值
-            while i - stack[0] &gt;= k: 
-                stack.pop(0) # 维护栈内最大dp的索引与当前索引距离不超过k
-            res = max(res, dp[i])
-        return res
-</code></pre>
-<h2 id="总结-1">总结</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">constrainedSubsetSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># 因为子序列非空</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># 单调栈记录dp[i]的索引值，越在左边，对应的dp[i]越大，即stack[0]表示当前栈中最大的dp[i]</span>
+        <span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">stack</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">while</span> <span class="n">stack</span> <span class="ow">and</span> <span class="n">dp</span><span class="p">[</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">&lt;=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1"># 维护stack单调递减</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="c1"># 这个等号：如k=2，索引3-索引1等于，但之间有3个值，故用等号限定为两个值</span>
+            <span class="k">while</span> <span class="n">i</span> <span class="o">-</span> <span class="n">stack</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="p">:</span> 
+                <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 维护栈内最大dp的索引与当前索引距离不超过k</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
 <p>LeetCode的周赛和大头菜贩卖时间冲突就很蛋疼。<br>
 做前三题被罚时太多就没继续做了，只AC第一题，排名1300/3107。</p>
 
@@ -552,11 +629,11 @@ dp[i]表示以第i个值为结尾的最大子序列和，则有转移状态方�
     <span class="item-content">
       2020-07-31
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
-          (0c3097e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/6e089dcb52e1bed53e1c9fddb9ed69521cede3f7" title="Update Leetcode reviews">
+          (6e089dc)
         </a>
         
-          <br>Sync Leetcode Weekly Reviews
+          <br>Update Leetcode reviews
         
       
     </span>
@@ -575,6 +652,11 @@ dp[i]表示以第i个值为结尾的最大子序列和，则有转移状态方�
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          <a href="https://slkyrim.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+          <a href="https://slkyrim.github.io/tags/%E6%95%B0%E7%BB%84/">数组</a>
+          <a href="https://slkyrim.github.io/tags/%E7%9F%A9%E9%98%B5/">矩阵</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a>
           
         </div>
 
@@ -742,7 +824,7 @@ dp[i]表示以第i个值为结尾的最大子序列和，则有转移状态方�
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
 
 
 

@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Single Long" />
-  <meta name="description" content="目录 5404. 用栈操作构建数组 5405. 形成两个异或相等数组的三元组数目 5406. 收集树上所有苹果的最少时间 5407. 切披萨的方案数 总结 5404. 用栈操作构建数组 给你一个目标数组 target" />
+  <meta name="description" content="目录 用栈操作构建数组 形成两个异或相等数组的三元组数目 收集树上所有苹果的最少时间 切披萨的方案数 总结 用栈操作构建数组 给你一个目标数组 target 和一个整数" />
 
   <meta name="keywords" content="Single Long, Blog" />
 
@@ -60,23 +60,23 @@
 
 
 <meta property="og:title" content="Leetcode_20200510周赛" />
-<meta property="og:description" content="目录 5404. 用栈操作构建数组 5405. 形成两个异或相等数组的三元组数目 5406. 收集树上所有苹果的最少时间 5407. 切披萨的方案数 总结 5404. 用栈操作构建数组 给你一个目标数组 target" />
+<meta property="og:description" content="目录 用栈操作构建数组 形成两个异或相等数组的三元组数目 收集树上所有苹果的最少时间 切披萨的方案数 总结 用栈操作构建数组 给你一个目标数组 target 和一个整数" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200510_weekly/" />
 <meta property="article:published_time" content="2020-07-31T12:18:32+08:00" />
-<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="name" content="Leetcode_20200510周赛">
-<meta itemprop="description" content="目录 5404. 用栈操作构建数组 5405. 形成两个异或相等数组的三元组数目 5406. 收集树上所有苹果的最少时间 5407. 切披萨的方案数 总结 5404. 用栈操作构建数组 给你一个目标数组 target">
+<meta itemprop="description" content="目录 用栈操作构建数组 形成两个异或相等数组的三元组数目 收集树上所有苹果的最少时间 切披萨的方案数 总结 用栈操作构建数组 给你一个目标数组 target 和一个整数">
 <meta itemprop="datePublished" content="2020-07-31T12:18:32+08:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
-<meta itemprop="wordCount" content="3159">
+<meta itemprop="dateModified" content="2020-07-31T16:08:41+08:00" />
+<meta itemprop="wordCount" content="3291">
 
 
 
-<meta itemprop="keywords" content="Leetcode," />
+<meta itemprop="keywords" content="Leetcode,模拟,位运算,n叉树,前缀和,动态规划,图森未来," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode_20200510周赛"/>
-<meta name="twitter:description" content="目录 5404. 用栈操作构建数组 5405. 形成两个异或相等数组的三元组数目 5406. 收集树上所有苹果的最少时间 5407. 切披萨的方案数 总结 5404. 用栈操作构建数组 给你一个目标数组 target"/>
+<meta name="twitter:description" content="目录 用栈操作构建数组 形成两个异或相等数组的三元组数目 收集树上所有苹果的最少时间 切披萨的方案数 总结 用栈操作构建数组 给你一个目标数组 target 和一个整数"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -306,7 +306,7 @@
             <a href="https://slkyrim.github.io/categories/leetcode%E6%AF%94%E8%B5%9B/"> Leetcode比赛 </a>
             
           </div>
-        <span class="more-meta"> 约 3159 字 </span>
+        <span class="more-meta"> 约 3291 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
 
         
@@ -324,23 +324,15 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#目录">目录</a>
-      <ul>
-        <li><a href="#5404-用栈操作构建数组">5404. 用栈操作构建数组</a></li>
-        <li><a href="#5405-形成两个异或相等数组的三元组数目">5405. 形成两个异或相等数组的三元组数目</a></li>
-        <li><a href="#5406-收集树上所有苹果的最少时间">5406. 收集树上所有苹果的最少时间</a></li>
-        <li><a href="#5407-切披萨的方案数">5407. 切披萨的方案数</a></li>
-        <li><a href="#总结">总结</a></li>
-      </ul>
-    </li>
-    <li><a href="#5404-用栈操作构建数组-1">5404. 用栈操作构建数组</a>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#用栈操作构建数组">用栈操作构建数组</a>
       <ul>
         <li><a href="#示例">示例</a></li>
         <li><a href="#我的思路">我的思路</a></li>
         <li><a href="#我的代码">我的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5405-形成两个异或相等数组的三元组数目-1">5405. 形成两个异或相等数组的三元组数目</a>
+    <li><a href="#形成两个异或相等数组的三元组数目">形成两个异或相等数组的三元组数目</a>
       <ul>
         <li><a href="#示例-1">示例</a></li>
         <li><a href="#我的思路-1">我的思路</a></li>
@@ -349,7 +341,7 @@
         <li><a href="#别人的代码">别人的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5406-收集树上所有苹果的最少时间-1">5406. 收集树上所有苹果的最少时间</a>
+    <li><a href="#收集树上所有苹果的最少时间">收集树上所有苹果的最少时间</a>
       <ul>
         <li><a href="#示例-2">示例</a></li>
         <li><a href="#我的思路-2">我的思路</a></li>
@@ -358,14 +350,14 @@
         <li><a href="#别人的代码-1">别人的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5407-切披萨的方案数-1">5407. 切披萨的方案数</a>
+    <li><a href="#切披萨的方案数">切披萨的方案数</a>
       <ul>
         <li><a href="#示例-3">示例</a></li>
         <li><a href="#别人的思路-2">别人的思路</a></li>
         <li><a href="#别人的代码-2">别人的代码</a></li>
       </ul>
     </li>
-    <li><a href="#总结-1">总结</a></li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
   </div>
@@ -374,14 +366,14 @@
     
     <div class="post-content">
       <h2 id="目录">目录</h2>
-<blockquote>
-<h3 id="5404-用栈操作构建数组">5404. 用栈操作构建数组</h3>
-<h3 id="5405-形成两个异或相等数组的三元组数目">5405. 形成两个异或相等数组的三元组数目</h3>
-<h3 id="5406-收集树上所有苹果的最少时间">5406. 收集树上所有苹果的最少时间</h3>
-<h3 id="5407-切披萨的方案数">5407. 切披萨的方案数</h3>
-<h3 id="总结">总结</h3>
-</blockquote>
-<h2 id="5404-用栈操作构建数组-1">5404. 用栈操作构建数组</h2>
+<ul>
+<li><a href="#%E7%94%A8%E6%A0%88%E6%93%8D%E4%BD%9C%E6%9E%84%E5%BB%BA%E6%95%B0%E7%BB%84">用栈操作构建数组</a></li>
+<li><a href="#%E5%BD%A2%E6%88%90%E4%B8%A4%E4%B8%AA%E5%BC%82%E6%88%96%E7%9B%B8%E7%AD%89%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%89%E5%85%83%E7%BB%84%E6%95%B0%E7%9B%AE">形成两个异或相等数组的三元组数目</a></li>
+<li><a href="#%E6%94%B6%E9%9B%86%E6%A0%91%E4%B8%8A%E6%89%80%E6%9C%89%E8%8B%B9%E6%9E%9C%E7%9A%84%E6%9C%80%E5%B0%91%E6%97%B6%E9%97%B4">收集树上所有苹果的最少时间</a></li>
+<li><a href="#%E5%88%87%E6%8A%AB%E8%90%A8%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0">切披萨的方案数</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+<h2 id="用栈操作构建数组">用栈操作构建数组</h2>
 <p>给你一个目标数组 target 和一个整数 n。每次迭代，需要从  list = {1,2,3&hellip;, n} 中依序读取一个数字。</p>
 <p>请使用下述操作来构建目标数组 target ：</p>
 <p>Push：从 list 中读取一个新元素， 并将其推入数组中。
@@ -391,7 +383,7 @@ Pop：删除数组中的最后一个元素。
 <p>请返回构建目标数组所用的操作序列。</p>
 <p>题目数据保证答案是唯一的。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/build-an-array-with-stack-operations</p>
+链接：<a href="https://leetcode-cn.com/problems/build-an-array-with-stack-operations">https://leetcode-cn.com/problems/build-an-array-with-stack-operations</a></p>
 <h3 id="示例">示例</h3>
 <blockquote>
 <p>输入：target = [1,3], n = 3<br>
@@ -406,22 +398,41 @@ Pop：删除数组中的最后一个元素。
 当cnt超过target数组长度时说明已完成target的构建，退出遍历。（这里没考虑到被罚时了） <br>
 仅遍历一次，时间复杂度O(n)</p>
 <h3 id="我的代码">我的代码</h3>
-<pre><code>class Solution:
-    def buildArray(self, target: List[int], n: int) -&gt; List[str]:
-        res = []
-        cnt = 0
-        for i in range(1, n + 1):
-            try:
-                if target[cnt] != i:
-                    res += [&quot;Push&quot;,&quot;Pop&quot;]
-                else:
-                    res += [&quot;Push&quot;]
-                    cnt += 1
-            except:
-                break
-        return res
-</code></pre>
-<h2 id="5405-形成两个异或相等数组的三元组数目-1">5405. 形成两个异或相等数组的三元组数目</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">buildArray</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">target</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">!=</span> <span class="n">i</span><span class="p">:</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&#34;Push&#34;</span><span class="p">,</span><span class="s2">&#34;Pop&#34;</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&#34;Push&#34;</span><span class="p">]</span>
+                    <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="形成两个异或相等数组的三元组数目">形成两个异或相等数组的三元组数目</h2>
 <p>给你一个整数数组 arr 。</p>
 <p>现需要从数组中取三个下标 i、j 和 k ，其中 (0 &lt;= i &lt; j &lt;= k &lt; arr.length) 。</p>
 <p>a 和 b 定义如下：</p>
@@ -430,7 +441,7 @@ b = arr[j] ^ arr[j + 1] ^ &hellip; ^ arr[k] <br>
 注意：^ 表示 按位异或 操作。</p>
 <p>请返回能够令 a == b 成立的三元组 (i, j , k) 的数目。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor</p>
+链接：<a href="https://leetcode-cn.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor">https://leetcode-cn.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor</a></p>
 <h3 id="示例-1">示例</h3>
 <blockquote>
 <p>输入：arr = [2,3,1,6,7]<br>
@@ -440,46 +451,83 @@ b = arr[j] ^ arr[j + 1] ^ &hellip; ^ arr[k] <br>
 <h3 id="我的思路-1">我的思路</h3>
 <p>四重循环求a和b，时间复杂度O(n^4)，超时</p>
 <h3 id="我的代码-1">我的代码</h3>
-<pre><code>class Solution:
-    def countTriplets(self, arr: List[int]) -&gt; int:
-        res = 0
-        for k in range(1, len(arr)):
-            for j in range(1, k + 1):
-                for i in range(j):
-                    a, b = arr[i], arr[j]
-                    for t in range(i + 1, j):
-                        a ^= arr[t]
-                    for t in range(j + 1, k + 1):
-                        b ^= arr[t]
-                    if a == b:
-                        res += 1
-        return res
-</code></pre>
-<h3 id="别人的思路">别人的思路</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">countTriplets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
+                    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+                        <span class="n">a</span> <span class="o">^=</span> <span class="n">arr</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                        <span class="n">b</span> <span class="o">^=</span> <span class="n">arr</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+                        <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="别人的思路">别人的思路</h3>
 <p>a^b = a[i]^a[i+1]^&hellip;^a[k];  <br>
 如果a=b,则异或运算a^b = 0（异或，相同为0，不同为非0); <br>
 故对不同i，对不同k，如果满足a^b=0，则中间有k-i种j可以满足条件。
 遍历i和k，时间复杂度O(n^2)</p>
 <h3 id="别人的代码">别人的代码</h3>
-<pre><code>class Solution:
-    def countTriplets(self, arr) -&gt; int:
-        if len(arr) &lt; 2:
-            return 0
-        n = len(arr)
-        res = 0
-        for i in range(n):
-            tmp = arr[i]
-            for k in range(i + 1, n):
-                tmp ^= arr[k]
-                if tmp == 0:
-                    res += k - i
-        return res
-</code></pre>
-<h2 id="5406-收集树上所有苹果的最少时间-1">5406. 收集树上所有苹果的最少时间</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">countTriplets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+                <span class="n">tmp</span> <span class="o">^=</span> <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">tmp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="n">k</span> <span class="o">-</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="收集树上所有苹果的最少时间">收集树上所有苹果的最少时间</h2>
 <p>给你一棵有 n 个节点的无向树，节点编号为 0 到 n-1 ，它们中有一些节点有苹果。通过树上的一条边，需要花费 1 秒钟。你从 节点 0 出发，请你返回最少需要多少秒，可以收集到所有苹果，并回到节点 0 。</p>
 <p>无向树的边由 edges 给出，其中 edges[i] = [fromi, toi] ，表示有一条边连接 from 和 toi 。除此以外，还有一个布尔数组 hasApple ，其中 hasApple[i] = true 代表节点 i 有一个苹果，否则，节点 i 没有苹果。</p>
 <p>来源：力扣（LeetCode）  <br>
-链接：https://leetcode-cn.com/problems/minimum-time-to-collect-all-apples-in-a-tree</p>
+链接：<a href="https://leetcode-cn.com/problems/minimum-time-to-collect-all-apples-in-a-tree">https://leetcode-cn.com/problems/minimum-time-to-collect-all-apples-in-a-tree</a></p>
 <h3 id="示例-2">示例</h3>
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/10/min_time_collect_apple_1.png" alt="tu"></p>
 <blockquote>
@@ -496,57 +544,105 @@ b = arr[j] ^ arr[j + 1] ^ &hellip; ^ arr[k] <br>
 遍历 levelCnt，每层需要的时间 = 该层需要经过的节点数 * 2。 <br>
 总的时间复杂度 O(m * n^2)， 超时。</p>
 <h3 id="我的代码-2">我的代码</h3>
-<pre><code>class Solution:
-    def minTime(self, n: int, edges, hasApple) -&gt; int:
-        if len(set(hasApple)) == 1 and hasApple[0] == False:
-            return 0
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">minTime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">hasApple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">hasApple</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">hasApple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
 
-        tree = {0: 0}
-        for edge in edges:
-            tree[edge[1]] = tree[edge[0]] + 1
-        maxLevel = 0
-        for k, v in tree.items():
-            if v &gt; maxLevel:
-                maxLevel = v
-        level = [[] for i in range(maxLevel + 1)]
-        levelCnt = [0 for i in range(maxLevel + 1)]
-        for k, v in tree.items():
-            level[v].append(k)
-        for i in range(maxLevel, -1, -1):
-            for node in level[i]:
-                if hasApple[node] == True:
-                    for edge in edges:
-                        if edge[1] == node:
-                            hasApple[edge[0]] = True
-                            break
-                    levelCnt[i] += 1
-        res = 0
-        for i in range(1, maxLevel + 1):
-            res += 2 * levelCnt[i]
-        return res
-</code></pre>
-<h3 id="别人的思路-1">别人的思路</h3>
+        <span class="n">tree</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+            <span class="n">tree</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">tree</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">maxLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">maxLevel</span><span class="p">:</span>
+                <span class="n">maxLevel</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">maxLevel</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="n">levelCnt</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">maxLevel</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">level</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">maxLevel</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">hasApple</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">node</span><span class="p">:</span>
+                            <span class="n">hasApple</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">True</span>
+                            <span class="k">break</span>
+                    <span class="n">levelCnt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxLevel</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">levelCnt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="别人的思路-1">别人的思路</h3>
 <p>钻了用例的空子。用例的路径都是从根往叶遍历。 <br>
 从后往前遍历路径，即从叶往根遍历树，孩子节点是苹果，则必会经过其父节点，故父节点也等同于有苹果，设为True。 <br>
 再从根往叶遍历重新设置过的路径，除根节点外，每个为True的节点都要经过2次。</p>
 <h3 id="别人的代码-1">别人的代码</h3>
-<pre><code>class Solution:
-    def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -&gt; int:
-        res = 0
-        for i in range(len(edges) - 1, -1, -1):
-            if hasApple[edges[i][1]] == True:
-                hasApple[edges[i][0]] = True
-        for i in range(len(edges)):
-            if hasApple[edges[i][1]] == True:
-                res += 2
-        return res
-</code></pre>
-<h2 id="5407-切披萨的方案数-1">5407. 切披萨的方案数</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">minTime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">edges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">hasApple</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">hasApple</span><span class="p">[</span><span class="n">edges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="n">hasApple</span><span class="p">[</span><span class="n">edges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">hasApple</span><span class="p">[</span><span class="n">edges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="切披萨的方案数">切披萨的方案数</h2>
 <p>给你一个 rows x cols 大小的矩形披萨和一个整数 k ，矩形包含两种字符： &lsquo;A&rsquo; （表示苹果）和 &lsquo;.&rsquo; （表示空白格子）。你需要切披萨 k-1 次，得到 k 块披萨并送给别人。</p>
 <p>切披萨的每一刀，先要选择是向垂直还是水平方向切，再在矩形的边界上选一个切的位置，将披萨一分为二。如果垂直地切披萨，那么需要把左边的部分送给一个人，如果水平地切，那么需要把上面的部分送给一个人。在切完最后一刀后，需要把剩下来的一块送给最后一个人。</p>
 <p>请你返回确保每一块披萨包含 至少 一个苹果的切披萨方案数。由于答案可能是个很大的数字，请你返回它对 10^9 + 7 取余的结果。</p>
 <p>来源：力扣（LeetCode）  <br>
-链接：https://leetcode-cn.com/problems/number-of-ways-of-cutting-a-pizza</p>
+链接：<a href="https://leetcode-cn.com/problems/number-of-ways-of-cutting-a-pizza">https://leetcode-cn.com/problems/number-of-ways-of-cutting-a-pizza</a></p>
 <h3 id="示例-3">示例</h3>
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/10/ways_to_cut_apple_1.png" alt=""></p>
 <p>输入：pizza = [&ldquo;A..&rdquo;,&ldquo;AAA&rdquo;,&rdquo;&hellip;&quot;], k = 3 <br>
@@ -557,69 +653,135 @@ b = arr[j] ^ arr[j + 1] ^ &hellip; ^ arr[k] <br>
 然后DFS+DP穷举水平切和垂直切后有苹果的情况，dp[i][j][x]表示剩余披萨左上角坐标为(i,j)时，已切出x块。<br>
 状态转移方程为dp[i][j][x] += dp[row][col][x - 1], 该式于原来的以(row,col)为左上角的披萨被切为以（i，j)为左上角的一部分和剩余部分都包含苹果时成立。</p>
 <h3 id="别人的代码-2">别人的代码</h3>
-<pre><code>class Solution:
-    def ways(self, pizza, k: int) -&gt; int:
-        row = len(pizza)
-        col = len(pizza[0])
-        mod = 10 ** 9 + 7
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">ways</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pizza</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pizza</span><span class="p">)</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pizza</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">mod</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span>
 
-        ## 动态规划求num，num是二维前缀和
-        num = [[0 for i in range(col)] for i in range(row)] # num[i][j] 表示以[0][0]为左上角，[i][j]为右下角的区域包含的苹果数
-        if pizza[0][0] == 'A':
-            num[0][0] = 1
-        for i in range(1, row):
-            num[i][0] = num[i - 1][0] + (pizza[i][0] == 'A')
-        for i in range(1, col):
-            num[0][i] = num[0][i - 1] + (pizza[0][i] == 'A')
-        for i in range(1, row):
-            for j in range(1, col):
-                num[i][j] = num[i - 1][j] + num[i][j - 1] - num[i - 1][j - 1] + (pizza[i][j] == 'A')
+        <span class="c1">## 动态规划求num，num是二维前缀和</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">col</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">row</span><span class="p">)]</span> <span class="c1"># num[i][j] 表示以[0][0]为左上角，[i][j]为右下角的区域包含的苹果数</span>
+        <span class="k">if</span> <span class="n">pizza</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">:</span>
+            <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
+            <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">pizza</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+            <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">pizza</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+                <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">pizza</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
 
-        def hasA(num, sr, sc, er, ec):
-            &quot;&quot;&quot;
-            判断该区域是否有苹果
-            (sr, sc): 该区域的左上角坐标
-            (er, ec): 该区域的右下角坐标
-            &quot;&quot;&quot;
-            num1 = 0  # num2和num3的交叉区域的苹果数
-            num2 = 0  # 待判断区域上面的区域内苹果数
-            num3 = 0  # 待判断区域左面的区域内苹果数
-            if sr != 0 and sc != 0:
-                num1 = num[sr - 1][sc - 1]
-            if sr != 0:
-                num2 = num[sr - 1][ec]
-            if sc != 0:
-                num3 = num[er][sc - 1]
-            return num[er][ec] - num2 - num3 + num1 &gt; 0
+        <span class="k">def</span> <span class="nf">hasA</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">sc</span><span class="p">,</span> <span class="n">er</span><span class="p">,</span> <span class="n">ec</span><span class="p">):</span>
+            <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">            判断该区域是否有苹果
+</span><span class="s2">            (sr, sc): 该区域的左上角坐标
+</span><span class="s2">            (er, ec): 该区域的右下角坐标
+</span><span class="s2">            &#34;&#34;&#34;</span>
+            <span class="n">num1</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># num2和num3的交叉区域的苹果数</span>
+            <span class="n">num2</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 待判断区域上面的区域内苹果数</span>
+            <span class="n">num3</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 待判断区域左面的区域内苹果数</span>
+            <span class="k">if</span> <span class="n">sr</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">sc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">num1</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="n">sr</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">sc</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">sr</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">num2</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="n">sr</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">ec</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">sc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">num3</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="n">er</span><span class="p">][</span><span class="n">sc</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">num</span><span class="p">[</span><span class="n">er</span><span class="p">][</span><span class="n">ec</span><span class="p">]</span> <span class="o">-</span> <span class="n">num2</span> <span class="o">-</span> <span class="n">num3</span> <span class="o">+</span> <span class="n">num1</span> <span class="o">&gt;</span> <span class="mi">0</span>
 
-        dp = [[[0 for i in range(k + 1)] for i in range(col)] for i in range(row)]  # dp[i][j][k] 代表剩余披萨的左上角坐标为[i][j]时，已切分的披萨数
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">col</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">row</span><span class="p">)]</span>  <span class="c1"># dp[i][j][k] 代表剩余披萨的左上角坐标为[i][j]时，已切分的披萨数</span>
 
-        dp[0][0][1] = 1
+        <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
-        for x in range(2, k + 1):
-            for i in range(row):
-                for j in range(col):
-                    if dp[i][j][x - 1] == 0:
-                        continue
-                    # 水平切
-                    for z in range(i + 1, row):
-                        if hasA(num, i, j, z - 1, col - 1) and hasA(num, z, j, row - 1, col - 1):
-                            dp[z][j][x] += dp[i][j][x - 1]
-                            dp[z][j][x] %= mod
-                    # 垂直切
-                    for z in range(j + 1, col):
-                        if hasA(num, i, j, row - 1, z - 1) and hasA(num, i, z, row - 1, col - 1):
-                            dp[i][z][x] += dp[i][j][x - 1]
-                            dp[i][z][x] %= mod
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                    <span class="c1"># 水平切</span>
+                    <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="n">hasA</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">z</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">hasA</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                            <span class="n">dp</span><span class="p">[</span><span class="n">z</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                            <span class="n">dp</span><span class="p">[</span><span class="n">z</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">%=</span> <span class="n">mod</span>
+                    <span class="c1"># 垂直切</span>
+                    <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="n">hasA</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">z</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">hasA</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">z</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">z</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">%=</span> <span class="n">mod</span>
 
-        res = 0
-        for i in range(row):
-            for j in range(col):
-                res += dp[i][j][k]
-                res %= mod
-        return res
-</code></pre>
-<h2 id="总结-1">总结</h2>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+                <span class="n">res</span> <span class="o">%=</span> <span class="n">mod</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
 <p>太弱了，没法总结。</p>
 
     </div>
@@ -636,11 +798,11 @@ b = arr[j] ^ arr[j + 1] ^ &hellip; ^ arr[k] <br>
     <span class="item-content">
       2020-07-31
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
-          (0c3097e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/6e089dcb52e1bed53e1c9fddb9ed69521cede3f7" title="Update Leetcode reviews">
+          (6e089dc)
         </a>
         
-          <br>Sync Leetcode Weekly Reviews
+          <br>Update Leetcode reviews
         
       
     </span>
@@ -659,6 +821,12 @@ b = arr[j] ^ arr[j + 1] ^ &hellip; ^ arr[k] <br>
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          <a href="https://slkyrim.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
+          <a href="https://slkyrim.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+          <a href="https://slkyrim.github.io/tags/n%E5%8F%89%E6%A0%91/">n叉树</a>
+          <a href="https://slkyrim.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+          <a href="https://slkyrim.github.io/tags/%E5%9B%BE%E6%A3%AE%E6%9C%AA%E6%9D%A5/">图森未来</a>
           
         </div>
 
@@ -826,7 +994,7 @@ b = arr[j] ^ arr[j + 1] ^ &hellip; ^ arr[k] <br>
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
 
 
 

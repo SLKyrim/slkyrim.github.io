@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前缀和 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/</link>
+    <description>Recent content in 前缀和 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 12:26:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leetcode_20200711双周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200711_biweekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:26:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200711_biweekly/</guid>
+      <description>目录 转变日期格式 子数组和排序后的区间和 三次操作后最大值与最小值的最小差 石子游戏IV 总结 转变日期格式 给你一个字符串 date ，它的格式为 Day Month Year ，其中：</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200614周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200614_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:22:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200614_weekly/</guid>
+      <description>目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第k个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200510周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200510_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:18:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200510_weekly/</guid>
+      <description>目录 用栈操作构建数组 形成两个异或相等数组的三元组数目 收集树上所有苹果的最少时间 切披萨的方案数 总结 用栈操作构建数组 给你一个目标数组 target 和一个整数</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200503周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200503_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:17:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200503_weekly/</guid>
+      <description>目录 旅行终点站 是否所有1都至少相隔k个元素 绝对值不超过限制的最长连续子数组 有序矩阵中的第k个最小数组和 总结 旅行终点站 给你一份旅游线路图，该线</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200418双周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:14:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</guid>
+      <description>目录 目录 逐步求和得到正数的最小值 示例 我的思路 我的代码 和为 K 的最少斐波那契数字数目 示例 我的思路 我的代码 长度为 n 的开心字符串中字典序第 k 小的字符</description>
+    </item>
+    
+  </channel>
+</rss>

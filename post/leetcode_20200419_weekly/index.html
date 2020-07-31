@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Single Long" />
-  <meta name="description" content="目录 5388. 重新格式化字符串 5389. 点菜展示表 5390. 数青蛙 5391. 生成数组 总结 5388. 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请" />
+  <meta name="description" content="目录 重新格式化字符串 点菜展示表 数青蛙 生成数组 总结 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请你将该字符" />
 
   <meta name="keywords" content="Single Long, Blog" />
 
@@ -60,23 +60,23 @@
 
 
 <meta property="og:title" content="Leetcode_20200419周赛" />
-<meta property="og:description" content="目录 5388. 重新格式化字符串 5389. 点菜展示表 5390. 数青蛙 5391. 生成数组 总结 5388. 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请" />
+<meta property="og:description" content="目录 重新格式化字符串 点菜展示表 数青蛙 生成数组 总结 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请你将该字符" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200419_weekly/" />
 <meta property="article:published_time" content="2020-07-31T12:15:32+08:00" />
-<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="name" content="Leetcode_20200419周赛">
-<meta itemprop="description" content="目录 5388. 重新格式化字符串 5389. 点菜展示表 5390. 数青蛙 5391. 生成数组 总结 5388. 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请">
+<meta itemprop="description" content="目录 重新格式化字符串 点菜展示表 数青蛙 生成数组 总结 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请你将该字符">
 <meta itemprop="datePublished" content="2020-07-31T12:15:32+08:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
-<meta itemprop="wordCount" content="2971">
+<meta itemprop="dateModified" content="2020-07-31T16:08:41+08:00" />
+<meta itemprop="wordCount" content="3075">
 
 
 
-<meta itemprop="keywords" content="Leetcode," />
+<meta itemprop="keywords" content="Leetcode,字符串,动态规划,高维动态规划,字节跳动," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode_20200419周赛"/>
-<meta name="twitter:description" content="目录 5388. 重新格式化字符串 5389. 点菜展示表 5390. 数青蛙 5391. 生成数组 总结 5388. 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请"/>
+<meta name="twitter:description" content="目录 重新格式化字符串 点菜展示表 数青蛙 生成数组 总结 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请你将该字符"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -306,8 +306,8 @@
             <a href="https://slkyrim.github.io/categories/leetcode%E6%AF%94%E8%B5%9B/"> Leetcode比赛 </a>
             
           </div>
-        <span class="more-meta"> 约 2971 字 </span>
-          <span class="more-meta"> 预计阅读 6 分钟 </span>
+        <span class="more-meta"> 约 3075 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
 
         
         
@@ -324,44 +324,36 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#目录">目录</a>
-      <ul>
-        <li><a href="#5388-重新格式化字符串">5388. 重新格式化字符串</a></li>
-        <li><a href="#5389-点菜展示表">5389. 点菜展示表</a></li>
-        <li><a href="#5390-数青蛙">5390. 数青蛙</a></li>
-        <li><a href="#5391-生成数组">5391. 生成数组</a></li>
-        <li><a href="#总结">总结</a></li>
-      </ul>
-    </li>
-    <li><a href="#5388-重新格式化字符串-1">5388. 重新格式化字符串</a>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#重新格式化字符串">重新格式化字符串</a>
       <ul>
         <li><a href="#示例">示例</a></li>
         <li><a href="#我的思路">我的思路</a></li>
         <li><a href="#我的代码">我的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5389-点菜展示表-1">5389. 点菜展示表</a>
+    <li><a href="#点菜展示表">点菜展示表</a>
       <ul>
         <li><a href="#示例-1">示例</a></li>
         <li><a href="#我的思路-1">我的思路</a></li>
         <li><a href="#我的代码-1">我的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5390-数青蛙-1">5390. 数青蛙</a>
+    <li><a href="#数青蛙">数青蛙</a>
       <ul>
         <li><a href="#示例-2">示例</a></li>
         <li><a href="#别人的思路">别人的思路</a></li>
         <li><a href="#别人的代码">别人的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5391-生成数组-1">5391. 生成数组</a>
+    <li><a href="#生成数组">生成数组</a>
       <ul>
         <li><a href="#示例-3">示例</a></li>
         <li><a href="#别人的思路-1">别人的思路</a></li>
         <li><a href="#别人的代码-1">别人的代码</a></li>
       </ul>
     </li>
-    <li><a href="#总结-1">总结</a></li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
   </div>
@@ -370,19 +362,19 @@
     
     <div class="post-content">
       <h2 id="目录">目录</h2>
-<blockquote>
-<h3 id="5388-重新格式化字符串">5388. 重新格式化字符串</h3>
-<h3 id="5389-点菜展示表">5389. 点菜展示表</h3>
-<h3 id="5390-数青蛙">5390. 数青蛙</h3>
-<h3 id="5391-生成数组">5391. 生成数组</h3>
-<h3 id="总结">总结</h3>
-</blockquote>
-<h2 id="5388-重新格式化字符串-1">5388. 重新格式化字符串</h2>
+<ul>
+<li><a href="#%E9%87%8D%E6%96%B0%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2">重新格式化字符串</a></li>
+<li><a href="#%E7%82%B9%E8%8F%9C%E5%B1%95%E7%A4%BA%E8%A1%A8">点菜展示表</a></li>
+<li><a href="#%E6%95%B0%E9%9D%92%E8%9B%99">数青蛙</a></li>
+<li><a href="#%E7%94%9F%E6%88%90%E6%95%B0%E7%BB%84">生成数组</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+<h2 id="重新格式化字符串">重新格式化字符串</h2>
 <p>给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。</p>
 <p>请你将该字符串重新格式化，使得任意两个相邻字符的类型都不同。也就是说，字母后面应该跟着数字，而数字后面应该跟着字母。</p>
 <p>请你返回 重新格式化后 的字符串；如果无法按要求重新格式化，则返回一个 空字符串 。</p>
 <p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/reformat-the-string</p>
+链接：<a href="https://leetcode-cn.com/problems/reformat-the-string">https://leetcode-cn.com/problems/reformat-the-string</a></p>
 <h3 id="示例">示例</h3>
 <blockquote>
 <p>输入：s = &ldquo;a0b1c2&rdquo;<br>
@@ -398,43 +390,77 @@
 <p>统计字符串 s 中的字母和数字个数。如果两者绝对差值超过1，则必然会有两个数字或字母相邻，直接返回空串即可。<br>
 数量多的一方必然会包办生成字符串的两个边界。</p>
 <h3 id="我的代码">我的代码</h3>
-<pre><code>class Solution:
-    def reformat(self, s: str) -&gt; str:
-        digits = []
-        chs = []
-        for ch in s:
-            if ch.isalpha():
-                chs.append(ch)
-            if ch.isdigit():
-                digits.append(ch)
-        n = len(chs)
-        m = len(digits)
-        if abs(n - m) &gt; 1:
-            return &quot;&quot;
-        res = &quot;&quot;
-        if n &gt; m:
-            while chs:
-                res += chs.pop()
-                try:
-                    res += digits.pop()
-                except:
-                    continue
-        else:
-            while digits:
-                res += digits.pop()
-                try:
-                    res += chs.pop()
-                except:
-                    continue
-        return res
-</code></pre>
-<h2 id="5389-点菜展示表-1">5389. 点菜展示表</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">reformat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">digits</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">chs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ch</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+                <span class="n">chs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ch</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+                <span class="n">digits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chs</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&#34;&#34;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">chs</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="n">chs</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="n">digits</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">continue</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">digits</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="n">digits</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="n">chs</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">continue</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="点菜展示表">点菜展示表</h2>
 <p>给你一个数组 orders，表示客户在餐厅中完成的订单，确切地说， <br>
 orders[i]=[customerNamei,tableNumberi,foodItemi] ，其中 customerNamei 是客户的姓名，tableNumberi 是客户所在餐桌的桌号，而 foodItemi 是客户点的餐品名称。</p>
 <p>请你返回该餐厅的 点菜展示表 。在这张表中，表中第一行为标题，其第一列为餐桌桌号 “Table” ，后面每一列都是按字母顺序排列的餐品名称。接下来每一行中的项则表示每张餐桌订购的相应餐品数量，第一列应当填对应的桌号，后面依次填写下单的餐品数量。</p>
 <p>注意：客户姓名不是点菜展示表的一部分。此外，表中的数据行应该按餐桌桌号升序排列。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/display-table-of-food-orders-in-a-restaurant</p>
+链接：<a href="https://leetcode-cn.com/problems/display-table-of-food-orders-in-a-restaurant">https://leetcode-cn.com/problems/display-table-of-food-orders-in-a-restaurant</a></p>
 <h3 id="示例-1">示例</h3>
 <blockquote>
 <p>输入：<br>
@@ -490,39 +516,70 @@ orders = [[&ldquo;David&rdquo;,&ldquo;3&rdquo;,&ldquo;Ceviche&rdquo;],[&ldquo;Co
 对菜单列表用 <strong>sorted()</strong> 排成字典序。
 遍历点单字典的，统计每桌对菜单列表的点单数。用匿名函数对桌号进行排序。</p>
 <h3 id="我的代码-1">我的代码</h3>
-<pre><code>class Solution:
-    def displayTable(self, orders):
-        n = len(orders)
-        menus = list()
-        table = dict()
-        for order in orders:
-            if order[2] not in menus:
-                menus.append(order[2])
-            try:
-                table[int(order[1])] += [order[2]]
-            except:
-                table[int(order[1])] = [order[2]]
-        menus = sorted(menus)
-        res = list()
-        res.append([&quot;Table&quot;] + menus)
-        tmp = list()
-        for k, v in table.items():
-            cur = list()
-            cur.append(k)
-            for menu in menus:
-                cur.append(v.count(menu))
-            tmp.append(cur)
-        tmp = sorted(tmp, key=lambda x:x[0])
-        for cur in tmp:
-            res.append([str(x) for x in cur])
-        return res
-</code></pre>
-<h2 id="5390-数青蛙-1">5390. 数青蛙</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">displayTable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orders</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span>
+        <span class="n">menus</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">orders</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">order</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">menus</span><span class="p">:</span>
+                <span class="n">menus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">table</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">order</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">table</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span> <span class="o">=</span> <span class="p">[</span><span class="n">order</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="n">menus</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">menus</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&#34;Table&#34;</span><span class="p">]</span> <span class="o">+</span> <span class="n">menus</span><span class="p">)</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">cur</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+            <span class="n">cur</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">menu</span> <span class="ow">in</span> <span class="n">menus</span><span class="p">:</span>
+                <span class="n">cur</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">menu</span><span class="p">))</span>
+            <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cur</span><span class="p">)</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">cur</span> <span class="ow">in</span> <span class="n">tmp</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cur</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="数青蛙">数青蛙</h2>
 <p>给你一个字符串 croakOfFrogs，它表示不同青蛙发出的蛙鸣声（字符串 &ldquo;croak&rdquo; ）的组合。由于同一时间可以有多只青蛙呱呱作响，所以 croakOfFrogs 中会混合多个 “croak” 。请你返回模拟字符串中所有蛙鸣所需不同青蛙的最少数目。</p>
 <p>注意：要想发出蛙鸣 &ldquo;croak&rdquo;，青蛙必须 依序 输出 ‘c’, ’r’, ’o’, ’a’, ’k’ 这 5 个字母。如果没有输出全部五个字母，那么它就不会发出声音。</p>
 <p>如果字符串 croakOfFrogs 不是由若干有效的 &ldquo;croak&rdquo; 字符混合而成，请返回 -1 。</p>
 <p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/minimum-number-of-frogs-croaking</p>
+链接：<a href="https://leetcode-cn.com/problems/minimum-number-of-frogs-croaking">https://leetcode-cn.com/problems/minimum-number-of-frogs-croaking</a></p>
 <h3 id="示例-2">示例</h3>
 <blockquote>
 <p>输入：croakOfFrogs = &ldquo;croakcroak&rdquo;<br>
@@ -550,38 +607,73 @@ orders = [[&ldquo;David&rdquo;,&ldquo;3&rdquo;,&ldquo;Ceviche&rdquo;],[&ldquo;Co
 </ul>
 <p>遍历结束后，检查c,r,o,a的数量是否被消耗完，如果没有则说明有无效croak，返回-1</p>
 <h3 id="别人的代码">别人的代码</h3>
-<pre><code>class Solution:
-    def minNumberOfFrogs(self, croakOfFrogs: str) -&gt; int:
-        c, r, o, a, k = 0, 0, 0, 0, 0
-        res = 0
-        for ch in croakOfFrogs:
-            if ch == 'c':
-                if k &gt; 0:
-                    k -= 1
-                else:
-                    res += 1
-                c += 1
-            elif ch == 'r':
-                c -= 1
-                r += 1
-            elif ch == 'o':
-                r -= 1
-                o += 1
-            elif ch == 'a':
-                o -= 1
-                a += 1
-            elif ch == 'k':
-                a -= 1
-                k += 1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">minNumberOfFrogs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">croakOfFrogs</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">c</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">croakOfFrogs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ch</span> <span class="o">==</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">k</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">c</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s1">&#39;r&#39;</span><span class="p">:</span>
+                <span class="n">c</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">r</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s1">&#39;o&#39;</span><span class="p">:</span>
+                <span class="n">r</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">o</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span>
+                <span class="n">o</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s1">&#39;k&#39;</span><span class="p">:</span>
+                <span class="n">a</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
             
-            if c &lt; 0 or r &lt; 0 or o &lt; 0 or a &lt; 0:
-                break
+            <span class="k">if</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">o</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">break</span>
         
-        if c != 0 or r != 0 or o != 0 or a != 0:
-            return -1
-        return res
-</code></pre>
-<h2 id="5391-生成数组-1">5391. 生成数组</h2>
+        <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">r</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">o</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="生成数组">生成数组</h2>
 <p>给你三个整数 n、m 和 k 。下图描述的算法用于找出正整数数组中最大的元素。 <br>
 <img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/19/e.png" alt="算法"><br>
 请你生成一个具有下述属性的数组 arr ：</p>
@@ -597,7 +689,7 @@ orders = [[&ldquo;David&rdquo;,&ldquo;3&rdquo;,&ldquo;Ceviche&rdquo;],[&ldquo;Co
 <li>0 &lt;= k &lt;= n</li>
 </ul>
 <p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons</p>
+链接：<a href="https://leetcode-cn.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons">https://leetcode-cn.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons</a></p>
 <h3 id="示例-3">示例</h3>
 <blockquote>
 <p>输入：n = 2, m = 3, k = 1<br>
@@ -629,35 +721,67 @@ dp[n][k][i] 代表长度为 n，搜索代价为k，最大值为 i的数组的数
 <li>dp[l][c][p] = sum(dp[l-1][c-1][j]) + dp[l-1][c][p] * p, 1 &lt;= j &lt;= p - 1</li>
 </ul>
 <h3 id="别人的代码-1">别人的代码</h3>
-<pre><code>class Solution:
-    def numOfArrays(self, n: int, m: int, k: int) -&gt; int:
-        self.dp = [[[-1 for i in range(m + 1)] for i in range(k + 1)] for i in range(n + 1)]
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">numOfArrays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dp</span> <span class="o">=</span> <span class="p">[[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
 
-        def dfs(l, c, p):
-            if self.dp[l][c][p] != -1:
-                return self.dp[l][c][p]
-            if l == 0 or c == 0 or p == 0:
-                self.dp[l][c][p] = 0
-                return 0
-            if l == 1 and c == 1:
-                self.dp[l][c][p] = 1
-                return 1
-            res = 0
-            for j in range(1, p):
-                res += dfs(l - 1, c - 1, j)
-                res %= 10 ** 9 + 7
-            res += dfs(l - 1, c, p) * p
-            res %= 10 ** 9 + 7
-            self.dp[l][c][p] = res
-            return res
+        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="n">p</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="n">p</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">return</span> <span class="mi">1</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                <span class="n">res</span> <span class="o">%=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span>
+            <span class="n">res</span> <span class="o">%=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
+            <span class="k">return</span> <span class="n">res</span>
 
-        res = 0
-        for i in range(1, m + 1):
-            res += dfs(n, k, i)
-            res %= 10 ** 9 + 7
-        return res
-</code></pre>
-<h2 id="总结-1">总结</h2>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">%=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
 <p>依旧只AC了前两道，排位1153/5002。
 这回有字节的周边奖品，以及前200名有字节内推机会，所以参赛的人数比较多。<br>
 最后一题三维DP还有很多弄不清的地方。</p>
@@ -676,11 +800,11 @@ dp[n][k][i] 代表长度为 n，搜索代价为k，最大值为 i的数组的数
     <span class="item-content">
       2020-07-31
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
-          (0c3097e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/6e089dcb52e1bed53e1c9fddb9ed69521cede3f7" title="Update Leetcode reviews">
+          (6e089dc)
         </a>
         
-          <br>Sync Leetcode Weekly Reviews
+          <br>Update Leetcode reviews
         
       
     </span>
@@ -699,6 +823,10 @@ dp[n][k][i] 代表长度为 n，搜索代价为k，最大值为 i的数组的数
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          <a href="https://slkyrim.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+          <a href="https://slkyrim.github.io/tags/%E9%AB%98%E7%BB%B4%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">高维动态规划</a>
+          <a href="https://slkyrim.github.io/tags/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8/">字节跳动</a>
           
         </div>
 
@@ -866,7 +994,7 @@ dp[n][k][i] 代表长度为 n，搜索代价为k，最大值为 i的数组的数
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
 
 
 

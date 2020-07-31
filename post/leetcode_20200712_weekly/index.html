@@ -64,16 +64,16 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200712_weekly/" />
 <meta property="article:published_time" content="2020-07-31T12:27:32+08:00" />
-<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="name" content="Leetcode_20200712周赛">
 <meta itemprop="description" content="目录 好数对的数目 仅含1的子串数 概率最大的路径 服务中心的最佳位置 总结 好数对的数目 给你一个整数数组 nums 。如果一组数字 (i,j) 满足 nums[i] == nums[j] 且 i &lt; j ，就可以认">
 <meta itemprop="datePublished" content="2020-07-31T12:27:32+08:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
+<meta itemprop="dateModified" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="wordCount" content="3189">
 
 
 
-<meta itemprop="keywords" content="Leetcode," />
+<meta itemprop="keywords" content="Leetcode,字符串,等差数列,无向图,BFS,记忆化搜索,数学,费马点,最优化,机器学习,退火模拟算法,字节跳动," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode_20200712周赛"/>
 <meta name="twitter:description" content="目录 好数对的数目 仅含1的子串数 概率最大的路径 服务中心的最佳位置 总结 好数对的数目 给你一个整数数组 nums 。如果一组数字 (i,j) 满足 nums[i] == nums[j] 且 i &lt; j ，就可以认"/>
@@ -376,7 +376,7 @@
 <h2 id="好数对的数目">好数对的数目</h2>
 <p>给你一个整数数组 nums 。如果一组数字 (i,j) 满足 nums[i] == nums[j] 且 i &lt; j ，就可以认为这是一组 好数对 。返回好数对的数目。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/number-of-good-pairs</p>
+链接：<a href="https://leetcode-cn.com/problems/number-of-good-pairs">https://leetcode-cn.com/problems/number-of-good-pairs</a></p>
 <h3 id="示例">示例</h3>
 <blockquote>
 <p>输入：nums = [1,2,3,1,1,3] <br>
@@ -415,7 +415,7 @@
 <p>返回所有字符都为 1 的子字符串的数目。</p>
 <p>由于答案可能很大，请你将它对 10^9 + 7 取模后返回。</p>
 <p>来源：力扣（LeetCode）  <br>
-链接：https://leetcode-cn.com/problems/number-of-substrings-with-only-1s</p>
+链接：<a href="https://leetcode-cn.com/problems/number-of-substrings-with-only-1s">https://leetcode-cn.com/problems/number-of-substrings-with-only-1s</a></p>
 <h3 id="示例-1">示例</h3>
 <blockquote>
 <p>输入：s = &ldquo;0110111&rdquo;  <br>
@@ -457,7 +457,7 @@
 <p>指定两个节点分别作为起点 start 和终点 end ，请你找出从起点到终点成功概率最大的路径，并返回其成功概率。</p>
 <p>如果不存在从 start 到 end 的路径，请 返回 0 。只要答案与标准答案的误差不超过 1e-5 ，就会被视作正确答案。</p>
 <p>来源：力扣（LeetCode）  <br>
-链接：https://leetcode-cn.com/problems/path-with-maximum-probability</p>
+链接：<a href="https://leetcode-cn.com/problems/path-with-maximum-probability">https://leetcode-cn.com/problems/path-with-maximum-probability</a></p>
 <h3 id="示例-2">示例</h3>
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/12/1558_ex1.png" alt=""></p>
 <blockquote>
@@ -576,7 +576,7 @@
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/12/q4_edited.jpg" alt=""></p>
 <p>与真实值误差在 10^-5 之内的答案将被视作正确答案。</p>
 <p>来源：力扣（LeetCode）  <br>
-链接：https://leetcode-cn.com/problems/best-position-for-a-service-centre</p>
+链接：<a href="https://leetcode-cn.com/problems/best-position-for-a-service-centre">https://leetcode-cn.com/problems/best-position-for-a-service-centre</a></p>
 <h3 id="示例-3">示例</h3>
 <blockquote>
 <p>输入：positions = [[1,1],[0,0],[2,0]] <br>
@@ -618,7 +618,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="思路2-1">思路2</h3>
-<p>参考自：https://www.bilibili.com/video/BV1RK4y1s79d</p>
+<p>参考自：<a href="https://www.bilibili.com/video/BV1RK4y1s79d">https://www.bilibili.com/video/BV1RK4y1s79d</a></p>
 <p>用<a href="https://www.cnblogs.com/heaad/archive/2010/12/20/1911614.html">退火模拟算法</a>迭代优化逼近费马点。</p>
 <p>Cpp的代码可以通过，改成Python后似乎会落入局部最优点出不来，暂时没Debug出来。</p>
 <h3 id="代码2-1">代码2</h3>
@@ -861,11 +861,11 @@
     <span class="item-content">
       2020-07-31
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
-          (0c3097e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/6e089dcb52e1bed53e1c9fddb9ed69521cede3f7" title="Update Leetcode reviews">
+          (6e089dc)
         </a>
         
-          <br>Sync Leetcode Weekly Reviews
+          <br>Update Leetcode reviews
         
       
     </span>
@@ -884,6 +884,17 @@
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          <a href="https://slkyrim.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+          <a href="https://slkyrim.github.io/tags/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/">等差数列</a>
+          <a href="https://slkyrim.github.io/tags/%E6%97%A0%E5%90%91%E5%9B%BE/">无向图</a>
+          <a href="https://slkyrim.github.io/tags/bfs/">BFS</a>
+          <a href="https://slkyrim.github.io/tags/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/">记忆化搜索</a>
+          <a href="https://slkyrim.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+          <a href="https://slkyrim.github.io/tags/%E8%B4%B9%E9%A9%AC%E7%82%B9/">费马点</a>
+          <a href="https://slkyrim.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</a>
+          <a href="https://slkyrim.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+          <a href="https://slkyrim.github.io/tags/%E9%80%80%E7%81%AB%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95/">退火模拟算法</a>
+          <a href="https://slkyrim.github.io/tags/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8/">字节跳动</a>
           
         </div>
 
@@ -1051,7 +1062,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
 
 
 

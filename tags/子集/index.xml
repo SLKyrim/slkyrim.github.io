@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>子集 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/%E5%AD%90%E9%9B%86/</link>
+    <description>Recent content in 子集 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 12:19:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/%E5%AD%90%E9%9B%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leetcode_20200517周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200517_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:19:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200517_weekly/</guid>
+      <description>目录 目录 在既定时间做作业的学生人数 示例 思路 代码 重新排列句子中的单词 示例 思路 代码 收藏清单 示例 思路 代码 圆形靶内的最大飞镖数量 示例 思路 代码 总结 在既</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>退火模拟算法 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/%E9%80%80%E7%81%AB%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 退火模拟算法 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 12:27:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/%E9%80%80%E7%81%AB%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leetcode_20200712周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200712_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:27:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200712_weekly/</guid>
+      <description>目录 好数对的数目 仅含1的子串数 概率最大的路径 服务中心的最佳位置 总结 好数对的数目 给你一个整数数组 nums 。如果一组数字 (i,j) 满足 nums[i] == nums[j] 且 i &amp;lt; j ，就可以认</description>
+    </item>
+    
+  </channel>
+</rss>

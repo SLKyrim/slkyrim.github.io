@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Single Long" />
-  <meta name="description" content="目录 5408. 在既定时间做作业的学生人数 5409. 重新排列句子中的单词 5410. 收藏清单 5411. 圆形靶内的最大飞镖数量 总结 5408. 在既定时间做作业的学生人数 给你两个整数数组 st" />
+  <meta name="description" content="目录 目录 在既定时间做作业的学生人数 示例 思路 代码 重新排列句子中的单词 示例 思路 代码 收藏清单 示例 思路 代码 圆形靶内的最大飞镖数量 示例 思路 代码 总结 在既" />
 
   <meta name="keywords" content="Single Long, Blog" />
 
@@ -60,23 +60,23 @@
 
 
 <meta property="og:title" content="Leetcode_20200517周赛" />
-<meta property="og:description" content="目录 5408. 在既定时间做作业的学生人数 5409. 重新排列句子中的单词 5410. 收藏清单 5411. 圆形靶内的最大飞镖数量 总结 5408. 在既定时间做作业的学生人数 给你两个整数数组 st" />
+<meta property="og:description" content="目录 目录 在既定时间做作业的学生人数 示例 思路 代码 重新排列句子中的单词 示例 思路 代码 收藏清单 示例 思路 代码 圆形靶内的最大飞镖数量 示例 思路 代码 总结 在既" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200517_weekly/" />
 <meta property="article:published_time" content="2020-07-31T12:19:32+08:00" />
-<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="name" content="Leetcode_20200517周赛">
-<meta itemprop="description" content="目录 5408. 在既定时间做作业的学生人数 5409. 重新排列句子中的单词 5410. 收藏清单 5411. 圆形靶内的最大飞镖数量 总结 5408. 在既定时间做作业的学生人数 给你两个整数数组 st">
+<meta itemprop="description" content="目录 目录 在既定时间做作业的学生人数 示例 思路 代码 重新排列句子中的单词 示例 思路 代码 收藏清单 示例 思路 代码 圆形靶内的最大飞镖数量 示例 思路 代码 总结 在既">
 <meta itemprop="datePublished" content="2020-07-31T12:19:32+08:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
-<meta itemprop="wordCount" content="2407">
+<meta itemprop="dateModified" content="2020-07-31T16:08:41+08:00" />
+<meta itemprop="wordCount" content="2491">
 
 
 
-<meta itemprop="keywords" content="Leetcode," />
+<meta itemprop="keywords" content="Leetcode,字符串,集合,子集,数学,平面几何," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode_20200517周赛"/>
-<meta name="twitter:description" content="目录 5408. 在既定时间做作业的学生人数 5409. 重新排列句子中的单词 5410. 收藏清单 5411. 圆形靶内的最大飞镖数量 总结 5408. 在既定时间做作业的学生人数 给你两个整数数组 st"/>
+<meta name="twitter:description" content="目录 目录 在既定时间做作业的学生人数 示例 思路 代码 重新排列句子中的单词 示例 思路 代码 收藏清单 示例 思路 代码 圆形靶内的最大飞镖数量 示例 思路 代码 总结 在既"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -306,7 +306,7 @@
             <a href="https://slkyrim.github.io/categories/leetcode%E6%AF%94%E8%B5%9B/"> Leetcode比赛 </a>
             
           </div>
-        <span class="more-meta"> 约 2407 字 </span>
+        <span class="more-meta"> 约 2491 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
 
         
@@ -324,44 +324,36 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#目录">目录</a>
-      <ul>
-        <li><a href="#5408-在既定时间做作业的学生人数">5408. 在既定时间做作业的学生人数</a></li>
-        <li><a href="#5409-重新排列句子中的单词">5409. 重新排列句子中的单词</a></li>
-        <li><a href="#5410-收藏清单">5410. 收藏清单</a></li>
-        <li><a href="#5411-圆形靶内的最大飞镖数量">5411. 圆形靶内的最大飞镖数量</a></li>
-        <li><a href="#总结">总结</a></li>
-      </ul>
-    </li>
-    <li><a href="#5408-在既定时间做作业的学生人数-1">5408. 在既定时间做作业的学生人数</a>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#在既定时间做作业的学生人数">在既定时间做作业的学生人数</a>
       <ul>
         <li><a href="#示例">示例</a></li>
         <li><a href="#思路">思路</a></li>
         <li><a href="#代码">代码</a></li>
       </ul>
     </li>
-    <li><a href="#5409-重新排列句子中的单词-1">5409. 重新排列句子中的单词</a>
+    <li><a href="#重新排列句子中的单词">重新排列句子中的单词</a>
       <ul>
         <li><a href="#示例-1">示例</a></li>
         <li><a href="#思路-1">思路</a></li>
         <li><a href="#代码-1">代码</a></li>
       </ul>
     </li>
-    <li><a href="#5410-收藏清单-1">5410. 收藏清单</a>
+    <li><a href="#收藏清单">收藏清单</a>
       <ul>
         <li><a href="#示例-2">示例</a></li>
         <li><a href="#思路-2">思路</a></li>
         <li><a href="#代码-2">代码</a></li>
       </ul>
     </li>
-    <li><a href="#5411-圆形靶内的最大飞镖数量-1">5411. 圆形靶内的最大飞镖数量</a>
+    <li><a href="#圆形靶内的最大飞镖数量">圆形靶内的最大飞镖数量</a>
       <ul>
         <li><a href="#示例-3">示例</a></li>
         <li><a href="#思路-3">思路</a></li>
         <li><a href="#代码-3">代码</a></li>
       </ul>
     </li>
-    <li><a href="#总结-1">总结</a></li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
   </div>
@@ -370,19 +362,44 @@
     
     <div class="post-content">
       <h2 id="目录">目录</h2>
-<blockquote>
-<h3 id="5408-在既定时间做作业的学生人数">5408. 在既定时间做作业的学生人数</h3>
-<h3 id="5409-重新排列句子中的单词">5409. 重新排列句子中的单词</h3>
-<h3 id="5410-收藏清单">5410. 收藏清单</h3>
-<h3 id="5411-圆形靶内的最大飞镖数量">5411. 圆形靶内的最大飞镖数量</h3>
-<h3 id="总结">总结</h3>
-</blockquote>
-<h2 id="5408-在既定时间做作业的学生人数-1">5408. 在既定时间做作业的学生人数</h2>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E5%9C%A8%E6%97%A2%E5%AE%9A%E6%97%B6%E9%97%B4%E5%81%9A%E4%BD%9C%E4%B8%9A%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BA%BA%E6%95%B0">在既定时间做作业的学生人数</a>
+<ul>
+<li><a href="#%E7%A4%BA%E4%BE%8B">示例</a></li>
+<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
+</ul>
+</li>
+<li><a href="#%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97%E5%8F%A5%E5%AD%90%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D">重新排列句子中的单词</a>
+<ul>
+<li><a href="#%E7%A4%BA%E4%BE%8B-1">示例</a></li>
+<li><a href="#%E6%80%9D%E8%B7%AF-1">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81-1">代码</a></li>
+</ul>
+</li>
+<li><a href="#%E6%94%B6%E8%97%8F%E6%B8%85%E5%8D%95">收藏清单</a>
+<ul>
+<li><a href="#%E7%A4%BA%E4%BE%8B-2">示例</a></li>
+<li><a href="#%E6%80%9D%E8%B7%AF-2">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81-2">代码</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9C%86%E5%BD%A2%E9%9D%B6%E5%86%85%E7%9A%84%E6%9C%80%E5%A4%A7%E9%A3%9E%E9%95%96%E6%95%B0%E9%87%8F">圆形靶内的最大飞镖数量</a>
+<ul>
+<li><a href="#%E7%A4%BA%E4%BE%8B-3">示例</a></li>
+<li><a href="#%E6%80%9D%E8%B7%AF-3">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81-3">代码</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+<h2 id="在既定时间做作业的学生人数">在既定时间做作业的学生人数</h2>
 <p>给你两个整数数组 startTime（开始时间）和 endTime（结束时间），并指定一个整数 queryTime 作为查询时间。</p>
 <p>已知，第 i 名学生在 startTime[i] 时开始写作业并于 endTime[i] 时完成作业。</p>
 <p>请返回在查询时间 queryTime 时正在做作业的学生人数。形式上，返回能够使 queryTime 处于区间 [startTime[i], endTime[i]]（含）的学生人数。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/number-of-students-doing-homework-at-a-given-time</p>
+链接：<a href="https://leetcode-cn.com/problems/number-of-students-doing-homework-at-a-given-time">https://leetcode-cn.com/problems/number-of-students-doing-homework-at-a-given-time</a></p>
 <h3 id="示例">示例</h3>
 <blockquote>
 <p>输入：startTime = [1,2,3], endTime = [3,2,7], queryTime = 4 <br>
@@ -395,22 +412,34 @@
 <h3 id="思路">思路</h3>
 <p>一次遍历循环，判断queryTime是否在startTime[i]和endTime[i]之间即可。时间复杂度O(n)。</p>
 <h3 id="代码">代码</h3>
-<pre><code>class Solution:
-    def busyStudent(self, startTime: List[int], endTime: List[int], queryTime: int) -&gt; int:
-        res = 0
-        for time in zip(startTime, endTime):
-            if time[0] &lt;= queryTime &lt;= time[1]:
-                res += 1
-        return res
-</code></pre>
-<h2 id="5409-重新排列句子中的单词-1">5409. 重新排列句子中的单词</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">busyStudent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">startTime</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">endTime</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">queryTime</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">startTime</span><span class="p">,</span> <span class="n">endTime</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">queryTime</span> <span class="o">&lt;=</span> <span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="重新排列句子中的单词">重新排列句子中的单词</h2>
 <p>「句子」是一个用空格分隔单词的字符串。给你一个满足下述格式的句子 text :</p>
 <p>句子的首字母大写
 text 中的每个单词都用单个空格分隔。
 请你重新排列 text 中的单词，使所有单词按其长度的升序排列。如果两个单词的长度相同，则保留其在原句子中的相对顺序。</p>
 <p>请同样按上述格式返回新的句子。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/rearrange-words-in-a-sentence</p>
+链接：<a href="https://leetcode-cn.com/problems/rearrange-words-in-a-sentence">https://leetcode-cn.com/problems/rearrange-words-in-a-sentence</a></p>
 <h3 id="示例-1">示例</h3>
 <blockquote>
 <p>输入：text = &ldquo;Leetcode is cool&rdquo;<br>
@@ -425,29 +454,51 @@ text 中的每个单词都用单个空格分隔。
 最后将排序后的首单词的首字母变成大写即可。<br>
 不一定正确：sorted()的时间复杂度是O(nlogn)，不确定加了匿名函数后的时间复杂度。</p>
 <h3 id="代码-1">代码</h3>
-<pre><code>class Solution:
-    def arrangeWords(self, text: str) -&gt; str:
-        text = text.split()
-        tmp = []
-        minLen = float(&quot;inf&quot;)
-        for i in range(len(text)):
-            if len(text[i]) &lt; minLen:
-                minLen = len(text[i])
-            tmp.append([text[i], i])
-        if len(text[0]) &gt; minLen:
-            tmp[0][0] = tmp[0][0].lower()
-        tmp = sorted(tmp, key=lambda x:(len(x[0]),x[1]))
-        res = []
-        for t in tmp:
-            res.append(t[0])
-        res[0] = res[0].capitalize()
-        return &quot; &quot;.join(res)
-</code></pre>
-<h2 id="5410-收藏清单-1">5410. 收藏清单</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">arrangeWords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">minLen</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&#34;inf&#34;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">minLen</span><span class="p">:</span>
+                <span class="n">minLen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">minLen</span><span class="p">:</span>
+            <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tmp</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+        <span class="k">return</span> <span class="s2">&#34; &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="收藏清单">收藏清单</h2>
 <p>给你一个数组 favoriteCompanies ，其中 favoriteCompanies[i] 是第 i 名用户收藏的公司清单（下标从 0 开始）。</p>
 <p>请找出不是其他任何人收藏的公司清单的子集的收藏清单，并返回该清单下标。下标需要按升序排列。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list</p>
+链接：<a href="https://leetcode-cn.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list">https://leetcode-cn.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list</a></p>
 <h3 id="示例-2">示例</h3>
 <blockquote>
 <p>输入：<br>
@@ -463,46 +514,83 @@ favoriteCompanies[3]=[&ldquo;google&rdquo;] 是 favoriteCompanies[0]=[&ldquo;lee
 遍历这些set，因为题目中所有字符串各不相同，所以如果有set的长度等于最大长度，则该set必不是子集。这里做一个剪枝。<br>
 对于其它长度的set，用issubset()判断当前set是否是其它set的子集。<br>
 因为</p>
-<blockquote>
-<p>set[i].issubset(set[j])</p>
-</blockquote>
-<p>可以用</p>
-<blockquote>
-<p>set[i] &amp; set[j] == set[i]</p>
-</blockquote>
-<p>代替。 <br>
-而集合与运算的时间复杂度为O(min(len(set[i],set[j]))，故这里的时间复杂度为O(L*n^2），L为名单长度。<br>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="nb">set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="nb">set</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>   
+</code></pre></td></tr></table>
+</div>
+</div><p>可以用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="nb">set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="nb">set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>     
+</code></pre></td></tr></table>
+</div>
+</div><p>代替。</p>
+<p>而集合与运算的时间复杂度为O(min(len(set[i],set[j]))，故这里的时间复杂度为O(L*n^2），L为名单长度。<br>
 实际上，经leetcode的系统测试，issubset()要比与运算快。</p>
 <h3 id="代码-2">代码</h3>
-<pre><code>class Solution:
-    def peopleIndexes(self, favoriteCompanies: List[List[str]]) -&gt; List[int]:
-        res = []
-        n = len(favoriteCompanies)
-        maxLen = 0  
-        for i in range(n):
-            favoriteCompanies[i] = set(favoriteCompanies[i])
-            if maxLen &lt; len(favoriteCompanies[i]):
-                maxLen = len(favoriteCompanies[i])
-        # favoriteCompanies = sorted(favoriteCompanies, key=lambda x:len(x))
-        for i in range(n):
-            isSub = False
-            if len(favoriteCompanies[i]) == maxLen:
-                res.append(i)
-                continue
-            for j in range(n):
-                if i != j and favoriteCompanies[i].issubset(favoriteCompanies[j]):
-                    isSub = True
-                    break
-            if not isSub:
-                res.append(i)
-        return res
-</code></pre>
-<h2 id="5411-圆形靶内的最大飞镖数量-1">5411. 圆形靶内的最大飞镖数量</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">peopleIndexes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">favoriteCompanies</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">favoriteCompanies</span><span class="p">)</span>
+        <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">0</span>  
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">favoriteCompanies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">favoriteCompanies</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">maxLen</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">favoriteCompanies</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                <span class="n">maxLen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">favoriteCompanies</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="c1"># favoriteCompanies = sorted(favoriteCompanies, key=lambda x:len(x))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">isSub</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">favoriteCompanies</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="n">maxLen</span><span class="p">:</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">favoriteCompanies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">favoriteCompanies</span><span class="p">[</span><span class="n">j</span><span class="p">]):</span>
+                    <span class="n">isSub</span> <span class="o">=</span> <span class="bp">True</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">isSub</span><span class="p">:</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="圆形靶内的最大飞镖数量">圆形靶内的最大飞镖数量</h2>
 <p>墙壁上挂着一个圆形的飞镖靶。现在请你蒙着眼睛向靶上投掷飞镖。</p>
 <p>投掷到墙上的飞镖用二维平面上的点坐标数组表示。飞镖靶的半径为 r 。</p>
 <p>请返回能够落在 任意 半径为 r 的圆形靶内或靶上的最大飞镖数。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/maximum-number-of-darts-inside-of-a-circular-dartboard</p>
+链接：<a href="https://leetcode-cn.com/problems/maximum-number-of-darts-inside-of-a-circular-dartboard">https://leetcode-cn.com/problems/maximum-number-of-darts-inside-of-a-circular-dartboard</a></p>
 <h3 id="示例-3">示例</h3>
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/16/sample_2_1806.png" alt=""></p>
 <p>输入：points = [[-3,0],[3,0],[2,6],[5,4],[0,9],[7,8]], r = 5<br>
@@ -514,40 +602,76 @@ favoriteCompanies[3]=[&ldquo;google&rdquo;] 是 favoriteCompanies[0]=[&ldquo;lee
 然后枚举所有点判断是否在圆内。<br>
 时间复杂度O(n^3)。</p>
 <h3 id="代码-3">代码</h3>
-<pre><code>import math
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="kn">import</span> <span class="nn">math</span>
 
-class Solution:
-    def numPoints(self, points: List[List[int]], r: int) -&gt; int:
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">numPoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">r</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         
-        def getDist(p1, p2):
-            &quot;&quot;&quot;求p1和p2两点间的距离&quot;&quot;&quot;
-            return ((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)**0.5
+        <span class="k">def</span> <span class="nf">getDist</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
+            <span class="s2">&#34;&#34;&#34;求p1和p2两点间的距离&#34;&#34;&#34;</span>
+            <span class="k">return</span> <span class="p">((</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
         
-        def getCenter(p1, p2):
-            &quot;&quot;&quot;求p1和p2在圆上，半径为r的圆心坐标&quot;&quot;&quot;
-            mid = [(p1[0]+p2[0]) / 2, (p1[1]+p2[1]) / 2] # 求两点连线中点坐标
-            dist = (r**2 - getDist(p1, mid)**2)**0.5 # 勾股定理求圆心到中点的距离
-            angle = math.atan2(p1[0]-p2[0],p2[1]-p1[1]) # 求p1-p2连线与??的夹角（弧度） 
-            return [mid[0]+dist*math.cos(angle), mid[1]+dist*math.sin(angle)]
+        <span class="k">def</span> <span class="nf">getCenter</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
+            <span class="s2">&#34;&#34;&#34;求p1和p2在圆上，半径为r的圆心坐标&#34;&#34;&#34;</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">[(</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># 求两点连线中点坐标</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">getDist</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span> <span class="c1"># 勾股定理求圆心到中点的距离</span>
+            <span class="n">angle</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># 求p1-p2连线与??的夹角（弧度） </span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">mid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">dist</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span> <span class="n">mid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">dist</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)]</span>
         
-        n = len(points)
-        res = 1
-        eps = 1e-8
-        for i in range(n):
-            for j in range(i+1, n):
-                if getDist(points[i], points[j]) &gt; 2 * r:
-                    continue
-                center = getCenter(points[i], points[j])
-                cnt = 0
-                for k in range(n):
-                    if getDist(center, points[k]) &lt; r + eps:
-                        cnt += 1
-                res = max(res, cnt)
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-8</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">getDist</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">points</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">r</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">center</span> <span class="o">=</span> <span class="n">getCenter</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">points</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+                <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">getDist</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">points</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="o">+</span> <span class="n">eps</span><span class="p">:</span>
+                        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">cnt</span><span class="p">)</span>
             
-        return res
-</code></pre>
-<h2 id="总结-1">总结</h2>
-<p>第一次全AC，排名 58/3690。<br>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>第一次AK，排名 58/3690。<br>
 中间两题用Python的内置函数非常好做。
 最后一题是数学问题，因为套了模板，所以不算完全靠自己做的，还是很菜。</p>
 
@@ -565,11 +689,11 @@ class Solution:
     <span class="item-content">
       2020-07-31
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
-          (0c3097e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/6e089dcb52e1bed53e1c9fddb9ed69521cede3f7" title="Update Leetcode reviews">
+          (6e089dc)
         </a>
         
-          <br>Sync Leetcode Weekly Reviews
+          <br>Update Leetcode reviews
         
       
     </span>
@@ -588,6 +712,11 @@ class Solution:
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          <a href="https://slkyrim.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+          <a href="https://slkyrim.github.io/tags/%E9%9B%86%E5%90%88/">集合</a>
+          <a href="https://slkyrim.github.io/tags/%E5%AD%90%E9%9B%86/">子集</a>
+          <a href="https://slkyrim.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+          <a href="https://slkyrim.github.io/tags/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/">平面几何</a>
           
         </div>
 
@@ -755,7 +884,7 @@ class Solution:
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
 
 
 

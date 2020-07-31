@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Single Long" />
-  <meta name="description" content="目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第K个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式" />
+  <meta name="description" content="目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第k个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式" />
 
   <meta name="keywords" content="Single Long, Blog" />
 
@@ -60,23 +60,23 @@
 
 
 <meta property="og:title" content="Leetcode_20200614周赛" />
-<meta property="og:description" content="目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第K个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式" />
+<meta property="og:description" content="目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第k个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200614_weekly/" />
 <meta property="article:published_time" content="2020-07-31T12:22:32+08:00" />
-<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="name" content="Leetcode_20200614周赛">
-<meta itemprop="description" content="目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第K个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式">
+<meta itemprop="description" content="目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第k个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式">
 <meta itemprop="datePublished" content="2020-07-31T12:22:32+08:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
+<meta itemprop="dateModified" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="wordCount" content="3077">
 
 
 
-<meta itemprop="keywords" content="Leetcode," />
+<meta itemprop="keywords" content="Leetcode,前缀和,二分查找,LCA,最近公共祖先,倍增法," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode_20200614周赛"/>
-<meta name="twitter:description" content="目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第K个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式"/>
+<meta name="twitter:description" content="目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第k个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -350,7 +350,7 @@
         <li><a href="#代码1-2">代码1</a></li>
       </ul>
     </li>
-    <li><a href="#树节点的第k个祖先">树节点的第K个祖先</a>
+    <li><a href="#树节点的第k个祖先">树节点的第k个祖先</a>
       <ul>
         <li><a href="#示例-3">示例</a></li>
         <li><a href="#思路1-3">思路1</a></li>
@@ -372,14 +372,14 @@
 <li><a href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%8A%A8%E6%80%81%E5%92%8C">一维数组的动态和</a></li>
 <li><a href="#%E4%B8%8D%E5%90%8C%E6%95%B4%E6%95%B0%E7%9A%84%E6%9C%80%E5%B0%91%E6%95%B0%E7%9B%AE">不同整数的最少数目</a></li>
 <li><a href="#%E5%88%B6%E4%BD%9Cm%E6%9D%9F%E8%8A%B1%E6%89%80%E9%9C%80%E7%9A%84%E6%9C%80%E5%B0%91%E5%A4%A9%E6%95%B0">制作m束花所需的最少天数</a></li>
-<li><a href="#%E6%A0%91%E8%8A%82%E7%82%B9%E7%9A%84%E7%AC%ACK%E4%B8%AA%E7%A5%96%E5%85%88">树节点的第K个祖先</a></li>
+<li><a href="#%E6%A0%91%E8%8A%82%E7%82%B9%E7%9A%84%E7%AC%ACk%E4%B8%AA%E7%A5%96%E5%85%88">树节点的第k个祖先</a></li>
 <li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
 </ul>
 <h2 id="一维数组的动态和">一维数组的动态和</h2>
 <p>给你一个数组 nums 。数组「动态和」的计算公式为：runningSum[i] = sum(nums[0]…nums[i]) 。<br>
 请返回 nums 的动态和。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/running-sum-of-1d-array</p>
+链接：<a href="https://leetcode-cn.com/problems/running-sum-of-1d-array">https://leetcode-cn.com/problems/running-sum-of-1d-array</a></p>
 <h3 id="示例">示例</h3>
 <blockquote>
 <p>输入：nums = [1,2,3,4]<br>
@@ -423,7 +423,7 @@
 </div><h2 id="不同整数的最少数目">不同整数的最少数目</h2>
 <p>给你一个整数数组 arr 和一个整数 k 。现需要从数组中恰好移除 k 个元素，请找出移除后数组中不同整数的最少数目。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/least-number-of-unique-integers-after-k-removals</p>
+链接：<a href="https://leetcode-cn.com/problems/least-number-of-unique-integers-after-k-removals">https://leetcode-cn.com/problems/least-number-of-unique-integers-after-k-removals</a></p>
 <h3 id="示例-1">示例</h3>
 <blockquote>
 <p>输入：arr = [4,3,1,1,3,3,2], k = 3 <br>
@@ -505,7 +505,7 @@
 花园中有 n 朵花，第 i 朵花会在 bloomDay[i] 时盛开，恰好 可以用于 一束 花中。<br>
 请你返回从花园中摘 m 束花需要等待的最少的天数。如果不能摘到 m 束花则返回 -1 。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/minimum-number-of-days-to-make-m-bouquets</p>
+链接：<a href="https://leetcode-cn.com/problems/minimum-number-of-days-to-make-m-bouquets">https://leetcode-cn.com/problems/minimum-number-of-days-to-make-m-bouquets</a></p>
 <h3 id="示例-2">示例</h3>
 <blockquote>
 <p>输入：bloomDay = [7,7,7,7,12,7,7], m = 2, k = 3<br>
@@ -574,12 +574,12 @@
         <span class="k">return</span> <span class="n">res</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="树节点的第k个祖先">树节点的第K个祖先</h2>
+</div><h2 id="树节点的第k个祖先">树节点的第k个祖先</h2>
 <p>给你一棵树，树上有 n 个节点，按从 0 到 n-1 编号。树以父节点数组的形式给出，其中 parent[i] 是节点 i 的父节点。树的根节点是编号为 0 的节点。</p>
 <p>请你设计并实现 getKthAncestor(int node, int k) 函数，函数返回节点 node 的第 k 个祖先节点。如果不存在这样的祖先节点，返回 -1 。</p>
 <p>树节点的第 k 个祖先节点是从该节点到根节点路径上的第 k 个节点。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/kth-ancestor-of-a-tree-node</p>
+链接：<a href="https://leetcode-cn.com/problems/kth-ancestor-of-a-tree-node">https://leetcode-cn.com/problems/kth-ancestor-of-a-tree-node</a></p>
 <h3 id="示例-3">示例</h3>
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/14/1528_ex1.png" alt=""></p>
 <blockquote>
@@ -634,8 +634,8 @@ treeAncestor.getKthAncestor(6, 3);  // 返回 -1 因为不存在满足要求的�
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="思路2-2">思路2</h3>
-<p>参考自：https://leetcode-cn.com/problems/kth-ancestor-of-a-tree-node/solution/li-kou-zai-zhu-jian-ba-acm-mo-ban-ti-ban-shang-lai/<br>
-这里用的是ACM中常用的LCA倍增查询模板，其实可以理解为一种记忆化搜索。 <br>
+<p>参考自：<a href="https://leetcode-cn.com/problems/kth-ancestor-of-a-tree-node/solution/li-kou-zai-zhu-jian-ba-acm-mo-ban-ti-ban-shang-lai/">https://leetcode-cn.com/problems/kth-ancestor-of-a-tree-node/solution/li-kou-zai-zhu-jian-ba-acm-mo-ban-ti-ban-shang-lai/</a></p>
+<p>这里用的是ACM中常用的LCA倍增查询模板，其实可以理解为一种记忆化搜索。 <br>
 在二叉树中，有这样一个递推关系：与第i个节点距离为2^(j-1)的祖先与第i个节点距离为2^j的祖先的距离为2^(j-1)。  <br>
 用dp[i][j]记录parent中与第i个节点距离2^j的祖先，则有递推式dp[i][j] = dp[dp[i][j-1]][j-1],由此可以用dp二维数组记忆所有节点的所有祖先。</p>
 <p>查询K级祖先的没看太懂。</p>
@@ -739,11 +739,11 @@ treeAncestor.getKthAncestor(6, 3);  // 返回 -1 因为不存在满足要求的�
     <span class="item-content">
       2020-07-31
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
-          (0c3097e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/6e089dcb52e1bed53e1c9fddb9ed69521cede3f7" title="Update Leetcode reviews">
+          (6e089dc)
         </a>
         
-          <br>Sync Leetcode Weekly Reviews
+          <br>Update Leetcode reviews
         
       
     </span>
@@ -762,6 +762,11 @@ treeAncestor.getKthAncestor(6, 3);  // 返回 -1 因为不存在满足要求的�
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          <a href="https://slkyrim.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a>
+          <a href="https://slkyrim.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
+          <a href="https://slkyrim.github.io/tags/lca/">LCA</a>
+          <a href="https://slkyrim.github.io/tags/%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">最近公共祖先</a>
+          <a href="https://slkyrim.github.io/tags/%E5%80%8D%E5%A2%9E%E6%B3%95/">倍增法</a>
           
         </div>
 
@@ -929,7 +934,7 @@ treeAncestor.getKthAncestor(6, 3);  // 返回 -1 因为不存在满足要求的�
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
 
 
 

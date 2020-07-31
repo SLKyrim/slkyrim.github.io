@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DFS on Single Long</title>
+    <link>https://slkyrim.github.io/tags/dfs/</link>
+    <description>Recent content in DFS on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 12:21:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/dfs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leetcode_20200531周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200531_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:21:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200531_weekly/</guid>
+      <description>目录 数组中两元素的最大乘积 切割后面积最大的蛋糕 重新规划路线 两个盒子中球的颜色数相同的概率 总结 数组中两元素的最大乘积 给你一个整数数组 nums，</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200524周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200524_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:20:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200524_weekly/</guid>
+      <description>目录 检查单词是否为句中其他单词的前缀 定长子串中元音的最大数目 二叉树中的伪回文路径 两个子序列的最大点积 总结 检查单词是否为句中其他单词的前缀 给一</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200503周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200503_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:17:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200503_weekly/</guid>
+      <description>目录 旅行终点站 是否所有1都至少相隔k个元素 绝对值不超过限制的最长连续子数组 有序矩阵中的第k个最小数组和 总结 旅行终点站 给你一份旅游线路图，该线</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200418双周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:14:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</guid>
+      <description>目录 目录 逐步求和得到正数的最小值 示例 我的思路 我的代码 和为 K 的最少斐波那契数字数目 示例 我的思路 我的代码 长度为 n 的开心字符串中字典序第 k 小的字符</description>
+    </item>
+    
+    <item>
+      <title>力扣杯2020春季全国编程大赛_个人赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_2020_spring/</link>
+      <pubDate>Fri, 31 Jul 2020 12:13:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_2020_spring/</guid>
+      <description>目录 拿硬币 传递信息 剧情触发事件 最小跳跃次数 二叉树任务调度 拿硬币 在数组coins中有n个数，每个数表示一堆硬币包含的硬币数。每次任选一堆，那种</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>石子游戏 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/%E7%9F%B3%E5%AD%90%E6%B8%B8%E6%88%8F/</link>
+    <description>Recent content in 石子游戏 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 12:26:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/%E7%9F%B3%E5%AD%90%E6%B8%B8%E6%88%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leetcode_20200711双周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200711_biweekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:26:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200711_biweekly/</guid>
+      <description>目录 转变日期格式 子数组和排序后的区间和 三次操作后最大值与最小值的最小差 石子游戏IV 总结 转变日期格式 给你一个字符串 date ，它的格式为 Day Month Year ，其中：</description>
+    </item>
+    
+  </channel>
+</rss>

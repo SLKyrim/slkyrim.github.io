@@ -64,16 +64,16 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200705_weekly/" />
 <meta property="article:published_time" content="2020-07-31T12:25:32+08:00" />
-<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="name" content="Leetcode_20200705周赛">
 <meta itemprop="description" content="目录 目录 判断能否形成等差数列 示例 思路1 代码1 所有蚂蚁掉下来前的最后一刻 示例 思路1 代码1 统计全1子矩形 示例 思路1 代码1 最多K次交换相邻数位后得">
 <meta itemprop="datePublished" content="2020-07-31T12:25:32+08:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
+<meta itemprop="dateModified" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="wordCount" content="2770">
 
 
 
-<meta itemprop="keywords" content="Leetcode," />
+<meta itemprop="keywords" content="Leetcode,数学,等差数列,模拟,智力题,矩阵,单调栈,Fenwich树,树状数组,RMQ,区间最值查询,字节跳动," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode_20200705周赛"/>
 <meta name="twitter:description" content="目录 目录 判断能否形成等差数列 示例 思路1 代码1 所有蚂蚁掉下来前的最后一刻 示例 思路1 代码1 统计全1子矩形 示例 思路1 代码1 最多K次交换相邻数位后得"/>
@@ -403,7 +403,7 @@
 如果一个数列中，任意相邻两项的差总等于同一个常数，那么这个数列就称为 等差数列 。 <br>
 如果可以重新排列数组形成等差数列，请返回 true ；否则，返回 false 。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/can-make-arithmetic-progression-from-sequence</p>
+链接：<a href="https://leetcode-cn.com/problems/can-make-arithmetic-progression-from-sequence">https://leetcode-cn.com/problems/can-make-arithmetic-progression-from-sequence</a></p>
 <h3 id="示例">示例</h3>
 <blockquote>
 <p>输入：arr = [3,5,1] <br>
@@ -439,7 +439,7 @@
 而当蚂蚁在某一时刻 t 到达木板的一端时，它立即从木板上掉下来。 <br>
 给你一个整数 n 和两个整数数组 left 以及 right 。两个数组分别标识向左或者向右移动的蚂蚁在 t = 0 时的位置。请你返回最后一只蚂蚁从木板上掉下来的时刻。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/last-moment-before-all-ants-fall-out-of-a-plank</p>
+链接：<a href="https://leetcode-cn.com/problems/last-moment-before-all-ants-fall-out-of-a-plank">https://leetcode-cn.com/problems/last-moment-before-all-ants-fall-out-of-a-plank</a></p>
 <h3 id="示例-1">示例</h3>
 <p><img src="https://assets.leetcode.com/uploads/2020/06/17/ants.jpg" alt=""></p>
 <blockquote>
@@ -453,7 +453,7 @@
 请注意，蚂蚁在木板上的最后时刻是 t = 4 秒，之后蚂蚁立即从木板上掉下来。（也就是说在 t = 4.0000000001 时，木板上没有蚂蚁）。</p>
 </blockquote>
 <h3 id="思路1-1">思路1</h3>
-<p>参考自：https://leetcode-cn.com/problems/last-moment-before-all-ants-fall-out-of-a-plank/solution/ma-yi-you-mei-de-pa-pa-pa-pa-by-imcover/</p>
+<p>参考自：<a href="https://leetcode-cn.com/problems/last-moment-before-all-ants-fall-out-of-a-plank/solution/ma-yi-you-mei-de-pa-pa-pa-pa-by-imcover/">https://leetcode-cn.com/problems/last-moment-before-all-ants-fall-out-of-a-plank/solution/ma-yi-you-mei-de-pa-pa-pa-pa-by-imcover/</a></p>
 <p>将蚂蚁碰撞调头看作是相互穿透（只不过蚂蚁间互换了身份）。如示例中从T=0到T=3，能看出和穿透的效果是一样的。</p>
 <h3 id="代码1-1">代码1</h3>
 <div class="highlight"><div class="chroma">
@@ -481,7 +481,7 @@
 </div><h2 id="统计全1子矩形">统计全1子矩形</h2>
 <p>给你一个只包含 0 和 1 的 rows * columns 矩阵 mat ，请你返回有多少个 子矩形 的元素全部都是 1 。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/count-submatrices-with-all-ones</p>
+链接：<a href="https://leetcode-cn.com/problems/count-submatrices-with-all-ones">https://leetcode-cn.com/problems/count-submatrices-with-all-ones</a></p>
 <h3 id="示例-2">示例</h3>
 <blockquote>
 <p>输入： <br>
@@ -552,7 +552,7 @@ mat =  <br>
 你可以交换这个整数相邻数位的数字 最多 k 次。<br>
 请你返回你能得到的最小整数，并以字符串形式返回。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits</p>
+链接：<a href="https://leetcode-cn.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits">https://leetcode-cn.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits</a></p>
 <h3 id="示例-3">示例</h3>
 <p><img src="https://assets.leetcode.com/uploads/2020/06/17/q4_1.jpg" alt=""></p>
 <blockquote>
@@ -592,7 +592,7 @@ mat =  <br>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="思路2">思路2</h3>
-<p>参考自：https://leetcode-cn.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits/solution/java-rmqfenwich-tree-onlgn-by-henrylee4/</p>
+<p>参考自：<a href="https://leetcode-cn.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits/solution/java-rmqfenwich-tree-onlgn-by-henrylee4/">https://leetcode-cn.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits/solution/java-rmqfenwich-tree-onlgn-by-henrylee4/</a></p>
 <p>基于一种叫Fenwich树的树状数组的数据结构的RMQ算法（区间最值查询），时间复杂度为O(nlogn)。</p>
 <h3 id="代码2">代码2</h3>
 <div class="highlight"><div class="chroma">
@@ -778,11 +778,11 @@ mat =  <br>
     <span class="item-content">
       2020-07-31
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
-          (0c3097e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/6e089dcb52e1bed53e1c9fddb9ed69521cede3f7" title="Update Leetcode reviews">
+          (6e089dc)
         </a>
         
-          <br>Sync Leetcode Weekly Reviews
+          <br>Update Leetcode reviews
         
       
     </span>
@@ -801,6 +801,17 @@ mat =  <br>
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          <a href="https://slkyrim.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+          <a href="https://slkyrim.github.io/tags/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/">等差数列</a>
+          <a href="https://slkyrim.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
+          <a href="https://slkyrim.github.io/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/">智力题</a>
+          <a href="https://slkyrim.github.io/tags/%E7%9F%A9%E9%98%B5/">矩阵</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a>
+          <a href="https://slkyrim.github.io/tags/fenwich%E6%A0%91/">Fenwich树</a>
+          <a href="https://slkyrim.github.io/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">树状数组</a>
+          <a href="https://slkyrim.github.io/tags/rmq/">RMQ</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8C%BA%E9%97%B4%E6%9C%80%E5%80%BC%E6%9F%A5%E8%AF%A2/">区间最值查询</a>
+          <a href="https://slkyrim.github.io/tags/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8/">字节跳动</a>
           
         </div>
 
@@ -968,7 +979,7 @@ mat =  <br>
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
 
 
 

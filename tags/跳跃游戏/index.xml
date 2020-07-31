@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>跳跃游戏 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/</link>
+    <description>Recent content in 跳跃游戏 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 12:13:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>力扣杯2020春季全国编程大赛_个人赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_2020_spring/</link>
+      <pubDate>Fri, 31 Jul 2020 12:13:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_2020_spring/</guid>
+      <description>目录 拿硬币 传递信息 剧情触发事件 最小跳跃次数 二叉树任务调度 拿硬币 在数组coins中有n个数，每个数表示一堆硬币包含的硬币数。每次任选一堆，那种</description>
+    </item>
+    
+  </channel>
+</rss>

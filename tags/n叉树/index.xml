@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>n叉树 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/n%E5%8F%89%E6%A0%91/</link>
+    <description>Recent content in n叉树 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 12:28:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/n%E5%8F%89%E6%A0%91/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leetcode_20200719周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200719_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:28:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200719_weekly/</guid>
+      <description>目录 换酒问题 子树中标签相同的节点数 最多的不重叠子字符串 找到最接近目标值的函数值 总结 换酒问题 小区便利店正在促销，用 numExchange 个空酒瓶可以兑换一瓶新酒。</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200510周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200510_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:18:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200510_weekly/</guid>
+      <description>目录 用栈操作构建数组 形成两个异或相等数组的三元组数目 收集树上所有苹果的最少时间 切披萨的方案数 总结 用栈操作构建数组 给你一个目标数组 target 和一个整数</description>
+    </item>
+    
+  </channel>
+</rss>

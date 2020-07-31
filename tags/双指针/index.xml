@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>双指针 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/</link>
+    <description>Recent content in 双指针 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 12:24:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leetcode_20200628周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200628_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:24:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200628_weekly/</guid>
+      <description>目录 目录 判断路径是否相交 示例 思路1 代码1 检查数组对是否可以被k整除 示例 思路1 代码1 思路2 代码2 满足条件的子序列数目 示例 思路1 代码1 满足不等式</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200524周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200524_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:20:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200524_weekly/</guid>
+      <description>目录 检查单词是否为句中其他单词的前缀 定长子串中元音的最大数目 二叉树中的伪回文路径 两个子序列的最大点积 总结 检查单词是否为句中其他单词的前缀 给一</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200503周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200503_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:17:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200503_weekly/</guid>
+      <description>目录 旅行终点站 是否所有1都至少相隔k个元素 绝对值不超过限制的最长连续子数组 有序矩阵中的第k个最小数组和 总结 旅行终点站 给你一份旅游线路图，该线</description>
+    </item>
+    
+  </channel>
+</rss>

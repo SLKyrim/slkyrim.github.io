@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BFS on Single Long</title>
+    <link>https://slkyrim.github.io/tags/bfs/</link>
+    <description>Recent content in BFS on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 12:28:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/bfs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leetcode_20200719周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200719_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:28:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200719_weekly/</guid>
+      <description>目录 换酒问题 子树中标签相同的节点数 最多的不重叠子字符串 找到最接近目标值的函数值 总结 换酒问题 小区便利店正在促销，用 numExchange 个空酒瓶可以兑换一瓶新酒。</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200712周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200712_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:27:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200712_weekly/</guid>
+      <description>目录 好数对的数目 仅含1的子串数 概率最大的路径 服务中心的最佳位置 总结 好数对的数目 给你一个整数数组 nums 。如果一组数字 (i,j) 满足 nums[i] == nums[j] 且 i &amp;lt; j ，就可以认</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200627双周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200627_biweekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:23:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200627_biweekly/</guid>
+      <description>目录 目录 去掉最低工资和最高工资后的工资平均值 示例 思路1 代码1 n的第k个因子 示例 思路1 代码1 删掉一个元素以后全为1的最长子数组 示例 思路1 代码1</description>
+    </item>
+    
+  </channel>
+</rss>

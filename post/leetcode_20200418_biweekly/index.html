@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Single Long" />
-  <meta name="description" content="目录 5372. 逐步求和得到正数的最小值 5373. 和为 K 的最少斐波那契数字数目 5374. 长度为 n 的开心字符串中字典序第 k 小的字符串 5375. 恢复数组 总结 5372. 逐步求和得到正数的最" />
+  <meta name="description" content="目录 目录 逐步求和得到正数的最小值 示例 我的思路 我的代码 和为 K 的最少斐波那契数字数目 示例 我的思路 我的代码 长度为 n 的开心字符串中字典序第 k 小的字符" />
 
   <meta name="keywords" content="Single Long, Blog" />
 
@@ -60,23 +60,23 @@
 
 
 <meta property="og:title" content="Leetcode_20200418双周赛" />
-<meta property="og:description" content="目录 5372. 逐步求和得到正数的最小值 5373. 和为 K 的最少斐波那契数字数目 5374. 长度为 n 的开心字符串中字典序第 k 小的字符串 5375. 恢复数组 总结 5372. 逐步求和得到正数的最" />
+<meta property="og:description" content="目录 目录 逐步求和得到正数的最小值 示例 我的思路 我的代码 和为 K 的最少斐波那契数字数目 示例 我的思路 我的代码 长度为 n 的开心字符串中字典序第 k 小的字符" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200418_biweekly/" />
 <meta property="article:published_time" content="2020-07-31T12:14:32+08:00" />
-<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="name" content="Leetcode_20200418双周赛">
-<meta itemprop="description" content="目录 5372. 逐步求和得到正数的最小值 5373. 和为 K 的最少斐波那契数字数目 5374. 长度为 n 的开心字符串中字典序第 k 小的字符串 5375. 恢复数组 总结 5372. 逐步求和得到正数的最">
+<meta itemprop="description" content="目录 目录 逐步求和得到正数的最小值 示例 我的思路 我的代码 和为 K 的最少斐波那契数字数目 示例 我的思路 我的代码 长度为 n 的开心字符串中字典序第 k 小的字符">
 <meta itemprop="datePublished" content="2020-07-31T12:14:32+08:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
-<meta itemprop="wordCount" content="2796">
+<meta itemprop="dateModified" content="2020-07-31T16:08:41+08:00" />
+<meta itemprop="wordCount" content="2931">
 
 
 
-<meta itemprop="keywords" content="Leetcode," />
+<meta itemprop="keywords" content="Leetcode,前缀和,贪心,二分查找,动态规划,DFS,回溯," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode_20200418双周赛"/>
-<meta name="twitter:description" content="目录 5372. 逐步求和得到正数的最小值 5373. 和为 K 的最少斐波那契数字数目 5374. 长度为 n 的开心字符串中字典序第 k 小的字符串 5375. 恢复数组 总结 5372. 逐步求和得到正数的最"/>
+<meta name="twitter:description" content="目录 目录 逐步求和得到正数的最小值 示例 我的思路 我的代码 和为 K 的最少斐波那契数字数目 示例 我的思路 我的代码 长度为 n 的开心字符串中字典序第 k 小的字符"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -306,7 +306,7 @@
             <a href="https://slkyrim.github.io/categories/leetcode%E6%AF%94%E8%B5%9B/"> Leetcode比赛 </a>
             
           </div>
-        <span class="more-meta"> 约 2796 字 </span>
+        <span class="more-meta"> 约 2931 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
 
         
@@ -324,44 +324,36 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#目录">目录</a>
-      <ul>
-        <li><a href="#5372-逐步求和得到正数的最小值">5372. 逐步求和得到正数的最小值</a></li>
-        <li><a href="#5373-和为-k-的最少斐波那契数字数目">5373. 和为 K 的最少斐波那契数字数目</a></li>
-        <li><a href="#5374-长度为-n-的开心字符串中字典序第-k-小的字符串">5374. 长度为 n 的开心字符串中字典序第 k 小的字符串</a></li>
-        <li><a href="#5375-恢复数组">5375. 恢复数组</a></li>
-        <li><a href="#总结">总结</a></li>
-      </ul>
-    </li>
-    <li><a href="#5372-逐步求和得到正数的最小值-1">5372. 逐步求和得到正数的最小值</a>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#逐步求和得到正数的最小值">逐步求和得到正数的最小值</a>
       <ul>
         <li><a href="#示例">示例</a></li>
         <li><a href="#我的思路">我的思路</a></li>
         <li><a href="#我的代码">我的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5373-和为-k-的最少斐波那契数字数目-1">5373. 和为 K 的最少斐波那契数字数目</a>
+    <li><a href="#和为-k-的最少斐波那契数字数目">和为 K 的最少斐波那契数字数目</a>
       <ul>
         <li><a href="#示例-1">示例</a></li>
         <li><a href="#我的思路-1">我的思路</a></li>
         <li><a href="#我的代码-1">我的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5374-长度为-n-的开心字符串中字典序第-k-小的字符串-1">5374. 长度为 n 的开心字符串中字典序第 k 小的字符串</a>
+    <li><a href="#长度为-n-的开心字符串中字典序第-k-小的字符串">长度为 n 的开心字符串中字典序第 k 小的字符串</a>
       <ul>
         <li><a href="#示例-2">示例</a></li>
         <li><a href="#别人的思路">别人的思路</a></li>
         <li><a href="#别人的代码">别人的代码</a></li>
       </ul>
     </li>
-    <li><a href="#5375-恢复数组-1">5375. 恢复数组</a>
+    <li><a href="#恢复数组">恢复数组</a>
       <ul>
         <li><a href="#示例-3">示例</a></li>
         <li><a href="#别人的思路-1">别人的思路</a></li>
         <li><a href="#别人的代码-1">别人的代码</a></li>
       </ul>
     </li>
-    <li><a href="#总结-1">总结</a></li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
   </div>
@@ -370,19 +362,44 @@
     
     <div class="post-content">
       <h2 id="目录">目录</h2>
-<blockquote>
-<h3 id="5372-逐步求和得到正数的最小值">5372. 逐步求和得到正数的最小值</h3>
-<h3 id="5373-和为-k-的最少斐波那契数字数目">5373. 和为 K 的最少斐波那契数字数目</h3>
-<h3 id="5374-长度为-n-的开心字符串中字典序第-k-小的字符串">5374. 长度为 n 的开心字符串中字典序第 k 小的字符串</h3>
-<h3 id="5375-恢复数组">5375. 恢复数组</h3>
-<h3 id="总结">总结</h3>
-</blockquote>
-<h2 id="5372-逐步求和得到正数的最小值-1">5372. 逐步求和得到正数的最小值</h2>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E9%80%90%E6%AD%A5%E6%B1%82%E5%92%8C%E5%BE%97%E5%88%B0%E6%AD%A3%E6%95%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC">逐步求和得到正数的最小值</a>
+<ul>
+<li><a href="#%E7%A4%BA%E4%BE%8B">示例</a></li>
+<li><a href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%B7%AF">我的思路</a></li>
+<li><a href="#%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81">我的代码</a></li>
+</ul>
+</li>
+<li><a href="#%E5%92%8C%E4%B8%BA-k-%E7%9A%84%E6%9C%80%E5%B0%91%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%AD%97%E6%95%B0%E7%9B%AE">和为 K 的最少斐波那契数字数目</a>
+<ul>
+<li><a href="#%E7%A4%BA%E4%BE%8B-1">示例</a></li>
+<li><a href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%B7%AF-1">我的思路</a></li>
+<li><a href="#%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81-1">我的代码</a></li>
+</ul>
+</li>
+<li><a href="#%E9%95%BF%E5%BA%A6%E4%B8%BA-n-%E7%9A%84%E5%BC%80%E5%BF%83%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%AD%97%E5%85%B8%E5%BA%8F%E7%AC%AC-k-%E5%B0%8F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2">长度为 n 的开心字符串中字典序第 k 小的字符串</a>
+<ul>
+<li><a href="#%E7%A4%BA%E4%BE%8B-2">示例</a></li>
+<li><a href="#%E5%88%AB%E4%BA%BA%E7%9A%84%E6%80%9D%E8%B7%AF">别人的思路</a></li>
+<li><a href="#%E5%88%AB%E4%BA%BA%E7%9A%84%E4%BB%A3%E7%A0%81">别人的代码</a></li>
+</ul>
+</li>
+<li><a href="#%E6%81%A2%E5%A4%8D%E6%95%B0%E7%BB%84">恢复数组</a>
+<ul>
+<li><a href="#%E7%A4%BA%E4%BE%8B-3">示例</a></li>
+<li><a href="#%E5%88%AB%E4%BA%BA%E7%9A%84%E6%80%9D%E8%B7%AF-1">别人的思路</a></li>
+<li><a href="#%E5%88%AB%E4%BA%BA%E7%9A%84%E4%BB%A3%E7%A0%81-1">别人的代码</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+<h2 id="逐步求和得到正数的最小值">逐步求和得到正数的最小值</h2>
 <p>给你一个整数数组 nums 。你可以选定任意的 正数 startValue 作为初始值。<br>
 你需要从左到右遍历 nums 数组，并将 startValue 依次累加上 nums 数组中的值。<br>
 请你在确保累加和始终大于等于 1 的前提下，选出一个最小的 正数 作为 startValue 。</p>
 <p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/minimum-value-to-get-positive-step-by-step-sum</p>
+链接：<a href="https://leetcode-cn.com/problems/minimum-value-to-get-positive-step-by-step-sum">https://leetcode-cn.com/problems/minimum-value-to-get-positive-step-by-step-sum</a></p>
 <h3 id="示例">示例</h3>
 <blockquote>
 <p>输入：nums = [-3,2,-3,4,2]<br>
@@ -395,18 +412,33 @@
 所求即 1和 <strong>tmp</strong> 的差值。<br>
 这里最初不小心被罚时了，未考虑 <strong>tmp</strong> 为正的情况。</p>
 <h3 id="我的代码">我的代码</h3>
-<pre><code>class Solution:
-    def minStartValue(self, nums: List[int]) -&gt; int:
-        tmp = float('inf')
-        cur = 0
-        for num in nums:
-            cur += num
-            if tmp &gt; cur:
-                tmp = cur
-        tmp = min(tmp, 0)
-        return 1 - tmp
-</code></pre>
-<h2 id="5373-和为-k-的最少斐波那契数字数目-1">5373. 和为 K 的最少斐波那契数字数目</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">minStartValue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="n">cur</span> <span class="o">+=</span> <span class="n">num</span>
+            <span class="k">if</span> <span class="n">tmp</span> <span class="o">&gt;</span> <span class="n">cur</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">cur</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">tmp</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="和为-k-的最少斐波那契数字数目">和为 K 的最少斐波那契数字数目</h2>
 <p>给你数字 k ，请你返回和为 k 的斐波那契数字的最少数目，其中，每个斐波那契数字都可以被使用多次。 <br>
 斐波那契数字定义为：</p>
 <ul>
@@ -416,7 +448,7 @@
 数据保证对于给定的 k ，一定能找到可行解。</li>
 </ul>
 <p>来源：力扣（LeetCode）  <br>
-链接：https://leetcode-cn.com/problems/find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k</p>
+链接：<a href="https://leetcode-cn.com/problems/find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k">https://leetcode-cn.com/problems/find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k</a></p>
 <h3 id="示例-1">示例</h3>
 <blockquote>
 <p>输入：k = 7 <br>
@@ -433,51 +465,99 @@
 <strong>cur</strong> 前的斐波那契数列 <strong>dp</strong> 可用于累加得 k。 <br>
 这里涉及 <strong>贪心</strong> 。用 <strong>二分查找</strong> 从数列 <strong>dp</strong> 中找第一个小于等于 k 的数的下标索引，k 减去该数得到残余待累加部分。while循环重复此过程直到残余部分在 <strong>dp</strong> 中或残余部分为0。</p>
 <h3 id="我的代码-1">我的代码</h3>
-<pre><code>class Solution:
-    def findMinFibonacciNumbers(self, k: int) -&gt; int:
-        dp = []
-        dp.append(1)
-        dp.append(1)
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">findMinFibonacciNumbers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">dp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">dp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         
-        while True:
-            cur = dp[-1] + dp[-2]
-            if cur == k:
-                return 1
-            if cur &gt; k:
-                break
-            dp.append(cur)
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">cur</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">cur</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">cur</span> <span class="o">&gt;</span> <span class="n">k</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">dp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cur</span><span class="p">)</span>
         
-        def biSearch(target, arr):
-            &quot;&quot;&quot;
-            在升序序列arr中找到第一个小于等于target的数的下标
-            &quot;&quot;&quot;
-            left, right = 0, len(arr) - 1
-            ind = -1
-            while left &lt;= right:
-                mid = left + (right - left) // 2
-                if arr[mid] == target:
-                    return mid
-                if arr[mid] &lt; target:
-                    ind = mid
-                    left = mid + 1           
-                else:
-                    right = mid - 1
-            return ind
+        <span class="k">def</span> <span class="nf">biSearch</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+            <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">            在升序序列arr中找到第一个小于等于target的数的下标
+</span><span class="s2">            &#34;&#34;&#34;</span>
+            <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">ind</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">:</span>
+                <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="p">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+                <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">mid</span>
+                <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+                    <span class="n">ind</span> <span class="o">=</span> <span class="n">mid</span>
+                    <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>           
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">ind</span>
         
-        k -= dp[-1]
-        res = 1
-        while k &gt; 0:
-            try:
-                if dp.index(k) &gt;= 0:
-                    return res + 1
-            except:
-                ind = biSearch(k, dp)
-                res += 1
-                k -= dp[ind]  
+        <span class="n">k</span> <span class="o">-=</span> <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">dp</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">res</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">ind</span> <span class="o">=</span> <span class="n">biSearch</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">k</span> <span class="o">-=</span> <span class="n">dp</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>  
         
-        return res
-</code></pre>
-<h2 id="5374-长度为-n-的开心字符串中字典序第-k-小的字符串-1">5374. 长度为 n 的开心字符串中字典序第 k 小的字符串</h2>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="长度为-n-的开心字符串中字典序第-k-小的字符串">长度为 n 的开心字符串中字典序第 k 小的字符串</h2>
 <p>一个 「开心字符串」定义为：</p>
 <ul>
 <li>仅包含小写字母 [&lsquo;a&rsquo;, &lsquo;b&rsquo;, &lsquo;c&rsquo;].</li>
@@ -487,7 +567,7 @@
 给你两个整数 n 和 k ，你需要将长度为 n 的所有开心字符串按字典序排序。 <br>
 请你返回排序后的第 k 个开心字符串，如果长度为 n 的开心字符串少于 k 个，那么请你返回 空字符串 。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n</p>
+链接：<a href="https://leetcode-cn.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n">https://leetcode-cn.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n</a></p>
 <h3 id="示例-2">示例</h3>
 <blockquote>
 <p>输入：n = 3, k = 9<br>
@@ -504,31 +584,59 @@
 先搜索出的字符串 <strong>cur</strong> 长度满足要求的所有开心字符串。<br>
 如果 <strong>cur</strong> 长度未满足要求则从 字母表[&lsquo;a&rsquo;, &lsquo;b&rsquo;, &lsquo;c&rsquo;] 中选。这里要注意有两个判断条件。一个是 <strong>cur</strong> 长度为0时，直接按字典序加上字母表中的字符进行DFS，另一个是 当前新加字符不能与 <strong>cur</strong> 的最后一个字符相同。</p>
 <h3 id="别人的代码">别人的代码</h3>
-<pre><code>class Solution:
-    def getHappyString(self, n: int, k: int) -&gt; str:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">getHappyString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 
-        self.res = [] # 存储开心字符串
+        <span class="bp">self</span><span class="o">.</span><span class="n">res</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 存储开心字符串</span>
 
-        def dfs(cur):
-            &quot;&quot;&quot;
-            cur: 当前字符串
-            &quot;&quot;&quot;
-            if len(cur) == n:
-                self.res.append(cur)
-                return
+        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">cur</span><span class="p">):</span>
+            <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">            cur: 当前字符串
+</span><span class="s2">            &#34;&#34;&#34;</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cur</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cur</span><span class="p">)</span>
+                <span class="k">return</span>
                                 
-            for ch in ['a', 'b', 'c']:
-                if len(cur) == 0:
-                    dfs(cur + ch)
-                elif ch != cur[-1]:
-                    dfs(cur + ch)
+            <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cur</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">dfs</span><span class="p">(</span><span class="n">cur</span> <span class="o">+</span> <span class="n">ch</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">ch</span> <span class="o">!=</span> <span class="n">cur</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="n">dfs</span><span class="p">(</span><span class="n">cur</span> <span class="o">+</span> <span class="n">ch</span><span class="p">)</span>
 
-        dfs(&quot;&quot;)
-        if k &gt; len(self.res):
-            return &quot;&quot;
-        return self.res[k - 1] 
-</code></pre>
-<h2 id="5375-恢复数组-1">5375. 恢复数组</h2>
+        <span class="n">dfs</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&#34;&#34;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="恢复数组">恢复数组</h2>
 <p>某个程序本来应该输出一个整数数组。但是这个程序忘记输出空格了以致输出了一个数字字符串，我们所知道的信息只有：数组中所有整数都在 [1, k] 之间，且数组中的数字都没有前导 0 。</p>
 <p>给你字符串 s 和整数 k 。可能会有多种不同的数组恢复结果。</p>
 <p>按照上述程序，请你返回所有可能输出字符串 s 的数组方案数。</p>
@@ -539,7 +647,7 @@ s 只包含数字且不包含前导 0<br>
 1 &lt;= k &lt;= 10^9.</p>
 </blockquote>
 <p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/restore-the-array</p>
+链接：<a href="https://leetcode-cn.com/problems/restore-the-array">https://leetcode-cn.com/problems/restore-the-array</a></p>
 <h3 id="示例-3">示例</h3>
 <blockquote>
 <p>输入：s = &ldquo;1317&rdquo;, k = 2000<br>
@@ -570,29 +678,55 @@ dp[i]表示从 s 下标索引为 i 的字符开始到 s 最后一个字符结束
 </ul>
 <p>至于边界dp[10]为何要取1，暂时还想不到好的解释来说明。</p>
 <h3 id="别人的代码-1">别人的代码</h3>
-<pre><code>class Solution:
-    def numberOfArrays(self, s: str, k: int) -&gt; int:
-        n = len(s)
-        # 开多一个位置，将末位设为1，避免额外的边界判断
-        dp = [0] * (n + 1) 
-        dp[-1] = 1
-        for i in range(n - 1, -1, -1):
-            if s[i] == '0':
-                # 前导0是不允许的
-                dp[i] = 0
-                continue
-            j = 1
-            while i + j &lt;= n and j &lt;= 10:
-                cur = s[i:i+j]
-                if int(cur) &gt; k:
-                    # 若大于k，则再加数必然更大，故跳出while循环
-                    break
-                # 在运行过程中取模，避免dp中保存过大的数造成较大的时间和空间损失
-                dp[i] = (dp[i] + dp[i + j]) % (10**9 + 7)
-                j += 1
-        return dp[0] 
-</code></pre>
-<h2 id="总结-1">总结</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">numberOfArrays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="c1"># 开多一个位置，将末位设为1，避免额外的边界判断</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> 
+        <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
+                <span class="c1"># 前导0是不允许的</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">continue</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">while</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="n">cur</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">cur</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">k</span><span class="p">:</span>
+                    <span class="c1"># 若大于k，则再加数必然更大，故跳出while循环</span>
+                    <span class="k">break</span>
+                <span class="c1"># 在运行过程中取模，避免dp中保存过大的数造成较大的时间和空间损失</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">])</span> <span class="o">%</span> <span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span>
+                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
 <p>仅AC前两道题，排位956/1898。<br>
 还是死在第三题 <strong>5374. 长度为 n 的开心字符串中字典序第 k 小的字符串</strong> 的DFS回溯和第四题 <strong>5375. 恢复数组</strong> 的DP。</p>
 
@@ -610,11 +744,11 @@ dp[i]表示从 s 下标索引为 i 的字符开始到 s 最后一个字符结束
     <span class="item-content">
       2020-07-31
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
-          (0c3097e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/6e089dcb52e1bed53e1c9fddb9ed69521cede3f7" title="Update Leetcode reviews">
+          (6e089dc)
         </a>
         
-          <br>Sync Leetcode Weekly Reviews
+          <br>Update Leetcode reviews
         
       
     </span>
@@ -633,6 +767,12 @@ dp[i]表示从 s 下标索引为 i 的字符开始到 s 最后一个字符结束
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          <a href="https://slkyrim.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a>
+          <a href="https://slkyrim.github.io/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
+          <a href="https://slkyrim.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+          <a href="https://slkyrim.github.io/tags/dfs/">DFS</a>
+          <a href="https://slkyrim.github.io/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>
           
         </div>
 
@@ -800,7 +940,7 @@ dp[i]表示从 s 下标索引为 i 的字符开始到 s 最后一个字符结束
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
 
 
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LCA on Single Long</title>
+    <link>https://slkyrim.github.io/tags/lca/</link>
+    <description>Recent content in LCA on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 12:22:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/lca/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leetcode_20200614周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200614_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:22:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200614_weekly/</guid>
+      <description>目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第k个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式</description>
+    </item>
+    
+  </channel>
+</rss>

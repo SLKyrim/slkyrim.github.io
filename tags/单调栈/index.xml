@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>单调栈 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/</link>
+    <description>Recent content in 单调栈 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 12:25:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leetcode_20200705周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200705_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:25:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200705_weekly/</guid>
+      <description>目录 目录 判断能否形成等差数列 示例 思路1 代码1 所有蚂蚁掉下来前的最后一刻 示例 思路1 代码1 统计全1子矩形 示例 思路1 代码1 最多K次交换相邻数位后得</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200628周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200628_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:24:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200628_weekly/</guid>
+      <description>目录 目录 判断路径是否相交 示例 思路1 代码1 检查数组对是否可以被k整除 示例 思路1 代码1 思路2 代码2 满足条件的子序列数目 示例 思路1 代码1 满足不等式</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200503周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200503_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:17:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200503_weekly/</guid>
+      <description>目录 旅行终点站 是否所有1都至少相隔k个元素 绝对值不超过限制的最长连续子数组 有序矩阵中的第k个最小数组和 总结 旅行终点站 给你一份旅游线路图，该线</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_20200426周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200426_weekly/</link>
+      <pubDate>Fri, 31 Jul 2020 12:16:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200426_weekly/</guid>
+      <description>目录 分割字符串的最大得分 可获得的最大点数 对角线遍历ii 带限制的子序列和 总结 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请你计算并</description>
+    </item>
+    
+  </channel>
+</rss>

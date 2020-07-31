@@ -64,16 +64,16 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200531_weekly/" />
 <meta property="article:published_time" content="2020-07-31T12:21:32+08:00" />
-<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="name" content="Leetcode_20200531周赛">
 <meta itemprop="description" content="目录 数组中两元素的最大乘积 切割后面积最大的蛋糕 重新规划路线 两个盒子中球的颜色数相同的概率 总结 数组中两元素的最大乘积 给你一个整数数组 nums，">
 <meta itemprop="datePublished" content="2020-07-31T12:21:32+08:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
-<meta itemprop="wordCount" content="3473">
+<meta itemprop="dateModified" content="2020-07-31T16:08:41+08:00" />
+<meta itemprop="wordCount" content="3355">
 
 
 
-<meta itemprop="keywords" content="Leetcode," />
+<meta itemprop="keywords" content="Leetcode,排序,有向图,记忆化搜索,空间换时间,DFS,回溯," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode_20200531周赛"/>
 <meta name="twitter:description" content="目录 数组中两元素的最大乘积 切割后面积最大的蛋糕 重新规划路线 两个盒子中球的颜色数相同的概率 总结 数组中两元素的最大乘积 给你一个整数数组 nums，"/>
@@ -306,7 +306,7 @@
             <a href="https://slkyrim.github.io/categories/leetcode%E6%AF%94%E8%B5%9B/"> Leetcode比赛 </a>
             
           </div>
-        <span class="more-meta"> 约 3473 字 </span>
+        <span class="more-meta"> 约 3355 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
 
         
@@ -377,7 +377,7 @@
 <p>给你一个整数数组 nums，请你选择数组的两个不同下标 i 和 j，使 (nums[i]-1)*(nums[j]-1) 取得最大值。 <br>
 请你计算并返回该式的最大值。</p>
 <p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/maximum-product-of-two-elements-in-an-array</p>
+链接：<a href="https://leetcode-cn.com/problems/maximum-product-of-two-elements-in-an-array">https://leetcode-cn.com/problems/maximum-product-of-two-elements-in-an-array</a></p>
 <h3 id="示例">示例</h3>
 <blockquote>
 <p>输入：nums = [3,4,5,2]<br>
@@ -432,7 +432,7 @@
 <p>矩形蛋糕的高度为 h 且宽度为 w，给你两个整数数组 horizontalCuts 和 verticalCuts，其中 horizontalCuts[i] 是从矩形蛋糕顶部到第  i 个水平切口的距离，类似地， verticalCuts[j] 是从矩形蛋糕的左侧到第 j 个竖直切口的距离。</p>
 <p>请你按数组 horizontalCuts 和 verticalCuts 中提供的水平和竖直位置切割后，请你找出 面积最大 的那份蛋糕，并返回其 面积 。由于答案可能是一个很大的数字，因此需要将结果对 10^9 + 7 取余后返回。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts</p>
+链接：<a href="https://leetcode-cn.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts">https://leetcode-cn.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts</a></p>
 <h3 id="示例-1">示例</h3>
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/30/leetcode_max_area_2.png" alt=""></p>
 <blockquote>
@@ -440,8 +440,6 @@
 输出：4  <br>
 解释：上图所示的矩阵蛋糕中，红色线表示水平和竖直方向上的切口。切割蛋糕后，绿色的那份蛋糕面积最大。</p>
 </blockquote>
-<p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts</p>
 <h3 id="思路1-1">思路1</h3>
 <p>分别求水平切和竖直切间隔最大的两切间隔，然后做乘法即可。  <br>
 需要先对两种切法进行排序。O(nlogn)</p>
@@ -481,7 +479,7 @@
 请你帮助重新规划路线方向，使每个城市都可以访问城市 0 。返回需要变更方向的最小路线数。  <br>
 题目数据 保证 每个城市在重新规划路线方向后都能到达城市 0 。</p>
 <p>来源：力扣（LeetCode）    <br>
-链接：https://leetcode-cn.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero</p>
+链接：<a href="https://leetcode-cn.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero">https://leetcode-cn.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero</a></p>
 <h3 id="示例-2">示例</h3>
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/30/sample_1_1819.png" alt=""></p>
 <blockquote>
@@ -587,7 +585,7 @@
 注意：这两个盒子是不同的。例如，两个球颜色分别为 a 和 b，若盒子分别为 [] 和 ()，那么 [a] (b) 和 [b] (a) 这两种分配方式是不同的。<br>
 请计算「两个盒子中球的颜色数相同」的情况的概率。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls</p>
+链接：<a href="https://leetcode-cn.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls">https://leetcode-cn.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls</a></p>
 <h3 id="示例-3">示例</h3>
 <blockquote>
 <p>输入：balls = [2,1,1] <br>
@@ -602,7 +600,7 @@
 <h3 id="思路1-3">思路1</h3>
 <p>DFS+回溯。  <br>
 统计满足两盒平分球的所有可能数self.all，然后统计满足[两盒中球颜色数相同]条件的数量self.good。最后做除法得概率。</p>
-<p>参考自：https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls/discuss/661723/Struggling-with-probability-problems-Read-this.</p>
+<p>参考自：<a href="https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls/discuss/661723/Struggling-with-probability-problems-Read-this">https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls/discuss/661723/Struggling-with-probability-problems-Read-this</a></p>
 <h3 id="代码1-3">代码1</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -750,11 +748,11 @@
     <span class="item-content">
       2020-07-31
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
-          (0c3097e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/6e089dcb52e1bed53e1c9fddb9ed69521cede3f7" title="Update Leetcode reviews">
+          (6e089dc)
         </a>
         
-          <br>Sync Leetcode Weekly Reviews
+          <br>Update Leetcode reviews
         
       
     </span>
@@ -773,6 +771,12 @@
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          <a href="https://slkyrim.github.io/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+          <a href="https://slkyrim.github.io/tags/%E6%9C%89%E5%90%91%E5%9B%BE/">有向图</a>
+          <a href="https://slkyrim.github.io/tags/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/">记忆化搜索</a>
+          <a href="https://slkyrim.github.io/tags/%E7%A9%BA%E9%97%B4%E6%8D%A2%E6%97%B6%E9%97%B4/">空间换时间</a>
+          <a href="https://slkyrim.github.io/tags/dfs/">DFS</a>
+          <a href="https://slkyrim.github.io/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>
           
         </div>
 
@@ -940,7 +944,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
 
 
 

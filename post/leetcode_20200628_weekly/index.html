@@ -64,16 +64,16 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200628_weekly/" />
 <meta property="article:published_time" content="2020-07-31T12:24:32+08:00" />
-<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="name" content="Leetcode_20200628周赛">
 <meta itemprop="description" content="目录 目录 判断路径是否相交 示例 思路1 代码1 检查数组对是否可以被k整除 示例 思路1 代码1 思路2 代码2 满足条件的子序列数目 示例 思路1 代码1 满足不等式">
 <meta itemprop="datePublished" content="2020-07-31T12:24:32+08:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
+<meta itemprop="dateModified" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="wordCount" content="2795">
 
 
 
-<meta itemprop="keywords" content="Leetcode," />
+<meta itemprop="keywords" content="Leetcode,数组,数学,双指针,双端队列,单调栈," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode_20200628周赛"/>
 <meta name="twitter:description" content="目录 目录 判断路径是否相交 示例 思路1 代码1 检查数组对是否可以被k整除 示例 思路1 代码1 思路2 代码2 满足条件的子序列数目 示例 思路1 代码1 满足不等式"/>
@@ -403,7 +403,7 @@
 机器人从二维平面上的原点 (0, 0) 处开始出发，按 path 所指示的路径行走。<br>
 如果路径在任何位置上出现相交的情况，也就是走到之前已经走过的位置，请返回 True ；否则，返回 False 。</p>
 <p>来源：力扣（LeetCode）<br>
-链接：https://leetcode-cn.com/problems/path-crossing</p>
+链接：<a href="https://leetcode-cn.com/problems/path-crossing">https://leetcode-cn.com/problems/path-crossing</a></p>
 <h3 id="示例">示例</h3>
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/28/screen-shot-2020-06-10-at-123929-pm.png" alt=""></p>
 <blockquote>
@@ -454,7 +454,7 @@
 现在需要把数组恰好分成 n / 2 对，以使每对数字的和都能够被 k 整除。<br>
 如果存在这样的分法，请返回 True ；否则，返回 False 。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/check-if-array-pairs-are-divisible-by-k</p>
+链接：<a href="https://leetcode-cn.com/problems/check-if-array-pairs-are-divisible-by-k">https://leetcode-cn.com/problems/check-if-array-pairs-are-divisible-by-k</a></p>
 <h3 id="示例-1">示例</h3>
 <blockquote>
 <p>输入：arr = [1,2,3,4,5,10,6,7,8,9], k = 5<br>
@@ -510,7 +510,7 @@
 请你统计并返回 nums 中能满足其最小元素与最大元素的 和 小于或等于 target 的 非空 子序列的数目。 <br>
 由于答案可能很大，请将结果对 10^9 + 7 取余后返回。</p>
 <p>来源：力扣（LeetCode）  <br>
-链接：https://leetcode-cn.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition</p>
+链接：<a href="">https://leetcode-cn.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition</a></p>
 <h3 id="示例-2">示例</h3>
 <blockquote>
 <p>输入：nums = [3,5,6,7], target = 9<br>
@@ -522,7 +522,7 @@
 [3,6] -&gt; (3 + 6 &lt;= 9)</p>
 </blockquote>
 <h3 id="思路1-2">思路1</h3>
-<p>参考自：https://leetcode-cn.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/solution/python-pai-xu-shuang-zhi-zhen-by-irruma/</p>
+<p>参考自：<a href="https://leetcode-cn.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/solution/python-pai-xu-shuang-zhi-zhen-by-irruma/">https://leetcode-cn.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/solution/python-pai-xu-shuang-zhi-zhen-by-irruma/</a></p>
 <p>先对数组排序，然后用双指针指向数组头尾。<br>
 都双指针范围内的数的最大最小值满足条件时，则双指针范围内包含最小值的子集都可以满足条件，故求该范围内包含最小值的子集个数即可。<br>
 首先需要知道一个包含n个数的子集个数为2^n（包括空集）。设双指针范围内的数的个数为n,去掉最小值后的n-1个数的子集个数为2^(n-1)。故每个满足条件的双指针范围[left, right]中满足条件的子集个数为2^((right-left+1)-1)。<br>
@@ -569,7 +569,7 @@
 <p>请你找出 yi + yj + |xi - xj| 的 最大值，其中 |xi - xj| &lt;= k 且 1 &lt;= i &lt; j &lt;= points.length。</p>
 <p>题目测试数据保证至少存在一对能够满足 |xi - xj| &lt;= k 的点。</p>
 <p>来源：力扣（LeetCode） <br>
-链接：https://leetcode-cn.com/problems/max-value-of-equation</p>
+链接：<a href="https://leetcode-cn.com/problems/max-value-of-equation">https://leetcode-cn.com/problems/max-value-of-equation</a></p>
 <h3 id="示例-3">示例</h3>
 <blockquote>
 <p>输入：points = [[1,3],[2,0],[5,10],[6,-10]], k = 1<br>
@@ -578,7 +578,7 @@
 没有其他满足条件的点，所以返回 4 和 1 中最大的那个。</p>
 </blockquote>
 <h3 id="思路1-3">思路1</h3>
-<p>参考自：https://leetcode-cn.com/problems/max-value-of-equation/solution/dan-diao-dui-lie-by-acw_wangdh15/</p>
+<p>参考自：<a href="https://leetcode-cn.com/problems/max-value-of-equation/solution/dan-diao-dui-lie-by-acw_wangdh15/%5D">https://leetcode-cn.com/problems/max-value-of-equation/solution/dan-diao-dui-lie-by-acw_wangdh15/</a></p>
 <p>首先将yi+yj+abs(xi-xj)转换为(yj-xj)+(xi+yi)，即在满足xi-xj &lt;= k的情况下找最大的yj-xj。</p>
 <p>用双端队列实现一个单调栈，第一个while循环队首保留满足xi-xj &lt;= k最远的点(xi, yi)，并用此点更新res；第二个while循环时典型的单调栈操作，保证新入栈的点的yi-xi值最大。</p>
 <h3 id="代码1-3">代码1</h3>
@@ -644,11 +644,11 @@
     <span class="item-content">
       2020-07-31
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
-          (0c3097e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/6e089dcb52e1bed53e1c9fddb9ed69521cede3f7" title="Update Leetcode reviews">
+          (6e089dc)
         </a>
         
-          <br>Sync Leetcode Weekly Reviews
+          <br>Update Leetcode reviews
         
       
     </span>
@@ -667,6 +667,11 @@
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          <a href="https://slkyrim.github.io/tags/%E6%95%B0%E7%BB%84/">数组</a>
+          <a href="https://slkyrim.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/">双端队列</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a>
           
         </div>
 
@@ -834,7 +839,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
 
 
 

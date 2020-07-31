@@ -64,16 +64,16 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/leetcode_20200719_weekly/" />
 <meta property="article:published_time" content="2020-07-31T12:28:32+08:00" />
-<meta property="article:modified_time" content="2020-07-31T12:48:40+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="name" content="Leetcode_20200719周赛">
 <meta itemprop="description" content="目录 换酒问题 子树中标签相同的节点数 最多的不重叠子字符串 找到最接近目标值的函数值 总结 换酒问题 小区便利店正在促销，用 numExchange 个空酒瓶可以兑换一瓶新酒。">
 <meta itemprop="datePublished" content="2020-07-31T12:28:32+08:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:48:40+08:00" />
+<meta itemprop="dateModified" content="2020-07-31T16:08:41+08:00" />
 <meta itemprop="wordCount" content="3424">
 
 
 
-<meta itemprop="keywords" content="Leetcode," />
+<meta itemprop="keywords" content="Leetcode,模拟,无向图,n叉树,邻接表,BFS,字符串,贪心,微软,Microsoft," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode_20200719周赛"/>
 <meta name="twitter:description" content="目录 换酒问题 子树中标签相同的节点数 最多的不重叠子字符串 找到最接近目标值的函数值 总结 换酒问题 小区便利店正在促销，用 numExchange 个空酒瓶可以兑换一瓶新酒。"/>
@@ -376,7 +376,7 @@
 <p>如果喝掉了酒瓶中的酒，那么酒瓶就会变成空的。</p>
 <p>请你计算 最多 能喝到多少瓶酒。</p>
 <p>来源：力扣（LeetCode）           <br>
-链接：https://leetcode-cn.com/problems/water-bottles</p>
+链接：<a href="https://leetcode-cn.com/problems/water-bottles">https://leetcode-cn.com/problems/water-bottles</a></p>
 <h3 id="示例">示例</h3>
 <blockquote>
 <p>输入：numBottles = 9, numExchange = 3  <br>
@@ -418,7 +418,7 @@
 <p>返回一个大小为 n 的数组，其中 ans[i] 表示第 i 个节点的子树中与节点 i 标签相同的节点数。</p>
 <p>树 T 中的子树是由 T 中的某个节点及其所有后代节点组成的树。</p>
 <p>来源：力扣（LeetCode）             <br>
-链接：https://leetcode-cn.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label</p>
+链接：<a href="https://leetcode-cn.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label">https://leetcode-cn.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label</a></p>
 <h3 id="示例-1">示例</h3>
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/19/q3e1.jpg" alt=""></p>
 <blockquote>
@@ -509,7 +509,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="思路2">思路2</h3>
-<p>参考自：https://leetcode-cn.com/circle/discuss/TgHsJg/ 中 <a href="https://leetcode-cn.com/u/heltion/">Heltion</a> 的讨论。</p>
+<p>参考自：<a href="https://leetcode-cn.com/circle/discuss/TgHsJg/">https://leetcode-cn.com/circle/discuss/TgHsJg/</a> 中 <a href="https://leetcode-cn.com/u/heltion/">Heltion</a> 的讨论。</p>
 <p>对每个点统计子树节点某个值的和的问题,只需要在DFS过程中累加值,每个点离开的时候的值减去每个点进来的时候的值就是答案。复杂度是O(n)。</p>
 <p>无向图的邻接表应两个方向都要做。</p>
 <h3 id="代码2">代码2</h3>
@@ -564,7 +564,7 @@
 请你找到满足上述条件的最多子字符串数目。如果有多个解法有相同的子字符串数目，请返回这些子字符串总长度最小的一个解。可以证明最小总长度解是唯一的。</p>
 <p>请注意，你可以以 任意 顺序返回最优解的子字符串。</p>
 <p>来源：力扣（LeetCode）           <br>
-链接：https://leetcode-cn.com/problems/maximum-number-of-non-overlapping-substrings</p>
+链接：<a href="https://leetcode-cn.com/problems/maximum-number-of-non-overlapping-substrings">https://leetcode-cn.com/problems/maximum-number-of-non-overlapping-substrings</a></p>
 <h3 id="示例-2">示例</h3>
 <blockquote>
 <p>输入：s = &ldquo;adefaddaccc&rdquo;              <br>
@@ -581,7 +581,7 @@
 如果我们选择第一个字符串，那么我们无法再选择其他任何字符串，所以答案为 1 。如果我们选择 &ldquo;adefadda&rdquo; ，剩下子字符串中我们只可以选择 &ldquo;ccc&rdquo; ，它是唯一不重叠的子字符串，所以答案为 2 。同时我们可以发现，选择 &ldquo;ef&rdquo; 不是最优的，因为它可以被拆分成 2 个子字符串。所以最优解是选择 [&ldquo;e&rdquo;,&ldquo;f&rdquo;,&ldquo;ccc&rdquo;] ，答案为 3 。不存在别的相同数目子字符串解。</p>
 </blockquote>
 <h3 id="思路1-2">思路1</h3>
-<p>参考自：https://leetcode.com/problems/maximum-number-of-non-overlapping-substrings/discuss/743223/C%2B%2BJava-Greedy-O(n)</p>
+<p>参考自：<a href="https://leetcode.com/problems/maximum-number-of-non-overlapping-substrings/discuss/743223/C%2B%2BJava-Greedy-O(n)">https://leetcode.com/problems/maximum-number-of-non-overlapping-substrings/discuss/743223/C%2B%2BJava-Greedy-O(n)</a></p>
 <p>贪心：如果找到一个有效子串，然后又找到另一个和该有效子串重叠的有效子串，则丢弃掉较长的那个有效子串；例如，先找到&quot;abccba&rdquo;，接着找到&quot;bccb&rdquo;，接着找到&quot;cc&rdquo;，最后只保留&quot;cc&rdquo;。</p>
 <p>1、首先，用数组l和r记录26个字母在字符串中的左边第一个索引和右边第一个索引； <br>
 2、然后，遍历字符串，当前字符s[i]的左索引为i，则有：</p>
@@ -678,7 +678,7 @@
 <p>请你返回 |func(arr, l, r) - target| 的最小值。</p>
 <p>请注意， func 的输入参数 l 和 r 需要满足 0 &lt;= l, r &lt; arr.length 。</p>
 <p>来源：力扣（LeetCode）                <br>
-链接：https://leetcode-cn.com/problems/find-a-value-of-a-mysterious-function-closest-to-target</p>
+链接：<a href="https://leetcode-cn.com/problems/find-a-value-of-a-mysterious-function-closest-to-target">https://leetcode-cn.com/problems/find-a-value-of-a-mysterious-function-closest-to-target</a></p>
 <h3 id="示例-3">示例</h3>
 <blockquote>
 <p>输入：arr = [9,12,3,7,15], target = 5           <br>
@@ -686,7 +686,7 @@
 解释：所有可能的 [l,r] 数对包括 [ [0,0],[1,1],[2,2],[3,3],[4,4],[0,1],[1,2],[2,3],[3,4],[0,2],[1,3],[2,4],[0,3],[1,4],[0,4] ]， Winston 得到的相应结果为 [9,12,3,7,15,8,0,3,7,0,0,3,0,0,0] 。最接近 5 的值是 7 和 3，所以最小差值为 2 。</p>
 </blockquote>
 <h3 id="思路1-3">思路1</h3>
-<p>参考自：https://leetcode.com/problems/find-a-value-of-a-mysterious-function-closest-to-target/discuss/743381/Python-6-lines-O(nlogm)-solution</p>
+<p>参考自：<a href="https://leetcode.com/problems/find-a-value-of-a-mysterious-function-closest-to-target/discuss/743381/Python-6-lines-O(nlogm)-solution">https://leetcode.com/problems/find-a-value-of-a-mysterious-function-closest-to-target/discuss/743381/Python-6-lines-O(nlogm)-solution</a></p>
 <h3 id="代码1-3">代码1</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -733,11 +733,11 @@
     <span class="item-content">
       2020-07-31
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/0c3097e72e5dcaf6cc5af85abeaa1df46139585a" title="Sync Leetcode Weekly Reviews">
-          (0c3097e)
+        <a href="https://github.com/SLKyrim/myBlog/commit/6e089dcb52e1bed53e1c9fddb9ed69521cede3f7" title="Update Leetcode reviews">
+          (6e089dc)
         </a>
         
-          <br>Sync Leetcode Weekly Reviews
+          <br>Update Leetcode reviews
         
       
     </span>
@@ -756,6 +756,15 @@
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://slkyrim.github.io/tags/leetcode/">Leetcode</a>
+          <a href="https://slkyrim.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
+          <a href="https://slkyrim.github.io/tags/%E6%97%A0%E5%90%91%E5%9B%BE/">无向图</a>
+          <a href="https://slkyrim.github.io/tags/n%E5%8F%89%E6%A0%91/">n叉树</a>
+          <a href="https://slkyrim.github.io/tags/%E9%82%BB%E6%8E%A5%E8%A1%A8/">邻接表</a>
+          <a href="https://slkyrim.github.io/tags/bfs/">BFS</a>
+          <a href="https://slkyrim.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+          <a href="https://slkyrim.github.io/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
+          <a href="https://slkyrim.github.io/tags/%E5%BE%AE%E8%BD%AF/">微软</a>
+          <a href="https://slkyrim.github.io/tags/microsoft/">Microsoft</a>
           
         </div>
 
@@ -910,7 +919,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
 
 
 

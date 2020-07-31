@@ -71,7 +71,7 @@
       <pubDate>Fri, 31 Jul 2020 12:22:32 +0800</pubDate>
       
       <guid>https://slkyrim.github.io/post/leetcode_20200614_weekly/</guid>
-      <description>目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第K个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式</description>
+      <description>目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第k个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式</description>
     </item>
     
     <item>
@@ -89,7 +89,7 @@
       <pubDate>Fri, 31 Jul 2020 12:20:32 +0800</pubDate>
       
       <guid>https://slkyrim.github.io/post/leetcode_20200524_weekly/</guid>
-      <description>目录 5416. 检查单词是否为句中其他单词的前缀 5417. 定长子串中元音的最大数目 5418. 二叉树中的伪回文路径 5419. 两个子序列的最大点积 总结 5416. 检查单词是否为句中其他单词</description>
+      <description>目录 检查单词是否为句中其他单词的前缀 定长子串中元音的最大数目 二叉树中的伪回文路径 两个子序列的最大点积 总结 检查单词是否为句中其他单词的前缀 给一</description>
     </item>
     
     <item>
@@ -98,7 +98,7 @@
       <pubDate>Fri, 31 Jul 2020 12:19:32 +0800</pubDate>
       
       <guid>https://slkyrim.github.io/post/leetcode_20200517_weekly/</guid>
-      <description>目录 5408. 在既定时间做作业的学生人数 5409. 重新排列句子中的单词 5410. 收藏清单 5411. 圆形靶内的最大飞镖数量 总结 5408. 在既定时间做作业的学生人数 给你两个整数数组 st</description>
+      <description>目录 目录 在既定时间做作业的学生人数 示例 思路 代码 重新排列句子中的单词 示例 思路 代码 收藏清单 示例 思路 代码 圆形靶内的最大飞镖数量 示例 思路 代码 总结 在既</description>
     </item>
     
     <item>
@@ -107,7 +107,7 @@
       <pubDate>Fri, 31 Jul 2020 12:18:32 +0800</pubDate>
       
       <guid>https://slkyrim.github.io/post/leetcode_20200510_weekly/</guid>
-      <description>目录 5404. 用栈操作构建数组 5405. 形成两个异或相等数组的三元组数目 5406. 收集树上所有苹果的最少时间 5407. 切披萨的方案数 总结 5404. 用栈操作构建数组 给你一个目标数组 target</description>
+      <description>目录 用栈操作构建数组 形成两个异或相等数组的三元组数目 收集树上所有苹果的最少时间 切披萨的方案数 总结 用栈操作构建数组 给你一个目标数组 target 和一个整数</description>
     </item>
     
     <item>
@@ -116,7 +116,7 @@
       <pubDate>Fri, 31 Jul 2020 12:17:32 +0800</pubDate>
       
       <guid>https://slkyrim.github.io/post/leetcode_20200503_weekly/</guid>
-      <description>目录 5400. 旅行终点站 5401. 是否所有1都至少相隔k个元素 5402. 绝对值不超过限制的最长连续子数组 5403. 有序矩阵中的第k个最小数组和 总结 5400. 旅行终点站 给你一份旅游线</description>
+      <description>目录 旅行终点站 是否所有1都至少相隔k个元素 绝对值不超过限制的最长连续子数组 有序矩阵中的第k个最小数组和 总结 旅行终点站 给你一份旅游线路图，该线</description>
     </item>
     
     <item>
@@ -125,7 +125,7 @@
       <pubDate>Fri, 31 Jul 2020 12:16:32 +0800</pubDate>
       
       <guid>https://slkyrim.github.io/post/leetcode_20200426_weekly/</guid>
-      <description>目录 5392. 分割字符串的最大得分 5393. 可获得的最大点数 5394. 对角线遍历 II 5395. 带限制的子序列和 总结 5392. 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请</description>
+      <description>目录 分割字符串的最大得分 可获得的最大点数 对角线遍历ii 带限制的子序列和 总结 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请你计算并</description>
     </item>
     
     <item>
@@ -134,7 +134,7 @@
       <pubDate>Fri, 31 Jul 2020 12:15:32 +0800</pubDate>
       
       <guid>https://slkyrim.github.io/post/leetcode_20200419_weekly/</guid>
-      <description>目录 5388. 重新格式化字符串 5389. 点菜展示表 5390. 数青蛙 5391. 生成数组 总结 5388. 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请</description>
+      <description>目录 重新格式化字符串 点菜展示表 数青蛙 生成数组 总结 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请你将该字符</description>
     </item>
     
     <item>
@@ -143,7 +143,7 @@
       <pubDate>Fri, 31 Jul 2020 12:14:32 +0800</pubDate>
       
       <guid>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</guid>
-      <description>目录 5372. 逐步求和得到正数的最小值 5373. 和为 K 的最少斐波那契数字数目 5374. 长度为 n 的开心字符串中字典序第 k 小的字符串 5375. 恢复数组 总结 5372. 逐步求和得到正数的最</description>
+      <description>目录 目录 逐步求和得到正数的最小值 示例 我的思路 我的代码 和为 K 的最少斐波那契数字数目 示例 我的思路 我的代码 长度为 n 的开心字符串中字典序第 k 小的字符</description>
     </item>
     
     <item>
@@ -152,7 +152,7 @@
       <pubDate>Fri, 31 Jul 2020 12:13:32 +0800</pubDate>
       
       <guid>https://slkyrim.github.io/post/leetcode_2020_spring/</guid>
-      <description>目录 LCP 06. 拿硬币 LCP 07. 传递信息 LCP 08. 剧情触发事件 LCP 09. 最小跳跃次数 LCP 10. 二叉树任务调度 总结 LCP 06. 拿硬币 在数组coins中有n个数，每个数表示一堆硬币包含</description>
+      <description>目录 拿硬币 传递信息 剧情触发事件 最小跳跃次数 二叉树任务调度 拿硬币 在数组coins中有n个数，每个数表示一堆硬币包含的硬币数。每次任选一堆，那种</description>
     </item>
     
     <item>
