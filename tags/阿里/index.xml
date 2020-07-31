@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>阿里 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/%E9%98%BF%E9%87%8C/</link>
+    <description>Recent content in 阿里 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 Jul 2020 10:58:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/%E9%98%BF%E9%87%8C/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>阿里20200727技术岗笔试</title>
+      <link>https://slkyrim.github.io/post/alibaba_20200727/</link>
+      <pubDate>Fri, 31 Jul 2020 10:58:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/alibaba_20200727/</guid>
+      <description>目录 数字序列博弈游戏 二维背包问题 数字序列博弈游戏 A和B两个人进行博弈游戏。有一个非递减数字序列，由A先手，每次选择一个当前序列中的数字，把该</description>
+    </item>
+    
+  </channel>
+</rss>

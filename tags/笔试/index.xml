@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Single Long</title>
-    <link>https://slkyrim.github.io/post/</link>
-    <description>Recent content in Posts on Single Long</description>
+    <title>笔试 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/%E7%AC%94%E8%AF%95/</link>
+    <description>Recent content in 笔试 on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 31 Jul 2020 11:13:32 +0800</lastBuildDate>
     
-	<atom:link href="https://slkyrim.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://slkyrim.github.io/tags/%E7%AC%94%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -27,15 +27,6 @@
       
       <guid>https://slkyrim.github.io/post/alibaba_20200727/</guid>
       <description>目录 数字序列博弈游戏 二维背包问题 数字序列博弈游戏 A和B两个人进行博弈游戏。有一个非递减数字序列，由A先手，每次选择一个当前序列中的数字，把该</description>
-    </item>
-    
-    <item>
-      <title>Hugo搭建博客</title>
-      <link>https://slkyrim.github.io/post/hugo-blog/</link>
-      <pubDate>Thu, 30 Jul 2020 16:56:43 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/hugo-blog/</guid>
-      <description>自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug</description>
     </item>
     
   </channel>

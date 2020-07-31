@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>腾讯PCG2020春招后台开发笔试 - Single Long</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Single Long" />
+  <meta name="description" content="目录 电话号码格式 房屋涂色 差异最小的环形队列 最少的上漆次数 指令序列可达的最远距离 总结 电话号码格式 合法的电话号码格式是11位且第一个数必须是8。" />
+
+  <meta name="keywords" content="Single Long, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<link rel="canonical" href="https://slkyrim.github.io/post/tencent_pcg_backend2020/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="腾讯PCG2020春招后台开发笔试" />
+<meta property="og:description" content="目录 电话号码格式 房屋涂色 差异最小的环形队列 最少的上漆次数 指令序列可达的最远距离 总结 电话号码格式 合法的电话号码格式是11位且第一个数必须是8。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://slkyrim.github.io/post/tencent_pcg_backend2020/" />
+<meta property="article:published_time" content="2020-07-31T11:13:32+08:00" />
+<meta property="article:modified_time" content="2020-07-31T11:23:49+08:00" />
+<meta itemprop="name" content="腾讯PCG2020春招后台开发笔试">
+<meta itemprop="description" content="目录 电话号码格式 房屋涂色 差异最小的环形队列 最少的上漆次数 指令序列可达的最远距离 总结 电话号码格式 合法的电话号码格式是11位且第一个数必须是8。">
+<meta itemprop="datePublished" content="2020-07-31T11:13:32+08:00" />
+<meta itemprop="dateModified" content="2020-07-31T11:23:49+08:00" />
+<meta itemprop="wordCount" content="2737">
+
+
+
+<meta itemprop="keywords" content="腾讯,笔试,动态规划," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="腾讯PCG2020春招后台开发笔试"/>
+<meta name="twitter:description" content="目录 电话号码格式 房屋涂色 差异最小的环形队列 最少的上漆次数 指令序列可达的最远距离 总结 电话号码格式 合法的电话号码格式是11位且第一个数必须是8。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">龍</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      龍
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">腾讯PCG2020春招后台开发笔试</h1>
+      
+      <div class="post-meta">
+        <time datetime="2020-07-31" class="post-time">
+          2020-07-31
+        </time>
+        <div class="post-category">
+            <a href="https://slkyrim.github.io/categories/%E7%AC%94%E8%AF%95%E7%9C%9F%E9%A2%98/"> 笔试真题 </a>
+            
+          </div>
+        <span class="more-meta"> 约 2737 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#电话号码格式">电话号码格式</a>
+      <ul>
+        <li><a href="#示例">示例</a></li>
+        <li><a href="#思路1">思路1</a></li>
+        <li><a href="#代码1">代码1</a></li>
+      </ul>
+    </li>
+    <li><a href="#房屋涂色">房屋涂色</a>
+      <ul>
+        <li><a href="#示例-1">示例</a></li>
+        <li><a href="#思路1-1">思路1</a></li>
+        <li><a href="#代码1-1">代码1</a></li>
+      </ul>
+    </li>
+    <li><a href="#差异最小的环形队列">差异最小的环形队列</a>
+      <ul>
+        <li><a href="#示例-2">示例</a></li>
+        <li><a href="#思路1-2">思路1</a></li>
+        <li><a href="#代码1-2">代码1</a></li>
+      </ul>
+    </li>
+    <li><a href="#最少的上漆次数">最少的上漆次数</a>
+      <ul>
+        <li><a href="#示例-3">示例</a></li>
+        <li><a href="#思路1-3">思路1</a></li>
+        <li><a href="#代码1-3">代码1</a></li>
+      </ul>
+    </li>
+    <li><a href="#指令序列可达的最远距离">指令序列可达的最远距离</a>
+      <ul>
+        <li><a href="#示例-4">示例</a></li>
+        <li><a href="#思路1-4">思路1</a></li>
+        <li><a href="#代码1-4">代码1</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="目录">目录</h2>
+<ul>
+<li><a href="#%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E6%A0%BC%E5%BC%8F">电话号码格式</a></li>
+<li><a href="#%E6%88%BF%E5%B1%8B%E6%B6%82%E8%89%B2">房屋涂色</a></li>
+<li><a href="#%E5%B7%AE%E5%BC%82%E6%9C%80%E5%B0%8F%E7%9A%84%E7%8E%AF%E5%BD%A2%E9%98%9F%E5%88%97">差异最小的环形队列</a></li>
+<li><a href="#%E6%9C%80%E5%B0%91%E7%9A%84%E4%B8%8A%E6%BC%86%E6%AC%A1%E6%95%B0">最少的上漆次数</a></li>
+<li><a href="#%E6%8C%87%E4%BB%A4%E5%BA%8F%E5%88%97%E5%8F%AF%E8%BE%BE%E7%9A%84%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB">指令序列可达的最远距离</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+<h2 id="电话号码格式">电话号码格式</h2>
+<p>合法的电话号码格式是11位且第一个数必须是8。<br>
+对每一个输入的数字号码字符串，判断是否能经过删除0个或若干个数字变成合法的电话号码，如果可以合法输出YES，否则输出NO</p>
+<p><strong>输入描述</strong>：<br>
+第一行一个整数t表示测试用例的组数
+接下来2*t行，每个测试用例包含2行，第1行一个整数n表示字符串的长度，第2行一个字符串s <br>
+输入满足1&lt;=t&lt;=100, 1&lt;=n&lt;=100,每个字符串只包含数字</p>
+<h3 id="示例">示例</h3>
+<blockquote>
+<p>输入：<br>
+2<br>
+11<br>
+88888888888<br>
+3<br>
+000<br>
+输出：<br>
+YES<br>
+NO</p>
+</blockquote>
+<h3 id="思路1">思路1</h3>
+<p>首先获取输入字串长度n，n小于11必不合法。 <br>
+然后用find()查找输入字串的第1个“8”的位置，如果没有8则比不合法。 <br>
+第一个8前面的数都要删掉从而保证第一个数字是8，判断删掉前面的数字后剩余的字串长度仍大于等于11则可以经过删除操作变成合法号码。</p>
+<h3 id="代码1">代码1</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">t</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;8&#34;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">11</span> <span class="ow">or</span> <span class="n">e</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;NO&#34;</span><span class="p">)</span>
+        <span class="k">continue</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">-</span> <span class="n">e</span> <span class="o">&gt;=</span> <span class="mi">11</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;YES&#34;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;NO&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="房屋涂色">房屋涂色</h2>
+<p><a href="https://leetcode-cn.com/problems/paint-house/">Leetcode 256 粉刷房子</a> <br>
+n栋房屋需要粉刷，有红绿蓝三种颜色，相邻房屋粉刷颜色需要不一样，且用一种颜色粉刷不同房屋时花费也不一定一样，如粉刷第i栋房屋，刷成红色花费r[i]，绿色花费g[i]，蓝色花费b[i]。 <br>
+问刷这n栋房屋需要的最小花费。</p>
+<p><strong>输入描述</strong>：<br>
+第一行一个整数n（1&lt;=n&lt;=20）表示需要粉刷的房屋数<br>
+接下来n行，每行三个整数分别表示粉刷房屋成红色，绿色，蓝色需要的费用</p>
+<h3 id="示例-1">示例</h3>
+<blockquote>
+<p>输入：<br>
+4<br>
+100 77 73<br>
+41 74 83 <br>
+9 91 93   <br>
+50 16 31  <br>
+输出： <br>
+172</p>
+</blockquote>
+<h3 id="思路1-1">思路1</h3>
+<p>一道简单的DP题，dp[i][j]表示已粉刷了前i-1栋房屋，第i栋房屋粉刷成j色时的最小花费。
+状态转移方程为： <br>
+dp[i][red] = min(dp[i-1][green], dp[i-1][blue]) + cost[red] <br>
+dp[i][green] = min(dp[i-1][red], dp[i-1][blue]) + cost[green] <br>
+dp[i][blue] = min(dp[i-1][green], dp[i-1][red]) + cost[blue]</p>
+<h3 id="代码1-1">代码1</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="n">cost</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+<span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">cost</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">cost</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">cost</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="n">cost</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="n">cost</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">cost</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="差异最小的环形队列">差异最小的环形队列</h2>
+<p>n个人手拉手排成一个圆圈，每个人身高不同，求使圆圈中相邻人身高最大差异最小的排序。</p>
+<p><strong>输入描述</strong>： <br>
+第一行一个整数n(2&lt;=n&lt;100)表示人数 <br>
+第二行n个数字表示每个人的身高，范围在[1, 10^9]之间</p>
+<h3 id="示例-2">示例</h3>
+<blockquote>
+<p>输入：<br>
+5 <br>
+2 1 1 3 2 <br>
+输出： <br>
+1 2 3 2 1</p>
+</blockquote>
+<h3 id="思路1-2">思路1</h3>
+<p>先对身高排序，然后按顺序依次取身高轮流放在队列前面和后面。</p>
+<h3 id="代码1-2">代码1</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+<span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(),</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">left</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">right</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="最少的上漆次数">最少的上漆次数</h2>
+<p>给n根宽为1，高度为$A_i$的木板。模板竖起来并排排成一排。 <br>
+每次上漆只能连续横刷或竖刷宽度为1的范围。求刷完所有模板的最少上漆次数。</p>
+<p><strong>输入描述</strong>： <br>
+第一行一个整数n表示木板数量（1&lt;=n&lt;=5000） <br>
+第二行n个数表示木板的高度，范围在[1, 1e9]内</p>
+<h3 id="示例-3">示例</h3>
+<blockquote>
+<p>输入： <br>
+5 <br>
+2 2 1 2 2 <br>
+输出： <br>
+3<br>
+解释：<br>
+第1次上漆，横着涂高度为1的下面5 * 1的面积  <br>
+第2次上漆，横着涂高度为2的左边2 * 1的面积 <br>
+第3次上漆，横着涂高度为2的右边2 * 1的面积</p>
+</blockquote>
+<h3 id="思路1-3">思路1</h3>
+<p>核心思路是：对每个高度，判断可以横着涂的范围数，如果范围间隔只有1，则竖着涂好这个木板，横着涂的次数即间隔大于1的范围数。用一个集合记录已经涂好的木板索引用来确认横着涂的范围。 <br>
+但是高度范围[1, 1e9]较大，逐个高度的检查会超时，而木板数量最高只有5000，所以对高度超过5000的木板直接竖着先涂好从而避免超时。</p>
+<h3 id="代码1-3">代码1</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+<span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">fin</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span> <span class="c1"># 记录已完成涂色的木板索引</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5000</span><span class="p">:</span>
+        <span class="n">fin</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1"># 高度超过给定最多木板个数的木板直接竖着涂好</span>
+        <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="c1"># 对高度在给定最多木板个数内的木板进行上漆</span>
+<span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5001</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">break</span> <span class="c1"># 所有木板已上好漆</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 记录当前高度上已上好漆的木板索引</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
+            <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">h</span><span class="p">:</span>
+            <span class="n">fin</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 记录上好漆的木板之间的间隔</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)):</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">cur</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># 间隔为1则直接把中间这块木板竖着涂满  </span>
+            <span class="n">fin</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> 
+        <span class="k">elif</span> <span class="n">cur</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cur</span><span class="p">)</span> <span class="c1"># 间隔超过1则横着涂满这一高度的间隔范围</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">h</span><span class="p">:</span>
+                    <span class="n">fin</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="c1"># 添加已在当前高度上漆完成的木板索引</span>
+    <span class="n">res</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="c1"># 有多少个间隔大于1的区域，就要横着上漆多少次</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="指令序列可达的最远距离">指令序列可达的最远距离</h2>
+<p><a href="http://codeforces.com/problemset/problem/132/C">Codeforces 132C</a></p>
+<p>有一个由T和F组成的控制指令，T表示转向，F表示向前一步。对给定的指令序列需要修改n次，每次修改是把T改为F或者F改为T。求修改指令后可以到达的最远距离。</p>
+<p><strong>输入描述</strong>： <br>
+第一行是一个由F和T组成的字符串，长度&lt;=100    <br>
+第二行一个整数n（1&lt;=n&lt;=50）表示修改次数</p>
+<h3 id="示例-4">示例</h3>
+<blockquote>
+<p>输入：  <br>
+FFT  <br>
+1  <br>
+输出：  <br>
+3 <br>
+解释：<br>
+把最后的T修改为F，则可以向前走3步</p>
+</blockquote>
+<h3 id="思路1-4">思路1</h3>
+<p>三维DP。</p>
+<p>需要先用最远距离无法小于的小数给dp数组赋值保证答案正确。</p>
+<p>dp[i][j][d]表示由前i个指令组成的序列，在第i个指令修改j次后，往方向d能到达的最远距离。     <br>
+当line[i] == &ldquo;F&quot;时，若在第i个指令上修改的次数k为奇数，则line[i]会被修改为“T”，因此只改变方向；同理当line[i] == &ldquo;T&quot;时，若在第i个指令上修改的次数k为偶数，则line[i]保持为“T&quot;不变，也仅只改变方向，此时有状态转移方程：  <br>
+dp[i][j][0] = max(dp[i][j][0], dp[i-1][j-k][1])  <br>
+dp[i][j][1] = max(dp[i][j][1], dp[i-1][j-k][0])</p>
+<p>当line[i] == &ldquo;F&quot;时，若在第i个指令上修改的次数k为偶数，则line[i]会被保持为“F”不变，在原来的方向上往前迈一步；当line[i] == &ldquo;T&quot;时，若在第i个指令上修改的次数k为奇数，则line[i]修改为“F”，需要在原来的方向上往前迈一步，此时状态转移方程为：  <br>
+dp[i][j][0] = max(dp[i][j][0], dp[i-1][j-k][0] + 1)  <br>
+dp[i][j][1] = max(dp[i][j][1], dp[i-1][j-k][1] - 1)</p>
+<h3 id="代码1-4">代码1</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">line</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[[[</span><span class="o">-</span><span class="mi">100</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;F&#34;</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;T&#34;</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>AK   <br>
+和一年前秋招时做T家笔试时只能AC两道比确实有了很大的进步，说明Leetcode的周赛确实还是很能锻炼人的。   <br>
+1、简单的字符串删除操作模拟题，忘了考虑find()不出8的情况，WA了1次40% <br>
+2、粉刷房子，简单的二维DP，leetcode经典原题 <br>
+3、模拟题，没把握答案正确（因为没有数学验证）的思路AC了<br>
+4、比较复杂的模拟题，TLE了1次，利用输入数据的范围竖涂了一些高度很高的木板，然后就AC了  <br>
+5、非常难的三维DP，很抽象，不过好在是CodeForces的原题。不过笔试完我Run了下CF上的用例没通过，修改了dp的初始赋值才通过，所以笔试时是运气好AC了这一题。  <br>
+看了下NowCoder上的帖子，五月份的题目也用的这一套，感觉有点随意了&hellip;</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Single Long</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-07-31
+      
+        <a href="https://github.com/SLKyrim/myBlog/commit/0e10c9dd32b2ae354764a52be88a5dd0fdb173bd" title="Created 笔试真题">
+          (0e10c9d)
+        </a>
+        
+          <br>Created 笔试真题
+        
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://slkyrim.github.io/tags/%E8%85%BE%E8%AE%AF/">腾讯</a>
+          <a href="https://slkyrim.github.io/tags/%E7%AC%94%E8%AF%95/">笔试</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/alibaba_20200727/">
+            <span class="next-text nav-default">阿里20200727技术岗笔试</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "SLKyrim/comments-for-myBlog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:623962644@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/SLKyrim" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://slkyrim.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2020
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Single Long
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
