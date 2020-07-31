@@ -6,27 +6,27 @@
     <description>Recent content in 笔试真题 on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 31 Jul 2020 11:13:32 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 15:28:32 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/categories/%E7%AC%94%E8%AF%95%E7%9C%9F%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>腾讯PCG2020春招后台开发笔试</title>
-      <link>https://slkyrim.github.io/post/tencent_pcg_backend2020/</link>
-      <pubDate>Fri, 31 Jul 2020 11:13:32 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/tencent_pcg_backend2020/</guid>
-      <description>目录 电话号码格式 房屋涂色 差异最小的环形队列 最少的上漆次数 指令序列可达的最远距离 总结 电话号码格式 合法的电话号码格式是11位且第一个数必须是8。</description>
-    </item>
-    
-    <item>
       <title>阿里20200727技术岗笔试</title>
       <link>https://slkyrim.github.io/post/alibaba_20200727/</link>
-      <pubDate>Fri, 31 Jul 2020 10:58:32 +0800</pubDate>
+      <pubDate>Fri, 31 Jul 2020 15:28:32 +0800</pubDate>
       
       <guid>https://slkyrim.github.io/post/alibaba_20200727/</guid>
       <description>目录 数字序列博弈游戏 二维背包问题 数字序列博弈游戏 A和B两个人进行博弈游戏。有一个非递减数字序列，由A先手，每次选择一个当前序列中的数字，把该</description>
+    </item>
+    
+    <item>
+      <title>腾讯PCG2020春招后台开发笔试</title>
+      <link>https://slkyrim.github.io/post/tencent_pcg_backend2020/</link>
+      <pubDate>Fri, 31 Jul 2020 14:28:32 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/tencent_pcg_backend2020/</guid>
+      <description>目录 电话号码格式 房屋涂色 差异最小的环形队列 最少的上漆次数 指令序列可达的最远距离 总结 电话号码格式 合法的电话号码格式是11位且第一个数必须是8。</description>
     </item>
     
   </channel>
