@@ -19,8 +19,8 @@
       <guid>https://slkyrim.github.io/about/</guid>
       
         <description>&lt;p&gt;破站新成，先做个简单自我介绍&lt;/p&gt;
-&lt;p&gt;USTCer + UCASer + Leetcode500题的编程新人&lt;/p&gt;
-&lt;p&gt;技术栈：Python, Java, C#, C++, Matlab, LaTeX&lt;/p&gt;
+&lt;p&gt;USTCer + UCASer + Leetcode500题编程新人&lt;/p&gt;
+&lt;p&gt;编程语言：Python, Java, C#, C++, Matlab, LaTeX&lt;/p&gt;
 &lt;p&gt;工具技术栈：Git&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Motto&lt;/strong&gt;: Single Long needs to be Double Long&lt;/p&gt;
 </description>
@@ -41,7 +41,6 @@
 &lt;p&gt;确保本地已安装Git和Homebrew。&lt;/p&gt;
 &lt;h2 id=&#34;2安装hugo&#34;&gt;2、安装Hugo&lt;/h2&gt;
 &lt;p&gt;视频参考：&lt;a href=&#34;https://www.bilibili.com/video/BV1q4411i7gL&#34;&gt;点击这里&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;其它操作系统可以到Hugo官网下载对应的&lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34;&gt;安装包&lt;/a&gt;进行手动安装。&lt;/p&gt;
 &lt;p&gt;在终端输入：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -185,7 +184,56 @@ git push -u origin master
 &lt;p&gt;博客有评论功能会觉得和读者有互动（真希望会有呢），可以一起交流进步。&lt;/p&gt;
 &lt;p&gt;这里选用&lt;a href=&#34;https://utteranc.es/&#34;&gt;utterances&lt;/a&gt;通过Github issue来支持静态博客评论功能。轻量且安全。&lt;/p&gt;
 &lt;p&gt;又要在Github上创建一个仓库专门用来存放评论的issue。创建好&lt;strong&gt;评论仓库&lt;/strong&gt;后，安装&lt;a href=&#34;https://github.com/apps/utterances&#34;&gt;utterances APP&lt;/a&gt;，并选择安装在&lt;strong&gt;评论仓库&lt;/strong&gt;上。并在配置文件config.toml里[params.utteranc]中的repo路径设置为&lt;strong&gt;评论仓库&lt;/strong&gt;。这样我们的博客便拥有评论功能了。&lt;/p&gt;
-&lt;h2 id=&#34;6结语&#34;&gt;6、结语&lt;/h2&gt;
+&lt;h2 id=&#34;6补充windows搭建流程&#34;&gt;6、补充：Windows搭建流程&lt;/h2&gt;
+&lt;p&gt;一篇非常详细的参考博文：&lt;a href=&#34;https://www.cnblogs.com/Codemandyk/p/10855891.html&#34;&gt;点击这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;由于写这一节时，我已在MacOS部署好这个博客，所以我在这一节主要讲如何在另一台电脑的Windows操作系统上将博客同步过来。&lt;/p&gt;
+&lt;h3 id=&#34;61安装hugo&#34;&gt;6.1、安装Hugo&lt;/h3&gt;
+&lt;p&gt;到Hugo官网下载对应操作系统的&lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34;&gt;安装包&lt;/a&gt;进行手动安装。我在G盘中创建一个路径&lt;strong&gt;G:\Hugo\bin&lt;/strong&gt;，并将安装包内解压出来的&lt;strong&gt;hugo.exe&lt;/strong&gt;文件放到该路径下。在系统环境变量&lt;strong&gt;path&lt;/strong&gt;中添加路径&lt;strong&gt;G:\Hugo\bin&lt;/strong&gt;即可安装完成。可以在终端中输入如下命令查看Hugo是否安装完成：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;hugo version
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;62同步博客&#34;&gt;6.2、同步博客&lt;/h3&gt;
+&lt;h4 id=&#34;621同步主题&#34;&gt;6.2.1、同步主题&lt;/h4&gt;
+&lt;p&gt;采用&lt;a href=&#34;https://desktop.github.com/&#34;&gt;Github Desktop&lt;/a&gt;先将博客主体仓库同步到本地，由于gitignore掉了主题和远端，所以需要进入博客主体路径重新将主题clone下来：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;git clone https://github.com/xianmin/hugo-theme-jane.git --depth&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; themes/jane
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这里我看xianmin的&lt;a href=&#34;https://github.com/xianmin/xianmin.org&#34;&gt;博客主体&lt;/a&gt;中是带有主题的，不过是直接指向&lt;a href=&#34;https://github.com/xianmin/hugo-theme-jane/tree/2666d94d46c1f2e690aacefe51e81b13d07500c6&#34;&gt;主题仓库&lt;/a&gt;，暂时不知道如何实现，希望有读者可以解答。如果实现的话，以后在不同电脑同步就可以不用重新clone主题了。&lt;/p&gt;
+&lt;h4 id=&#34;622同步远端&#34;&gt;6.2.2、同步远端&lt;/h4&gt;
+&lt;p&gt;在博客主体路径下新建public文件夹，然后进入public文件夹依次输入以下命令同步远端文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;git init
+git remote add origin https://github.com/SLKyrim/slkyrim.github.io.git 【注意这里换成你自己的远端仓库路径】
+git pull origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这样在博客主体路径下输入以下命令即可更新远端文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;剩下的操作与MacOS的无异。&lt;/p&gt;
+&lt;h2 id=&#34;7结语&#34;&gt;7、结语&lt;/h2&gt;
 &lt;p&gt;建立个人博客，一共在Github上创建了三个仓库：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;远端仓库：存放博客public前端文件的，只有把更新的配置同步到这个仓库，远端博客才会更新&lt;/li&gt;
