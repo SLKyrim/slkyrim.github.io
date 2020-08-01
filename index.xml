@@ -6,7 +6,7 @@
     <description>Recent content on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 31 Jul 2020 15:28:32 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 23:15:50 +0800</lastBuildDate>
     
         <atom:link href="https://slkyrim.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -24,6 +24,214 @@
 &lt;p&gt;工具技术栈：Git, Matlab, LaTeX, Markdown&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Motto&lt;/strong&gt;: Single Long needs to be Double Long&lt;/p&gt;
 </description>
+      
+    </item>
+    
+    <item>
+      <title>牛客编程巅峰赛S1第8场 - 青铜&amp;白银</title>
+      <link>https://slkyrim.github.io/post/nowcoder_s1_8_bronze/</link>
+      <pubDate>Sat, 01 Aug 2020 23:15:50 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/nowcoder_s1_8_bronze/</guid>
+      
+        <description>&lt;h2 id=&#34;目录&#34;&gt;目录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BF%BB%E6%BB%9A%E5%90%A7%E7%89%9B%E7%89%9B(%E4%B8%80)&#34;&gt;翻滚吧牛牛(一)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%89%9B%E7%89%9B%E7%9A%84%E5%88%86%E9%85%8D&#34;&gt;牛牛的分配&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%89%9B%E7%89%9B%E6%9E%84%E9%80%A0%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97&#34;&gt;牛牛构造等差数列&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;翻滚吧牛牛一&#34;&gt;翻滚吧牛牛(一)&lt;/h2&gt;
+&lt;p&gt;链接：&lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6776/A&#34;&gt;https://ac.nowcoder.com/acm/contest/6776/A&lt;/a&gt; &lt;br&gt;
+来源：牛客网&lt;/p&gt;
+&lt;p&gt;牛牛有一个边长为1的正六边形，只要牛牛一推它就可以一直滚下去，正六边形左下角为A，牛牛想知道正六边形翻滚k次A点的轨迹边长是多少呢。如图是正六边形翻滚一次的情况。给定正六边形翻滚次数k，求A点翻滚轨迹长度&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://uploadfiles.nowcoder.com/images/20200621/330194_1592716982840_2B4CC21B595D7D2540EEB735DCFEB6BE&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入：3  &lt;br&gt;
+输出：4.955392&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;思路1&#34;&gt;思路1&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;弧长公式&lt;/strong&gt;为：n × π × r/180，其中n为弧线对应角度值，r为半径。在例图中只画出第一次翻滚的例子，该例子中弧线对应角度为60°，半径为1。&lt;/p&gt;
+&lt;p&gt;下面再给出翻滚第2次和第3次的例子，思路就很明显了。第2次翻滚，角度值依然为60°，半径为$\sqrt{3}$；第3次翻滚，角度值依然为60°，半径为2。&lt;/p&gt;
+
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://slkyrim.github.io/css/hugo-easy-gallery.css&#34; /&gt;
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://slkyrim.github.io/images/Nowcoder_S1_8_bronze/Nowcoder_S1_8_bronze_A.svg&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://slkyrim.github.io/images/Nowcoder_S1_8_bronze/Nowcoder_S1_8_bronze_A.svg&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;每翻滚6次为一个循环，每次翻滚角度皆为60°，所以求出这6次的半径，套入弧长公式求出每次翻滚的弧长，模6实现循环，累加起来即可。&lt;/p&gt;
+&lt;h3 id=&#34;代码1&#34;&gt;代码1&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;math&lt;/span&gt;
+ 
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;circumference&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;hu&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;hu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;60&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;math&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;180&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;牛牛的分配&#34;&gt;牛牛的分配&lt;/h2&gt;
+&lt;p&gt;链接：&lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6776/B&#34;&gt;https://ac.nowcoder.com/acm/contest/6776/B&lt;/a&gt;  &lt;br&gt;
+来源：牛客网&lt;/p&gt;
+&lt;p&gt;在牛牛面前有nn个瓶子，每个瓶子的大小体积都一样，但是每个瓶子内的含水量都不相同。
+因为牛牛是个完美主义者，他希望瓶子中的水能够满足他的要求，他的要求是瓶子中的水最少为xx。所以他打算对这些瓶子里的水进行重新分配，以满足最多的瓶子中水量大于等于xx。
+牛牛的分配规则是：每次可以选择多个瓶子，将里面的水平均分配到已选择的瓶子中。
+给定nn个瓶子和牛牛的对瓶中的水量要求xx，以及nn个瓶子中的含水量，求最多可以有多少个瓶子满足牛牛的要求？&lt;/p&gt;
+&lt;h3 id=&#34;示例-1&#34;&gt;示例&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入：3,7,[9,4,9]  &lt;br&gt;
+输出：3&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;思路1-1&#34;&gt;思路1&lt;/h3&gt;
+&lt;p&gt;贪心：先排序，先拿水多的瓶子，累加瓶子个数和水量，当瓶子个数乘以平均水量要求小于累计水量时，说明当前瓶子中的水量已经严重拖后腿，已拉低平均值到要求水量以下，故减去将平均值拉低至要求值以下的那瓶水瓶子个数，剩下的累计瓶子数即为所求。&lt;/p&gt;
+&lt;h3 id=&#34;代码1-1&#34;&gt;代码1&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 返回重新分配后，满足牛牛要求的水量的瓶子最多的数量&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# @param n int整型 瓶子的数量&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# @param x int整型 牛牛的对瓶中的水量要求&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# @param a int整型一维数组 每个瓶子中的含水量&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# @return int整型&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;solve&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;# write code here&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+            &lt;span class=&#34;nb&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;牛牛构造等差数列&#34;&gt;牛牛构造等差数列&lt;/h2&gt;
+&lt;p&gt;链接：&lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6776/C&#34;&gt;https://ac.nowcoder.com/acm/contest/6776/C&lt;/a&gt; &lt;br&gt;
+来源：牛客网&lt;/p&gt;
+&lt;p&gt;牛牛和牛妹在玩一个游戏，在他们面前有n个数，他们对每个数可以进行 +1 或 -1 操作，但对于每一个数，该操作最多只能执行一次。
+游戏胜利的目标是：使用最少的操作次数，将这几个数构造成一个等差数列。
+牛牛特别想赢得游戏，所以他想让你帮他写一个程序，得出最少多少次操作后能使这几个数变成一个等差数列，当然，如果完全不能构造成功，就输出-1。&lt;/p&gt;
+&lt;h3 id=&#34;示例-2&#34;&gt;示例&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入：4,[24,21,14,10]  &lt;br&gt;
+输出：3 &lt;br&gt;
+说明：在第一个例子中，牛牛应该对第一个数字+1，对第二个数字-1，对第三个数字+1，而第四个数字应该保持不变。最后，序列就变成了[25,20,15,10]，这是一个等差数列且操作次数最少。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;思路1-2&#34;&gt;思路1&lt;/h3&gt;
+&lt;p&gt;等差数列+智力：由前两项求等差，共九种情况，即第一项有加、减、不变3种，搭配第二项加、减、不变3种。由这9种情况的等差，从第三项开始逐项验证，每一项都由前一项通过加上等差所得，与给定数组对比。如果绝对差值小于等于1，则可以通过加、减操作或不变来实现等差构造；否则无法构造等差，终端循环。如果循环可以完成，则说明可以构造成等差数列，记录此时的结果，去所有可完成循环的结果的最小值，即为所求。&lt;/p&gt;
+&lt;h3 id=&#34;代码1-2&#34;&gt;代码1&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 返回最少多少次操作后能使这几个数变成一个等差数列，如果完全不能构造成功，就返回-1&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# @param n int整型 代表一共有n个数字&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# @param b int整型一维数组 代表这n个数字的大小&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# @return int整型&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;solve&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;# write code here&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;float&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;inf&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]:&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;fst&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;snd&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;step&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;snd&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fst&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;snd&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;cnt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;abs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;abs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+                    &lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;
+                    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;abs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                        &lt;span class=&#34;n&#34;&gt;cnt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;abs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+                    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                        &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
+                    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                        &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;min&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cnt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;float&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;inf&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
       
     </item>
     
@@ -6762,223 +6970,6 @@ DFS一直很难，所幸这次解决了一道DFS的题（&lt;strong&gt;LCP 07. �
 二分查找边界定义依然不够熟练，（&lt;strong&gt;LCP 08. 剧情触发事件&lt;/strong&gt;）罚时了很多。在没有测试用例的提示下，找bug确实也很不容易。&lt;br&gt;
 &lt;strong&gt;LCP 09. 最小跳跃次数&lt;/strong&gt; 是 &lt;strong&gt;跳跃游戏&lt;/strong&gt; 类型的题型，DP依然不熟练。&lt;br&gt;
 &lt;strong&gt;LCP 10. 二叉树任务调度&lt;/strong&gt; 对当前水平来说还是很难的DFS，题解思路也没完全看懂。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Hugo搭建博客</title>
-      <link>https://slkyrim.github.io/post/hugo-blog/</link>
-      <pubDate>Thu, 30 Jul 2020 16:56:43 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/hugo-blog/</guid>
-      
-        <description>&lt;p&gt;自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。&lt;/p&gt;
-&lt;p&gt;截至本文写成日期，本博客主要基于&lt;a href=&#34;https://github.com/xianmin/hugo-theme-jane&#34;&gt;hugo-theme-jane&lt;/a&gt;搭建，感谢作者&lt;a href=&#34;https://github.com/xianmin&#34;&gt;xianmin&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;1安装环境&#34;&gt;1、安装环境&lt;/h2&gt;
-&lt;p&gt;macOS Catalina 10.15.4&lt;/p&gt;
-&lt;p&gt;确保本地已安装Git和Homebrew。&lt;/p&gt;
-&lt;h2 id=&#34;2安装hugo&#34;&gt;2、安装Hugo&lt;/h2&gt;
-&lt;p&gt;视频参考：&lt;a href=&#34;https://www.bilibili.com/video/BV1q4411i7gL&#34;&gt;点击这里&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;在终端输入：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;brew install hugo
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;每次用brew安装都会卡在更新上，有两种解决方法：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1、开另一个终端重新输入以上命令。如果第一个终端更新完成，则会下载更新版本的软件，那么之后再更新软件&lt;/li&gt;
-&lt;li&gt;2、按Control+C停止更新，直接开始下载软件&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在终端输入以下命令:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;hugo version
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;如果出现如下安装的hugo版本号则说明hugo已安装成功&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;Hugo Static Site Generator v0.74.3/extended darwin/amd64 BuildDate: unknown
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;3本地部署博客&#34;&gt;3、本地部署博客&lt;/h2&gt;
-&lt;h3 id=&#34;31生成博客&#34;&gt;3.1、生成博客&lt;/h3&gt;
-&lt;p&gt;输入以下命令生成博客：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;hugo new site myBlog
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这样便会生成一个名字为myBlog（根据个人需要自行命名）的文件夹，里面是博客的框架。&lt;/p&gt;
-&lt;h3 id=&#34;32配置主题&#34;&gt;3.2、配置主题&lt;/h3&gt;
-&lt;p&gt;Hugo有很多主题可以直接拿来用，这里采用的是&lt;a href=&#34;https://github.com/xianmin&#34;&gt;xianmin&lt;/a&gt;的&lt;a href=&#34;https://github.com/xianmin/hugo-theme-jane&#34;&gt;jane&lt;/a&gt;主题，可以去他的Github库里看具体配置流程。&lt;/p&gt;
-&lt;p&gt;这里简述一下流程，先cd到博客文件夹路径下，我这里是myBlog，进入后输入：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;git clone https://github.com/xianmin/hugo-theme-jane.git --depth&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; themes/jane
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;下载好主题后要在myBlog路径下对&lt;strong&gt;config.toml&lt;/strong&gt;配置文件进行配置，这里推荐直接拷贝&lt;a href=&#34;https://github.com/xianmin&#34;&gt;xianmin&lt;/a&gt;的&lt;a href=&#34;https://github.com/xianmin/xianmin.org/blob/master/config.toml&#34;&gt;配置文件&lt;/a&gt;。因为现在还没有建立远端git仓库，所以里面的&lt;strong&gt;enableGitInfo&lt;/strong&gt;要先设置为false，不然之后会报错。&lt;/p&gt;
-&lt;h3 id=&#34;33本地部署&#34;&gt;3.3、本地部署&lt;/h3&gt;
-&lt;p&gt;输入以下命令开始部署博客：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;hugo server
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这时在浏览器中输入&lt;a href=&#34;http://localhost:1313/&#34;&gt;http://localhost:1313/&lt;/a&gt;就可以看到博客部署到本地上了。&lt;/p&gt;
-&lt;h2 id=&#34;4远端部署博客&#34;&gt;4、远端部署博客&lt;/h2&gt;
-&lt;h3 id=&#34;41在github上建立博客远端仓库&#34;&gt;4.1、在github上建立博客远端仓库&lt;/h3&gt;
-&lt;p&gt;比如我的Github用户名为SLKyrim，那么需要建立一个名为 slkyrim.github.io 的仓库（大小写不区分）作为博客的远端仓库。&lt;/p&gt;
-&lt;p&gt;然后需要更改config.toml中的&lt;strong&gt;baseURL&lt;/strong&gt;设置为建立的这个仓库的域名，这里是&amp;quot;https://slkyrim.github.io/&amp;quot;。&lt;/p&gt;
-&lt;p&gt;输入以下命令生成博客在前端的文件：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;hugo --buildDrafts
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这时应该会在myBlog路径下生成一个public文件夹，这里面存放博客的前端文件。&lt;/p&gt;
-&lt;p&gt;然后cd进public文件夹，依次输入以下命令将这些前端文件推到Github的远端仓库中。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;git init
-git add .
-git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;First Commit&amp;#34;&lt;/span&gt;
-git remote add origin https://github.com/SLKyrim/slkyrim.github.io.git 【注意这里要换成你的远程仓库的地址】
-git push -u origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这时在浏览其中输入你远端博客的域名即可访问你的博客，这里是我的博客的域名&lt;a href=&#34;https://slkyrim.github.io/&#34;&gt;https://slkyrim.github.io/&lt;/a&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;42写博文&#34;&gt;4.2、写博文&lt;/h3&gt;
-&lt;p&gt;这时博客空空如也，自然要写些博文。&lt;/p&gt;
-&lt;p&gt;下图是我所理解的基于Hugo的博客文件结构&lt;/p&gt;
-
-&lt;link rel=&#34;stylesheet&#34; href=&#34;https://slkyrim.github.io/css/hugo-easy-gallery.css&#34; /&gt;
-&lt;div class=&#34;box&#34;&gt;
-&lt;figure  itemprop=&#34;associatedMedia&#34;
-  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
-    &lt;div class=&#34;img&#34;&gt;
-      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://slkyrim.github.io/blog_file_struct.png&#34; /&gt;
-    &lt;/div&gt;
-    &lt;a href=&#34;https://slkyrim.github.io/blog_file_struct.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
-      &lt;figcaption&gt;&lt;h4&gt;Hugo博客文件结构&lt;/h4&gt;
-      &lt;/figcaption&gt;
-  &lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;p&gt;所以我们应该在content文件夹下的post文件夹里放置我们的Markdown博文文件。&lt;/p&gt;
-&lt;h3 id=&#34;43建立博客主体的git仓库&#34;&gt;4.3、建立博客主体的git仓库&lt;/h3&gt;
-&lt;p&gt;之前我们把配置文件config.toml中的enableGitInfo设为false，是因为我们还没给博客主体建立git仓库，于是我们cd回博客的主路径myBlog，然后输入命令建立博客主体的git仓库。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;git init
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;建&lt;strong&gt;主体仓库&lt;/strong&gt;好后，我直接用&lt;a href=&#34;https://desktop.github.com/&#34;&gt;Github Desktop&lt;/a&gt;将博客主体推到我的Github上，并把主题theme/jane和前端文件public都设置进gitignore。这样我们就能把config.toml中的enableGitInfo设为true，并将[params.gitInfo]中gitRepo设为&lt;strong&gt;主体仓库&lt;/strong&gt;的路径，这样我们每次修改博文的时候同步到&lt;strong&gt;主体仓库&lt;/strong&gt;后都会自动更新修改时间。&lt;/p&gt;
-&lt;h3 id=&#34;44将修改后的博客同步到远端&#34;&gt;4.4、将修改后的博客同步到远端&lt;/h3&gt;
-&lt;p&gt;写好博文后，输入以下命令重新生成新的public文件。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;hugo
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;把新生成的public推送到远端仓库即可将修改同步到远端博客。&lt;/p&gt;
-&lt;h2 id=&#34;5额外功能评论功能&#34;&gt;5、额外功能：评论功能&lt;/h2&gt;
-&lt;p&gt;博客有评论功能会觉得和读者有互动（真希望会有呢），可以一起交流进步。&lt;/p&gt;
-&lt;p&gt;这里选用&lt;a href=&#34;https://utteranc.es/&#34;&gt;utterances&lt;/a&gt;通过Github issue来支持静态博客评论功能。轻量且安全。&lt;/p&gt;
-&lt;p&gt;又要在Github上创建一个仓库专门用来存放评论的issue。创建好&lt;strong&gt;评论仓库&lt;/strong&gt;后，安装&lt;a href=&#34;https://github.com/apps/utterances&#34;&gt;utterances APP&lt;/a&gt;，并选择安装在&lt;strong&gt;评论仓库&lt;/strong&gt;上。并在配置文件config.toml里[params.utteranc]中的repo路径设置为&lt;strong&gt;评论仓库&lt;/strong&gt;。这样我们的博客便拥有评论功能了。&lt;/p&gt;
-&lt;h2 id=&#34;6补充windows搭建流程&#34;&gt;6、补充：Windows搭建流程&lt;/h2&gt;
-&lt;p&gt;一篇非常详细的参考博文：&lt;a href=&#34;https://www.cnblogs.com/Codemandyk/p/10855891.html&#34;&gt;点击这里&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;由于写这一节时，我已在MacOS部署好这个博客，所以我在这一节主要讲如何在另一台电脑的Windows操作系统上将博客同步过来。&lt;/p&gt;
-&lt;h3 id=&#34;61安装hugo&#34;&gt;6.1、安装Hugo&lt;/h3&gt;
-&lt;p&gt;到Hugo官网下载对应操作系统的&lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34;&gt;安装包&lt;/a&gt;进行手动安装。我在G盘中创建一个路径&lt;strong&gt;G:\Hugo\bin&lt;/strong&gt;，并将安装包内解压出来的&lt;strong&gt;hugo.exe&lt;/strong&gt;文件放到该路径下。在系统环境变量&lt;strong&gt;path&lt;/strong&gt;中添加路径&lt;strong&gt;G:\Hugo\bin&lt;/strong&gt;即可安装完成。可以在终端中输入如下命令查看Hugo是否安装完成：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;hugo version
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;62同步博客&#34;&gt;6.2、同步博客&lt;/h3&gt;
-&lt;h4 id=&#34;621同步主题&#34;&gt;6.2.1、同步主题&lt;/h4&gt;
-&lt;p&gt;采用&lt;a href=&#34;https://desktop.github.com/&#34;&gt;Github Desktop&lt;/a&gt;先将博客主体仓库同步到本地，由于gitignore掉了主题和远端，所以需要进入博客主体路径重新将主题clone下来：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;git clone https://github.com/xianmin/hugo-theme-jane.git --depth&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; themes/jane
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这里我看xianmin的&lt;a href=&#34;https://github.com/xianmin/xianmin.org&#34;&gt;博客主体&lt;/a&gt;中是带有主题的，不过是直接指向&lt;a href=&#34;https://github.com/xianmin/hugo-theme-jane/tree/2666d94d46c1f2e690aacefe51e81b13d07500c6&#34;&gt;主题仓库&lt;/a&gt;，暂时不知道如何实现，希望有读者可以解答。如果实现的话，以后在不同电脑同步就可以不用重新clone主题了。&lt;/p&gt;
-&lt;h4 id=&#34;622同步远端&#34;&gt;6.2.2、同步远端&lt;/h4&gt;
-&lt;p&gt;在博客主体路径下新建public文件夹，然后进入public文件夹依次输入以下命令同步远端文件：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;git init
-git remote add origin https://github.com/SLKyrim/slkyrim.github.io.git 【注意这里换成你自己的远端仓库路径】
-git pull origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这样在博客主体路径下输入以下命令即可更新远端文件：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;hugo
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;剩下的操作与MacOS的无异。&lt;/p&gt;
-&lt;h2 id=&#34;7结语&#34;&gt;7、结语&lt;/h2&gt;
-&lt;p&gt;建立个人博客，一共在Github上创建了三个仓库：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;远端仓库：存放博客public前端文件的，只有把更新的配置同步到这个仓库，远端博客才会更新&lt;/li&gt;
-&lt;li&gt;主体仓库：存放博客主体文件的，包括博文，图片等。&lt;/li&gt;
-&lt;li&gt;评论仓库：存放基于Github issue的评论的仓库，轻量且安全。&lt;/li&gt;
-&lt;/ul&gt;
 </description>
       
     </item>

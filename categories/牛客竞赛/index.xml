@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>牛客竞赛 on Single Long</title>
+    <link>https://slkyrim.github.io/categories/%E7%89%9B%E5%AE%A2%E7%AB%9E%E8%B5%9B/</link>
+    <description>Recent content in 牛客竞赛 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 01 Aug 2020 23:15:50 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/categories/%E7%89%9B%E5%AE%A2%E7%AB%9E%E8%B5%9B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>牛客编程巅峰赛S1第8场 - 青铜&amp;白银</title>
+      <link>https://slkyrim.github.io/post/nowcoder_s1_8_bronze/</link>
+      <pubDate>Sat, 01 Aug 2020 23:15:50 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/nowcoder_s1_8_bronze/</guid>
+      <description>目录 翻滚吧牛牛(一) 牛牛的分配 牛牛构造等差数列 翻滚吧牛牛(一) 链接：https://ac.nowcoder.com/acm/contest/</description>
+    </item>
+    
+  </channel>
+</rss>
