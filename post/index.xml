@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 02 Aug 2020 13:24:48 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 18:40:05 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>《操作系统导论》读书笔记</title>
+      <link>https://slkyrim.github.io/post/os_intro/</link>
+      <pubDate>Sun, 02 Aug 2020 18:40:05 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/os_intro/</guid>
+      <description>前言 本文是针对Remzi H. Arpaci-Dusseau等人专著的《Operating Systems: Three Easy Pieces》(中文译名《操作系统导论》)的英文原</description>
+    </item>
     
     <item>
       <title>Leetcode_20200802周赛</title>
@@ -180,15 +189,6 @@
       
       <guid>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</guid>
       <description>目录 目录 逐步求和得到正数的最小值 示例 我的思路 我的代码 和为 K 的最少斐波那契数字数目 示例 我的思路 我的代码 长度为 n 的开心字符串中字典序第 k 小的字符</description>
-    </item>
-    
-    <item>
-      <title>力扣杯2020春季全国编程大赛_个人赛</title>
-      <link>https://slkyrim.github.io/post/leetcode_2020_spring/</link>
-      <pubDate>Fri, 31 Jul 2020 12:13:32 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/leetcode_2020_spring/</guid>
-      <description>目录 拿硬币 传递信息 剧情触发事件 最小跳跃次数 二叉树任务调度 拿硬币 在数组coins中有n个数，每个数表示一堆硬币包含的硬币数。每次任选一堆，那种</description>
     </item>
     
   </channel>

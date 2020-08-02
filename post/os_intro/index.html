@@ -1,0 +1,2233 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>《操作系统导论》读书笔记 - Single Long</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Single Long" />
+  <meta name="description" content="前言 本文是针对Remzi H. Arpaci-Dusseau等人专著的《Operating Systems: Three Easy Pieces》(中文译名《操作系统导论》)的英文原" />
+
+  <meta name="keywords" content="Single Long, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<link rel="canonical" href="https://slkyrim.github.io/post/os_intro/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="《操作系统导论》读书笔记" />
+<meta property="og:description" content="前言 本文是针对Remzi H. Arpaci-Dusseau等人专著的《Operating Systems: Three Easy Pieces》(中文译名《操作系统导论》)的英文原" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://slkyrim.github.io/post/os_intro/" />
+<meta property="article:published_time" content="2020-08-02T18:40:05+08:00" />
+<meta property="article:modified_time" content="2020-08-02T19:23:47+08:00" />
+<meta itemprop="name" content="《操作系统导论》读书笔记">
+<meta itemprop="description" content="前言 本文是针对Remzi H. Arpaci-Dusseau等人专著的《Operating Systems: Three Easy Pieces》(中文译名《操作系统导论》)的英文原">
+<meta itemprop="datePublished" content="2020-08-02T18:40:05+08:00" />
+<meta itemprop="dateModified" content="2020-08-02T19:23:47+08:00" />
+<meta itemprop="wordCount" content="31755">
+
+
+
+<meta itemprop="keywords" content="操作系统,虚拟化,English,英语,CopyTranslator," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="《操作系统导论》读书笔记"/>
+<meta name="twitter:description" content="前言 本文是针对Remzi H. Arpaci-Dusseau等人专著的《Operating Systems: Three Easy Pieces》(中文译名《操作系统导论》)的英文原"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">龍</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      龍
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">《操作系统导论》读书笔记</h1>
+      
+      <div class="post-meta">
+        <time datetime="2020-08-02" class="post-time">
+          2020-08-02
+        </time>
+        <div class="post-category">
+            <a href="https://slkyrim.github.io/categories/%E6%8A%80%E6%9C%AF%E4%B9%A6%E7%B1%8D/"> 技术书籍 </a>
+            
+          </div>
+        <span class="more-meta"> 约 31755 字 </span>
+          <span class="more-meta"> 预计阅读 64 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#1绪论">1、绪论</a></li>
+    <li><a href="#2操作系统介绍">2、操作系统介绍</a>
+      <ul>
+        <li><a href="#虚拟化cpu">虚拟化CPU</a></li>
+        <li><a href="#虚拟化内存">虚拟化内存</a></li>
+        <li><a href="#并发">并发</a></li>
+        <li><a href="#持久化">持久化</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#4进程process">4、进程（process）</a>
+      <ul>
+        <li><a href="#抽象概念进程">抽象概念：进程</a></li>
+      </ul>
+    </li>
+    <li><a href="#5进程api">5、进程API</a>
+      <ul>
+        <li><a href="#创建进程">创建进程</a></li>
+        <li><a href="#进程状态">进程状态</a></li>
+        <li><a href="#数据结构">数据结构</a></li>
+        <li><a href="#作业">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#5进程api-1">5、进程API</a>
+      <ul>
+        <li><a href="#fork系统调用">fork（）系统调用</a></li>
+        <li><a href="#wait系统调用">wait（）系统调用</a></li>
+        <li><a href="#exec系统调用">exec（）系统调用</a></li>
+        <li><a href="#为什么-激励api">为什么？ 激励API</a></li>
+        <li><a href="#进程控制和用户">进程控制和用户</a></li>
+        <li><a href="#有用的工具">有用的工具</a></li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#作业-1">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#6机制受限直接执行">6、机制：受限直接执行</a>
+      <ul>
+        <li><a href="#基本技术受限直接执行">基本技术：受限直接执行</a></li>
+        <li><a href="#问题1限制操作">问题1：限制操作</a></li>
+        <li><a href="#问题2在进程之间切换">问题2：在进程之间切换</a></li>
+        <li><a href="#担心并发吗">担心并发吗？</a></li>
+        <li><a href="#总结-1">总结</a></li>
+        <li><a href="#作业-2">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#7排程简介">7、排程：简介</a>
+      <ul>
+        <li><a href="#工作量假设">工作量假设</a></li>
+        <li><a href="#排程指标">排程指标</a></li>
+        <li><a href="#先进先出fifo">先进先出（FIFO）</a></li>
+        <li><a href="#最短工作优先sjf">最短工作优先（SJF）</a></li>
+        <li><a href="#最短完成时间优先stcf">最短完成时间优先（STCF）</a></li>
+        <li><a href="#新指标响应时间">新指标：响应时间</a></li>
+        <li><a href="#轮询调度">轮询调度</a></li>
+        <li><a href="#整合io">整合I/O</a></li>
+        <li><a href="#不再假设了">不再假设了</a></li>
+        <li><a href="#总结-2">总结</a></li>
+        <li><a href="#作业-3">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#8排程多级反馈队列">8、排程：多级反馈队列</a>
+      <ul>
+        <li><a href="#mlfq基本规则">MLFQ：基本规则</a></li>
+        <li><a href="#尝试1如何更改优先级">尝试1：如何更改优先级</a></li>
+        <li><a href="#尝试2优先级提升">尝试2：优先级提升</a></li>
+        <li><a href="#尝试3更好的会计">尝试3：更好的会计</a></li>
+        <li><a href="#调整mlfq和其他问题">调整MLFQ和其他问题</a></li>
+        <li><a href="#总结-3">总结</a></li>
+        <li><a href="#作业-4">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#9排程按比例分配">9、排程：按比例分配</a>
+      <ul>
+        <li><a href="#基本概念票证代表您的份额">基本概念：票证代表您的份额</a></li>
+        <li><a href="#票务机制">票务机制</a></li>
+        <li><a href="#实现">实现</a></li>
+        <li><a href="#一个例子">一个例子</a></li>
+        <li><a href="#如何分配票证">如何分配票证？</a></li>
+        <li><a href="#为什么不能确定性">为什么不能确定性？</a></li>
+        <li><a href="#linux完全公平调度程序cfs">Linux完全公平调度程序（CFS）</a></li>
+        <li><a href="#总结-4">总结</a></li>
+        <li><a href="#作业-5">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#10多处理器调度高级">10、多处理器调度（高级）</a>
+      <ul>
+        <li><a href="#背景多处理器架构">背景：多处理器架构</a></li>
+        <li><a href="#不要忘记同步">不要忘记同步</a></li>
+        <li><a href="#最后一个问题缓存关联性">最后一个问题：缓存关联性</a></li>
+        <li><a href="#单队列调度">单队列调度</a></li>
+        <li><a href="#多队列调度">多队列调度</a></li>
+        <li><a href="#linux多处理器调度程序">Linux多处理器调度程序</a></li>
+        <li><a href="#总结-5">总结</a></li>
+        <li><a href="#作业-6">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#11总结cpu虚拟化">11、总结：CPU虚拟化</a></li>
+    <li><a href="#12绪论内存虚拟化">12、绪论：内存虚拟化</a></li>
+    <li><a href="#13抽象概念地址空间">13、抽象概念：地址空间</a>
+      <ul>
+        <li><a href="#早期系统">早期系统</a></li>
+        <li><a href="#多程序和时间共享">多程序和时间共享</a></li>
+        <li><a href="#地址空间">地址空间</a></li>
+        <li><a href="#目标">目标</a></li>
+        <li><a href="#总结-6">总结</a></li>
+        <li><a href="#作业-7">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#14插曲内存api">14、插曲：内存API</a>
+      <ul>
+        <li><a href="#内存类型">内存类型</a></li>
+        <li><a href="#malloc调用">malloc（）调用</a></li>
+        <li><a href="#free调用">free（）调用</a></li>
+        <li><a href="#常见错误">常见错误</a></li>
+        <li><a href="#底层操作系统支持">底层操作系统支持</a></li>
+        <li><a href="#其他调用">其他调用</a></li>
+        <li><a href="#总结-7">总结</a></li>
+        <li><a href="#作业-8">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#15机制地址翻译">15、机制：地址翻译</a>
+      <ul>
+        <li><a href="#假设条件">假设条件</a></li>
+        <li><a href="#一个例子-1">一个例子</a></li>
+        <li><a href="#动态基于硬件重定位">动态（基于硬件）重定位</a></li>
+        <li><a href="#硬件支持总结">硬件支持：总结</a></li>
+        <li><a href="#操作系统问题">操作系统问题</a></li>
+        <li><a href="#总结-8">总结</a></li>
+        <li><a href="#作业-9">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#16分割">16、分割</a>
+      <ul>
+        <li><a href="#细分广义基数界限">细分：广义基数/界限</a></li>
+        <li><a href="#我们指的是哪个细分市场">我们指的是哪个细分市场？</a></li>
+        <li><a href="#堆栈呢">堆栈呢？</a></li>
+        <li><a href="#支持分享">支持分享</a></li>
+        <li><a href="#细粒度与粗粒度细分">细粒度与粗粒度细分</a></li>
+        <li><a href="#操作系统支持">操作系统支持</a></li>
+        <li><a href="#总结-9">总结</a></li>
+        <li><a href="#作业-10">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#17自由空间管理">17、自由空间管理</a>
+      <ul>
+        <li><a href="#假设条件-1">假设条件</a></li>
+        <li><a href="#低级机制">低级机制</a></li>
+        <li><a href="#基本策略">基本策略</a></li>
+        <li><a href="#其他方法">其他方法</a></li>
+        <li><a href="#总结-10">总结</a></li>
+        <li><a href="#作业-11">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#18分页简介">18、分页：简介</a>
+      <ul>
+        <li><a href="#一个简单的例子和概述">一个简单的例子和​​概述</a></li>
+        <li><a href="#页表存储在哪里">页表存储在哪里？</a></li>
+        <li><a href="#页面表中实际上是什么">页面表中实际上是什么？</a></li>
+        <li><a href="#分页太慢">分页：太慢</a></li>
+        <li><a href="#内存跟踪">内存跟踪</a></li>
+        <li><a href="#总结-11">总结</a></li>
+        <li><a href="#作业-12">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#19分页更快的翻译tlb">19、分页：更快的翻译（TLB）</a>
+      <ul>
+        <li><a href="#tlb基本算法">TLB基本算法</a></li>
+        <li><a href="#示例访问数组">示例：访问数组</a></li>
+        <li><a href="#谁处理tlb缺失">谁处理TLB缺失？</a></li>
+        <li><a href="#tlb内容里面有什么">TLB内容：里面有什么？</a></li>
+        <li><a href="#tlb问题上下文切换">TLB问题：上下文切换</a></li>
+        <li><a href="#问题更换政策">问题：更换政策</a></li>
+        <li><a href="#真正的tlb条目">真正的TLB条目</a></li>
+        <li><a href="#总结-12">总结</a></li>
+        <li><a href="#作业-13">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#20分页较小的表格">20、分页：较小的表格</a>
+      <ul>
+        <li><a href="#简单的解决方案更大的页面">简单的解决方案：更大的页面</a></li>
+        <li><a href="#混合方法分页和细分">混合方法：分页和细分</a></li>
+        <li><a href="#多级页表">多级页表</a></li>
+        <li><a href="#倒页表">倒页表</a></li>
+        <li><a href="#将页表交换到磁盘">将页表交换到磁盘</a></li>
+        <li><a href="#总结-13">总结</a></li>
+        <li><a href="#作业-14">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#21超越物理内存机制">21、超越物理内存：机制</a>
+      <ul>
+        <li><a href="#交换空间">交换空间</a></li>
+        <li><a href="#现在的位">现在的位</a></li>
+        <li><a href="#页面错误">页面错误</a></li>
+        <li><a href="#如果内存已满怎么办">如果内存已满怎么办？</a></li>
+        <li><a href="#页面故障控制流程">页面故障控制流程</a></li>
+        <li><a href="#真正发生替换时">真正发生替换时</a></li>
+        <li><a href="#总结-14">总结</a></li>
+        <li><a href="#作业-15">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#22超越物理内存策略">22、超越物理内存：策略</a>
+      <ul>
+        <li><a href="#缓存管理">缓存管理</a></li>
+        <li><a href="#最佳替代政策">最佳替代政策</a></li>
+        <li><a href="#一个简单的策略fifo">一个简单的策略：FIFO</a></li>
+        <li><a href="#另一个简单的政策随机">另一个简单的政策：随机</a></li>
+        <li><a href="#使用历史记录lru">使用历史记录：LRU</a></li>
+        <li><a href="#工作量示例">工作量示例</a></li>
+        <li><a href="#实施历史算法">实施历史算法</a></li>
+        <li><a href="#近似lru">近似LRU</a></li>
+        <li><a href="#考虑脏页">考虑脏页</a></li>
+        <li><a href="#其他虚拟机策略">其他虚拟机策略</a></li>
+        <li><a href="#脱粒">脱粒</a></li>
+        <li><a href="#总结-15">总结</a></li>
+        <li><a href="#作业-16">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#23完整的虚拟内存系统">23、完整的虚拟内存系统</a>
+      <ul>
+        <li><a href="#vax--vms虚拟内存">VAX / VMS虚拟内存</a></li>
+        <li><a href="#linux虚拟内存系统">Linux虚拟内存系统</a></li>
+        <li><a href="#总结-16">总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#24总结内存虚拟化">24、总结：内存虚拟化</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#25绪论-并发">25、绪论: 并发</a></li>
+    <li><a href="#26并发简介">26、并发：简介</a>
+      <ul>
+        <li><a href="#为什么要使用线程">为什么要使用线程？</a></li>
+        <li><a href="#示例线程创建">示例：线程创建</a></li>
+        <li><a href="#为什么变得更糟共享数据">为什么变得更糟：共享数据</a></li>
+        <li><a href="#问题的核心无节制的调度">问题的核心：无节制的调度</a></li>
+        <li><a href="#希望原子性">希望原子性</a></li>
+        <li><a href="#另一个问题等待另一个">另一个问题：等待另一个</a></li>
+        <li><a href="#总结-17">总结</a></li>
+        <li><a href="#作业-17">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#27插曲线程api">27、插曲：线程API</a>
+      <ul>
+        <li><a href="#线程创建">线程创建</a></li>
+        <li><a href="#线程完成">线程完成</a></li>
+        <li><a href="#锁">锁</a></li>
+        <li><a href="#条件变量">条件变量</a></li>
+        <li><a href="#编译并运行">编译并运行</a></li>
+        <li><a href="#总结-18">总结</a></li>
+        <li><a href="#作业-18">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#28锁">28、锁</a>
+      <ul>
+        <li><a href="#锁基本思想">锁：基本思想</a></li>
+        <li><a href="#pthread锁">Pthread锁</a></li>
+        <li><a href="#建立锁">建立锁</a></li>
+        <li><a href="#评估锁">评估锁</a></li>
+        <li><a href="#控制中断">控制中断</a></li>
+        <li><a href="#失败的尝试仅使用装入存储">失败的尝试：仅使用装入/存储</a></li>
+        <li><a href="#使用测试设置建立工作自旋锁">使用测试设置建立工作自旋锁</a></li>
+        <li><a href="#评估自旋锁">评估自旋锁</a></li>
+        <li><a href="#比较和交换">比较和交换</a></li>
+        <li><a href="#负载链接和存储条件">负载链接和存储条件</a></li>
+        <li><a href="#提取并添加">提取并添加</a></li>
+        <li><a href="#旋转太多现在怎么办">旋转太多：现在怎么办？</a></li>
+        <li><a href="#一种简单的方法宝贝只是收益">一种简单的方法：宝贝，只是收益</a></li>
+        <li><a href="#使用队列休眠而不是旋转">使用队列：休眠而不是旋转</a></li>
+        <li><a href="#不同的操作系统不同的支持">不同的操作系统，不同的支持</a></li>
+        <li><a href="#两相锁">两相锁</a></li>
+        <li><a href="#总结-19">总结</a></li>
+        <li><a href="#作业-19">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#29基于锁的并发数据结构">29、基于锁的并发数据结构</a>
+      <ul>
+        <li><a href="#并发计数器">并发计数器</a></li>
+        <li><a href="#并发链接列表">并发链接列表</a></li>
+        <li><a href="#并发队列">并发队列</a></li>
+        <li><a href="#并发哈希表">并发哈希表</a></li>
+        <li><a href="#总结-20">总结</a></li>
+        <li><a href="#作业-20">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#30条件变量">30、条件变量</a>
+      <ul>
+        <li><a href="#定义和例程">定义和例程</a></li>
+        <li><a href="#生产者消费者有界缓冲区问题">生产者/消费者（有界缓冲区）问题</a></li>
+        <li><a href="#承保条件">承保条件</a></li>
+        <li><a href="#总结-21">总结</a></li>
+        <li><a href="#作业-21">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#31信号量">31、信号量</a>
+      <ul>
+        <li><a href="#信号量定义">信号量：定义</a></li>
+        <li><a href="#二进制信号量锁">二进制信号量（锁）</a></li>
+        <li><a href="#信号量订购">信号量订购</a></li>
+        <li><a href="#生产者消费者有界缓冲区问题-1">生产者/消费者（有界缓冲区）问题</a></li>
+        <li><a href="#读写器锁">读写器锁</a></li>
+        <li><a href="#餐饮哲学家">餐饮哲学家</a></li>
+        <li><a href="#如何实现信号量">如何实现信号量</a></li>
+        <li><a href="#总结-22">总结</a></li>
+        <li><a href="#作业-22">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#32常见的并发问题">32、常见的并发问题</a>
+      <ul>
+        <li><a href="#存在哪些类型的错误">存在哪些类型的错误？</a></li>
+        <li><a href="#非死锁错误">非死锁错误</a></li>
+        <li><a href="#死锁错误">死锁错误</a></li>
+        <li><a href="#总结-23">总结</a></li>
+        <li><a href="#作业-23">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#33基于事件的并发高级">33、基于事件的并发（高级）</a>
+      <ul>
+        <li><a href="#基本思想事件循环">基本思想：事件循环</a></li>
+        <li><a href="#重要的apiselect或poll">重要的API：select（）（或poll（））</a></li>
+        <li><a href="#使用select">使用select（）</a></li>
+        <li><a href="#为什么更简单-无需锁">为什么更简单？ 无需锁</a></li>
+        <li><a href="#问题阻止系统调用">问题：阻止系统调用</a></li>
+        <li><a href="#解决方案异步i--o">解决方案：异步I / O</a></li>
+        <li><a href="#另一个问题状态管理">另一个问题：状态管理</a></li>
+        <li><a href="#什么仍然是事件的难点">什么仍然是事件的难点</a></li>
+        <li><a href="#总结-24">总结</a></li>
+        <li><a href="#作业-24">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#34总结-并发">34、总结: 并发</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#35绪论持久化">35、绪论：持久化</a></li>
+    <li><a href="#36i--o设备">36、I / O设备</a>
+      <ul>
+        <li><a href="#系统架构">系统架构</a></li>
+        <li><a href="#规范的设备">规范的设备</a></li>
+        <li><a href="#规范协议">规范协议</a></li>
+        <li><a href="#通过中断降低cpu开销">通过中断降低CPU开销</a></li>
+        <li><a href="#使用dma进行更高效的数据移动">使用DMA进行更高效的数据移动</a></li>
+        <li><a href="#设备交互方法">设备交互方法</a></li>
+        <li><a href="#适应操作系统设备驱动程序">适应操作系统：设备驱动程序</a></li>
+        <li><a href="#案例研究一个简单的ide磁盘驱动程序">案例研究：一个简单的IDE磁盘驱动程序</a></li>
+        <li><a href="#历史笔记">历史笔记</a></li>
+        <li><a href="#总结-25">总结</a></li>
+        <li><a href="#作业-25">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#37硬盘驱动器">37、硬盘驱动器</a>
+      <ul>
+        <li><a href="#接口">接口</a></li>
+        <li><a href="#基本几何">基本几何</a></li>
+        <li><a href="#一个简单的磁盘驱动器">一个简单的磁盘驱动器</a></li>
+        <li><a href="#i--o时间做数学">I / O时间：做数学</a></li>
+        <li><a href="#磁盘调度">磁盘调度</a></li>
+        <li><a href="#总结-26">总结</a></li>
+        <li><a href="#作业-26">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#38廉价磁盘冗余阵列raid">38、廉价磁盘冗余阵列（RAID）</a>
+      <ul>
+        <li><a href="#接口和raid内部">接口和RAID内部</a></li>
+        <li><a href="#故障模型">故障模型</a></li>
+        <li><a href="#如何评估raid">如何评估RAID</a></li>
+        <li><a href="#raid级别0条带化">RAID级别0：条带化</a></li>
+        <li><a href="#raid级别1镜像">RAID级别1：镜像</a></li>
+        <li><a href="#raid级别4通过奇偶校验节省空间">RAID级别4：通过奇偶校验节省空间</a></li>
+        <li><a href="#raid级别5旋转奇偶校验">RAID级别5：旋转奇偶校验</a></li>
+        <li><a href="#raid比较摘要">RAID比较：摘要</a></li>
+        <li><a href="#其他有趣的raid问题">其他有趣的RAID问题</a></li>
+        <li><a href="#总结-27">总结</a></li>
+        <li><a href="#作业-27">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#39插曲文件和目录">39、插曲：文件和目录</a>
+      <ul>
+        <li><a href="#文件和目录">文件和目录</a></li>
+        <li><a href="#文件系统界面">文件系统界面</a></li>
+        <li><a href="#创建文件">创建文件</a></li>
+        <li><a href="#读写文件">读写文件</a></li>
+        <li><a href="#读和写但不顺序">读和写，但不顺序</a></li>
+        <li><a href="#共享文件表条目fork和dup">共享文件表条目：fork（）和dup（）</a></li>
+        <li><a href="#立即使用fsync编写">立即使用fsync（）编写</a></li>
+        <li><a href="#重命名文件">重命名文件</a></li>
+        <li><a href="#获取有关文件的信息">获取有关文件的信息</a></li>
+        <li><a href="#删除文件">删除文件</a></li>
+        <li><a href="#制作目录">制作目录</a></li>
+        <li><a href="#阅读目录">阅读目录</a></li>
+        <li><a href="#删除目录">删除目录</a></li>
+        <li><a href="#硬链接">硬链接</a></li>
+        <li><a href="#符号链接">符号链接</a></li>
+        <li><a href="#权限位和访问控制列表">权限位和访问控制列表</a></li>
+        <li><a href="#制作和挂载文件系统">制作和挂载文件系统</a></li>
+        <li><a href="#总结-28">总结</a></li>
+        <li><a href="#作业-28">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#40文件系统实施">40、文件系统实施</a>
+      <ul>
+        <li><a href="#思考方式">思考方式</a></li>
+        <li><a href="#整体组织">整体组织</a></li>
+        <li><a href="#文件组织the-inode">文件组织：The Inode</a></li>
+        <li><a href="#目录组织">目录组织</a></li>
+        <li><a href="#自由空间管理">自由空间管理</a></li>
+        <li><a href="#访问路径阅读和写作">访问路径：阅读和写作</a></li>
+        <li><a href="#缓存和缓冲">缓存和缓冲</a></li>
+        <li><a href="#总结-29">总结</a></li>
+        <li><a href="#作业-29">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#41位置和快速文件系统">41、位置和快速文件系统</a>
+      <ul>
+        <li><a href="#问题性能不佳">问题：性能不佳</a></li>
+        <li><a href="#ffs磁盘感知是解决方案">FFS：磁盘感知是解决方案</a></li>
+        <li><a href="#组织结构圆柱组">组织结构：圆柱组</a></li>
+        <li><a href="#策略如何分配文件和目录">策略：如何分配文件和目录</a></li>
+        <li><a href="#测量文件位置">测量文件位置</a></li>
+        <li><a href="#大文件异常">大文件异常</a></li>
+        <li><a href="#关于ffs的其他一些事情">关于FFS的其他一些事情</a></li>
+        <li><a href="#总结-30">总结</a></li>
+        <li><a href="#作业-30">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#42崩溃一致性fsck和日记">42、崩溃一致性：FSCK和日记</a>
+      <ul>
+        <li><a href="#一个详细的例子">一个详细的例子</a></li>
+        <li><a href="#解决方案1文件系统检查器">解决方案1：文件系统检查器</a></li>
+        <li><a href="#解决方案2日记或预写日志">解决方案2：日记（或预写日志）</a></li>
+        <li><a href="#解决方案3其他方法">解决方案3：其他方法</a></li>
+        <li><a href="#总结-31">总结</a></li>
+        <li><a href="#作业-31">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#43日志结构文件系统">43、日志结构文件系统</a>
+      <ul>
+        <li><a href="#顺序写入磁盘">顺序写入磁盘</a></li>
+        <li><a href="#顺序有效地写作">顺序有效地写作</a></li>
+        <li><a href="#要缓冲多少">要缓冲多少？</a></li>
+        <li><a href="#间接解决方案inode映射">间接解决方案：Inode映射</a></li>
+        <li><a href="#完成解决方案检查点区域">完成解决方案：检查点区域</a></li>
+        <li><a href="#从磁盘读取文件回顾">从磁盘读取文件：回顾</a></li>
+        <li><a href="#那目录呢">那目录呢？</a></li>
+        <li><a href="#一个新问题垃圾回收">一个新问题：垃圾回收</a></li>
+        <li><a href="#确定区块活力">确定区块活力</a></li>
+        <li><a href="#一个政策问题哪些块需要清洁何时清洁">一个政策问题：哪些块需要清洁，何时清洁？</a></li>
+        <li><a href="#崩溃恢复和日志">崩溃恢复和日志</a></li>
+        <li><a href="#总结-32">总结</a></li>
+        <li><a href="#作业-32">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#44基于闪存的ssd">44、基于闪存的SSD</a>
+      <ul>
+        <li><a href="#存放一位">存放一位</a></li>
+        <li><a href="#从位到银行飞机">从位到银行/飞机</a></li>
+        <li><a href="#基本flash操作">基本Flash操作</a></li>
+        <li><a href="#闪存性能和可靠性">闪存性能和可靠性</a></li>
+        <li><a href="#从原始闪存到基于闪存的ssd">从原始闪存到基于闪存的SSD</a></li>
+        <li><a href="#ftl组织一种错误的方法">FTL组织：一种错误的方法</a></li>
+        <li><a href="#对数结构的ftl">对数结构的FTL</a></li>
+        <li><a href="#垃圾收集">垃圾收集</a></li>
+        <li><a href="#映射表大小">映射表大小</a></li>
+        <li><a href="#磨损平衡">磨损平衡</a></li>
+        <li><a href="#ssd性能和成本">SSD性能和成本</a></li>
+        <li><a href="#总结-33">总结</a></li>
+        <li><a href="#作业-33">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#45数据完整性与保护">45、数据完整性与保护</a>
+      <ul>
+        <li><a href="#磁盘故障模式">磁盘故障模式</a></li>
+        <li><a href="#处理潜在行业错误">处理潜在行业错误</a></li>
+        <li><a href="#检测腐败校验和">检测腐败：校验和</a></li>
+        <li><a href="#使用校验和">使用校验和</a></li>
+        <li><a href="#一个新问题写错了方向">一个新问题：写错了方向</a></li>
+        <li><a href="#最后一个问题失落的写作">最后一个问题：失落的写作</a></li>
+        <li><a href="#擦洗">擦洗</a></li>
+        <li><a href="#校验和的开销">校验和的开销</a></li>
+        <li><a href="#总结-34">总结</a></li>
+        <li><a href="#作业-34">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#46总结持久化">46、总结：持久化</a></li>
+    <li><a href="#47绪论分布式">47、绪论：分布式</a></li>
+    <li><a href="#48分布式系统">48、分布式系统</a>
+      <ul>
+        <li><a href="#沟通基础">沟通基础</a></li>
+        <li><a href="#通讯层不可靠">通讯层不可靠</a></li>
+        <li><a href="#可靠的通讯层">可靠的通讯层</a></li>
+        <li><a href="#通讯抽象">通讯抽象</a></li>
+        <li><a href="#远程过程调用rpc">远程过程调用（RPC）</a></li>
+        <li><a href="#总结-35">总结</a></li>
+        <li><a href="#作业-35">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#49sun的网络文件系统nfs">49、Sun的网络文件系统（NFS）</a>
+      <ul>
+        <li><a href="#基本的分布式文件系统">基本的分布式文件系统</a></li>
+        <li><a href="#转到nfs">转到NFS</a></li>
+        <li><a href="#重点简单快速的服务器崩溃恢复">重点：简单快速的服务器崩溃恢复</a></li>
+        <li><a href="#快速崩溃恢复的关键无状态">快速崩溃恢复的关键：无状态</a></li>
+        <li><a href="#nfsv2协议">NFSv2协议</a></li>
+        <li><a href="#从协议到分布式文件系统">从协议到分布式文件系统</a></li>
+        <li><a href="#使用幂等操作处理服务器故障">使用幂等操作处理服务器故障</a></li>
+        <li><a href="#提高性能客户端缓存">提高性能：客户端缓存</a></li>
+        <li><a href="#缓存一致性问题">缓存一致性问题</a></li>
+        <li><a href="#评估nfs缓存一致性">评估NFS缓存一致性</a></li>
+        <li><a href="#对服务器端写缓冲的影响">对服务器端写缓冲的影响</a></li>
+        <li><a href="#总结-36">总结</a></li>
+        <li><a href="#作业-36">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#50安德鲁文件系统afs">50、安德鲁文件系统（AFS）</a>
+      <ul>
+        <li><a href="#afs版本1">AFS版本1</a></li>
+        <li><a href="#版本1的问题">版本1的问题</a></li>
+        <li><a href="#完善协议">完善协议</a></li>
+        <li><a href="#afs版本2">AFS版本2</a></li>
+        <li><a href="#缓存一致性">缓存一致性</a></li>
+        <li><a href="#崩溃恢复">崩溃恢复</a></li>
+        <li><a href="#afsv2的规模和性能">AFSv2的规模和性能</a></li>
+        <li><a href="#afs其他改进">AFS：其他改进</a></li>
+        <li><a href="#总结-37">总结</a></li>
+        <li><a href="#作业-37">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#51总结分布式">51、总结：分布式</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="前言">前言</h2>
+<p>本文是针对Remzi H. Arpaci-Dusseau等人专著的《Operating Systems: Three Easy Pieces》(中文译名《操作系统导论》)的英文原版的阅读笔记。主要为本人方便利用博客<strong>文章目录</strong>功能进行回阅总结用，本文大多是直接利用<a href="https://github.com/copytranslator/copytranslator/releases">CopyTranslator</a>对原文进行机翻而得。因此本文将毫无阅读体验。如果能读完本书，大概再做个总结。</p>
+<h2 id="1绪论">1、绪论</h2>
+<p>本书操作系统学习包括三个部分：</p>
+<ul>
+<li>虚拟化 (Virtualization)</li>
+<li>并发性 (Concurrency)</li>
+<li>持久化 (Persistence)</li>
+</ul>
+<h2 id="2操作系统介绍">2、操作系统介绍</h2>
+<p>程序运行过程：处理器从内存提取指令，解码后再执行该指令</p>
+<p>操作系统（OS）：看作是一堆软件，使程序能容易地运行。负责管理资源（CPU，内存和磁盘）。</p>
+<p>虚拟化：OS把物理资源（如处理器，内存，磁盘）转为容易使用的虚拟形式。所以<strong>OS也称为虚拟机</strong>。</p>
+<h3 id="虚拟化cpu">虚拟化CPU</h3>
+<p>CPU虚拟化：将单个CPU（或小规模CPU集群）转变为像是无限个CPU，像是可以一次同时运行多个程序。</p>
+<h3 id="虚拟化内存">虚拟化内存</h3>
+<p>每个进程都访问自己的私有虚拟地址空间（有时也称为进程的地址空间），操作系统将进程的<strong>虚拟地址空间</strong>以某种方式映射到计算机的物理内存上。</p>
+<p>一个例子：有两个进程中都有一个指针变量指向地址0x200000，两个进程会独立地对他们进程内的这个0x200000地址上的数据进行操作，而不互相影响。因为0x200000并不是在实际硬件上的真实地址，而是进程各自的虚拟地址空间。</p>
+<h3 id="并发">并发</h3>
+<p>一个多线程的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;common.h&#34;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">volatile</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">loops</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="o">*</span><span class="nf">worker</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">loops</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;usage: threads &lt;value&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">loops</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="n">pthread_t</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Initial value : %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">counter</span><span class="p">);</span>
+    <span class="n">Pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">worker</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">Pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p2</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">worker</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">Pthread_join</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">Pthread_join</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Final value : %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">counter</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>两个线程执行counter++的次数各为loops次，设置loops的次数为N后，最后counter的值并非2N。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">prompt&gt; ./thread <span class="m">100000</span>
+Initial value : <span class="m">0</span>
+Final value : <span class="m">143012</span> // huh??
+prompt&gt; ./thread <span class="m">100000</span>
+Initial value : <span class="m">0</span>
+Final value : <span class="m">137298</span> // what the??
+</code></pre></td></tr></table>
+</div>
+</div><p>原因：  <br>
+一次仅执行一条指令，而增加counter的指令分为3条：（1）从内存读取counter的值存进寄存器；（2）counter加1；（3）将counter的值存回内存。这三条指令的执行不具有原子性（Atomicity）（一次性全部执行完）。</p>
+<h3 id="持久化">持久化</h3>
+<p>因为掉电或崩溃后，内存中的数据将会丢失，因此需要能够持久保存数据的硬件和软件。硬件以I/O设备的形式，主要有硬盘和SSD；在OS中，管理磁盘的软件称为<strong>文件系统</strong>。</p>
+<h1 id="第一部分虚拟化">第一部分：虚拟化</h1>
+<p>虚拟化：假设系统只有一个物理CPU，让运行在系统上的多个应用认为它们都有自己的一个CPU，实际上这些CPU只是虚拟CPU。将一个物理CPU变成多个虚拟CPU的过程称为虚拟化。</p>
+<h2 id="4进程process">4、进程（process）</h2>
+<p>进程：运行中的程序</p>
+<p>分时技术：用一个资源（CPU）运行一个进程，然后停止运行这个进程，转而用该资源运行另一个进程。<strong>OS利用分时技术实现虚拟化</strong>。</p>
+<h3 id="抽象概念进程">抽象概念：进程</h3>
+<p>进程的机器状态（machine state）：</p>
+<ul>
+<li>进程可寻址的内存，即<strong>地址空间</strong></li>
+<li>寄存器</li>
+<li>记录当前进程打开的文件列表的I/O信息</li>
+</ul>
+<h2 id="5进程api">5、进程API</h2>
+<ul>
+<li>创建进程</li>
+<li>强制杀死进程</li>
+<li>等待进程停止运行</li>
+<li>暂停进程，之后恢复该进程</li>
+<li>获取进程信息，如运行时间或状态</li>
+</ul>
+<h3 id="创建进程">创建进程</h3>
+<p>程序是如何转变为进程的？（腾讯后台开发的面试题）</p>
+<ul>
+<li>OS读取磁盘上的可执行程序中的<strong>代码和静态数据（初始化的变量）</strong>，并载入到内存，即<strong>进程的地址空间</strong>中。</li>
+<li>OS为程序的<strong>运行时栈</strong>（即<strong>栈（stack）</strong>）分配内存。C程序用堆栈存放局部变量，函数参数和返回地址</li>
+<li>OS可能会分配内存给程序的<strong>堆（heap）</strong>。堆用存放显示请求的动态分配数据，这些数据涉及到链表，哈希表，树等数据结构。需要在程序中调用 <strong>malloc()</strong> 来分配内存给堆，调用 <strong>free()</strong> 来释放内存。随着进程的运行，通过 malloc() 请求的内存越多，OS需要分配更多的内存给进程。</li>
+<li>OS还将执行其他一些初始化任务，尤其是与I/O相关的初始化任务。 例如，在UNIX系统中，每个进程默认都有三个<strong>文件描述符</strong>，分别用于标准输入，输出和错误。这些描述符使程序可以轻松地从终端读取输入，并将输出打印到屏幕。</li>
+<li>通过进入 main（），OS将CPU的控制权转移给新创建的进程，因此程序开始执行</li>
+</ul>
+<h3 id="进程状态">进程状态</h3>
+<p>三种进程状态：</p>
+<ul>
+<li>执行状态：进程运行在处理器上，正在执行指令</li>
+<li>就绪状态：进程准备好执行了， 但OS并未选择执行它</li>
+<li>阻塞状态：在阻塞状态下，进程执行了某种操作，直到发生其他事件（如完成I/O）才准备运行。一个常见的示例：当某个进程向磁盘发起I/O请求时，它会被阻塞，因此某些其他进程可以使用该处理器。</li>
+</ul>
+<h3 id="数据结构">数据结构</h3>
+<p>操作系统中充满了各种重要的数据结构，我们将在这些说明中进行讨论。<strong>进程列表</strong>（也称为任务列表）是第一个这样的结构。进程列表是比较简单的一种数据结构，可以同时运行多个程序的任何OS都将具有类似于此结构的某种形式，以便跟踪系统中所有正在运行的程序。</p>
+<h3 id="作业">作业</h3>
+<h2 id="5进程api-1">5、进程API</h2>
+<h3 id="fork系统调用">fork（）系统调用</h3>
+<p>fork（）系统调用用于创建新进程。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span> 
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;hello world (pid:%d)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">getpid</span><span class="p">());</span>
+    <span class="kt">int</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span> <span class="c1">// 在子进程中，返回码rc为0
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// fork failed
+</span><span class="c1"></span>        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;fork failed</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// child (new process)
+</span><span class="c1"></span>        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;hello, I am child (pid:%d)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">getpid</span><span class="p">());</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// parent goes down this path (main)
+</span><span class="c1"></span>        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;hello, I am parent of %d (pid:%d)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">rc</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">getpid</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>运行以上代码得：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">prompt&gt; ./p1
+hello world <span class="o">(</span>pid:29146<span class="o">)</span>
+hello, I am parent of <span class="m">29147</span> <span class="o">(</span>pid:29146<span class="o">)</span>
+hello, I am child <span class="o">(</span>pid:29147<span class="o">)</span>
+prompt&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>当它第一次开始运行时，该过程将打印出一个hello world消息。 该消息中包含的是其<strong>进程标识符，也称为PID</strong>。 该进程的PID为29146； 在UNIX系统中，如果要对进程执行某项操作，则使用PID来命名该进程。</p>
+<p>该进程调用fork（），OS提供的是一种创建新进程的方式。奇怪的是：创建的进程（几乎）是运行进程的副本。这意味着对于OS，现在看起来好像有两个正在运行的程序p1。新创建的进程（与创建父进程区分，称为子进程）不会像您期望的那样在main（）上开始运行（请注意，“ hello，world”消息仅被打印一次）。</p>
+<h3 id="wait系统调用">wait（）系统调用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;sys/wait.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;hello world (pid:%d)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">getpid</span><span class="p">());</span>
+    <span class="kt">int</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// fork failed; exit
+</span><span class="c1"></span>        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;fork failed</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// child (new process)
+</span><span class="c1"></span>        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;hello, I am child (pid:%d)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">getpid</span><span class="p">());</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// parent goes down this path (main)
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">rc_wait</span> <span class="o">=</span> <span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;hello, I am parent of %d (rc_wait:%d) (pid:%d)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">rc</span><span class="p">,</span> <span class="n">rc_wait</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">getpid</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以上代码，父进程中调用了wait()，父进程会等子进程执行完毕后再执行。</p>
+<h3 id="exec系统调用">exec（）系统调用</h3>
+<h3 id="为什么-激励api">为什么？ 激励API</h3>
+<h3 id="进程控制和用户">进程控制和用户</h3>
+<h3 id="有用的工具">有用的工具</h3>
+<h3 id="总结">总结</h3>
+<h3 id="作业-1">作业</h3>
+<h2 id="6机制受限直接执行">6、机制：受限直接执行</h2>
+<p>解决问题：（1）性能：如何在不增加系统开销的情况下实现虚拟化？（2）控制：如何在保持对CPU的控制的同时高效地运行进程？</p>
+<h3 id="基本技术受限直接执行">基本技术：受限直接执行</h3>
+<p>这个想法的“直接执行”部分很简单：直接在CPU上运行程序。</p>
+<p>因此，当OS希望启动程序运行时，它会在进程列表中为其创建一个进程条目，为其分配一些内存，将该程序代码加载到内存中（从磁盘），找到其入口点（即main()或其它类似入口）。</p>
+<p>但是这种方法在我们寻求虚拟化CPU的过程中引起了一些问题。 第一个很简单：如果我们只运行一个程序，那么操作系统如何确保该程序没有执行我们不希望做的任何事情，而仍然有效地运行它？ 第二个：当我们运行一个进程时，操作系统如何阻止它运行并切换到另一个进程，从而实现虚拟化CPU所需的分时？</p>
+<h3 id="问题1限制操作">问题1：限制操作</h3>
+<p>直接执行的明显优势是速度快。 该程序可以在硬件CPU上本地运行，因此可以按照预期的速度执行。 但是在CPU上运行会带来一个问题：如果进程希望执行某种受限操作，例如向磁盘发出I/O请求，或者获得对更多系统资源（如CPU或内存）的访问权限，该怎么办？</p>
+<p>进程必须能够执行I/O和其他一些受限制的操作，但又不能完全控制系统。操作系统和硬件如何一起工作才能做到这一点？</p>
+<p>您可能想知道为什么对系统调用（例如open（）或read（））的调用看起来完全像C中的典型过程调用；为什么？ 也就是说，如果它看起来像过程调用，那么系统如何知道它是系统调用，并且做所有正确的事情？ 原因很简单：这是一个过程调用，但是隐藏在该过程调用中的是著名的陷阱指令。 更具体地说，例如，当您调用open（）时，您正在执行对C库的过程调用。 其中，无论对于open（）还是提供的任何其他系统调用，该库都使用与内核达成共识的调用约定，将参数放入open（）的已知位置（例如，在堆栈上或在 特定寄存器），也将系统调用号码也放入一个众所周知的位置（再次放在堆栈或寄存器中），然后执行上述陷阱指令。 陷阱解压缩后，库中的代码将返回值解压缩，并将控制权返回给发出系统调用的程序。 因此，进行系统调用的C库部分在组装时是经过手工编码的，因为它们需要仔细遵循约定以正确处理参数和返回值，以及执行特定于硬件的陷阱指令。 现在，您知道了为什么您个人无需编写汇编代码即可陷入操作系统； 有人已经为您编写了该程序集。</p>
+<p>一种方法就是简单地让任何进程根据I / O和其他相关操作执行所需的操作。 但是，这样做会阻止构造许多所需的系统。 例如，如果我们希望构建一个在授予文件访问权限之前检查权限的文件系统，我们不能简单地让任何用户进程向磁盘发出I / O指令； 如果这样做的话，一个进程可以简单地读取或写入整个磁盘，从而失去所有保护。</p>
+<p>因此，我们采用的方法是引入一种新的处理器模式，即用户模式。 在用户模式下运行的代码在功能上受到限制。 例如，在用户模式下运行时，进程无法发出I/O请求； 这样做将导致处理器引发异常； 这样操作系统可能会终止该进程。</p>
+<p>与用户模式相反，内核模式运行在操作系统（或内核）上。在这种模式下，运行的代码可以执行自己喜欢的事情，包括特权操作（如发出I / O请求和执行所有类型的受限指令）  。</p>
+<p>但是，我们仍然面临挑战：用户进程希望执行某种特权操作（例如从磁盘读取）时应该做什么？ 为此，几乎所有现代硬件都为用户程序提供了执行系统调用的能力。</p>
+<p>硬件通过提供不同的执行模式来协助OS。
+在用户模式下，应用程序无法完全访问硬件资源。
+在内核模式下，操作系统可以访问计算机的全部资源。
+还提供了捕获到内核并从捕获返回到用户模式程序的特殊指令，以及允许OS告知硬件陷阱表在内存中的位置的指令。</p>
+<p>要执行系统调用，程序必须执行特殊的陷阱指令。 该指令同时跳入内核并将特权级别提升到内核模式； 一旦进入内核，系统现在就可以执行所需的任何特权操作（如果允许），从而完成调用过程所需的工作。 完成后，操作系统将调用特殊的陷阱返回指令，如您所料，它会返回到正在调用的用户程序，同时将特权级别降低回用户模式。</p>
+<p>执行陷阱时，硬件必须有点小心，因为它必须确保保存足够的调用方寄存器，以便在OS发出陷阱返回指令时能够正确返回。
+例如，在x86上，处理器会将程序计数器，标志和其他一些寄存器压入每个进程的内核堆栈中。  return-from-trap会将这些值弹出堆栈，并继续执行用户模式程序（有关详细信息，请参阅英特尔系统手册[I11]）。 其他硬件系统使用不同的约定，但各个平台的基本概念相似。</p>
+<p>讨论中遗漏了一个重要的细节：陷阱如何知道要在OS内部运行哪些代码？ 显然，调用过程无法指定要跳转到的地址（就像进行过程调用时一样）； 这样做会使程序跳入内核的任何地方，这显然是一个非常糟糕的主意。 因此，内核必须仔细控制在陷阱上执行什么代码。</p>
+<p>内核通过在引导时设置陷阱表来实现。 机器启动时，它将以特权（内核）模式启动，因此可以根据需要自由配置机器硬件。 因此，操作系统要做的第一件事就是告诉硬件，当某些异常事件发生时要运行什么代码。 例如，当发生硬盘中断，发生键盘中断或程序进行系统调用时，应该运行什么代码？</p>
+<p>最后一点：能够执行指令以告知硬件陷阱表在哪里是一项非常强大的功能。 因此，您可能已经猜到了，它也是特权操作。 如果您尝试在用户模式下执行此指令，则硬件将无法让您执行操作，并且您可能会猜测会发生什么（提示：adios，违规程序）。
+指向思考：如果您可以安装自己的陷阱表，那么对系统会做哪些可怕的事情？ 你能接管机器吗？</p>
+<p>时间线（随着时间向下增加，在图6.2中）概述了协议。 我们假定每个进程都有一个内核堆栈，在移入和移出内核时，会将寄存器（包括通用寄存器和程序计数器）保存到其中（或通过硬件从中恢复）。</p>
+<p>受限直接执行（LDE）协议分为两个阶段。在第一个阶段，内核初始化陷阱表，CPU记住其位置以备后用。 内核通过特权指令来执行此操作（所有特权指令均以粗体突出显示）。在第二步（运行进程时）中，内核在使用返回陷阱指令开始执行进程之前先设置了一些内容（例如，在进程列表上分配节点，分配内存）; 这会将CPU切换到用户模式并开始运行该进程。当进程希望发出系统调用时，它会捕获回OS，由OS进行处理，然后再次通过陷阱返回将控制权返回给进程。 然后，该过程完成其工作，并从main（）返回； 通常，这将返回一些存根代码，这些存根代码将正确退出程序（例如，通过调用进入操作系统的exit（）系统调用）。 至此，操作系统清理完毕，我们就完成了。</p>
+<h3 id="问题2在进程之间切换">问题2：在进程之间切换</h3>
+<p>直接执行的下一个问题是实现进程之间的切换。 进程之间的切换应该很简单，对吧？ 操作系统应只决定停止一个进程并启动另一个进程。 有什么大不了的？ 但这实际上有点棘手：特别是，如果某个进程正在CPU上运行，则按照定义，这意味着OS没有运行。 如果操作系统没有运行，怎么办呢？  （提示：不可能）虽然这听起来几乎是哲学上的，但这是一个实际的问题：如果操作系统不在CPU上运行，则显然没有办法采取措施。 因此，我们得出了问题的症结所在。</p>
+<p>操作系统如何重新获得对CPU的控制权，以便可以在进程之间进行切换？</p>
+<p>协作方法：等待系统调用</p>
+<p>某些系统过去采用的一种方法（例如，Macintosh操作系统的早期版本[M11]或旧的Xerox Alto系统[A79]）被称为协作方法。 操作系统以这种方式信任系统的进程以合理地运行。 假定运行时间过长的进程会定期放弃CPU，以便OS可以决定运行其他任务。</p>
+<p>因此，您可能会问，在这个乌托邦世界中，友好的进程是如何放弃CPU的？ 事实证明，大多数进程都会通过进行系统调用来频繁地将CPU的控制权转移到OS，例如，打开文件并随后读取文件，或向另一台机器发送消息，或创建新进程。这样的系统通常包括一个显式的<strong>yield</strong>系统调用，该调用除了将控制权转移到OS之外不执行任何操作，因此它可以运行其他进程。</p>
+<p>因此，在协作调度系统中，OS通过等待系统调用或某种非法操作来重新获得对CPU的控制。 您可能还会想：这种被动的方法是否不尽如人意？ 例如，如果某个进程（无论是恶意的还是仅是充满错误的）最终陷入无限循环而从不进行系统调用，会发生什么情况？ 操作系统可以做什么？</p>
+<p>非合作方式：操作系统控制</p>
+<p>事实证明，如果没有硬件的任何其他帮助，当进程拒绝进行系统调用（或错误）并因此将控制权交还给操作系统时，操作系统根本无法做任何事情。 实际上，在协作方法中，当进程陷入无限循环时，您唯一的求助方法是对计算机系统中的所有问题求助于古老的解决方案：重新启动计算机。 因此，我们再次遇到了获得CPU控制权的一般问题。</p>
+<p>即使进程不协作，OS如何获得对CPU的控制？ 操作系统可以做些什么来确保流氓进程不会接管机器？</p>
+<p>答案很简单，并在很多年前被许多构建计算机系统的人发现：<strong>定时器中断</strong>。 可以对计时器设备进行编程，使其每隔这么多毫秒就产生一次中断。 当引发中断时，当前正在运行的进程将停止，并且OS中预配置的<strong>中断处理程序</strong>将运行。此时，操作系统已重新获得了对CPU的控制权，因此可以执行自己喜欢的事情：停止当前进程，然后启动另一个进程。</p>
+<p>Tips:计时器中断的添加使OS能够在CPU上再次运行，即使进程以非合作方式运行也是如此。 因此，此硬件功能对于帮助OS保持对计算机的控制至关重要。</p>
+<p>正如我们之前在系统调用中讨论的那样，当定时器中断发生时，操作系统必须通知硬件要运行的代码。 因此，在引导时，操作系统正是这样做的。 其次，同样在引导过程中，操作系统必须启动计时器。一旦计时器开始计时，操作系统就可以放心了，因为最终该控制权限将返回给它，因此操作系统可以自由运行用户程序。 计时器也可以关闭（也是特权操作），稍后将在更详细地了解并发性时进行讨论。</p>
+<p>请注意，硬件在发生中断时有一定的责任，特别是要保存足够的中断发生时正在运行的程序状态，以便随后的return-from-trap指令将能够正确恢复正在运行的程序。这组动作与在显式系统调用陷阱到内核期间的硬件行为非常相似，因此各种寄存器被保存（例如，保存到内核堆栈中），因此可以通过陷阱返回指令轻松恢复 。</p>
+<p>保存和还原上下文</p>
+<p>现在，操作系统已重新获得控制权，无论是通过系统调用来协作，还是通过计时器中断来更强行地控制，都必须做出一个决定：是继续运行当前正在运行的进程，还是切换到另一个进程。 该决定是由操作系统的一部分（称为<strong>调度程序</strong>）做出的。 在接下来的几章中，我们将详细讨论调度策略。</p>
+<p>如果决定切换，则操作系统将执行一段底层代码，我们将其称为<strong>上下文切换</strong>。 上下文切换在概念上很简单：所有OS要做的就是为当前正在执行的进程保存一些寄存器值（例如，到其内核堆栈上），并为即将要执行的进程恢复一些寄存器值（从其内核堆栈）。 这样，OS可以确保在最终执行从陷阱返回指令时，而不是返回到正在运行的进程，系统将恢复另一个进程的执行。</p>
+<p>为了保存当前正在运行的进程的上下文，操作系统将执行一些低级汇编代码以保存通用寄存器PC和当前正在运行的进程的内核堆栈指针，然后还原所述寄存器PC 并切换到即将执行的进程的内核堆栈。 通过切换堆栈，内核在一个进程（被中断的进程）的上下文中输入对切换代码的​​调用，并在另一个进程（即将执行的进程）的上下文中返回。当操作系统最终执行陷阱返回指令时，即将执行的进程成为当前正在运行的进程。从而上下文切换完成。</p>
+<p>整个过程的时间表如图6.3所示。 在此示例中，进程A正在运行，然后被计时器中断中断。 硬件将其寄存器保存到内核堆栈中，然后进入内核（切换到内核模式）。 在计时器中断处理程序中，操作系统决定从正在运行的进程A切换到进程B。这时，它将调用switch（）例程，该例程小心地将当前寄存器值保存到A的进程结构中，并还原其中的寄存器。 进程B（从其进程结构条目开始），然后切换上下文，特别是通过将堆栈指针更改为使用B的内核堆栈（而不是A的内核堆栈）来切换上下文。 最后，操作系统从陷阱返回，这将恢复B的寄存器并开始运行它。</p>
+<p>请注意，在此协议期间发生两种类型的寄存器保存/恢复。 首先是定时器中断发生。 在这种情况下，正在运行的进程的用户寄存器由硬件使用该进程的内核堆栈隐式保存。 第二个是操作系统决定从A切换到B时； 在这种情况下，内核寄存器由软件（即OS）显式保存，但是这次是在进程的进程结构中保存到内存中。 后一个动作使系统从好像从A被捕获到内核中一样运行，就像从B被捕获到内核一样。</p>
+<p>为了使您更好地了解如何执行此切换，图6.4显示了xv6的上下文切换代码。 看看您是否可以理解它（您必须了解一些x86和一些xv6）。 旧的和新的上下文结构分别在新旧流程的流程结构中找到。</p>
+<h3 id="担心并发吗">担心并发吗？</h3>
+<p>你们中的一些人，如专心和体贴的读者，现在可能会想：“嗯……在系统调用期间发生定时器中断时会发生什么？” 或“当您处理一个中断而另一个中断发生时会发生什么？ 难道在内核中难于处理吗？” 好问题-我们真的对您有希望！</p>
+<p>答案是肯定的，如果在中断或陷阱处理期间发生另一个中断，操作系统确实确实需要关注会发生什么。实际上，这是本书第二章有关并发的确切主题。 在此之前，我们将进行详细的讨论。</p>
+<p>为了激发您的胃口，我们将简要介绍操作系统如何处理这些棘手情况的一些基础知识。 操作系统可能做的一件简单的事情就是在中断处理过程中禁用中断。 这样可以确保一个中断正在处理时，其他任何中断都不会传递给CPU。当然，操作系统在执行此操作时必须谨慎。 禁用中断时间过长可能会导致中断丢失，从技术上来讲，这是很糟糕的。</p>
+<p>操作系统还开发了许多复杂的锁方案，以保护对内部数据结构的并发访问。这样可以使多个活动同时在内核中进行，这在多处理器上特别有用。 但是，正如我们将在本书的下一篇关于并发的内容中所看到的那样，这种锁定可能很复杂，并且会导致各种有趣且难以发现的错误。</p>
+<h3 id="总结-1">总结</h3>
+<p>我们已经描述了实现CPU虚拟化的一些关键的底层机制，这是我们统称为<strong>受限直接执行</strong>的一组技术。 基本思想很简单：只需运行要在CPU上运行的程序，但首先请确保设置硬件，以限制在没有操作系统协助的情况下该进程可以执行的操作。</p>
+<p>现实生活中也采用了这种通用方法。 例如，您中那些有小孩，或者至少听说过小孩的人可能熟悉婴儿房的概念：上锁装有危险物品的柜子并盖上电源插座。 当房间准备就绪后，您可以让宝宝自由漫游，并确保房间最危险的部分已经被限制。</p>
+<p>通过类似的方式，OS首先通过（在引导时间期间）设置陷阱处理程序并启动中断计时器，然后仅以受限模式运行进程来“证明” CPU。 这样，操作系统就可以确信进程可以高效运行，只需要操作系统干预即可执行特权操作，或者当它们垄断了CPU太长时间而需要将其关闭时。</p>
+<p>因此，我们拥有就地虚拟化CPU的基本机制。但是有一个主要问题没有解决：我们应该在给定的时间运行哪个进程？ 调度程序必须回答这个问题，因此是我们研究的下一个主题。</p>
+<h3 id="作业-2">作业</h3>
+<h2 id="7排程简介">7、排程：简介</h2>
+<p>到现在为止，应该清楚运行进程的底层机制（例如上下文切换）； 如果不是，请返回一两章，然后阅读有关该内容如何工作的描述。 但是，我们尚未了解OS调度程序采用的高级策略。 现在，我们将介绍一系列调度策略（有时称为学科），这些策略是各种聪明而勤奋的人们多年来发展起来的。</p>
+<p>调度的起源实际上早于计算机系统。 早期方法来自运营管理领域，并应用于计算机。 这种现实不足为奇：装配线和许多其他人类工作也需要计划，并且其中存在许多相同的问题，包括类似激光的对效率的渴望。
+因此，我们的问题是：我们应该如何为思考调度策略开发一个基本框架？ 主要假设是什么？ 哪些指标很重要？ 最早的计算机系统中使用了哪些基本方法？</p>
+<h3 id="工作量假设">工作量假设</h3>
+<p>在探讨可能的策略之前，让我们首先对系统中运行的流程进行一些简化的假设，有时统称为<strong>工作量</strong>。 确定工作负载是构建策略的关键部分，您对工作负载的了解越多，对策略的调整就越多。</p>
+<p>我们将对系统中正在运行的进程（有时称为作业）做出以下假设：</p>
+<ul>
+<li>1.每个作业运行相同的时间。</li>
+<li>2.所有作业都同时到达。</li>
+<li>3.一旦开始，每个作业就会运行完成。</li>
+<li>4.所有作业仅使用CPU（即不执行I / O）。</li>
+<li>5.知道每个作业的运行时间。</li>
+</ul>
+<h3 id="排程指标">排程指标</h3>
+<p>除了做出工作负载假设之外，我们还需要做更多的事情来使我们能够比较不同的调度策略：调度指标。指标只是我们用来衡量事物的指标，在​​计划中有许多不同的指标很有意义。</p>
+<p>但是，现在，让我们通过简单地使用一个度量标准（<strong>周转时间</strong>）来简化我们的生活。 作业的周转时间定义为该作业完成的时间减去该作业到达系统的时间。</p>
+<p>您应注意，周转时间是性能指标，这将是本章的重点。 另一个令人关注的指标是<strong>公平性</strong>。性能和公平性在调度中经常是矛盾的。 例如，调度程序可以优化性能，但是以阻止运行一些作业为代价，从而降低了公平性。 这个难题向我们表明，生活并不总是完美的。</p>
+<h3 id="先进先出fifo">先进先出（FIFO）</h3>
+<p>我们可以实现的最基本的算法称为<strong>先进先出（FIFO）<strong>调度，有时也称为</strong>先来先服务（FCFS）</strong>。</p>
+<p>FIFO具有许多积极特性：显然很简单，因此易于实现。 而且，根据我们的假设，它可以很好地运行。</p>
+<p>让我们一起做一个简单的例子。 想象一下，三个作业大致同时（Aarrival = 0）到达系统A，B和C。 由于FIFO必须优先处理某些工作，因此，假设它们同时到达时，A比B更早到一些，B比C更早到一些。还假定每个作业运行10秒。 这些工作的<strong>平均周转时间</strong>是 $\frac{10+20+30}{3}=20$</p>
+<!-- raw HTML omitted -->
+
+<link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
+<div class="box">
+<figure  itemprop="associatedMedia"
+  itemscope itemtype="http://schema.org/ImageObject" >
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/os_intro/os_7_1.PNG" />
+    </div>
+    <a href="/images/os_intro/os_7_1.PNG" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<p>现在，让我们放宽我们的假设之一。 特别是，让我们放宽假设1，从而不再假设每个作业运行相同的时间。  FIFO现在如何执行？您可以构造什么样的工作量来使FIFO性能不佳？如：先执行用时长的作业。</p>
+<!-- raw HTML omitted -->
+
+
+<div class="box">
+<figure  itemprop="associatedMedia"
+  itemscope itemtype="http://schema.org/ImageObject" >
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/os_intro/os_7_2.PNG" />
+    </div>
+    <a href="/images/os_intro/os_7_2.PNG" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<p>平均周转时间变为 $\ frac {100 + 110 + 120} {3} = 110$ 此问题通常称为<strong>车队效应</strong>，其中资源的多个相对较短的潜在使用者排队等候在重量级资源消耗者后面。</p>
+<p>那我们该怎么办？ 我们如何开发更好的算法来应对新的现实，这些新现实需要运行不同的时间？</p>
+<h3 id="最短工作优先sjf">最短工作优先（SJF）</h3>
+<p>事实证明，非常简单的方法可以解决此问题。这种新的调度规则称为<strong>最短作业优先（SJF）</strong>，它的名称应该很容易记住，因为它非常完整地描述了策略：首先运行最短的作业，然后再运行下一个最短的作业，依此类推。</p>
+<p>实际上，考虑到所有作业都是同时到达的假设，我们可以证明SJF确实是一种最佳调度算法。</p>
+<p>因此，我们找到了一种使用SJF进行调度的好方法，但是我们的假设仍然相当不切实际。 让我们放松一下。 特别是，我们可以将假设2作为目标，现在假设作业可以随时到达而不是一次全部到达。 这会导致什么问题？</p>
+<p>在这里我们可以用一个例子再次说明这个问题。 这次，假设A到达t = 0并需要运行100秒，而B和C到达t = 10且每个都需要运行10秒。使用纯SJF，即使B和C在A之后不久到达，他们仍然被迫等到A完成之后，从而遭受同样的车队问题。</p>
+<h3 id="最短完成时间优先stcf">最短完成时间优先（STCF）</h3>
+<p>为了解决这个问题，我们需要放宽假设3（即工作必须完成）。 在调度程序本身中，我们还需要一些机器。 您可能已经猜到了，鉴于我们之前对定时器中断和上下文切换的讨论，调度程序当然还可以做其他事情：当B和C到达时，它可以抢占作业A并决定执行其他作业，也许以后再继续A。 根据我们的定义，SJF是非抢占式调度程序，因此存在上述问题。</p>
+<p>幸运的是，有一个调度程序可以做到这一点：将抢占添加到SJF中，称为**最短完成时间优先（STCF）<strong>或</strong>抢占式最短作业优先（PSJF）**调度程序。 每当新作业进入系统时，STCF调度程序都会确定剩下的剩余作业（包括新作业）中剩余的时间最少，并对其进行调度。 因此，在我们的示例中，STCF将抢占A并运行B和C直至完成； 只有完成后，A的剩余时间才能安排好。</p>
+<h3 id="新指标响应时间">新指标：响应时间</h3>
+<p>因此，如果我们知道作业的长度，并且作业仅使用CPU，而我们唯一的度量标准是周转时间，那么STCF将是一个很好的策略。 实际上，对于许多早期的批处理计算系统，这些类型的调度算法是有意义的。 但是，分时共享计算机的引入改变了这一切。 现在，用户将坐在终端上，并要求系统也具有交互性能。 因此，一个新的指标诞生了：<strong>响应时间</strong>。</p>
+<p><strong>响应时间</strong>：定义为从作业到达系统到其首次被调度的时间。</p>
+<p>例如，如果我们有上述时间表（A在时间0到达，B和C在时间10到达），则每个作业的响应时间如下：作业A的响应时间为0，B的响应时间为0，C的响应时间为10（ 平均：3.33）。</p>
+<p>您可能会想，STCF和相关学科对于响应时间并不是特别好。 例如，如果三个作业同时到达，则第三个作业必须等待前两个作业全部运行，然后才被调度一次。 虽然这种方法对周转时间很有用，但对于响应时间和交互性却很不利。 的确，想象一下坐在码头上打字，不得不等待10秒钟才能看到系统的响应，只是因为其他工作已经安排在您的面前了：不太愉快。</p>
+<h3 id="轮询调度">轮询调度</h3>
+<p>为了解决这个问题，我们将介绍一种新的调度算法，通常称为<strong>轮询调度（Round Robin (RR)）</strong>。 基本思想很简单：RR不运行作业以完成任务，而是运行一个<strong>时间片</strong>（有时称为<strong>调度时间</strong>）的作业，然后切换到运行队列中的下一个作业。 它会反复执行直到作业完成。 因此，RR有时称为<strong>时间分片</strong>。 注意，<strong>时间片的长度必须是计时器中断周期的倍数</strong>； 因此，如果计时器每10毫秒中断一次，则时间片可能是10毫秒，20毫秒或10毫秒的任何其他倍数。</p>
+<p>为了更详细地了解RR，我们来看一个示例。 假设三个作业A，B和C在系统中同时到达，并且他们每个人希望运行5秒钟。  SJF调度程序将每个作业运行至完成，然后再运行另一个作业（图7.6）。 相比之下，时间切片为1秒的RR将快速循环完成这些工作（图7.7）。RR的平均响应时间为 $/frac{0+1+2}{3}=1$, SJF的为 $/frac{0+5+10}{3}=5$。</p>
+<!-- raw HTML omitted -->
+
+
+<div class="box">
+<figure  itemprop="associatedMedia"
+  itemscope itemtype="http://schema.org/ImageObject" >
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/os_intro/os_7_6.PNG" />
+    </div>
+    <a href="/images/os_intro/os_7_6.PNG" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<p>如您所见，时间片的长度对于RR至关重要。 它越短，在响应时间指标下的RR性能就越好。
+但是，将时间片设置得太短是个问题：上下文切换的成本突然将主导整体性能。 因此，确定时间片的长度给系统设计者带来了一个折衷，使其花费了足够长的时间来<strong>摊销</strong>切换成本，而又没有使系统响应时间太长。</p>
+<p>请注意，上下文切换的成本并非仅来自于保存和还原一些寄存器的OS操作。 程序运行时，它们会在CPU高速缓存，TLB，分支预测器和其他片上硬件中建立大量状态。 切换到另一个作业会导致刷新此状态并引入与当前正在运行的作业相关的新状态，这可能会导致明显的性能成本。</p>
+<p>如果响应时间是我们唯一的度量标准，那么具有合理时间片的RR是出色的调度程序。 但是周转时间呢？ 让我们再次看一下上面的示例。  A，B和C的运行时间均为5秒，它们是同时到达的，而RR是具有（长）1秒时间片的调度程序。 从上图可以看出，A以13结束，B以14结束，C以15结束，平均周转时间为14。</p>
+<p>因此，如果周转时间是我们的指标，那么RR确实是最糟糕的政策之一，这也就不足为奇了。 从直觉上讲，这应该是有道理的：RR所做的就是通过在运行下一个作业之前只运行一小段时间来尽可能延长每个作业。 由于周转时间只在乎作业何时完成，因此RR几乎是最小的，甚至在许多情况下甚至比简单的FIFO还差。</p>
+<p>更一般而言，任何公平的策略（例如RR），即在很小的时间范围内将CPU均匀地划分为活动进程的策略，在诸如周转时间之类的指标上的效果都会很差。 确实，这是一种内在的权衡：如果您不公平，您可以运行较短的工作以完成任务，但要花响应时间。 如果您反而重视公平，响应时间缩短了，但要花费周转时间。 这种权衡在系统中很常见。</p>
+<p>我们开发了两种类型的调度程序。 第一种类型（SJF，STCF）可优化周转时间，但不利于响应时间。 第二种（RR）优化了响应时间，但不利于周转。 而且，我们还有两个需要放松的假设：假设4（作业没有I / O）和假设5（每个作业的运行时间已知）。
+接下来让我们解决这些假设。</p>
+<h3 id="整合io">整合I/O</h3>
+<p>首先，我们将放松假设4 —当然所有程序都执行I/O。</p>
+<p>调度程序显然有一项决定要在作业启动I / O请求时做出，因为当前正在运行的作业在I / O期间不会使用CPU。在等待其I/O请求被完成前该作业被阻塞。 如果将I / O发送到硬盘驱动器，则该过程可能会阻塞几毫秒或更长时间，具体取决于驱动器的当前I / O负载。 因此，调度程序可能应该在那时在CPU上调度另一个作业。</p>
+<p>I/O完成时，调度程序还必须做出决定。
+发生这种情况时，将引发一个中断，并且操作系统将运行，并将发出I / O的进程从阻塞状态移回就绪状态。 当然，它甚至可以决定在那时运行该作业。 操作系统应如何对待每项工作？</p>
+<p>为了更好地理解此问题，让我们假设我们有两个作业A和B，每个作业需要50毫秒的CPU时间。 但是，有一个明显的区别：A每运行10毫秒，然后发出一个I / O请求（假设每个I/O花费10毫秒），而B仅使用CPU 50毫秒，并且不执行I / O。 调度程序首先运行A，然后运行B（图7.8）。</p>
+<!-- raw HTML omitted -->
+
+
+<div class="box">
+<figure  itemprop="associatedMedia"
+  itemscope itemtype="http://schema.org/ImageObject" >
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/os_intro/os_7_8.PNG" />
+    </div>
+    <a href="/images/os_intro/os_7_8.PNG" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<p>一种常见的方法是将A的每个10毫秒子作业视为独立作业。 因此，当系统启动时，其选择是安排10毫秒A还是50毫秒B。对于STCF，选择很明确：选择较短的那个（在这种情况下为A）。  A的作业已完成，仅剩下B，并且开始运行。 然后提交A的新子作业，它抢占B并运行10毫秒。 这样做会产生重叠，一个进程正在使用CPU，而另一个进程的I/O等待完成。 因此可以更好地利用该系统（见图7.9）。</p>
+<!-- raw HTML omitted -->
+
+
+<div class="box">
+<figure  itemprop="associatedMedia"
+  itemscope itemtype="http://schema.org/ImageObject" >
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/os_intro/os_7_9.PNG" />
+    </div>
+    <a href="/images/os_intro/os_7_9.PNG" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<h3 id="不再假设了">不再假设了</h3>
+<p>有了基本的I/O方法，我们得出了最终的假设：调度程序知道每个作业的时间。 如前所述，这可能是我们可能做出的最糟糕的假设。 实际上，在通用操作系统（如我们关心的操作系统）中，该操作系统通常对每个作业的时间了解很少。 因此，在没有先验知识的情况下，如何构建行为类似于SJF / STCF的方法？ 此外，我们如何将我们在RR调度程序中看到的一些想法纳入其中，以使响应时间也相当好？</p>
+<h3 id="总结-2">总结</h3>
+<p>我们介绍了调度背后的基本思想，并开发了两种方法。 首先运行剩余的最短作业，从而优化周转时间。 第二个在所有作业之间切换，从而优化了响应时间。一者效果好的时候另一者效果不好，这是系统中固有的折衷。 我们还看到了如何将I/O整合到排程中，但是仍然没有解决OS根本无法预见未来的问题。 很快，我们将了解如何通过构建使用最近的过去来预测未来的调度程序来克服此问题。 该调度程序称为<strong>多级反馈队列</strong>，它是下一章的主题。</p>
+<h3 id="作业-3">作业</h3>
+<h2 id="8排程多级反馈队列">8、排程：多级反馈队列</h2>
+<p>在本章中，我们将解决开发最著名的调度方法之一即**多级反馈队列（MLFQ）**的问题。</p>
+<p>MLFQ试图解决的根本问题有两个。 首先，它想优化周转时间，正如我们在前面的笔记中所看到的，这是通过首先运行较短的作业来完成的； 不幸的是，操作系统通常不知道作业将运行多长时间，而这恰恰是SJF（或STCF）之类的算法需要的知识。 其次，MLFQ希望使系统对交互用户（即，用户坐在屏幕上凝视着屏幕，等待过程完成）感到有响应，从而将响应时间降至最低； 不幸的是，Round Robin之类的算法减少了响应时间，但周转时间却很糟糕。 因此，我们的问题是：鉴于我们通常对流程一无所知，我们如何构建调度程序来实现这些目标？ 调度程序如何在系统运行时了解正在运行的作业的特征，从而做出更好的调度决策？</p>
+<p>我们如何设计一个调度程序，既可以使交互式作业的响应时间最短，又可以在事先不知道作业长度的情况下最大程度地缩短周转时间？</p>
+<h3 id="mlfq基本规则">MLFQ：基本规则</h3>
+<p>在我们的处理中，MLFQ有许多不同的队列，每个队列分配了不同的优先级。 在任何给定时间，准备运行的作业都在单个队列中。  MLFQ使用优先级来决定应在给定时间运行哪个作业：选择优先级较高的作业（即，较高优先级队列中的作业）运行。</p>
+<p>当然，给定队列中可能有多个作业，因此具有相同的优先级。 在这种情况下，我们将仅在这些作业之间使用轮询调度(RR)。</p>
+<p>因此，我们得出了MLFQ的前两个基本规则：</p>
+<ul>
+<li>规则1：如果优先级(A) &gt; 优先级(B)，则A运行（B不运行）。</li>
+<li>规则2：如果优先级(A) = 优先级(B)，则A和B在RR中运行。</li>
+</ul>
+<p>因此，MLFQ调度的关键在于调度程序如何设置优先级。  MLFQ不会为每个作业赋予固定的优先级，而是根据其观察到的行为来改变其优先级。 例如，如果某个作业在等待键盘输入时反复放弃CPU，则MLFQ将保持其优先级，因为这是交互过程的行为方式。 相反，如果作业长时间大量使用CPU，则MLFQ将降低其优先级。 这样，MLFQ将尝试了解流程的运行情况，从而使用作业的历史记录来预测其未来的行为。</p>
+<h3 id="尝试1如何更改优先级">尝试1：如何更改优先级</h3>
+<p>现在，我们必须确定MLFQ将如何在作业的整个生命周期内更改作业的优先级级别（以及该作业处于哪个队列中）。 为此，我们必须牢记我们的工作量：短期运行（可能经常放弃CPU）的交互式作业的混合，以及运行时间较长的“受CPU限制”的作业，这些作业需要大量的CPU时间，但 响应时间不重要的地方。 这是我们对优先级调整算法的首次尝试：</p>
+<ul>
+<li>规则3：当作业进入系统时，它被置于最高优先级（最高队列）。</li>
+<li>规则4a：如果作业在运行时用尽了整个时间片，则会降低其优先级（即，将其向下移动一个队列）。</li>
+<li>规则4b：如果作业在时间片结束前就放弃了CPU，则它将保持相同的优先级。</li>
+</ul>
+<p>示例1：单个长期运行的作业</p>
+<p>让我们看一些例子。首先，我们来看一下系统中长期运行的工作会发生什么。 图8.2显示了在三队列调度程序中，随着时间的流逝，该作业会发生什么情况。</p>
+<p>在示例中可以看到，作业以最高优先级（Q2）进入。 经过10 ms的单个时间片后，调度程序将作业的优先级降低了一个，因此该作业在Q1上。 在Q1上运行了一个时间片之后，该作业最终被降低到系统中最低的优先级（Q0），并保留在那里。 很简单，不是吗？</p>
+<p>示例2：短期工作</p>
+<p>现在，让我们看一个更复杂的示例，并希望看到MLFQ如何尝试近似SJF。 在此示例中，有两个作业：A，它是长时间运行的CPU密集型作业，而B是一个短期运行的交互式作业。 假设A已经运行了一段时间，然后B到达了。 会发生什么？  MLFQ是否会为B近似SJF？</p>
+<p>图8.3绘制了此方案的结果。 最低优先级队列中有一个（以黑色显示）（与所有长时间运行的CPU密集型作业一样）；  B（以灰色显示）在时间T = 100到达，因此是插入最高队列； 由于B的运行时间很短（仅20毫秒），因此B在两个时间段内到达底部队列之前完成； 然后A恢复运行（低优先级）。</p>
+<p>从这个例子中，您可以希望理解该算法的主要目标之一：因为它不知道某项工作是短期工作还是长期工作，因此它首先假定它可能是短期工作，因此得出 工作优先。 如果实际上是一项短期工作，它将快速且完整地运行； 如果这不是一项短期工作，它将慢慢地移到队列中，因此很快证明自己是一个长期运行的，更像批处理的过程。以这种方式，MLFQ近似为SJF</p>
+<p>示例3：I/O呢？</p>
+<p>现在让我们看一个带有一些I / O的示例。 如上面的规则4b所述，如果某个进程在用完其时间片之前就放弃了处理器，我们将其保持在相同的优先级。 该规则的意图很简单：例如，如果一个交互式作业正在执行大量I / O（例如，等待来自键盘或鼠标的用户输入），它将在CPU的时间片完成之前放弃CPU；否则，它将放弃CPU。 在这种情况下，我们不希望对工作进行惩罚，而只是将其保持在同一水平。</p>
+<p>图8.4显示了一个工作方式的示例，其中交互式作业B（以灰色显示）仅需要1 ms的CPU才能执行与长时间运行的批处理作业A竞争CPU的I / O（以黑色显示）  ）。  MLFQ方法将B保持在最高优先级，因为B不断释放CPU。 如果B是交互式作业，则MLFQ进一步实现了快速运行交互式作业的目标。</p>
+<p>我们当前的MLFQ存在的问题</p>
+<p>因此，我们有一个基本的MLFQ。 它看起来做得相当不错，可以在长时间运行的作业之间公平地共享CPU，并且可以让短时间或I / O密集型的交互式作业快速运行。 不幸的是，到目前为止，我们开发的方法存在严重缺陷。 你能想到什么吗？</p>
+<p>首先，存在<strong>饥饿</strong>的问题：如果系统中的“交互式”作业过多，它们将合并消耗所有CPU时间，因此长时间运行的作业将永远不会获得任何CPU时间（它们饿死了）。
+即使在这种情况下，我们也想在这些工作上取得一些进展。</p>
+<p>其次，聪明的用户可以重写他们的程序来玩调度程序。 游戏调度程序通常指的是偷偷摸摸地欺骗调度程序，以使您获得比您合理分配的资源更多的想法。 我们描述的算法容易受到以下攻击：在时间片结束之前，执行I / O操作（对您不关心的某个文件），从而放弃CPU； 这样做可以使您保留在同一队列中，从而获得更高的CPU时间百分比。 如果做得正确（例如，在放弃CPU之前运行了99％的时间片），则作业几乎可以垄断CPU。</p>
+<p>最后，程序可能会随着时间而改变其行为。  CPU绑定的内容可能会过渡到交互阶段。 使用我们当前的方法，这样的工作将是不走运的，不会像系统中的其他交互式工作一样被对待。</p>
+<h3 id="尝试2优先级提升">尝试2：优先级提升</h3>
+<p>如何解决饥饿问题？这里的简单想法是定期提高系统中所有作业的优先级。 有很多方法可以做到这一点，但让我们做一些简单的事情：将它们全部放入最上面的队列； 因此，一条新规则：</p>
+<ul>
+<li>规则5：在一段时间S之后，将系统中的所有作业移到最上面的队列。</li>
+</ul>
+<p>我们的新规则可以立即解决两个问题。 首先，确保进程不会挨饿：通过坐在最前面的队列，作业将以循环方式与其他高优先级作业共享CPU，从而最终获得服务。其次，如果与CPU绑定的作业已变为交互式，则调度程序在收到优先级提升后将对其进行正确处理。</p>
+<h3 id="尝试3更好的会计">尝试3：更好的会计</h3>
+<p>现在，我们还有一个要解决的问题：如何防止调度程序出现游戏问题？ 您可能已经猜到，真正的罪魁祸首是规则4a和4b，它们可以通过在时间片到期之前放弃CPU来保持作业的优先级。 那我们该怎么办？</p>
+<p>此处的解决方案是在MLFQ的每个级别上更好地计算CPU时间。 调度程序不应忘记在给定级别使用多少时间段的进程，而应保持跟踪。 一旦进程使用了​​它的分配，它就会降级到下一个优先级队列。 它是在一个长脉冲串中使用时间片还是在多个小脉冲片中使用都无所谓。
+因此，我们将规则4a和4b重写为以下单个规则：</p>
+<ul>
+<li>规则4：作业在给定级别用完时间分配后（无论已放弃CPU多少次），其优先级就会降低（即，将其向下移动一个队列）。</li>
+</ul>
+<h3 id="调整mlfq和其他问题">调整MLFQ和其他问题</h3>
+<h3 id="总结-3">总结</h3>
+<p>我们已经描述了一种称为多级反馈队列（MLFQ）的调度方法。 希望您现在能明白为什么要这样称呼它：它具有多个队列级别，并使用反馈来确定给定作业的优先级。历史就是它的指南：注意工作随时间的变化，并相应地对待它们。</p>
+<p>完善的MLFQ规则：</p>
+<ul>
+<li>规则1：如果优先级（A）&gt;优先级（B），则A运行（B不运行）。</li>
+<li>规则2：如果优先级（A）= 优先级（B），则A和B使用给定队列的时间片（量子长度）以轮询调度方式运行。</li>
+<li>规则3：当作业进入系统时，它被置于最高优先级（最高队列）。</li>
+<li>规则4：作业在给定级别用完时间分配后（无论已放弃CPU多少次），其优先级就会降低（即，将其向下移动一个队列）。</li>
+<li>规则5：在一段时间S之后，将系统中的所有作业移到最上面的队列。</li>
+</ul>
+<p>MLFQ之所以有趣是因为以下原因：与其观察工作的本质不要求先验知识，而是观察工作的执行并对工作进行优先排序。 通过这种方式，它设法实现了两全其美：它可以为短期运行的交互式作业提供出色的整体性能（类似于SJF / STCF），并且在长期运行的CPU密集型工作负载方面是公平的并取得了进步。 因此，许多系统，包括BSD UNIX派生词，Solaris，Windows NT和后续的Windows操作系统，都使用MLFQ形式作为其基本调度程序。</p>
+<h3 id="作业-4">作业</h3>
+<h2 id="9排程按比例分配">9、排程：按比例分配</h2>
+<p>在本章中，我们将研究另一种类型的调度程序，称为<strong>比例份额调度</strong>程序，有时也称为<strong>公平份额调度</strong>程序。 比例份额基于一个简单的概念：调度程序可能没有尝试优化周转时间或响应时间，而是尝试确保每个作业获得一定百分比的CPU时间。</p>
+<p>我们如何设计调度程序以按比例共享CPU？ 这样做的关键机制是什么？ 它们的效果如何？</p>
+<h3 id="基本概念票证代表您的份额">基本概念：票证代表您的份额</h3>
+<p>底层的彩票调度是一个非常基本的概念：<strong>票证</strong>，票证用于表示流程（或用户或其他任何人）应接收的资源份额。进程拥有的票证百分比表示其在相关系统资源中的份额。</p>
+<p>让我们来看一个例子。想象一下两个进程A和B，A占有0-74的票证，而B占有75-99的票证。调度程序会随机落在0-99中，执行拥有所落票证的进程。</p>
+<h3 id="票务机制">票务机制</h3>
+<p>彩票调度还提供了许多以不同的，有时是有用的方式操纵彩票的机制。一种方法是使用<strong>票证货币</strong>的概念。货币允许拥有票证的用户以自己想要的货币在自己的工作中分配票证；然后，系统会自动将所述货币转换为正确的全球价值。</p>
+<p>例如，假设用户A和B分别获得了100张票证。
+使用者A执行两个工作，分别为A1和A2，并分别以A的货币给他们500张票（总共1000张票）。 用户B仅运行1个作业，并给它10张票（总共10张票）。 系统将A1和A2的分配从A货币中的每个500转换为全球货币中的每个50； 同样，B1的10张票转换为100张票。 然后，以全球票证货币（总计200种）持有彩票，以确定运行哪个作业。</p>
+<p>另一个有用的机制是<strong>票证转让</strong>。 通过转移，一个进程可以暂时将其票证移交给另一个进程。此功能在客户端/服务器设置中特别有用，在该设置中，客户端进程向服务器发送一条消息，要求其代表客户端进行一些工作。
+为了加快工作速度，客户端可以将票证传递给服务器，从而在服务器处理客户端的请求时尝试最大化服务器的性能。完成后，服务器会将票证传送回客户端，一切如前所述。</p>
+<p>最后，<strong>门票涨价</strong>有时可能是有用的技术。 随着通货膨胀，一个流程可以暂时提高或降低其拥有的门票数量。 当然，在竞争过程中彼此不信任的情况下，这毫无意义。 一个贪婪的过程可能会给自己带来大量门票，并接管机器。 相反，通货膨胀可以应用在一组进程相互信任的环境中。 在这种情况下，如果任何一个进程知道它需要更多的CPU时间，它就可以提高其工单价值，从而将其反映到系统中，而无需与任何其他进程进行通信。</p>
+<h3 id="实现">实现</h3>
+<p>彩票调度最令人惊奇的事情可能是其实现的简单性。 您只需要一个好的随机数生成器来挑选中奖彩票，一个跟踪系统流程的数据结构（例如列表）和彩票总数。</p>
+<p>假设我们将流程保存在列表中。 这是一个由三个过程A，B和C组成的示例，每个过程都有一定数量的凭单。</p>
+<p>要做出计划决策，我们首先必须从总彩票数量（400）中选择一个随机数（获胜者）。假设我们选择了第300张彩票。然后，我们只需遍历列表，并使用一个简单的计数器 帮助我们找到赢家。</p>
+<p>该代码遍历进程列表，将每个票证值添加到计数器，直到该值超过获胜者为止。 在这种情况下，当前列表元素将成为赢家。 以我们的中奖彩票为300的示例为例，发生以下情况。 首先，将计数器增加到100以说明A的票证； 因为100小于300，循环将继续。
+然后计数器将更新为150（B的票），但仍少于300，因此我们再次继续。 最终，计数器被更新为400（明显大于300），因此我们突破了循环，最终指向C（获胜者）。</p>
+<p>为了使此过程最有效，通常最好按从最高票数到最低票数的排序顺序组织列表。 排序不影响算法的正确性； 但是，它可以确保总体上确保最少的列表迭代次数，尤其是在少数几个进程拥有大多数票证的情况下。</p>
+<h3 id="一个例子">一个例子</h3>
+<h3 id="如何分配票证">如何分配票证？</h3>
+<h3 id="为什么不能确定性">为什么不能确定性？</h3>
+<h3 id="linux完全公平调度程序cfs">Linux完全公平调度程序（CFS）</h3>
+<p>**完全公平调度（CFS）**的调度程序实现了公平共享调度，并且以高效且可扩展的方式进行。</p>
+<p>基本操作</p>
+<p>尽管大多数调度程序都是基于固定时间片的概念，但CFS的操作略有不同。 它的目标很简单：在所有竞争的进程之间平均分配CPU。 它通过称为**虚拟运行时（vruntime）**的基于计数的简单技术来实现。</p>
+<p>在每个进程运行时，它将累积vruntime。 在最基本的情况下，每个进程的虚拟运行时以相同的速率增长，与物理时间成比例。 当发生调度决策时，CFS将选择运行时间最低的进程，然后再运行。</p>
+<p>这就提出了一个问题：调度程序如何知道何时停止当前正在运行的进程，然后运行下一个进程？ 这里的压力很明显：如果CFS切换得太频繁，公平性就会增加，因为CFS会确保每个进程即使在很小的时间窗口内也能获得其CPU份额，但这是以性能为代价（上下文切换太多）的； 如果CFS切换的频率降低，则性能会提高（上下文切换会减少），但会以近期公平为代价。</p>
+<p>CFS通过各种控制参数来管理这种决策。首先是<strong>预定的延迟</strong>。CFS使用此值来确定一个进程在考虑切换之前应运行多长时间（有效地确定其时间段，但以动态方式）。 典型的计划等待时间值为48（毫秒）。  CFS将该值除以CPU上运行的进程数（n）来确定一个进程的时间片，从而确保在这段时间内CFS将完全公平。</p>
+<p>例如，如果正在运行n = 4个进程，则CFS将调度等待时间的值除以n，得出每个进程的时间片为12 ms。 然后，CFS计划第一个作业并运行它，直到它使用了12毫秒的（虚拟）运行时为止，然后检查是否有一个具有较低vruntime的作业要运行。 在这种情况下，CFS将切换到其他三个作业之一，依此类推。</p>
+<p>但是，如果运行的进程“太多”怎么办？ 那会不会导致时间片太小，从而导致上下文切换过多？好问题！答案是肯定的。</p>
+<p>为了解决此问题，CFS添加了另一个参数<strong>最小粒度</strong>，通常设置为6 ms之类的值。CFS永远不会设置进程的时间片小于此值，以确保在安排开销方面不会花费太多时间。</p>
+<p>例如，如果有十个进程在运行，我们的原始计算将调度的等待时间除以十以确定时间片（结果：4.8毫秒）。 但是，由于最小粒度，CFS会将每个进程的时间片设置为6 ms。 尽管CFS在48毫秒的目标调度延迟（调度延迟）上并不能（完全）公平，但在达到较高CPU效率的同时，它还是很接近的。</p>
+<p>请注意，CFS利用周期性的计时器中断，这意味着它只能以固定的时间间隔做出决定。 此中断频繁关闭（例如，每1毫秒一次），使CFS有机会唤醒并确定当前作业是否已达到运行结束。如果作业的时间片不是计时器中断间隔的完美倍数，则可以；CFS精确跟踪vruntime，这意味着从长远来看，它将最终接近理想的CPU共享。</p>
+<p>加权（友善度）</p>
+<p>CFS还可以控制进程优先级，从而使用户或管理员可以为某些进程分配更高的CPU份额。 它不是使用票证而是通过经典的UNIX机制（称为进程的<strong>友善级别</strong>）来完成此任务。 可以将进程的<strong>友善参数</strong>设置为-20到+19之间的任意值，默认值为0。正的友善值表示优先级较低，而负的值表示优先级较高； 当您太友善时，您只会得到很少的（安排）注意力。</p>
+<p>CFS将每个进程的友善值映射为权重。这些权重使我们能够计算每个进程的有效时间片（就像我们之前所做的一样），但是现在考虑了它们的优先级差异。这样做的公式如下：</p>
+<p>$time_slice_k = \frac{weight_k}{\sum\limits_{i=0}^{n-1}{weight_i}}*sched_latency$</p>
+<p>让我们做一个例子，看看它是如何工作的。假设有两个作业A和B。A，因为它是我们最宝贵的工作，所以给它分配了一个友善值-5，从而得到了更高的优先级。B，因为我们讨厌它，所以它具有默认优先级（友善值等于0）。 这意味着weightA（从表中）为3121，而weightB为1024。如果然后计算每个作业的时间片，您会发现A的时间片约为计划延迟的3/4（因此为36 ms），并且 B大约为1/4（因此为12 ms）。</p>
+<p>使用红黑树</p>
+<p>如上所述，CFS的一个主要重点是效率。 对于调度程序而言，效率有很多方面，但其中一个很简单：当调度程序必须找到要运行的下一个作业时，它应该尽快完成。 像列表这样的简单数据结构无法扩展：现代系统有时由数千个进程组成，因此每隔几毫秒搜索一个长列表是很浪费的。</p>
+<p>CFS通过将进程保留在红黑树中来解决此问题。 红黑树是许多平衡树中的一种。 与简单的二叉树（在最坏情况下的插入模式下可能退化为类似列表的性能）相反，平衡树做了一些额外的工作来保持较低的深度，从而确保操作在时间上是对数的（而不是线性的）。</p>
+<p>CFS不会将所有进程都保留在此结构中； 而是仅将运行（或可运行）进程保留在其中。 如果某个进程进入睡眠状态（例如，等待I/O完成，或等待网络数据包到达），则会将其从树中删除并跟踪其他位置。</p>
+<p>让我们看一个例子，以使这一点更加清楚。 假设有十个作业，并且它们具有以下vruntime值：1、5、9、10、14、18、17、21、22和24。如果我们将这些作业保留在有序列表中，查找下一个要运行的工作很简单：只需删除第一个元素。 但是，当将该作业放回列表中时（按顺序），我们将不得不扫描列表，寻找合适的位置将其插入，执行O（n）操作。 任何搜索的效率也很低，平均也要花费线性时间。</p>
+<p>在红黑树中保持相同的值可使大多数操作更高效。 进程按vruntime在树中排序，并且大多数操作（例如插入和删除）在时间上都是对数的，即O（log n）。 当n为数千时，对数的效率明显高于线性的效率。</p>
+<p>处理I/O和睡眠进程</p>
+<p>选择要运行的最低vruntime的一个问题是长时间休眠的作业引起的。 想象一下两个过程，A和B，其中一个过程（A）连续运行，另一个过程（B）长时间睡眠（例如10秒）。 当B醒来时，其运行时间将比A落后10秒钟，因此（如果我们不小心的话），B在追赶时将在接下来的10秒钟内独占CPU，有效地使A饿了。</p>
+<p>CFS通过在作业唤醒时更改其运行时间来处理这种情况。具体来说，<strong>CFS将该作业的vruntime设置为在树中找到的最小值（请记住，该树仅包含正在运行的作业）</strong>。这样，CFS避免了饥饿，但并非没有代价：短时间睡眠的工作经常无法获得CPU的应有份额。</p>
+<h3 id="总结-4">总结</h3>
+<p>我们介绍了比例份额调度的概念，并简要讨论了三种方法：彩票调度，步幅调度和Linux的完全公平调度（CFS）。CFS是本章中讨论的唯一“真正的”调度程序，有点像带有动态时间片的加权轮询调度，但是可以在负载下扩展和良好地运行。 据我们所知，它是当今最广泛使用的公平份额调度程序。</p>
+<p>CFS使用红黑树来保存进程</p>
+<h3 id="作业-5">作业</h3>
+<h2 id="10多处理器调度高级">10、多处理器调度（高级）</h2>
+<p>本章将介绍多处理器调度的基础。 由于该主题相对较高级，因此最好在详细研究并发主题（即，本书的第二个主要“容易的部分”）之后再进行介绍。</p>
+<h3 id="背景多处理器架构">背景：多处理器架构</h3>
+<h3 id="不要忘记同步">不要忘记同步</h3>
+<h3 id="最后一个问题缓存关联性">最后一个问题：缓存关联性</h3>
+<h3 id="单队列调度">单队列调度</h3>
+<h3 id="多队列调度">多队列调度</h3>
+<h3 id="linux多处理器调度程序">Linux多处理器调度程序</h3>
+<h3 id="总结-5">总结</h3>
+<p>我们已经看到了用于多处理器调度的各种方法。 单队列方法（SQMS）的构建非常简单，可以很好地平衡负载，但是固有地很难扩展到许多处理器并具有缓存相似性。 多队列方法（MQMS）可以更好地扩展并且可以很好地处理缓存相似性，但是在负载不平衡方面存在麻烦，并且更加复杂。 无论采用哪种方法，都没有简单的答案：构建通用调度程序仍然是一项艰巨的任务，因为小的代码更改可能会导致巨大的行为差异。 仅当您确切地知道自己在做什么或者至少为此而赚了很多钱时，才进行这样的练习。</p>
+<h3 id="作业-6">作业</h3>
+<h2 id="11总结cpu虚拟化">11、总结：CPU虚拟化</h2>
+<p>教授：那么，学生，您学到了什么吗？
+学生：好的，教授，这似乎是个很棘手的问题。 我想您只想让我说“是”。
+教授：是的。 但这也是一个诚实的问题。 来吧，请教授休息一下，好吗？
+学生：好的，好的。 我想我确实学到了一些东西。 首先，我了解了一些有关操作系统如何虚拟化CPU的知识。 为了理解这一点，我必须理解很多重要的机制：陷阱和陷阱处理程序，计时器中断，以及在进程之间切换时OS和硬件如何必须仔细保存和恢复状态。
+教授：好，好！
+学生：所有这些交互似乎都有些复杂； 我该如何学习？
+教授：嗯，这是一个很好的问题。 我认为无可替代。 仅阅读这些内容并不能完全正确地理解。做课堂项目，我敢打赌最后这一切都是有道理的。
+学生：听起来不错。 我还能告诉你什么？
+教授：嗯，在您了解操作系统的基本机制时，您是否对操作系统的哲学有所了解？
+学生：嗯&hellip;我是这样认为的。 看来操作系统是相当偏执的。 它希望确保由机器负责。 虽然OS希望程序尽可能高效地运行（因此直接执行受到限制的整个原因），但OS还希望能够说“啊！ 如果发生错误或恶意的程序，请不要这么快。 偏执狂掌管着一天，并且肯定让操作系统负责机器。 也许这就是为什么我们将操作系统视为资源管理器。
+教授：是的，的确如此-听起来您已经开始把它们放在一起！ 真好 <br>
+学生：谢谢。
+教授：那这些机制之上的政策又如何呢？那里有什么有趣的教训？
+学生：那里肯定有一些教训。 也许有些明显，但明显可以是好的。 就像将短期工作放在队列中的想法一样，我知道这是一个好主意，因为有一次我在商店里买口香糖，而我前面的那个人有一张无效的信用卡。他不是空头，我告诉你。
+教授：对那个可怜的家伙听起来很粗鲁。 还有什么？
+学生：好吧，您可以构建一个智能调度程序，使其一次看起来像SJF和RR一样-MLFQ非常简洁。 建立一个真正的调度程序似乎很困难。
+教授：确实是。 这就是为什么在今天使用哪种调度程序方面仍然存在争议。 例如，请参见Linux在CFS，BFS和O（1）调度程序之间的斗争。 不，我不会说出BFS的全名。
+学生：我不会问你！ 这些政策战似乎可能永远持续下去。 真的有正确的答案吗？
+教授：可能不会。 毕竟，即使是我们自己的指标也存在矛盾：如果您的调度程序在周转时间方面表现出色，那么在响应时间方面就表现不好，反之亦然。正如兰普森所说，也许目标不是找到最佳解决方案，而是避免灾难。
+学生：有点令人沮丧。
+教授：好的工程就是这样。 而且也可以令人振奋！确实，这只是您的观点。 我个人认为，务实是一件好事，实用主义者意识到，并非所有问题都有解决方案。 还有其他吸引您的想法吗？
+学生：我真的很喜欢游戏调度程序的概念。 当我下次在Amazon EC2服务上运行作业时，似乎需要研究一下。 也许我可以从其他一些毫无戒心（更重要的是，对操作系统不了解）的客户那里窃取一些信息！
+教授：看来我可能创造了一个怪物！ 弗兰肯斯坦教授不是我想要的名字。
+学生：但这不是这个主意吗？ 为了让我们对某件事感到兴奋，以至于我们自己去研究它？ 点燃火等吗？
+教授：我想是的。 但我认为这行不通！</p>
+<h2 id="12绪论内存虚拟化">12、绪论：内存虚拟化</h2>
+<p>学生：那么，我们完成虚拟化了吗？
+教授：不！
+学生：嘿，没有理由变得如此兴奋。 我只是问一个问题。 学生应该这样做，对吗？
+教授：嗯，教授总是会这么说，但实际上他们的意思是：问问题，如果它们是好问题，实际上您已经对它们进行了一点思考。
+学生：好吧，那一定会使风吹散。
+教授：任务完成了。 无论如何，我们几乎都无法完成虚拟化！ 而是，您刚刚看到了如何虚拟化CPU，但是壁橱中确实有一个巨大的怪物在等待：内存。 虚拟化内存非常复杂，需要我们了解有关硬件和操作系统如何交互的更多复杂细节。
+学生：听起来不错。 为什么这么难？
+教授：好，有很多细节，您必须直截了当地，才能真正建立出正在发生的事情的心理模型。 我们将从基本/边界等非常基本的技术开始，然后逐渐增加复杂性以应对新的挑战，包括有趣的主题（如TLB和多级页表）。 最终，我们将能够描述功能齐全的现代虚拟内存管理器的工作原理。
+学生：整齐！ 对这名贫困学生的任何小贴士，都被所有这些信息所淹没，并且普遍缺乏睡眠？
+教授：对于睡眠不足，这很容易：多睡（少聚会）。为了理解虚拟内存，从此开始：<strong>用户程序生成的每个地址都是一个虚拟地址</strong>。 操作系统只是给每个进程提供了一种错觉，像是它拥有自己的大型私有内存。 在某些硬件帮助下，OS会将这些伪装的虚拟地址转换为真实的物理地址，从而能够找到所需的信息。
+学生：好的，我想我可以记住&hellip;（自我）用户程序中的每个地址都是虚拟的，用户程序中的每个地址都是虚拟的，每个&hellip;       <br>
+教授：你在抱怨什么？
+学生：哦，什么都没有。&hellip;（尴尬的停顿）&hellip;无论如何，为什么操作系统要再次提供这种错觉？
+教授：大多数情况下易于使用：操作系统会给每个程序一个视图，即它有很大的连续地址空间可用于将其代码和数据放入其中。 因此，作为一名程序员，您不必担心“我应该在哪里存储此变量？”之类的问题。 因为程序的虚拟地址空间很大，并且有足够的空间容纳这种事情。 如果您不得不担心将所有代码数据放入一个很小的拥挤的内存中，那么对于程序员而言，生活变得更加棘手。
+学生：为什么呢？
+教授：隔离和保护也很重要。 我们不希望一个错误的程序能够读取或更糟的是覆盖其他程序的内存，是吗？
+学生：大概不会。 除非是您不喜欢的人编写的程序。
+教授：嗯。。。我认为我们可能需要在下学期的课程表中增加一门道德和道德课。 也许OS类无法正确传达信息。
+学生：也许我们应该。 但是请记住，不是我教会我们，操作系统对错误进程行为的正确响应是杀死有问题的进程！</p>
+<h2 id="13抽象概念地址空间">13、抽象概念：地址空间</h2>
+<h3 id="早期系统">早期系统</h3>
+<p>从内存的角度来看，早期的机器并没有为用户提供太多抽象。</p>
+<p>操作系统是一组位于内存中的例程（实际上是一个库）（在此示例中从物理地址0开始），并且当前有一个正在运行的程序（进程）在物理内存中（从物理地址开始），并使用了其余的内存。</p>
+<h3 id="多程序和时间共享">多程序和时间共享</h3>
+<p>一段时间之后，由于机器价格昂贵，人们开始更有效地共享机器。 因此，<strong>多重编程</strong>时代诞生了，在该时代中，多个进程准备在给定的时间运行，并且OS将在它们之间切换，例如，当一个人决定执行I/O时。 这样做可以提高CPU的有效利用率。 在每台机器花费数十万甚至数百万美元的那些日子里，这种效率的提高尤其重要。</p>
+<p>然而，很快人们就开始要求更多的机器，而<strong>时间共享</strong>时代就此诞生了。 具体来说，许多人意识到批处理的局限性，特别是对程序员本人，他们厌倦了漫长的（因此无效的）程序调试周期。 交互性的概念变得很重要，因为许多用户可能正在同时使用计算机，每个用户都在等待（或希望）他们当前正在执行的任务的及时响应。</p>
+<p>实现时间共享的一种方法是短暂运行一个进程，使其完全访问所有内存，然后停止它，将其所有状态保存到某种磁盘（包括所有物理内存）中。加载其他进程的状态，运行一段时间，从而实现对机器的某种粗略共享。</p>
+<p>不幸的是，这种方法存在一个大问题：它太慢了，特别是随着内存的增长。虽然保存和恢复寄存器级状态（PC，通用寄存器等）相对较快，但将整个内存内容保存到磁盘上却是残酷的。 因此，我们宁愿将进程留在内存中，同时在它们之间进行切换，从而使操作系统能够有效地实现时间共享。</p>
+<p>随着时间共享变得越来越流行，您可能会猜到对操作系统提出了新的要求。 特别是，允许​​多个程序同时驻留在内存中使<strong>保护</strong>成为一个重要问题。 您不希望某个进程能够读取，或者更糟的是，写入其他进程的内存。</p>
+<h3 id="地址空间">地址空间</h3>
+<p>但是，我们必须牢记那些讨厌的用户，并且这样做需要操作系统创建易于使用的物理内存抽象。
+我们称这种抽象为<strong>地址空间</strong>，它是运行程序在系统中的内存视图。了解内存的基本操作系统抽象是了解如何虚拟化内存的关键。</p>
+<p>进程的地址空间包含正在运行的程序的所有内存状态。 例如，程序<strong>代码（指令）<strong>必须驻留在内存中的某个位置，因此它们位于地址空间中。该程序在运行时会使用</strong>栈</strong>来跟踪它在函数调用链中的位置，以及分配局部变量，并在例程之间传递参数以及返回值。 最后，<strong>堆</strong>用于动态分配的，用户管理的内存，例如，您可能会从C语言中的malloc（）调用或以面向对象的语言（如C++或Java）中收到对new的调用中收到。 当然，其中也有其他内容（例如，静态初始化的变量），但是现在让我们仅假设这三个组件：<strong>代码，栈和堆</strong>。</p>
+<p>在图13.3的示例中，我们有一个很小的地址空间（只有16KB）。程序代码位于地址空间的顶部（在此示例中，从0开始，并打包到地址空间的前1K中）。代码是静态的（因此很容易放在内存中），因此我们可以将其放在地址空间的顶部，并知道在程序运行时它不需要任何空间。</p>
+<!-- raw HTML omitted -->
+
+
+<div class="box">
+<figure  itemprop="associatedMedia"
+  itemscope itemtype="http://schema.org/ImageObject" >
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/os_intro/os_13_3.PNG" />
+    </div>
+    <a href="/images/os_intro/os_13_3.PNG" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<p>接下来，我们在程序运行时拥有地址空间的两个区域，它们可能会增长（和收缩）。 这些是堆（在顶部）和栈（在底部）。 我们之所以这样放置它们，是因为这两者都希望能够增长，通过将它们放在地址空间的相对两端，我们可以允许这种增长：它们只需要朝相反的方向增长即可。 这样，堆就在代码之后（1KB）开始并向下增长（例如，当用户通过malloc（）请求更多内存时）； 栈从16KB开始并向上增长（例如，当用户进行过程调用时）。但是，这种栈和堆的放置只是一个约定。您可以根据需要以不同的方式安排地址空间（我们将在后面看到，当一个地址空间中同时存在多个线程时，再也没有一种很好的方法来划分地址空间了，可惜）。</p>
+<p>当然，当我们描述地址空间时，我们所描述的是操作系统为正在运行的程序提供的抽象。该程序实际上不在内存中的物理地址0到16KB； 而是将其加载到某个任意物理地址。因此，问题是：操作系统如何在单个物理内存之上为多个正在运行的进程（所有进程共享内存）构建私有的，潜在的大型地址空间的抽象？</p>
+<p>当操作系统执行此操作时，我们说操作系统正在虚拟化内存，因为正在运行的程序认为它已加载到特定地址（例如0）的内存中，并且具有很大的地址空间（例如32位或64位）; 现实是完全不同的。</p>
+<p>例如，进程A尝试在地址0（我们将其称为<strong>虚拟地址</strong>）上执行加载时，以某种方式，操作系统与某些硬件支持相结合，将必须确保加载实际上并没有转到物理地址0，而是物理地址320KB（内存中A实际所在位置）。这是内存虚拟化的关键，而内存虚拟化是世界上每个现代计算机系统的基础。</p>
+<h3 id="目标">目标</h3>
+<p>虚拟内存（VM）系统的一个主要目标是<strong>透明度</strong>。操作系统应以对正在运行的程序不可见的方式实现虚拟内存。 因此，程序不应意识到内存已虚拟化。 而是，程序的行为就像具有自己的专用物理内存一样。 在后台，操作系统（和硬件）完成了所有工作，以在许多不同的作业之间多路复用内存，从而实现了这种错觉。</p>
+<p>VM的另一个目标是<strong>效率</strong>。 操作系统应努力在时间（即不让程序运行得更慢）和空间（即不为支持虚拟化的结构使用过多的内存）方面使虚拟化尽可能高效。 在实现高效的虚拟化时，操作系统将不得不依赖硬件支持，包括诸如TLB的硬件功能（我们将在适当的时候进行了解）。</p>
+<p>最后，第三个VM目标是<strong>保护</strong>。操作系统应确保互相保护进程，以及操作系统本身应防止进程相互影响。 当一个进程执行加载，存储或指令提取时，它不应以任何方式访问或影响任何其他进程或OS本身（即，其地址空间之外的任何内容）的内存内容。 因此，保护​​使我们能够在流程之间提供隔离的特性。每个进程都应在自己的隔离茧中运行，以免遭受其他故障甚至恶意进程的破坏。</p>
+<p>在下一章中，我们将重点研究虚拟化内存所需的基本机制，包括硬件和操作系统支持。 我们还将研究您在操作系统中会遇到的一些更相关的策略，包括如何管理可用空间以及当空间不足时要从内存中踢出哪些页面。这样一来，我们将加深您对现代虚拟内存系统的工作原理的理解。</p>
+<h3 id="总结-6">总结</h3>
+<p>我们已经看到了一个主要的OS子系统的引入：虚拟内存。VM系统负责为程序提供庞大，稀疏的专用地址空间的幻觉，这些程序将其所有指令和数据保存在其中。 操作系统将在一些硬件帮助下获取每个虚拟内存引用，并将它们转换为物理地址，可以将其提供给物理内存，以获取所需的信息。 操作系统将一次对许多进程执行此操作，并确保相互保护程序并保护操作系统。 整个方法需要大量的机制（很多底层机制）以及一些关键的策略才能起作用。 我们将从头开始，首先描述关键机制。 因此，我们继续！</p>
+<p>旁白：您看到的每个地址都是虚拟的</p>
+<p>是否曾经编写过一个打印指针的C程序？ 您看到的值（一些较大的数字，通常以十六进制打印）是一个虚拟地址。
+有没有想过在哪里找到您的程序的代码？ 您也可以打印出来，是的，如果可以打印，它也是一个虚拟地址。实际上，作为程序员，您可以看到的用户级程序的任何地址都是虚拟地址。 只有操作系统通过其虚拟化内存的棘手技术，才能知道这些指令和数据值位于计算机的物理内存中。 因此，永远不要忘记：如果您在程序中打印出一个地址，那是一个虚拟的地址，这是对事物在内存中的布局的一种幻想；只有操作系统（和硬件）才知道真实情况。</p>
+<p>一个例子，它打印出main()例程（代码所在的位置）的地址，从malloc()分配的值在堆上的地址值以及整数在栈上的地址：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;location of code : %p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">main</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;location of heap : %p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">malloc</span><span class="p">(</span><span class="mf">100e6</span><span class="p">));</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;location of stack: %p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在64位Mac上运行时，我们得到以下输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">location of code : 0x1095afe50
+location of heap : 0x1096008c0
+location of stack: 0x7fff691aea64
+</code></pre></td></tr></table>
+</div>
+</div><p>由此可见，代码首先出现在地址空间中，然后出现在堆中，而栈一直到此大虚拟空间的另一端。所有这些地址都是虚拟的，将由OS和硬件进行转换，以便从其真实的物理位置获取值。</p>
+<h3 id="作业-7">作业</h3>
+<h2 id="14插曲内存api">14、插曲：内存API</h2>
+<h3 id="内存类型">内存类型</h3>
+<h3 id="malloc调用">malloc（）调用</h3>
+<h3 id="free调用">free（）调用</h3>
+<h3 id="常见错误">常见错误</h3>
+<h3 id="底层操作系统支持">底层操作系统支持</h3>
+<h3 id="其他调用">其他调用</h3>
+<h3 id="总结-7">总结</h3>
+<h3 id="作业-8">作业</h3>
+<h2 id="15机制地址翻译">15、机制：地址翻译</h2>
+<p>在开发CPU的虚拟化过程中，我们集中于一种称为**受限直接执行（LDE）**的通用机制。 LDE背后的想法很简单：在大多数情况下，让程序直接在硬件上运行； 但是，在某些关键的时间点（例如，当进程发出系统调用或发生计时器中断时），请安排好操作系统，以确保“正确”的事情发生。 因此，在几乎没有硬件支持的情况下，操作系统将尽最大努力摆脱正在运行的程序，从而提供有效的虚拟化。 但是，通过在这些关键的时间点进行插入，OS可以确保它保持对硬件的控制。 效率和控制是任何现代操作系统的两个主要目标。</p>
+<p>在虚拟化内存中，我们将采用类似的策略，在提供所需的虚拟化的同时实现效率和控制力。 效率要求我们利用硬件支持，起初您会很基本（例如，只有几个寄存器），但会变得相当复杂（例如，TL​​B，页表支持等）。控制意味着操作系统确保任何应用程序除其自身的内存外不能访问其它任何内存； 因此，为了保护应用程序彼此之间以及操作系统与应用程序之间的相互保护，我们在这里也需要硬件的帮助。 最后，就灵活性而言，我们将需要从VM系统中获取更多信息。 具体来说，我们希望程序能够以任意方式使用其地址空间，从而使系统更易于编程。因此，我们得出了精要的关键问题：我们如何建立有效的内存虚拟化？ 我们如何提供应用程序所需的灵活性？ 我们如何保持对应用程序可以访问哪些内存位置的控制，从而确保适当限制应用程序的内存访问？ 我们如何有效地完成所有这些工作？</p>
+<p>我们将使用的通用技术是有限直接执行的通用方法的补充，它被称为<strong>基于硬件的地址转换</strong>，或者简称为<strong>地址转换</strong>。 借助地址转换，硬件将转换每个存储器访问（例如，取指令，加载或存储指令），将指令提供的虚拟地址更改为所需信息实际所在的物理地址。 因此，在每个内存引用上，硬件都会执行地址转换，以将应用程序内存引用重定向到它们在内存中的实际位置。</p>
+<p>当然，仅硬件本身不能虚拟化内存，因为它只是提供了低级机制来有效地进行虚拟化。 操作系统必须在关键点介入以设置硬件，以便进行正确的转换。 因此，它必须<strong>管理内存</strong>，跟踪哪些位置空闲以及正在使用哪些位置，并明智地进行干预以保持对内存使用方式的控制。</p>
+<p>所有这些工作的目标再次是营造一种美好的幻想：该程序具有自己的私有内存，并且自己的代码和数据驻留在该内存中。虚拟现实的背后隐藏着丑陋的物理事实：当一个或多个CPU在运行一个程序与运行另一个程序之间切换时，许多程序实际上在同时共享内存。通过虚拟化，该操作系统（在硬件的帮助下）将丑陋的机器现实变成了有用，强大且易于使用的抽象。</p>
+<h3 id="假设条件">假设条件</h3>
+<p>具体来说，我们现在假设用户的地址空间必须连续放置在物理内存中。 为了简单起见，我们还将假定地址空间的大小不是太大； 具体来说，它小于物理内存的大小。 最后，我们还将假定每个地址空间的大小完全相同。 如果这些假设听起来不切实际，请不要担心； 我们将在使用过程中放松它们，从而实现逼真的内存虚拟化。</p>
+<h3 id="一个例子-1">一个例子</h3>
+<p>为了更好地理解实现地址转换我们需要做的事情以及为什么需要这种机制，我们来看一个简单的例子。 想象有一个进程的地址空间如图15.1所示。 我们将在这里检查的是一个简短的代码序列，该序列从内存中加载一个值，将其增加三，然后将该值存储回内存中。 您可以想象此代码的C语言表示形式可能如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C" data-lang="C"><span class="kt">void</span> <span class="nf">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span> <span class="c1">// thanks, Perry.
+</span><span class="c1"></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// line of code we are interested in
+</span><span class="c1"></span>    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>编译器将这一行代码转换为汇编，可能看起来像这样（在x86汇编中）。在Linux上使用objdump或<strong>在Mac上使用otool进行反汇编</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">128: movl 0x0<span class="o">(</span>%ebx<span class="o">)</span>, %eax <span class="p">;</span>load 0+ebx into eax
+132: addl <span class="nv">$0</span>x03, %eax <span class="p">;</span>add <span class="m">3</span> to eax register
+135: movl %eax, 0x0<span class="o">(</span>%ebx<span class="o">)</span> <span class="p">;</span>store eax back to mem
+</code></pre></td></tr></table>
+</div>
+</div><p>该代码段相对简单。 假定x的地址已放置在寄存器ebx中，然后使用movl指令（用于“ longword”移动）将该地址的值加载到通用寄存器eax中。 下一条指令将eax加3，最后一条指令将eax中的值存储在同一位置的内存中。</p>
+<p>在图15.1中，观察代码和数据在流程的地址空间中的布局方式； 三指令代码序列位于地址128（在顶部附近的代码部分）中，变量x的值位于地址15 KB（在底部附近的栈中）。在图中，x的初始值为3000，如其在栈中的位置所示。</p>
+<p>当这些指令运行时，从过程的角度来看，将进行以下内存访问。</p>
+<ul>
+<li>在地址128处取指令</li>
+<li>执行此指令（从地址15 KB加载）</li>
+<li>在地址132取指令</li>
+<li>执行该指令（无存储器引用）</li>
+<li>在地址135取指令</li>
+<li>执行该指令（存储到地址15 KB）</li>
+</ul>
+<!-- raw HTML omitted -->
+
+
+<div class="box">
+<figure  itemprop="associatedMedia"
+  itemscope itemtype="http://schema.org/ImageObject" >
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/os_intro/os_15_1.PNG" />
+    </div>
+    <a href="/images/os_intro/os_15_1.PNG" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<p>从程序的角度来看，其地址空间从地址0开始，最大增加到16 KB； 它生成的所有内存引用都应在这些范围之内。 但是，为了虚拟化内存，OS希望将进程放置在物理内存中的其他位置，而不必放在地址0上。因此，我们遇到了一个问题：如何以一种对进程透明的方式将该进程重新放置在内存中？ 当地址空间实际上位于其他物理地址时，我们如何提供从0开始的虚拟地址空间的错觉？</p>
+<p>在图15.2中找到了一个示例，该示例的地址空间放置在内存中后，物理内存的外观将如何。在图中，您可以看到OS本身使用了物理内存的第一个插槽，并且它已将上述示例中的过程重新定位到从32 KB物理内存地址开始的插槽中。 其他两个插槽是空闲的（16 KB - 32 KB 和 48 KB - 64 KB）。</p>
+<!-- raw HTML omitted -->
+
+
+<div class="box">
+<figure  itemprop="associatedMedia"
+  itemscope itemtype="http://schema.org/ImageObject" >
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/os_intro/os_15_2.PNG" />
+    </div>
+    <a href="/images/os_intro/os_15_2.PNG" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<h3 id="动态基于硬件重定位">动态（基于硬件）重定位</h3>
+<p>为了对基于硬件的地址转换有一定的了解，我们将首先讨论其第一代产品。 在1950年代末期的第一台分时机中引入了一个简单的概念，即<strong>基准和边界</strong>。 该技术也称为<strong>动态重定位</strong>； 我们将两个术语互换使用。</p>
+<p>具体来说，我们在每个CPU中需要两个硬件寄存器：一个称为<strong>基址寄存器</strong>，另一个称为<strong>边界寄存器（有时称为限制寄存器）</strong>。 这对寄存器将使我们能够将地址空间放置在物理内存中所需的任何位置，并确保进程只能访问自己的地址空间。</p>
+<p>在这种设置中，每个程序都被编写和编译，就好像加载到地址零一样。 但是，当程序开始运行时，操作系统会决定将其加载到物理内存中的哪个位置，并将基址寄存器设置为该值。 在上面的示例中，操作系统决定将进程加载到32 KB的物理地址，因此将基址寄存器设置为该值。</p>
+<p>进程运行时，有趣的事情开始发生。现在，当进程生成任何内存引用时，处理器将以以下方式对其进行转换：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">physical <span class="nv">address</span> <span class="o">=</span> virtual address + base
+</code></pre></td></tr></table>
+</div>
+</div><p>进程生成的每个内存引用都是一个<strong>虚拟地址</strong>。硬件又将基址寄存器的内容添加到该地址，结果是可以发布给存储系统的<strong>物理地址</strong>。</p>
+<p>为了更好地理解这一点，让我们追溯执行一条指令时发生的情况。具体来说，让我们看一下先前序列中的一条指令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">128: movl 0x0<span class="o">(</span>%ebx<span class="o">)</span>, %eax
+</code></pre></td></tr></table>
+</div>
+</div><p>程序计数器（PC）设置为128； 当硬件需要提取此指令时，它首先将该值加到32 KB（32768）的基址寄存器值中，以得到32896的物理地址； 然后，硬件从该物理地址获取指令。 接下来，处理器开始执行指令。 然后，在某个时候，该过程从虚拟地址15 KB发出负载，处理器将其加载，并再次添加到基址寄存器（32 KB），从而获得47 KB的最终物理地址，从而获得所需的内容。</p>
+<p>将虚拟地址转换为物理地址正是我们称为<strong>地址转换</strong>的技术。 也就是说，硬件获取进程认为正在引用的虚拟地址，并将其转换为数据实际驻留的物理地址。 因为地址的这种重定位发生在运行时，并且因为即使进程开始运行后我们也可以移动地址空间，所以该技术通常称为<strong>动态重定位</strong>。</p>
+<p>基于硬件的动态重定位：使用动态重定位，只需少量硬件即可。 即，基址寄存器用于将虚拟地址（由程序生成）转换为物理地址。 边界（或限制）寄存器确保此类地址在地址空间的范围内。 它们一起提供了简单有效的内存虚拟化。</p>
+<h3 id="硬件支持总结">硬件支持：总结</h3>
+<h3 id="操作系统问题">操作系统问题</h3>
+<h3 id="总结-8">总结</h3>
+<h3 id="作业-9">作业</h3>
+<h2 id="16分割">16、分割</h2>
+<h3 id="细分广义基数界限">细分：广义基数/界限</h3>
+<h3 id="我们指的是哪个细分市场">我们指的是哪个细分市场？</h3>
+<h3 id="堆栈呢">堆栈呢？</h3>
+<h3 id="支持分享">支持分享</h3>
+<h3 id="细粒度与粗粒度细分">细粒度与粗粒度细分</h3>
+<h3 id="操作系统支持">操作系统支持</h3>
+<h3 id="总结-9">总结</h3>
+<h3 id="作业-10">作业</h3>
+<h2 id="17自由空间管理">17、自由空间管理</h2>
+<h3 id="假设条件-1">假设条件</h3>
+<h3 id="低级机制">低级机制</h3>
+<h3 id="基本策略">基本策略</h3>
+<h3 id="其他方法">其他方法</h3>
+<h3 id="总结-10">总结</h3>
+<h3 id="作业-11">作业</h3>
+<h2 id="18分页简介">18、分页：简介</h2>
+<h3 id="一个简单的例子和概述">一个简单的例子和​​概述</h3>
+<h3 id="页表存储在哪里">页表存储在哪里？</h3>
+<h3 id="页面表中实际上是什么">页面表中实际上是什么？</h3>
+<h3 id="分页太慢">分页：太慢</h3>
+<h3 id="内存跟踪">内存跟踪</h3>
+<h3 id="总结-11">总结</h3>
+<h3 id="作业-12">作业</h3>
+<h2 id="19分页更快的翻译tlb">19、分页：更快的翻译（TLB）</h2>
+<h3 id="tlb基本算法">TLB基本算法</h3>
+<h3 id="示例访问数组">示例：访问数组</h3>
+<h3 id="谁处理tlb缺失">谁处理TLB缺失？</h3>
+<h3 id="tlb内容里面有什么">TLB内容：里面有什么？</h3>
+<h3 id="tlb问题上下文切换">TLB问题：上下文切换</h3>
+<h3 id="问题更换政策">问题：更换政策</h3>
+<h3 id="真正的tlb条目">真正的TLB条目</h3>
+<h3 id="总结-12">总结</h3>
+<h3 id="作业-13">作业</h3>
+<h2 id="20分页较小的表格">20、分页：较小的表格</h2>
+<h3 id="简单的解决方案更大的页面">简单的解决方案：更大的页面</h3>
+<h3 id="混合方法分页和细分">混合方法：分页和细分</h3>
+<h3 id="多级页表">多级页表</h3>
+<h3 id="倒页表">倒页表</h3>
+<h3 id="将页表交换到磁盘">将页表交换到磁盘</h3>
+<h3 id="总结-13">总结</h3>
+<h3 id="作业-14">作业</h3>
+<h2 id="21超越物理内存机制">21、超越物理内存：机制</h2>
+<h3 id="交换空间">交换空间</h3>
+<h3 id="现在的位">现在的位</h3>
+<h3 id="页面错误">页面错误</h3>
+<h3 id="如果内存已满怎么办">如果内存已满怎么办？</h3>
+<h3 id="页面故障控制流程">页面故障控制流程</h3>
+<h3 id="真正发生替换时">真正发生替换时</h3>
+<h3 id="总结-14">总结</h3>
+<h3 id="作业-15">作业</h3>
+<h2 id="22超越物理内存策略">22、超越物理内存：策略</h2>
+<h3 id="缓存管理">缓存管理</h3>
+<h3 id="最佳替代政策">最佳替代政策</h3>
+<h3 id="一个简单的策略fifo">一个简单的策略：FIFO</h3>
+<h3 id="另一个简单的政策随机">另一个简单的政策：随机</h3>
+<h3 id="使用历史记录lru">使用历史记录：LRU</h3>
+<h3 id="工作量示例">工作量示例</h3>
+<h3 id="实施历史算法">实施历史算法</h3>
+<h3 id="近似lru">近似LRU</h3>
+<h3 id="考虑脏页">考虑脏页</h3>
+<h3 id="其他虚拟机策略">其他虚拟机策略</h3>
+<h3 id="脱粒">脱粒</h3>
+<h3 id="总结-15">总结</h3>
+<h3 id="作业-16">作业</h3>
+<h2 id="23完整的虚拟内存系统">23、完整的虚拟内存系统</h2>
+<h3 id="vax--vms虚拟内存">VAX / VMS虚拟内存</h3>
+<h3 id="linux虚拟内存系统">Linux虚拟内存系统</h3>
+<h3 id="总结-16">总结</h3>
+<h2 id="24总结内存虚拟化">24、总结：内存虚拟化</h2>
+<h1 id="第二部分并发">第二部分：并发</h1>
+<h2 id="25绪论-并发">25、绪论: 并发</h2>
+<h2 id="26并发简介">26、并发：简介</h2>
+<h3 id="为什么要使用线程">为什么要使用线程？</h3>
+<h3 id="示例线程创建">示例：线程创建</h3>
+<h3 id="为什么变得更糟共享数据">为什么变得更糟：共享数据</h3>
+<h3 id="问题的核心无节制的调度">问题的核心：无节制的调度</h3>
+<h3 id="希望原子性">希望原子性</h3>
+<h3 id="另一个问题等待另一个">另一个问题：等待另一个</h3>
+<h3 id="总结-17">总结</h3>
+<h3 id="作业-17">作业</h3>
+<h2 id="27插曲线程api">27、插曲：线程API</h2>
+<h3 id="线程创建">线程创建</h3>
+<h3 id="线程完成">线程完成</h3>
+<h3 id="锁">锁</h3>
+<h3 id="条件变量">条件变量</h3>
+<h3 id="编译并运行">编译并运行</h3>
+<h3 id="总结-18">总结</h3>
+<h3 id="作业-18">作业</h3>
+<h2 id="28锁">28、锁</h2>
+<h3 id="锁基本思想">锁：基本思想</h3>
+<h3 id="pthread锁">Pthread锁</h3>
+<h3 id="建立锁">建立锁</h3>
+<h3 id="评估锁">评估锁</h3>
+<h3 id="控制中断">控制中断</h3>
+<h3 id="失败的尝试仅使用装入存储">失败的尝试：仅使用装入/存储</h3>
+<h3 id="使用测试设置建立工作自旋锁">使用测试设置建立工作自旋锁</h3>
+<h3 id="评估自旋锁">评估自旋锁</h3>
+<h3 id="比较和交换">比较和交换</h3>
+<h3 id="负载链接和存储条件">负载链接和存储条件</h3>
+<h3 id="提取并添加">提取并添加</h3>
+<h3 id="旋转太多现在怎么办">旋转太多：现在怎么办？</h3>
+<h3 id="一种简单的方法宝贝只是收益">一种简单的方法：宝贝，只是收益</h3>
+<h3 id="使用队列休眠而不是旋转">使用队列：休眠而不是旋转</h3>
+<h3 id="不同的操作系统不同的支持">不同的操作系统，不同的支持</h3>
+<h3 id="两相锁">两相锁</h3>
+<h3 id="总结-19">总结</h3>
+<h3 id="作业-19">作业</h3>
+<h2 id="29基于锁的并发数据结构">29、基于锁的并发数据结构</h2>
+<h3 id="并发计数器">并发计数器</h3>
+<h3 id="并发链接列表">并发链接列表</h3>
+<h3 id="并发队列">并发队列</h3>
+<h3 id="并发哈希表">并发哈希表</h3>
+<h3 id="总结-20">总结</h3>
+<h3 id="作业-20">作业</h3>
+<h2 id="30条件变量">30、条件变量</h2>
+<h3 id="定义和例程">定义和例程</h3>
+<h3 id="生产者消费者有界缓冲区问题">生产者/消费者（有界缓冲区）问题</h3>
+<h3 id="承保条件">承保条件</h3>
+<h3 id="总结-21">总结</h3>
+<h3 id="作业-21">作业</h3>
+<h2 id="31信号量">31、信号量</h2>
+<h3 id="信号量定义">信号量：定义</h3>
+<h3 id="二进制信号量锁">二进制信号量（锁）</h3>
+<h3 id="信号量订购">信号量订购</h3>
+<h3 id="生产者消费者有界缓冲区问题-1">生产者/消费者（有界缓冲区）问题</h3>
+<h3 id="读写器锁">读写器锁</h3>
+<h3 id="餐饮哲学家">餐饮哲学家</h3>
+<h3 id="如何实现信号量">如何实现信号量</h3>
+<h3 id="总结-22">总结</h3>
+<h3 id="作业-22">作业</h3>
+<h2 id="32常见的并发问题">32、常见的并发问题</h2>
+<h3 id="存在哪些类型的错误">存在哪些类型的错误？</h3>
+<h3 id="非死锁错误">非死锁错误</h3>
+<h3 id="死锁错误">死锁错误</h3>
+<h3 id="总结-23">总结</h3>
+<h3 id="作业-23">作业</h3>
+<h2 id="33基于事件的并发高级">33、基于事件的并发（高级）</h2>
+<h3 id="基本思想事件循环">基本思想：事件循环</h3>
+<h3 id="重要的apiselect或poll">重要的API：select（）（或poll（））</h3>
+<h3 id="使用select">使用select（）</h3>
+<h3 id="为什么更简单-无需锁">为什么更简单？ 无需锁</h3>
+<h3 id="问题阻止系统调用">问题：阻止系统调用</h3>
+<h3 id="解决方案异步i--o">解决方案：异步I / O</h3>
+<h3 id="另一个问题状态管理">另一个问题：状态管理</h3>
+<h3 id="什么仍然是事件的难点">什么仍然是事件的难点</h3>
+<h3 id="总结-24">总结</h3>
+<h3 id="作业-24">作业</h3>
+<h2 id="34总结-并发">34、总结: 并发</h2>
+<h1 id="第三部分持久化">第三部分：持久化</h1>
+<h2 id="35绪论持久化">35、绪论：持久化</h2>
+<h2 id="36i--o设备">36、I / O设备</h2>
+<h3 id="系统架构">系统架构</h3>
+<h3 id="规范的设备">规范的设备</h3>
+<h3 id="规范协议">规范协议</h3>
+<h3 id="通过中断降低cpu开销">通过中断降低CPU开销</h3>
+<h3 id="使用dma进行更高效的数据移动">使用DMA进行更高效的数据移动</h3>
+<h3 id="设备交互方法">设备交互方法</h3>
+<h3 id="适应操作系统设备驱动程序">适应操作系统：设备驱动程序</h3>
+<h3 id="案例研究一个简单的ide磁盘驱动程序">案例研究：一个简单的IDE磁盘驱动程序</h3>
+<h3 id="历史笔记">历史笔记</h3>
+<h3 id="总结-25">总结</h3>
+<h3 id="作业-25">作业</h3>
+<h2 id="37硬盘驱动器">37、硬盘驱动器</h2>
+<h3 id="接口">接口</h3>
+<h3 id="基本几何">基本几何</h3>
+<h3 id="一个简单的磁盘驱动器">一个简单的磁盘驱动器</h3>
+<h3 id="i--o时间做数学">I / O时间：做数学</h3>
+<h3 id="磁盘调度">磁盘调度</h3>
+<h3 id="总结-26">总结</h3>
+<h3 id="作业-26">作业</h3>
+<h2 id="38廉价磁盘冗余阵列raid">38、廉价磁盘冗余阵列（RAID）</h2>
+<h3 id="接口和raid内部">接口和RAID内部</h3>
+<h3 id="故障模型">故障模型</h3>
+<h3 id="如何评估raid">如何评估RAID</h3>
+<h3 id="raid级别0条带化">RAID级别0：条带化</h3>
+<h3 id="raid级别1镜像">RAID级别1：镜像</h3>
+<h3 id="raid级别4通过奇偶校验节省空间">RAID级别4：通过奇偶校验节省空间</h3>
+<h3 id="raid级别5旋转奇偶校验">RAID级别5：旋转奇偶校验</h3>
+<h3 id="raid比较摘要">RAID比较：摘要</h3>
+<h3 id="其他有趣的raid问题">其他有趣的RAID问题</h3>
+<h3 id="总结-27">总结</h3>
+<h3 id="作业-27">作业</h3>
+<h2 id="39插曲文件和目录">39、插曲：文件和目录</h2>
+<h3 id="文件和目录">文件和目录</h3>
+<h3 id="文件系统界面">文件系统界面</h3>
+<h3 id="创建文件">创建文件</h3>
+<h3 id="读写文件">读写文件</h3>
+<h3 id="读和写但不顺序">读和写，但不顺序</h3>
+<h3 id="共享文件表条目fork和dup">共享文件表条目：fork（）和dup（）</h3>
+<h3 id="立即使用fsync编写">立即使用fsync（）编写</h3>
+<h3 id="重命名文件">重命名文件</h3>
+<h3 id="获取有关文件的信息">获取有关文件的信息</h3>
+<h3 id="删除文件">删除文件</h3>
+<h3 id="制作目录">制作目录</h3>
+<h3 id="阅读目录">阅读目录</h3>
+<h3 id="删除目录">删除目录</h3>
+<h3 id="硬链接">硬链接</h3>
+<h3 id="符号链接">符号链接</h3>
+<h3 id="权限位和访问控制列表">权限位和访问控制列表</h3>
+<h3 id="制作和挂载文件系统">制作和挂载文件系统</h3>
+<h3 id="总结-28">总结</h3>
+<h3 id="作业-28">作业</h3>
+<h2 id="40文件系统实施">40、文件系统实施</h2>
+<h3 id="思考方式">思考方式</h3>
+<h3 id="整体组织">整体组织</h3>
+<h3 id="文件组织the-inode">文件组织：The Inode</h3>
+<h3 id="目录组织">目录组织</h3>
+<h3 id="自由空间管理">自由空间管理</h3>
+<h3 id="访问路径阅读和写作">访问路径：阅读和写作</h3>
+<h3 id="缓存和缓冲">缓存和缓冲</h3>
+<h3 id="总结-29">总结</h3>
+<h3 id="作业-29">作业</h3>
+<h2 id="41位置和快速文件系统">41、位置和快速文件系统</h2>
+<h3 id="问题性能不佳">问题：性能不佳</h3>
+<h3 id="ffs磁盘感知是解决方案">FFS：磁盘感知是解决方案</h3>
+<h3 id="组织结构圆柱组">组织结构：圆柱组</h3>
+<h3 id="策略如何分配文件和目录">策略：如何分配文件和目录</h3>
+<h3 id="测量文件位置">测量文件位置</h3>
+<h3 id="大文件异常">大文件异常</h3>
+<h3 id="关于ffs的其他一些事情">关于FFS的其他一些事情</h3>
+<h3 id="总结-30">总结</h3>
+<h3 id="作业-30">作业</h3>
+<h2 id="42崩溃一致性fsck和日记">42、崩溃一致性：FSCK和日记</h2>
+<h3 id="一个详细的例子">一个详细的例子</h3>
+<h3 id="解决方案1文件系统检查器">解决方案1：文件系统检查器</h3>
+<h3 id="解决方案2日记或预写日志">解决方案2：日记（或预写日志）</h3>
+<h3 id="解决方案3其他方法">解决方案3：其他方法</h3>
+<h3 id="总结-31">总结</h3>
+<h3 id="作业-31">作业</h3>
+<h2 id="43日志结构文件系统">43、日志结构文件系统</h2>
+<h3 id="顺序写入磁盘">顺序写入磁盘</h3>
+<h3 id="顺序有效地写作">顺序有效地写作</h3>
+<h3 id="要缓冲多少">要缓冲多少？</h3>
+<h3 id="间接解决方案inode映射">间接解决方案：Inode映射</h3>
+<h3 id="完成解决方案检查点区域">完成解决方案：检查点区域</h3>
+<h3 id="从磁盘读取文件回顾">从磁盘读取文件：回顾</h3>
+<h3 id="那目录呢">那目录呢？</h3>
+<h3 id="一个新问题垃圾回收">一个新问题：垃圾回收</h3>
+<h3 id="确定区块活力">确定区块活力</h3>
+<h3 id="一个政策问题哪些块需要清洁何时清洁">一个政策问题：哪些块需要清洁，何时清洁？</h3>
+<h3 id="崩溃恢复和日志">崩溃恢复和日志</h3>
+<h3 id="总结-32">总结</h3>
+<h3 id="作业-32">作业</h3>
+<h2 id="44基于闪存的ssd">44、基于闪存的SSD</h2>
+<h3 id="存放一位">存放一位</h3>
+<h3 id="从位到银行飞机">从位到银行/飞机</h3>
+<h3 id="基本flash操作">基本Flash操作</h3>
+<h3 id="闪存性能和可靠性">闪存性能和可靠性</h3>
+<h3 id="从原始闪存到基于闪存的ssd">从原始闪存到基于闪存的SSD</h3>
+<h3 id="ftl组织一种错误的方法">FTL组织：一种错误的方法</h3>
+<h3 id="对数结构的ftl">对数结构的FTL</h3>
+<h3 id="垃圾收集">垃圾收集</h3>
+<h3 id="映射表大小">映射表大小</h3>
+<h3 id="磨损平衡">磨损平衡</h3>
+<h3 id="ssd性能和成本">SSD性能和成本</h3>
+<h3 id="总结-33">总结</h3>
+<h3 id="作业-33">作业</h3>
+<h2 id="45数据完整性与保护">45、数据完整性与保护</h2>
+<h3 id="磁盘故障模式">磁盘故障模式</h3>
+<h3 id="处理潜在行业错误">处理潜在行业错误</h3>
+<h3 id="检测腐败校验和">检测腐败：校验和</h3>
+<h3 id="使用校验和">使用校验和</h3>
+<h3 id="一个新问题写错了方向">一个新问题：写错了方向</h3>
+<h3 id="最后一个问题失落的写作">最后一个问题：失落的写作</h3>
+<h3 id="擦洗">擦洗</h3>
+<h3 id="校验和的开销">校验和的开销</h3>
+<h3 id="总结-34">总结</h3>
+<h3 id="作业-34">作业</h3>
+<h2 id="46总结持久化">46、总结：持久化</h2>
+<h2 id="47绪论分布式">47、绪论：分布式</h2>
+<h2 id="48分布式系统">48、分布式系统</h2>
+<h3 id="沟通基础">沟通基础</h3>
+<h3 id="通讯层不可靠">通讯层不可靠</h3>
+<h3 id="可靠的通讯层">可靠的通讯层</h3>
+<h3 id="通讯抽象">通讯抽象</h3>
+<h3 id="远程过程调用rpc">远程过程调用（RPC）</h3>
+<h3 id="总结-35">总结</h3>
+<h3 id="作业-35">作业</h3>
+<h2 id="49sun的网络文件系统nfs">49、Sun的网络文件系统（NFS）</h2>
+<h3 id="基本的分布式文件系统">基本的分布式文件系统</h3>
+<h3 id="转到nfs">转到NFS</h3>
+<h3 id="重点简单快速的服务器崩溃恢复">重点：简单快速的服务器崩溃恢复</h3>
+<h3 id="快速崩溃恢复的关键无状态">快速崩溃恢复的关键：无状态</h3>
+<h3 id="nfsv2协议">NFSv2协议</h3>
+<h3 id="从协议到分布式文件系统">从协议到分布式文件系统</h3>
+<h3 id="使用幂等操作处理服务器故障">使用幂等操作处理服务器故障</h3>
+<h3 id="提高性能客户端缓存">提高性能：客户端缓存</h3>
+<h3 id="缓存一致性问题">缓存一致性问题</h3>
+<h3 id="评估nfs缓存一致性">评估NFS缓存一致性</h3>
+<h3 id="对服务器端写缓冲的影响">对服务器端写缓冲的影响</h3>
+<h3 id="总结-36">总结</h3>
+<h3 id="作业-36">作业</h3>
+<h2 id="50安德鲁文件系统afs">50、安德鲁文件系统（AFS）</h2>
+<h3 id="afs版本1">AFS版本1</h3>
+<h3 id="版本1的问题">版本1的问题</h3>
+<h3 id="完善协议">完善协议</h3>
+<h3 id="afs版本2">AFS版本2</h3>
+<h3 id="缓存一致性">缓存一致性</h3>
+<h3 id="崩溃恢复">崩溃恢复</h3>
+<h3 id="afsv2的规模和性能">AFSv2的规模和性能</h3>
+<h3 id="afs其他改进">AFS：其他改进</h3>
+<h3 id="总结-37">总结</h3>
+<h3 id="作业-37">作业</h3>
+<h2 id="51总结分布式">51、总结：分布式</h2>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Single Long</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-08-02
+      
+        <a href="https://github.com/SLKyrim/myBlog/commit/f76817482489e9e86544e3aee1f8169cf25955da" title="Create os_intro.md">
+          (f768174)
+        </a>
+        
+          <br>Create os_intro.md
+        
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://slkyrim.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+          <a href="https://slkyrim.github.io/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a>
+          <a href="https://slkyrim.github.io/tags/english/">English</a>
+          <a href="https://slkyrim.github.io/tags/%E8%8B%B1%E8%AF%AD/">英语</a>
+          <a href="https://slkyrim.github.io/tags/copytranslator/">CopyTranslator</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/leetcode_20200802_weekly/">
+            <span class="next-text nav-default">Leetcode_20200802周赛</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "SLKyrim/comments-for-myBlog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:623962644@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/SLKyrim" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://slkyrim.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2020
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Single Long
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

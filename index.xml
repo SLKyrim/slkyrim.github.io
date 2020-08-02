@@ -6,7 +6,7 @@
     <description>Recent content on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 02 Aug 2020 13:24:48 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 18:40:05 +0800</lastBuildDate>
     
         <atom:link href="https://slkyrim.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -23,6 +23,1146 @@
 &lt;p&gt;编程语言：Python, Java, C#, C++, Go&lt;/p&gt;
 &lt;p&gt;工具技术栈：Git, Matlab, LaTeX, Markdown&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Motto&lt;/strong&gt;: Single Long needs to be Double Long&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>《操作系统导论》读书笔记</title>
+      <link>https://slkyrim.github.io/post/os_intro/</link>
+      <pubDate>Sun, 02 Aug 2020 18:40:05 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/os_intro/</guid>
+      
+        <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;本文是针对Remzi H. Arpaci-Dusseau等人专著的《Operating Systems: Three Easy Pieces》(中文译名《操作系统导论》)的英文原版的阅读笔记。主要为本人方便利用博客&lt;strong&gt;文章目录&lt;/strong&gt;功能进行回阅总结用，本文大多是直接利用&lt;a href=&#34;https://github.com/copytranslator/copytranslator/releases&#34;&gt;CopyTranslator&lt;/a&gt;对原文进行机翻而得。因此本文将毫无阅读体验。如果能读完本书，大概再做个总结。&lt;/p&gt;
+&lt;h2 id=&#34;1绪论&#34;&gt;1、绪论&lt;/h2&gt;
+&lt;p&gt;本书操作系统学习包括三个部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;虚拟化 (Virtualization)&lt;/li&gt;
+&lt;li&gt;并发性 (Concurrency)&lt;/li&gt;
+&lt;li&gt;持久化 (Persistence)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2操作系统介绍&#34;&gt;2、操作系统介绍&lt;/h2&gt;
+&lt;p&gt;程序运行过程：处理器从内存提取指令，解码后再执行该指令&lt;/p&gt;
+&lt;p&gt;操作系统（OS）：看作是一堆软件，使程序能容易地运行。负责管理资源（CPU，内存和磁盘）。&lt;/p&gt;
+&lt;p&gt;虚拟化：OS把物理资源（如处理器，内存，磁盘）转为容易使用的虚拟形式。所以&lt;strong&gt;OS也称为虚拟机&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;虚拟化cpu&#34;&gt;虚拟化CPU&lt;/h3&gt;
+&lt;p&gt;CPU虚拟化：将单个CPU（或小规模CPU集群）转变为像是无限个CPU，像是可以一次同时运行多个程序。&lt;/p&gt;
+&lt;h3 id=&#34;虚拟化内存&#34;&gt;虚拟化内存&lt;/h3&gt;
+&lt;p&gt;每个进程都访问自己的私有虚拟地址空间（有时也称为进程的地址空间），操作系统将进程的&lt;strong&gt;虚拟地址空间&lt;/strong&gt;以某种方式映射到计算机的物理内存上。&lt;/p&gt;
+&lt;p&gt;一个例子：有两个进程中都有一个指针变量指向地址0x200000，两个进程会独立地对他们进程内的这个0x200000地址上的数据进行操作，而不互相影响。因为0x200000并不是在实际硬件上的真实地址，而是进程各自的虚拟地址空间。&lt;/p&gt;
+&lt;h3 id=&#34;并发&#34;&gt;并发&lt;/h3&gt;
+&lt;p&gt;一个多线程的例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;#34;common.h&amp;#34;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;loops&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;worker&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;loops&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;argc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[])&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;fprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stderr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;usage: threads &amp;lt;value&amp;gt;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;loops&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;atoi&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;pthread_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Initial value : %d&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;Pthread_create&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;worker&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;Pthread_create&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;worker&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;Pthread_join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;Pthread_join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Final value : %d&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;两个线程执行counter++的次数各为loops次，设置loops的次数为N后，最后counter的值并非2N。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;prompt&amp;gt; ./thread &lt;span class=&#34;m&#34;&gt;100000&lt;/span&gt;
+Initial value : &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+Final value : &lt;span class=&#34;m&#34;&gt;143012&lt;/span&gt; // huh??
+prompt&amp;gt; ./thread &lt;span class=&#34;m&#34;&gt;100000&lt;/span&gt;
+Initial value : &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+Final value : &lt;span class=&#34;m&#34;&gt;137298&lt;/span&gt; // what the??
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;原因：  &lt;br&gt;
+一次仅执行一条指令，而增加counter的指令分为3条：（1）从内存读取counter的值存进寄存器；（2）counter加1；（3）将counter的值存回内存。这三条指令的执行不具有原子性（Atomicity）（一次性全部执行完）。&lt;/p&gt;
+&lt;h3 id=&#34;持久化&#34;&gt;持久化&lt;/h3&gt;
+&lt;p&gt;因为掉电或崩溃后，内存中的数据将会丢失，因此需要能够持久保存数据的硬件和软件。硬件以I/O设备的形式，主要有硬盘和SSD；在OS中，管理磁盘的软件称为&lt;strong&gt;文件系统&lt;/strong&gt;。&lt;/p&gt;
+&lt;h1 id=&#34;第一部分虚拟化&#34;&gt;第一部分：虚拟化&lt;/h1&gt;
+&lt;p&gt;虚拟化：假设系统只有一个物理CPU，让运行在系统上的多个应用认为它们都有自己的一个CPU，实际上这些CPU只是虚拟CPU。将一个物理CPU变成多个虚拟CPU的过程称为虚拟化。&lt;/p&gt;
+&lt;h2 id=&#34;4进程process&#34;&gt;4、进程（process）&lt;/h2&gt;
+&lt;p&gt;进程：运行中的程序&lt;/p&gt;
+&lt;p&gt;分时技术：用一个资源（CPU）运行一个进程，然后停止运行这个进程，转而用该资源运行另一个进程。&lt;strong&gt;OS利用分时技术实现虚拟化&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;抽象概念进程&#34;&gt;抽象概念：进程&lt;/h3&gt;
+&lt;p&gt;进程的机器状态（machine state）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进程可寻址的内存，即&lt;strong&gt;地址空间&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;寄存器&lt;/li&gt;
+&lt;li&gt;记录当前进程打开的文件列表的I/O信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5进程api&#34;&gt;5、进程API&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;创建进程&lt;/li&gt;
+&lt;li&gt;强制杀死进程&lt;/li&gt;
+&lt;li&gt;等待进程停止运行&lt;/li&gt;
+&lt;li&gt;暂停进程，之后恢复该进程&lt;/li&gt;
+&lt;li&gt;获取进程信息，如运行时间或状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;创建进程&#34;&gt;创建进程&lt;/h3&gt;
+&lt;p&gt;程序是如何转变为进程的？（腾讯后台开发的面试题）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OS读取磁盘上的可执行程序中的&lt;strong&gt;代码和静态数据（初始化的变量）&lt;/strong&gt;，并载入到内存，即&lt;strong&gt;进程的地址空间&lt;/strong&gt;中。&lt;/li&gt;
+&lt;li&gt;OS为程序的&lt;strong&gt;运行时栈&lt;/strong&gt;（即&lt;strong&gt;栈（stack）&lt;/strong&gt;）分配内存。C程序用堆栈存放局部变量，函数参数和返回地址&lt;/li&gt;
+&lt;li&gt;OS可能会分配内存给程序的&lt;strong&gt;堆（heap）&lt;/strong&gt;。堆用存放显示请求的动态分配数据，这些数据涉及到链表，哈希表，树等数据结构。需要在程序中调用 &lt;strong&gt;malloc()&lt;/strong&gt; 来分配内存给堆，调用 &lt;strong&gt;free()&lt;/strong&gt; 来释放内存。随着进程的运行，通过 malloc() 请求的内存越多，OS需要分配更多的内存给进程。&lt;/li&gt;
+&lt;li&gt;OS还将执行其他一些初始化任务，尤其是与I/O相关的初始化任务。 例如，在UNIX系统中，每个进程默认都有三个&lt;strong&gt;文件描述符&lt;/strong&gt;，分别用于标准输入，输出和错误。这些描述符使程序可以轻松地从终端读取输入，并将输出打印到屏幕。&lt;/li&gt;
+&lt;li&gt;通过进入 main（），OS将CPU的控制权转移给新创建的进程，因此程序开始执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;进程状态&#34;&gt;进程状态&lt;/h3&gt;
+&lt;p&gt;三种进程状态：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;执行状态：进程运行在处理器上，正在执行指令&lt;/li&gt;
+&lt;li&gt;就绪状态：进程准备好执行了， 但OS并未选择执行它&lt;/li&gt;
+&lt;li&gt;阻塞状态：在阻塞状态下，进程执行了某种操作，直到发生其他事件（如完成I/O）才准备运行。一个常见的示例：当某个进程向磁盘发起I/O请求时，它会被阻塞，因此某些其他进程可以使用该处理器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数据结构&#34;&gt;数据结构&lt;/h3&gt;
+&lt;p&gt;操作系统中充满了各种重要的数据结构，我们将在这些说明中进行讨论。&lt;strong&gt;进程列表&lt;/strong&gt;（也称为任务列表）是第一个这样的结构。进程列表是比较简单的一种数据结构，可以同时运行多个程序的任何OS都将具有类似于此结构的某种形式，以便跟踪系统中所有正在运行的程序。&lt;/p&gt;
+&lt;h3 id=&#34;作业&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;5进程api-1&#34;&gt;5、进程API&lt;/h2&gt;
+&lt;h3 id=&#34;fork系统调用&#34;&gt;fork（）系统调用&lt;/h3&gt;
+&lt;p&gt;fork（）系统调用用于创建新进程。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;unistd.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;argc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[])&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; 
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello world (pid:%d)&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getpid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fork&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 在子进程中，返回码rc为0
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// fork failed
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;fprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stderr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;fork failed&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// child (new process)
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello, I am child (pid:%d)&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getpid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// parent goes down this path (main)
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello, I am parent of %d (pid:%d)&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getpid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;运行以上代码得：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;prompt&amp;gt; ./p1
+hello world &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;pid:29146&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+hello, I am parent of &lt;span class=&#34;m&#34;&gt;29147&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;pid:29146&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+hello, I am child &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;pid:29147&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+prompt&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;当它第一次开始运行时，该过程将打印出一个hello world消息。 该消息中包含的是其&lt;strong&gt;进程标识符，也称为PID&lt;/strong&gt;。 该进程的PID为29146； 在UNIX系统中，如果要对进程执行某项操作，则使用PID来命名该进程。&lt;/p&gt;
+&lt;p&gt;该进程调用fork（），OS提供的是一种创建新进程的方式。奇怪的是：创建的进程（几乎）是运行进程的副本。这意味着对于OS，现在看起来好像有两个正在运行的程序p1。新创建的进程（与创建父进程区分，称为子进程）不会像您期望的那样在main（）上开始运行（请注意，“ hello，world”消息仅被打印一次）。&lt;/p&gt;
+&lt;h3 id=&#34;wait系统调用&#34;&gt;wait（）系统调用&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;unistd.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;sys/wait.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;argc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[])&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello world (pid:%d)&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getpid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fork&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// fork failed; exit
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;fprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stderr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;fork failed&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// child (new process)
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello, I am child (pid:%d)&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getpid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// parent goes down this path (main)
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rc_wait&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wait&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello, I am parent of %d (rc_wait:%d) (pid:%d)&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rc_wait&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getpid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;以上代码，父进程中调用了wait()，父进程会等子进程执行完毕后再执行。&lt;/p&gt;
+&lt;h3 id=&#34;exec系统调用&#34;&gt;exec（）系统调用&lt;/h3&gt;
+&lt;h3 id=&#34;为什么-激励api&#34;&gt;为什么？ 激励API&lt;/h3&gt;
+&lt;h3 id=&#34;进程控制和用户&#34;&gt;进程控制和用户&lt;/h3&gt;
+&lt;h3 id=&#34;有用的工具&#34;&gt;有用的工具&lt;/h3&gt;
+&lt;h3 id=&#34;总结&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-1&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;6机制受限直接执行&#34;&gt;6、机制：受限直接执行&lt;/h2&gt;
+&lt;p&gt;解决问题：（1）性能：如何在不增加系统开销的情况下实现虚拟化？（2）控制：如何在保持对CPU的控制的同时高效地运行进程？&lt;/p&gt;
+&lt;h3 id=&#34;基本技术受限直接执行&#34;&gt;基本技术：受限直接执行&lt;/h3&gt;
+&lt;p&gt;这个想法的“直接执行”部分很简单：直接在CPU上运行程序。&lt;/p&gt;
+&lt;p&gt;因此，当OS希望启动程序运行时，它会在进程列表中为其创建一个进程条目，为其分配一些内存，将该程序代码加载到内存中（从磁盘），找到其入口点（即main()或其它类似入口）。&lt;/p&gt;
+&lt;p&gt;但是这种方法在我们寻求虚拟化CPU的过程中引起了一些问题。 第一个很简单：如果我们只运行一个程序，那么操作系统如何确保该程序没有执行我们不希望做的任何事情，而仍然有效地运行它？ 第二个：当我们运行一个进程时，操作系统如何阻止它运行并切换到另一个进程，从而实现虚拟化CPU所需的分时？&lt;/p&gt;
+&lt;h3 id=&#34;问题1限制操作&#34;&gt;问题1：限制操作&lt;/h3&gt;
+&lt;p&gt;直接执行的明显优势是速度快。 该程序可以在硬件CPU上本地运行，因此可以按照预期的速度执行。 但是在CPU上运行会带来一个问题：如果进程希望执行某种受限操作，例如向磁盘发出I/O请求，或者获得对更多系统资源（如CPU或内存）的访问权限，该怎么办？&lt;/p&gt;
+&lt;p&gt;进程必须能够执行I/O和其他一些受限制的操作，但又不能完全控制系统。操作系统和硬件如何一起工作才能做到这一点？&lt;/p&gt;
+&lt;p&gt;您可能想知道为什么对系统调用（例如open（）或read（））的调用看起来完全像C中的典型过程调用；为什么？ 也就是说，如果它看起来像过程调用，那么系统如何知道它是系统调用，并且做所有正确的事情？ 原因很简单：这是一个过程调用，但是隐藏在该过程调用中的是著名的陷阱指令。 更具体地说，例如，当您调用open（）时，您正在执行对C库的过程调用。 其中，无论对于open（）还是提供的任何其他系统调用，该库都使用与内核达成共识的调用约定，将参数放入open（）的已知位置（例如，在堆栈上或在 特定寄存器），也将系统调用号码也放入一个众所周知的位置（再次放在堆栈或寄存器中），然后执行上述陷阱指令。 陷阱解压缩后，库中的代码将返回值解压缩，并将控制权返回给发出系统调用的程序。 因此，进行系统调用的C库部分在组装时是经过手工编码的，因为它们需要仔细遵循约定以正确处理参数和返回值，以及执行特定于硬件的陷阱指令。 现在，您知道了为什么您个人无需编写汇编代码即可陷入操作系统； 有人已经为您编写了该程序集。&lt;/p&gt;
+&lt;p&gt;一种方法就是简单地让任何进程根据I / O和其他相关操作执行所需的操作。 但是，这样做会阻止构造许多所需的系统。 例如，如果我们希望构建一个在授予文件访问权限之前检查权限的文件系统，我们不能简单地让任何用户进程向磁盘发出I / O指令； 如果这样做的话，一个进程可以简单地读取或写入整个磁盘，从而失去所有保护。&lt;/p&gt;
+&lt;p&gt;因此，我们采用的方法是引入一种新的处理器模式，即用户模式。 在用户模式下运行的代码在功能上受到限制。 例如，在用户模式下运行时，进程无法发出I/O请求； 这样做将导致处理器引发异常； 这样操作系统可能会终止该进程。&lt;/p&gt;
+&lt;p&gt;与用户模式相反，内核模式运行在操作系统（或内核）上。在这种模式下，运行的代码可以执行自己喜欢的事情，包括特权操作（如发出I / O请求和执行所有类型的受限指令）  。&lt;/p&gt;
+&lt;p&gt;但是，我们仍然面临挑战：用户进程希望执行某种特权操作（例如从磁盘读取）时应该做什么？ 为此，几乎所有现代硬件都为用户程序提供了执行系统调用的能力。&lt;/p&gt;
+&lt;p&gt;硬件通过提供不同的执行模式来协助OS。
+在用户模式下，应用程序无法完全访问硬件资源。
+在内核模式下，操作系统可以访问计算机的全部资源。
+还提供了捕获到内核并从捕获返回到用户模式程序的特殊指令，以及允许OS告知硬件陷阱表在内存中的位置的指令。&lt;/p&gt;
+&lt;p&gt;要执行系统调用，程序必须执行特殊的陷阱指令。 该指令同时跳入内核并将特权级别提升到内核模式； 一旦进入内核，系统现在就可以执行所需的任何特权操作（如果允许），从而完成调用过程所需的工作。 完成后，操作系统将调用特殊的陷阱返回指令，如您所料，它会返回到正在调用的用户程序，同时将特权级别降低回用户模式。&lt;/p&gt;
+&lt;p&gt;执行陷阱时，硬件必须有点小心，因为它必须确保保存足够的调用方寄存器，以便在OS发出陷阱返回指令时能够正确返回。
+例如，在x86上，处理器会将程序计数器，标志和其他一些寄存器压入每个进程的内核堆栈中。  return-from-trap会将这些值弹出堆栈，并继续执行用户模式程序（有关详细信息，请参阅英特尔系统手册[I11]）。 其他硬件系统使用不同的约定，但各个平台的基本概念相似。&lt;/p&gt;
+&lt;p&gt;讨论中遗漏了一个重要的细节：陷阱如何知道要在OS内部运行哪些代码？ 显然，调用过程无法指定要跳转到的地址（就像进行过程调用时一样）； 这样做会使程序跳入内核的任何地方，这显然是一个非常糟糕的主意。 因此，内核必须仔细控制在陷阱上执行什么代码。&lt;/p&gt;
+&lt;p&gt;内核通过在引导时设置陷阱表来实现。 机器启动时，它将以特权（内核）模式启动，因此可以根据需要自由配置机器硬件。 因此，操作系统要做的第一件事就是告诉硬件，当某些异常事件发生时要运行什么代码。 例如，当发生硬盘中断，发生键盘中断或程序进行系统调用时，应该运行什么代码？&lt;/p&gt;
+&lt;p&gt;最后一点：能够执行指令以告知硬件陷阱表在哪里是一项非常强大的功能。 因此，您可能已经猜到了，它也是特权操作。 如果您尝试在用户模式下执行此指令，则硬件将无法让您执行操作，并且您可能会猜测会发生什么（提示：adios，违规程序）。
+指向思考：如果您可以安装自己的陷阱表，那么对系统会做哪些可怕的事情？ 你能接管机器吗？&lt;/p&gt;
+&lt;p&gt;时间线（随着时间向下增加，在图6.2中）概述了协议。 我们假定每个进程都有一个内核堆栈，在移入和移出内核时，会将寄存器（包括通用寄存器和程序计数器）保存到其中（或通过硬件从中恢复）。&lt;/p&gt;
+&lt;p&gt;受限直接执行（LDE）协议分为两个阶段。在第一个阶段，内核初始化陷阱表，CPU记住其位置以备后用。 内核通过特权指令来执行此操作（所有特权指令均以粗体突出显示）。在第二步（运行进程时）中，内核在使用返回陷阱指令开始执行进程之前先设置了一些内容（例如，在进程列表上分配节点，分配内存）; 这会将CPU切换到用户模式并开始运行该进程。当进程希望发出系统调用时，它会捕获回OS，由OS进行处理，然后再次通过陷阱返回将控制权返回给进程。 然后，该过程完成其工作，并从main（）返回； 通常，这将返回一些存根代码，这些存根代码将正确退出程序（例如，通过调用进入操作系统的exit（）系统调用）。 至此，操作系统清理完毕，我们就完成了。&lt;/p&gt;
+&lt;h3 id=&#34;问题2在进程之间切换&#34;&gt;问题2：在进程之间切换&lt;/h3&gt;
+&lt;p&gt;直接执行的下一个问题是实现进程之间的切换。 进程之间的切换应该很简单，对吧？ 操作系统应只决定停止一个进程并启动另一个进程。 有什么大不了的？ 但这实际上有点棘手：特别是，如果某个进程正在CPU上运行，则按照定义，这意味着OS没有运行。 如果操作系统没有运行，怎么办呢？  （提示：不可能）虽然这听起来几乎是哲学上的，但这是一个实际的问题：如果操作系统不在CPU上运行，则显然没有办法采取措施。 因此，我们得出了问题的症结所在。&lt;/p&gt;
+&lt;p&gt;操作系统如何重新获得对CPU的控制权，以便可以在进程之间进行切换？&lt;/p&gt;
+&lt;p&gt;协作方法：等待系统调用&lt;/p&gt;
+&lt;p&gt;某些系统过去采用的一种方法（例如，Macintosh操作系统的早期版本[M11]或旧的Xerox Alto系统[A79]）被称为协作方法。 操作系统以这种方式信任系统的进程以合理地运行。 假定运行时间过长的进程会定期放弃CPU，以便OS可以决定运行其他任务。&lt;/p&gt;
+&lt;p&gt;因此，您可能会问，在这个乌托邦世界中，友好的进程是如何放弃CPU的？ 事实证明，大多数进程都会通过进行系统调用来频繁地将CPU的控制权转移到OS，例如，打开文件并随后读取文件，或向另一台机器发送消息，或创建新进程。这样的系统通常包括一个显式的&lt;strong&gt;yield&lt;/strong&gt;系统调用，该调用除了将控制权转移到OS之外不执行任何操作，因此它可以运行其他进程。&lt;/p&gt;
+&lt;p&gt;因此，在协作调度系统中，OS通过等待系统调用或某种非法操作来重新获得对CPU的控制。 您可能还会想：这种被动的方法是否不尽如人意？ 例如，如果某个进程（无论是恶意的还是仅是充满错误的）最终陷入无限循环而从不进行系统调用，会发生什么情况？ 操作系统可以做什么？&lt;/p&gt;
+&lt;p&gt;非合作方式：操作系统控制&lt;/p&gt;
+&lt;p&gt;事实证明，如果没有硬件的任何其他帮助，当进程拒绝进行系统调用（或错误）并因此将控制权交还给操作系统时，操作系统根本无法做任何事情。 实际上，在协作方法中，当进程陷入无限循环时，您唯一的求助方法是对计算机系统中的所有问题求助于古老的解决方案：重新启动计算机。 因此，我们再次遇到了获得CPU控制权的一般问题。&lt;/p&gt;
+&lt;p&gt;即使进程不协作，OS如何获得对CPU的控制？ 操作系统可以做些什么来确保流氓进程不会接管机器？&lt;/p&gt;
+&lt;p&gt;答案很简单，并在很多年前被许多构建计算机系统的人发现：&lt;strong&gt;定时器中断&lt;/strong&gt;。 可以对计时器设备进行编程，使其每隔这么多毫秒就产生一次中断。 当引发中断时，当前正在运行的进程将停止，并且OS中预配置的&lt;strong&gt;中断处理程序&lt;/strong&gt;将运行。此时，操作系统已重新获得了对CPU的控制权，因此可以执行自己喜欢的事情：停止当前进程，然后启动另一个进程。&lt;/p&gt;
+&lt;p&gt;Tips:计时器中断的添加使OS能够在CPU上再次运行，即使进程以非合作方式运行也是如此。 因此，此硬件功能对于帮助OS保持对计算机的控制至关重要。&lt;/p&gt;
+&lt;p&gt;正如我们之前在系统调用中讨论的那样，当定时器中断发生时，操作系统必须通知硬件要运行的代码。 因此，在引导时，操作系统正是这样做的。 其次，同样在引导过程中，操作系统必须启动计时器。一旦计时器开始计时，操作系统就可以放心了，因为最终该控制权限将返回给它，因此操作系统可以自由运行用户程序。 计时器也可以关闭（也是特权操作），稍后将在更详细地了解并发性时进行讨论。&lt;/p&gt;
+&lt;p&gt;请注意，硬件在发生中断时有一定的责任，特别是要保存足够的中断发生时正在运行的程序状态，以便随后的return-from-trap指令将能够正确恢复正在运行的程序。这组动作与在显式系统调用陷阱到内核期间的硬件行为非常相似，因此各种寄存器被保存（例如，保存到内核堆栈中），因此可以通过陷阱返回指令轻松恢复 。&lt;/p&gt;
+&lt;p&gt;保存和还原上下文&lt;/p&gt;
+&lt;p&gt;现在，操作系统已重新获得控制权，无论是通过系统调用来协作，还是通过计时器中断来更强行地控制，都必须做出一个决定：是继续运行当前正在运行的进程，还是切换到另一个进程。 该决定是由操作系统的一部分（称为&lt;strong&gt;调度程序&lt;/strong&gt;）做出的。 在接下来的几章中，我们将详细讨论调度策略。&lt;/p&gt;
+&lt;p&gt;如果决定切换，则操作系统将执行一段底层代码，我们将其称为&lt;strong&gt;上下文切换&lt;/strong&gt;。 上下文切换在概念上很简单：所有OS要做的就是为当前正在执行的进程保存一些寄存器值（例如，到其内核堆栈上），并为即将要执行的进程恢复一些寄存器值（从其内核堆栈）。 这样，OS可以确保在最终执行从陷阱返回指令时，而不是返回到正在运行的进程，系统将恢复另一个进程的执行。&lt;/p&gt;
+&lt;p&gt;为了保存当前正在运行的进程的上下文，操作系统将执行一些低级汇编代码以保存通用寄存器PC和当前正在运行的进程的内核堆栈指针，然后还原所述寄存器PC 并切换到即将执行的进程的内核堆栈。 通过切换堆栈，内核在一个进程（被中断的进程）的上下文中输入对切换代码的​​调用，并在另一个进程（即将执行的进程）的上下文中返回。当操作系统最终执行陷阱返回指令时，即将执行的进程成为当前正在运行的进程。从而上下文切换完成。&lt;/p&gt;
+&lt;p&gt;整个过程的时间表如图6.3所示。 在此示例中，进程A正在运行，然后被计时器中断中断。 硬件将其寄存器保存到内核堆栈中，然后进入内核（切换到内核模式）。 在计时器中断处理程序中，操作系统决定从正在运行的进程A切换到进程B。这时，它将调用switch（）例程，该例程小心地将当前寄存器值保存到A的进程结构中，并还原其中的寄存器。 进程B（从其进程结构条目开始），然后切换上下文，特别是通过将堆栈指针更改为使用B的内核堆栈（而不是A的内核堆栈）来切换上下文。 最后，操作系统从陷阱返回，这将恢复B的寄存器并开始运行它。&lt;/p&gt;
+&lt;p&gt;请注意，在此协议期间发生两种类型的寄存器保存/恢复。 首先是定时器中断发生。 在这种情况下，正在运行的进程的用户寄存器由硬件使用该进程的内核堆栈隐式保存。 第二个是操作系统决定从A切换到B时； 在这种情况下，内核寄存器由软件（即OS）显式保存，但是这次是在进程的进程结构中保存到内存中。 后一个动作使系统从好像从A被捕获到内核中一样运行，就像从B被捕获到内核一样。&lt;/p&gt;
+&lt;p&gt;为了使您更好地了解如何执行此切换，图6.4显示了xv6的上下文切换代码。 看看您是否可以理解它（您必须了解一些x86和一些xv6）。 旧的和新的上下文结构分别在新旧流程的流程结构中找到。&lt;/p&gt;
+&lt;h3 id=&#34;担心并发吗&#34;&gt;担心并发吗？&lt;/h3&gt;
+&lt;p&gt;你们中的一些人，如专心和体贴的读者，现在可能会想：“嗯……在系统调用期间发生定时器中断时会发生什么？” 或“当您处理一个中断而另一个中断发生时会发生什么？ 难道在内核中难于处理吗？” 好问题-我们真的对您有希望！&lt;/p&gt;
+&lt;p&gt;答案是肯定的，如果在中断或陷阱处理期间发生另一个中断，操作系统确实确实需要关注会发生什么。实际上，这是本书第二章有关并发的确切主题。 在此之前，我们将进行详细的讨论。&lt;/p&gt;
+&lt;p&gt;为了激发您的胃口，我们将简要介绍操作系统如何处理这些棘手情况的一些基础知识。 操作系统可能做的一件简单的事情就是在中断处理过程中禁用中断。 这样可以确保一个中断正在处理时，其他任何中断都不会传递给CPU。当然，操作系统在执行此操作时必须谨慎。 禁用中断时间过长可能会导致中断丢失，从技术上来讲，这是很糟糕的。&lt;/p&gt;
+&lt;p&gt;操作系统还开发了许多复杂的锁方案，以保护对内部数据结构的并发访问。这样可以使多个活动同时在内核中进行，这在多处理器上特别有用。 但是，正如我们将在本书的下一篇关于并发的内容中所看到的那样，这种锁定可能很复杂，并且会导致各种有趣且难以发现的错误。&lt;/p&gt;
+&lt;h3 id=&#34;总结-1&#34;&gt;总结&lt;/h3&gt;
+&lt;p&gt;我们已经描述了实现CPU虚拟化的一些关键的底层机制，这是我们统称为&lt;strong&gt;受限直接执行&lt;/strong&gt;的一组技术。 基本思想很简单：只需运行要在CPU上运行的程序，但首先请确保设置硬件，以限制在没有操作系统协助的情况下该进程可以执行的操作。&lt;/p&gt;
+&lt;p&gt;现实生活中也采用了这种通用方法。 例如，您中那些有小孩，或者至少听说过小孩的人可能熟悉婴儿房的概念：上锁装有危险物品的柜子并盖上电源插座。 当房间准备就绪后，您可以让宝宝自由漫游，并确保房间最危险的部分已经被限制。&lt;/p&gt;
+&lt;p&gt;通过类似的方式，OS首先通过（在引导时间期间）设置陷阱处理程序并启动中断计时器，然后仅以受限模式运行进程来“证明” CPU。 这样，操作系统就可以确信进程可以高效运行，只需要操作系统干预即可执行特权操作，或者当它们垄断了CPU太长时间而需要将其关闭时。&lt;/p&gt;
+&lt;p&gt;因此，我们拥有就地虚拟化CPU的基本机制。但是有一个主要问题没有解决：我们应该在给定的时间运行哪个进程？ 调度程序必须回答这个问题，因此是我们研究的下一个主题。&lt;/p&gt;
+&lt;h3 id=&#34;作业-2&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;7排程简介&#34;&gt;7、排程：简介&lt;/h2&gt;
+&lt;p&gt;到现在为止，应该清楚运行进程的底层机制（例如上下文切换）； 如果不是，请返回一两章，然后阅读有关该内容如何工作的描述。 但是，我们尚未了解OS调度程序采用的高级策略。 现在，我们将介绍一系列调度策略（有时称为学科），这些策略是各种聪明而勤奋的人们多年来发展起来的。&lt;/p&gt;
+&lt;p&gt;调度的起源实际上早于计算机系统。 早期方法来自运营管理领域，并应用于计算机。 这种现实不足为奇：装配线和许多其他人类工作也需要计划，并且其中存在许多相同的问题，包括类似激光的对效率的渴望。
+因此，我们的问题是：我们应该如何为思考调度策略开发一个基本框架？ 主要假设是什么？ 哪些指标很重要？ 最早的计算机系统中使用了哪些基本方法？&lt;/p&gt;
+&lt;h3 id=&#34;工作量假设&#34;&gt;工作量假设&lt;/h3&gt;
+&lt;p&gt;在探讨可能的策略之前，让我们首先对系统中运行的流程进行一些简化的假设，有时统称为&lt;strong&gt;工作量&lt;/strong&gt;。 确定工作负载是构建策略的关键部分，您对工作负载的了解越多，对策略的调整就越多。&lt;/p&gt;
+&lt;p&gt;我们将对系统中正在运行的进程（有时称为作业）做出以下假设：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.每个作业运行相同的时间。&lt;/li&gt;
+&lt;li&gt;2.所有作业都同时到达。&lt;/li&gt;
+&lt;li&gt;3.一旦开始，每个作业就会运行完成。&lt;/li&gt;
+&lt;li&gt;4.所有作业仅使用CPU（即不执行I / O）。&lt;/li&gt;
+&lt;li&gt;5.知道每个作业的运行时间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;排程指标&#34;&gt;排程指标&lt;/h3&gt;
+&lt;p&gt;除了做出工作负载假设之外，我们还需要做更多的事情来使我们能够比较不同的调度策略：调度指标。指标只是我们用来衡量事物的指标，在​​计划中有许多不同的指标很有意义。&lt;/p&gt;
+&lt;p&gt;但是，现在，让我们通过简单地使用一个度量标准（&lt;strong&gt;周转时间&lt;/strong&gt;）来简化我们的生活。 作业的周转时间定义为该作业完成的时间减去该作业到达系统的时间。&lt;/p&gt;
+&lt;p&gt;您应注意，周转时间是性能指标，这将是本章的重点。 另一个令人关注的指标是&lt;strong&gt;公平性&lt;/strong&gt;。性能和公平性在调度中经常是矛盾的。 例如，调度程序可以优化性能，但是以阻止运行一些作业为代价，从而降低了公平性。 这个难题向我们表明，生活并不总是完美的。&lt;/p&gt;
+&lt;h3 id=&#34;先进先出fifo&#34;&gt;先进先出（FIFO）&lt;/h3&gt;
+&lt;p&gt;我们可以实现的最基本的算法称为&lt;strong&gt;先进先出（FIFO）&lt;strong&gt;调度，有时也称为&lt;/strong&gt;先来先服务（FCFS）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;FIFO具有许多积极特性：显然很简单，因此易于实现。 而且，根据我们的假设，它可以很好地运行。&lt;/p&gt;
+&lt;p&gt;让我们一起做一个简单的例子。 想象一下，三个作业大致同时（Aarrival = 0）到达系统A，B和C。 由于FIFO必须优先处理某些工作，因此，假设它们同时到达时，A比B更早到一些，B比C更早到一些。还假定每个作业运行10秒。 这些工作的&lt;strong&gt;平均周转时间&lt;/strong&gt;是 $\frac{10+20+30}{3}=20$&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://slkyrim.github.io/css/hugo-easy-gallery.css&#34; /&gt;
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://slkyrim.github.io/images/os_intro/os_7_1.PNG&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://slkyrim.github.io/images/os_intro/os_7_1.PNG&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;现在，让我们放宽我们的假设之一。 特别是，让我们放宽假设1，从而不再假设每个作业运行相同的时间。  FIFO现在如何执行？您可以构造什么样的工作量来使FIFO性能不佳？如：先执行用时长的作业。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://slkyrim.github.io/images/os_intro/os_7_2.PNG&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://slkyrim.github.io/images/os_intro/os_7_2.PNG&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;平均周转时间变为 $\ frac {100 + 110 + 120} {3} = 110$ 此问题通常称为&lt;strong&gt;车队效应&lt;/strong&gt;，其中资源的多个相对较短的潜在使用者排队等候在重量级资源消耗者后面。&lt;/p&gt;
+&lt;p&gt;那我们该怎么办？ 我们如何开发更好的算法来应对新的现实，这些新现实需要运行不同的时间？&lt;/p&gt;
+&lt;h3 id=&#34;最短工作优先sjf&#34;&gt;最短工作优先（SJF）&lt;/h3&gt;
+&lt;p&gt;事实证明，非常简单的方法可以解决此问题。这种新的调度规则称为&lt;strong&gt;最短作业优先（SJF）&lt;/strong&gt;，它的名称应该很容易记住，因为它非常完整地描述了策略：首先运行最短的作业，然后再运行下一个最短的作业，依此类推。&lt;/p&gt;
+&lt;p&gt;实际上，考虑到所有作业都是同时到达的假设，我们可以证明SJF确实是一种最佳调度算法。&lt;/p&gt;
+&lt;p&gt;因此，我们找到了一种使用SJF进行调度的好方法，但是我们的假设仍然相当不切实际。 让我们放松一下。 特别是，我们可以将假设2作为目标，现在假设作业可以随时到达而不是一次全部到达。 这会导致什么问题？&lt;/p&gt;
+&lt;p&gt;在这里我们可以用一个例子再次说明这个问题。 这次，假设A到达t = 0并需要运行100秒，而B和C到达t = 10且每个都需要运行10秒。使用纯SJF，即使B和C在A之后不久到达，他们仍然被迫等到A完成之后，从而遭受同样的车队问题。&lt;/p&gt;
+&lt;h3 id=&#34;最短完成时间优先stcf&#34;&gt;最短完成时间优先（STCF）&lt;/h3&gt;
+&lt;p&gt;为了解决这个问题，我们需要放宽假设3（即工作必须完成）。 在调度程序本身中，我们还需要一些机器。 您可能已经猜到了，鉴于我们之前对定时器中断和上下文切换的讨论，调度程序当然还可以做其他事情：当B和C到达时，它可以抢占作业A并决定执行其他作业，也许以后再继续A。 根据我们的定义，SJF是非抢占式调度程序，因此存在上述问题。&lt;/p&gt;
+&lt;p&gt;幸运的是，有一个调度程序可以做到这一点：将抢占添加到SJF中，称为**最短完成时间优先（STCF）&lt;strong&gt;或&lt;/strong&gt;抢占式最短作业优先（PSJF）**调度程序。 每当新作业进入系统时，STCF调度程序都会确定剩下的剩余作业（包括新作业）中剩余的时间最少，并对其进行调度。 因此，在我们的示例中，STCF将抢占A并运行B和C直至完成； 只有完成后，A的剩余时间才能安排好。&lt;/p&gt;
+&lt;h3 id=&#34;新指标响应时间&#34;&gt;新指标：响应时间&lt;/h3&gt;
+&lt;p&gt;因此，如果我们知道作业的长度，并且作业仅使用CPU，而我们唯一的度量标准是周转时间，那么STCF将是一个很好的策略。 实际上，对于许多早期的批处理计算系统，这些类型的调度算法是有意义的。 但是，分时共享计算机的引入改变了这一切。 现在，用户将坐在终端上，并要求系统也具有交互性能。 因此，一个新的指标诞生了：&lt;strong&gt;响应时间&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;响应时间&lt;/strong&gt;：定义为从作业到达系统到其首次被调度的时间。&lt;/p&gt;
+&lt;p&gt;例如，如果我们有上述时间表（A在时间0到达，B和C在时间10到达），则每个作业的响应时间如下：作业A的响应时间为0，B的响应时间为0，C的响应时间为10（ 平均：3.33）。&lt;/p&gt;
+&lt;p&gt;您可能会想，STCF和相关学科对于响应时间并不是特别好。 例如，如果三个作业同时到达，则第三个作业必须等待前两个作业全部运行，然后才被调度一次。 虽然这种方法对周转时间很有用，但对于响应时间和交互性却很不利。 的确，想象一下坐在码头上打字，不得不等待10秒钟才能看到系统的响应，只是因为其他工作已经安排在您的面前了：不太愉快。&lt;/p&gt;
+&lt;h3 id=&#34;轮询调度&#34;&gt;轮询调度&lt;/h3&gt;
+&lt;p&gt;为了解决这个问题，我们将介绍一种新的调度算法，通常称为&lt;strong&gt;轮询调度（Round Robin (RR)）&lt;/strong&gt;。 基本思想很简单：RR不运行作业以完成任务，而是运行一个&lt;strong&gt;时间片&lt;/strong&gt;（有时称为&lt;strong&gt;调度时间&lt;/strong&gt;）的作业，然后切换到运行队列中的下一个作业。 它会反复执行直到作业完成。 因此，RR有时称为&lt;strong&gt;时间分片&lt;/strong&gt;。 注意，&lt;strong&gt;时间片的长度必须是计时器中断周期的倍数&lt;/strong&gt;； 因此，如果计时器每10毫秒中断一次，则时间片可能是10毫秒，20毫秒或10毫秒的任何其他倍数。&lt;/p&gt;
+&lt;p&gt;为了更详细地了解RR，我们来看一个示例。 假设三个作业A，B和C在系统中同时到达，并且他们每个人希望运行5秒钟。  SJF调度程序将每个作业运行至完成，然后再运行另一个作业（图7.6）。 相比之下，时间切片为1秒的RR将快速循环完成这些工作（图7.7）。RR的平均响应时间为 $/frac{0+1+2}{3}=1$, SJF的为 $/frac{0+5+10}{3}=5$。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://slkyrim.github.io/images/os_intro/os_7_6.PNG&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://slkyrim.github.io/images/os_intro/os_7_6.PNG&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如您所见，时间片的长度对于RR至关重要。 它越短，在响应时间指标下的RR性能就越好。
+但是，将时间片设置得太短是个问题：上下文切换的成本突然将主导整体性能。 因此，确定时间片的长度给系统设计者带来了一个折衷，使其花费了足够长的时间来&lt;strong&gt;摊销&lt;/strong&gt;切换成本，而又没有使系统响应时间太长。&lt;/p&gt;
+&lt;p&gt;请注意，上下文切换的成本并非仅来自于保存和还原一些寄存器的OS操作。 程序运行时，它们会在CPU高速缓存，TLB，分支预测器和其他片上硬件中建立大量状态。 切换到另一个作业会导致刷新此状态并引入与当前正在运行的作业相关的新状态，这可能会导致明显的性能成本。&lt;/p&gt;
+&lt;p&gt;如果响应时间是我们唯一的度量标准，那么具有合理时间片的RR是出色的调度程序。 但是周转时间呢？ 让我们再次看一下上面的示例。  A，B和C的运行时间均为5秒，它们是同时到达的，而RR是具有（长）1秒时间片的调度程序。 从上图可以看出，A以13结束，B以14结束，C以15结束，平均周转时间为14。&lt;/p&gt;
+&lt;p&gt;因此，如果周转时间是我们的指标，那么RR确实是最糟糕的政策之一，这也就不足为奇了。 从直觉上讲，这应该是有道理的：RR所做的就是通过在运行下一个作业之前只运行一小段时间来尽可能延长每个作业。 由于周转时间只在乎作业何时完成，因此RR几乎是最小的，甚至在许多情况下甚至比简单的FIFO还差。&lt;/p&gt;
+&lt;p&gt;更一般而言，任何公平的策略（例如RR），即在很小的时间范围内将CPU均匀地划分为活动进程的策略，在诸如周转时间之类的指标上的效果都会很差。 确实，这是一种内在的权衡：如果您不公平，您可以运行较短的工作以完成任务，但要花响应时间。 如果您反而重视公平，响应时间缩短了，但要花费周转时间。 这种权衡在系统中很常见。&lt;/p&gt;
+&lt;p&gt;我们开发了两种类型的调度程序。 第一种类型（SJF，STCF）可优化周转时间，但不利于响应时间。 第二种（RR）优化了响应时间，但不利于周转。 而且，我们还有两个需要放松的假设：假设4（作业没有I / O）和假设5（每个作业的运行时间已知）。
+接下来让我们解决这些假设。&lt;/p&gt;
+&lt;h3 id=&#34;整合io&#34;&gt;整合I/O&lt;/h3&gt;
+&lt;p&gt;首先，我们将放松假设4 —当然所有程序都执行I/O。&lt;/p&gt;
+&lt;p&gt;调度程序显然有一项决定要在作业启动I / O请求时做出，因为当前正在运行的作业在I / O期间不会使用CPU。在等待其I/O请求被完成前该作业被阻塞。 如果将I / O发送到硬盘驱动器，则该过程可能会阻塞几毫秒或更长时间，具体取决于驱动器的当前I / O负载。 因此，调度程序可能应该在那时在CPU上调度另一个作业。&lt;/p&gt;
+&lt;p&gt;I/O完成时，调度程序还必须做出决定。
+发生这种情况时，将引发一个中断，并且操作系统将运行，并将发出I / O的进程从阻塞状态移回就绪状态。 当然，它甚至可以决定在那时运行该作业。 操作系统应如何对待每项工作？&lt;/p&gt;
+&lt;p&gt;为了更好地理解此问题，让我们假设我们有两个作业A和B，每个作业需要50毫秒的CPU时间。 但是，有一个明显的区别：A每运行10毫秒，然后发出一个I / O请求（假设每个I/O花费10毫秒），而B仅使用CPU 50毫秒，并且不执行I / O。 调度程序首先运行A，然后运行B（图7.8）。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://slkyrim.github.io/images/os_intro/os_7_8.PNG&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://slkyrim.github.io/images/os_intro/os_7_8.PNG&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;一种常见的方法是将A的每个10毫秒子作业视为独立作业。 因此，当系统启动时，其选择是安排10毫秒A还是50毫秒B。对于STCF，选择很明确：选择较短的那个（在这种情况下为A）。  A的作业已完成，仅剩下B，并且开始运行。 然后提交A的新子作业，它抢占B并运行10毫秒。 这样做会产生重叠，一个进程正在使用CPU，而另一个进程的I/O等待完成。 因此可以更好地利用该系统（见图7.9）。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://slkyrim.github.io/images/os_intro/os_7_9.PNG&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://slkyrim.github.io/images/os_intro/os_7_9.PNG&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;不再假设了&#34;&gt;不再假设了&lt;/h3&gt;
+&lt;p&gt;有了基本的I/O方法，我们得出了最终的假设：调度程序知道每个作业的时间。 如前所述，这可能是我们可能做出的最糟糕的假设。 实际上，在通用操作系统（如我们关心的操作系统）中，该操作系统通常对每个作业的时间了解很少。 因此，在没有先验知识的情况下，如何构建行为类似于SJF / STCF的方法？ 此外，我们如何将我们在RR调度程序中看到的一些想法纳入其中，以使响应时间也相当好？&lt;/p&gt;
+&lt;h3 id=&#34;总结-2&#34;&gt;总结&lt;/h3&gt;
+&lt;p&gt;我们介绍了调度背后的基本思想，并开发了两种方法。 首先运行剩余的最短作业，从而优化周转时间。 第二个在所有作业之间切换，从而优化了响应时间。一者效果好的时候另一者效果不好，这是系统中固有的折衷。 我们还看到了如何将I/O整合到排程中，但是仍然没有解决OS根本无法预见未来的问题。 很快，我们将了解如何通过构建使用最近的过去来预测未来的调度程序来克服此问题。 该调度程序称为&lt;strong&gt;多级反馈队列&lt;/strong&gt;，它是下一章的主题。&lt;/p&gt;
+&lt;h3 id=&#34;作业-3&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;8排程多级反馈队列&#34;&gt;8、排程：多级反馈队列&lt;/h2&gt;
+&lt;p&gt;在本章中，我们将解决开发最著名的调度方法之一即**多级反馈队列（MLFQ）**的问题。&lt;/p&gt;
+&lt;p&gt;MLFQ试图解决的根本问题有两个。 首先，它想优化周转时间，正如我们在前面的笔记中所看到的，这是通过首先运行较短的作业来完成的； 不幸的是，操作系统通常不知道作业将运行多长时间，而这恰恰是SJF（或STCF）之类的算法需要的知识。 其次，MLFQ希望使系统对交互用户（即，用户坐在屏幕上凝视着屏幕，等待过程完成）感到有响应，从而将响应时间降至最低； 不幸的是，Round Robin之类的算法减少了响应时间，但周转时间却很糟糕。 因此，我们的问题是：鉴于我们通常对流程一无所知，我们如何构建调度程序来实现这些目标？ 调度程序如何在系统运行时了解正在运行的作业的特征，从而做出更好的调度决策？&lt;/p&gt;
+&lt;p&gt;我们如何设计一个调度程序，既可以使交互式作业的响应时间最短，又可以在事先不知道作业长度的情况下最大程度地缩短周转时间？&lt;/p&gt;
+&lt;h3 id=&#34;mlfq基本规则&#34;&gt;MLFQ：基本规则&lt;/h3&gt;
+&lt;p&gt;在我们的处理中，MLFQ有许多不同的队列，每个队列分配了不同的优先级。 在任何给定时间，准备运行的作业都在单个队列中。  MLFQ使用优先级来决定应在给定时间运行哪个作业：选择优先级较高的作业（即，较高优先级队列中的作业）运行。&lt;/p&gt;
+&lt;p&gt;当然，给定队列中可能有多个作业，因此具有相同的优先级。 在这种情况下，我们将仅在这些作业之间使用轮询调度(RR)。&lt;/p&gt;
+&lt;p&gt;因此，我们得出了MLFQ的前两个基本规则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;规则1：如果优先级(A) &amp;gt; 优先级(B)，则A运行（B不运行）。&lt;/li&gt;
+&lt;li&gt;规则2：如果优先级(A) = 优先级(B)，则A和B在RR中运行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此，MLFQ调度的关键在于调度程序如何设置优先级。  MLFQ不会为每个作业赋予固定的优先级，而是根据其观察到的行为来改变其优先级。 例如，如果某个作业在等待键盘输入时反复放弃CPU，则MLFQ将保持其优先级，因为这是交互过程的行为方式。 相反，如果作业长时间大量使用CPU，则MLFQ将降低其优先级。 这样，MLFQ将尝试了解流程的运行情况，从而使用作业的历史记录来预测其未来的行为。&lt;/p&gt;
+&lt;h3 id=&#34;尝试1如何更改优先级&#34;&gt;尝试1：如何更改优先级&lt;/h3&gt;
+&lt;p&gt;现在，我们必须确定MLFQ将如何在作业的整个生命周期内更改作业的优先级级别（以及该作业处于哪个队列中）。 为此，我们必须牢记我们的工作量：短期运行（可能经常放弃CPU）的交互式作业的混合，以及运行时间较长的“受CPU限制”的作业，这些作业需要大量的CPU时间，但 响应时间不重要的地方。 这是我们对优先级调整算法的首次尝试：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;规则3：当作业进入系统时，它被置于最高优先级（最高队列）。&lt;/li&gt;
+&lt;li&gt;规则4a：如果作业在运行时用尽了整个时间片，则会降低其优先级（即，将其向下移动一个队列）。&lt;/li&gt;
+&lt;li&gt;规则4b：如果作业在时间片结束前就放弃了CPU，则它将保持相同的优先级。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例1：单个长期运行的作业&lt;/p&gt;
+&lt;p&gt;让我们看一些例子。首先，我们来看一下系统中长期运行的工作会发生什么。 图8.2显示了在三队列调度程序中，随着时间的流逝，该作业会发生什么情况。&lt;/p&gt;
+&lt;p&gt;在示例中可以看到，作业以最高优先级（Q2）进入。 经过10 ms的单个时间片后，调度程序将作业的优先级降低了一个，因此该作业在Q1上。 在Q1上运行了一个时间片之后，该作业最终被降低到系统中最低的优先级（Q0），并保留在那里。 很简单，不是吗？&lt;/p&gt;
+&lt;p&gt;示例2：短期工作&lt;/p&gt;
+&lt;p&gt;现在，让我们看一个更复杂的示例，并希望看到MLFQ如何尝试近似SJF。 在此示例中，有两个作业：A，它是长时间运行的CPU密集型作业，而B是一个短期运行的交互式作业。 假设A已经运行了一段时间，然后B到达了。 会发生什么？  MLFQ是否会为B近似SJF？&lt;/p&gt;
+&lt;p&gt;图8.3绘制了此方案的结果。 最低优先级队列中有一个（以黑色显示）（与所有长时间运行的CPU密集型作业一样）；  B（以灰色显示）在时间T = 100到达，因此是插入最高队列； 由于B的运行时间很短（仅20毫秒），因此B在两个时间段内到达底部队列之前完成； 然后A恢复运行（低优先级）。&lt;/p&gt;
+&lt;p&gt;从这个例子中，您可以希望理解该算法的主要目标之一：因为它不知道某项工作是短期工作还是长期工作，因此它首先假定它可能是短期工作，因此得出 工作优先。 如果实际上是一项短期工作，它将快速且完整地运行； 如果这不是一项短期工作，它将慢慢地移到队列中，因此很快证明自己是一个长期运行的，更像批处理的过程。以这种方式，MLFQ近似为SJF&lt;/p&gt;
+&lt;p&gt;示例3：I/O呢？&lt;/p&gt;
+&lt;p&gt;现在让我们看一个带有一些I / O的示例。 如上面的规则4b所述，如果某个进程在用完其时间片之前就放弃了处理器，我们将其保持在相同的优先级。 该规则的意图很简单：例如，如果一个交互式作业正在执行大量I / O（例如，等待来自键盘或鼠标的用户输入），它将在CPU的时间片完成之前放弃CPU；否则，它将放弃CPU。 在这种情况下，我们不希望对工作进行惩罚，而只是将其保持在同一水平。&lt;/p&gt;
+&lt;p&gt;图8.4显示了一个工作方式的示例，其中交互式作业B（以灰色显示）仅需要1 ms的CPU才能执行与长时间运行的批处理作业A竞争CPU的I / O（以黑色显示）  ）。  MLFQ方法将B保持在最高优先级，因为B不断释放CPU。 如果B是交互式作业，则MLFQ进一步实现了快速运行交互式作业的目标。&lt;/p&gt;
+&lt;p&gt;我们当前的MLFQ存在的问题&lt;/p&gt;
+&lt;p&gt;因此，我们有一个基本的MLFQ。 它看起来做得相当不错，可以在长时间运行的作业之间公平地共享CPU，并且可以让短时间或I / O密集型的交互式作业快速运行。 不幸的是，到目前为止，我们开发的方法存在严重缺陷。 你能想到什么吗？&lt;/p&gt;
+&lt;p&gt;首先，存在&lt;strong&gt;饥饿&lt;/strong&gt;的问题：如果系统中的“交互式”作业过多，它们将合并消耗所有CPU时间，因此长时间运行的作业将永远不会获得任何CPU时间（它们饿死了）。
+即使在这种情况下，我们也想在这些工作上取得一些进展。&lt;/p&gt;
+&lt;p&gt;其次，聪明的用户可以重写他们的程序来玩调度程序。 游戏调度程序通常指的是偷偷摸摸地欺骗调度程序，以使您获得比您合理分配的资源更多的想法。 我们描述的算法容易受到以下攻击：在时间片结束之前，执行I / O操作（对您不关心的某个文件），从而放弃CPU； 这样做可以使您保留在同一队列中，从而获得更高的CPU时间百分比。 如果做得正确（例如，在放弃CPU之前运行了99％的时间片），则作业几乎可以垄断CPU。&lt;/p&gt;
+&lt;p&gt;最后，程序可能会随着时间而改变其行为。  CPU绑定的内容可能会过渡到交互阶段。 使用我们当前的方法，这样的工作将是不走运的，不会像系统中的其他交互式工作一样被对待。&lt;/p&gt;
+&lt;h3 id=&#34;尝试2优先级提升&#34;&gt;尝试2：优先级提升&lt;/h3&gt;
+&lt;p&gt;如何解决饥饿问题？这里的简单想法是定期提高系统中所有作业的优先级。 有很多方法可以做到这一点，但让我们做一些简单的事情：将它们全部放入最上面的队列； 因此，一条新规则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;规则5：在一段时间S之后，将系统中的所有作业移到最上面的队列。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们的新规则可以立即解决两个问题。 首先，确保进程不会挨饿：通过坐在最前面的队列，作业将以循环方式与其他高优先级作业共享CPU，从而最终获得服务。其次，如果与CPU绑定的作业已变为交互式，则调度程序在收到优先级提升后将对其进行正确处理。&lt;/p&gt;
+&lt;h3 id=&#34;尝试3更好的会计&#34;&gt;尝试3：更好的会计&lt;/h3&gt;
+&lt;p&gt;现在，我们还有一个要解决的问题：如何防止调度程序出现游戏问题？ 您可能已经猜到，真正的罪魁祸首是规则4a和4b，它们可以通过在时间片到期之前放弃CPU来保持作业的优先级。 那我们该怎么办？&lt;/p&gt;
+&lt;p&gt;此处的解决方案是在MLFQ的每个级别上更好地计算CPU时间。 调度程序不应忘记在给定级别使用多少时间段的进程，而应保持跟踪。 一旦进程使用了​​它的分配，它就会降级到下一个优先级队列。 它是在一个长脉冲串中使用时间片还是在多个小脉冲片中使用都无所谓。
+因此，我们将规则4a和4b重写为以下单个规则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;规则4：作业在给定级别用完时间分配后（无论已放弃CPU多少次），其优先级就会降低（即，将其向下移动一个队列）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;调整mlfq和其他问题&#34;&gt;调整MLFQ和其他问题&lt;/h3&gt;
+&lt;h3 id=&#34;总结-3&#34;&gt;总结&lt;/h3&gt;
+&lt;p&gt;我们已经描述了一种称为多级反馈队列（MLFQ）的调度方法。 希望您现在能明白为什么要这样称呼它：它具有多个队列级别，并使用反馈来确定给定作业的优先级。历史就是它的指南：注意工作随时间的变化，并相应地对待它们。&lt;/p&gt;
+&lt;p&gt;完善的MLFQ规则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;规则1：如果优先级（A）&amp;gt;优先级（B），则A运行（B不运行）。&lt;/li&gt;
+&lt;li&gt;规则2：如果优先级（A）= 优先级（B），则A和B使用给定队列的时间片（量子长度）以轮询调度方式运行。&lt;/li&gt;
+&lt;li&gt;规则3：当作业进入系统时，它被置于最高优先级（最高队列）。&lt;/li&gt;
+&lt;li&gt;规则4：作业在给定级别用完时间分配后（无论已放弃CPU多少次），其优先级就会降低（即，将其向下移动一个队列）。&lt;/li&gt;
+&lt;li&gt;规则5：在一段时间S之后，将系统中的所有作业移到最上面的队列。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;MLFQ之所以有趣是因为以下原因：与其观察工作的本质不要求先验知识，而是观察工作的执行并对工作进行优先排序。 通过这种方式，它设法实现了两全其美：它可以为短期运行的交互式作业提供出色的整体性能（类似于SJF / STCF），并且在长期运行的CPU密集型工作负载方面是公平的并取得了进步。 因此，许多系统，包括BSD UNIX派生词，Solaris，Windows NT和后续的Windows操作系统，都使用MLFQ形式作为其基本调度程序。&lt;/p&gt;
+&lt;h3 id=&#34;作业-4&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;9排程按比例分配&#34;&gt;9、排程：按比例分配&lt;/h2&gt;
+&lt;p&gt;在本章中，我们将研究另一种类型的调度程序，称为&lt;strong&gt;比例份额调度&lt;/strong&gt;程序，有时也称为&lt;strong&gt;公平份额调度&lt;/strong&gt;程序。 比例份额基于一个简单的概念：调度程序可能没有尝试优化周转时间或响应时间，而是尝试确保每个作业获得一定百分比的CPU时间。&lt;/p&gt;
+&lt;p&gt;我们如何设计调度程序以按比例共享CPU？ 这样做的关键机制是什么？ 它们的效果如何？&lt;/p&gt;
+&lt;h3 id=&#34;基本概念票证代表您的份额&#34;&gt;基本概念：票证代表您的份额&lt;/h3&gt;
+&lt;p&gt;底层的彩票调度是一个非常基本的概念：&lt;strong&gt;票证&lt;/strong&gt;，票证用于表示流程（或用户或其他任何人）应接收的资源份额。进程拥有的票证百分比表示其在相关系统资源中的份额。&lt;/p&gt;
+&lt;p&gt;让我们来看一个例子。想象一下两个进程A和B，A占有0-74的票证，而B占有75-99的票证。调度程序会随机落在0-99中，执行拥有所落票证的进程。&lt;/p&gt;
+&lt;h3 id=&#34;票务机制&#34;&gt;票务机制&lt;/h3&gt;
+&lt;p&gt;彩票调度还提供了许多以不同的，有时是有用的方式操纵彩票的机制。一种方法是使用&lt;strong&gt;票证货币&lt;/strong&gt;的概念。货币允许拥有票证的用户以自己想要的货币在自己的工作中分配票证；然后，系统会自动将所述货币转换为正确的全球价值。&lt;/p&gt;
+&lt;p&gt;例如，假设用户A和B分别获得了100张票证。
+使用者A执行两个工作，分别为A1和A2，并分别以A的货币给他们500张票（总共1000张票）。 用户B仅运行1个作业，并给它10张票（总共10张票）。 系统将A1和A2的分配从A货币中的每个500转换为全球货币中的每个50； 同样，B1的10张票转换为100张票。 然后，以全球票证货币（总计200种）持有彩票，以确定运行哪个作业。&lt;/p&gt;
+&lt;p&gt;另一个有用的机制是&lt;strong&gt;票证转让&lt;/strong&gt;。 通过转移，一个进程可以暂时将其票证移交给另一个进程。此功能在客户端/服务器设置中特别有用，在该设置中，客户端进程向服务器发送一条消息，要求其代表客户端进行一些工作。
+为了加快工作速度，客户端可以将票证传递给服务器，从而在服务器处理客户端的请求时尝试最大化服务器的性能。完成后，服务器会将票证传送回客户端，一切如前所述。&lt;/p&gt;
+&lt;p&gt;最后，&lt;strong&gt;门票涨价&lt;/strong&gt;有时可能是有用的技术。 随着通货膨胀，一个流程可以暂时提高或降低其拥有的门票数量。 当然，在竞争过程中彼此不信任的情况下，这毫无意义。 一个贪婪的过程可能会给自己带来大量门票，并接管机器。 相反，通货膨胀可以应用在一组进程相互信任的环境中。 在这种情况下，如果任何一个进程知道它需要更多的CPU时间，它就可以提高其工单价值，从而将其反映到系统中，而无需与任何其他进程进行通信。&lt;/p&gt;
+&lt;h3 id=&#34;实现&#34;&gt;实现&lt;/h3&gt;
+&lt;p&gt;彩票调度最令人惊奇的事情可能是其实现的简单性。 您只需要一个好的随机数生成器来挑选中奖彩票，一个跟踪系统流程的数据结构（例如列表）和彩票总数。&lt;/p&gt;
+&lt;p&gt;假设我们将流程保存在列表中。 这是一个由三个过程A，B和C组成的示例，每个过程都有一定数量的凭单。&lt;/p&gt;
+&lt;p&gt;要做出计划决策，我们首先必须从总彩票数量（400）中选择一个随机数（获胜者）。假设我们选择了第300张彩票。然后，我们只需遍历列表，并使用一个简单的计数器 帮助我们找到赢家。&lt;/p&gt;
+&lt;p&gt;该代码遍历进程列表，将每个票证值添加到计数器，直到该值超过获胜者为止。 在这种情况下，当前列表元素将成为赢家。 以我们的中奖彩票为300的示例为例，发生以下情况。 首先，将计数器增加到100以说明A的票证； 因为100小于300，循环将继续。
+然后计数器将更新为150（B的票），但仍少于300，因此我们再次继续。 最终，计数器被更新为400（明显大于300），因此我们突破了循环，最终指向C（获胜者）。&lt;/p&gt;
+&lt;p&gt;为了使此过程最有效，通常最好按从最高票数到最低票数的排序顺序组织列表。 排序不影响算法的正确性； 但是，它可以确保总体上确保最少的列表迭代次数，尤其是在少数几个进程拥有大多数票证的情况下。&lt;/p&gt;
+&lt;h3 id=&#34;一个例子&#34;&gt;一个例子&lt;/h3&gt;
+&lt;h3 id=&#34;如何分配票证&#34;&gt;如何分配票证？&lt;/h3&gt;
+&lt;h3 id=&#34;为什么不能确定性&#34;&gt;为什么不能确定性？&lt;/h3&gt;
+&lt;h3 id=&#34;linux完全公平调度程序cfs&#34;&gt;Linux完全公平调度程序（CFS）&lt;/h3&gt;
+&lt;p&gt;**完全公平调度（CFS）**的调度程序实现了公平共享调度，并且以高效且可扩展的方式进行。&lt;/p&gt;
+&lt;p&gt;基本操作&lt;/p&gt;
+&lt;p&gt;尽管大多数调度程序都是基于固定时间片的概念，但CFS的操作略有不同。 它的目标很简单：在所有竞争的进程之间平均分配CPU。 它通过称为**虚拟运行时（vruntime）**的基于计数的简单技术来实现。&lt;/p&gt;
+&lt;p&gt;在每个进程运行时，它将累积vruntime。 在最基本的情况下，每个进程的虚拟运行时以相同的速率增长，与物理时间成比例。 当发生调度决策时，CFS将选择运行时间最低的进程，然后再运行。&lt;/p&gt;
+&lt;p&gt;这就提出了一个问题：调度程序如何知道何时停止当前正在运行的进程，然后运行下一个进程？ 这里的压力很明显：如果CFS切换得太频繁，公平性就会增加，因为CFS会确保每个进程即使在很小的时间窗口内也能获得其CPU份额，但这是以性能为代价（上下文切换太多）的； 如果CFS切换的频率降低，则性能会提高（上下文切换会减少），但会以近期公平为代价。&lt;/p&gt;
+&lt;p&gt;CFS通过各种控制参数来管理这种决策。首先是&lt;strong&gt;预定的延迟&lt;/strong&gt;。CFS使用此值来确定一个进程在考虑切换之前应运行多长时间（有效地确定其时间段，但以动态方式）。 典型的计划等待时间值为48（毫秒）。  CFS将该值除以CPU上运行的进程数（n）来确定一个进程的时间片，从而确保在这段时间内CFS将完全公平。&lt;/p&gt;
+&lt;p&gt;例如，如果正在运行n = 4个进程，则CFS将调度等待时间的值除以n，得出每个进程的时间片为12 ms。 然后，CFS计划第一个作业并运行它，直到它使用了12毫秒的（虚拟）运行时为止，然后检查是否有一个具有较低vruntime的作业要运行。 在这种情况下，CFS将切换到其他三个作业之一，依此类推。&lt;/p&gt;
+&lt;p&gt;但是，如果运行的进程“太多”怎么办？ 那会不会导致时间片太小，从而导致上下文切换过多？好问题！答案是肯定的。&lt;/p&gt;
+&lt;p&gt;为了解决此问题，CFS添加了另一个参数&lt;strong&gt;最小粒度&lt;/strong&gt;，通常设置为6 ms之类的值。CFS永远不会设置进程的时间片小于此值，以确保在安排开销方面不会花费太多时间。&lt;/p&gt;
+&lt;p&gt;例如，如果有十个进程在运行，我们的原始计算将调度的等待时间除以十以确定时间片（结果：4.8毫秒）。 但是，由于最小粒度，CFS会将每个进程的时间片设置为6 ms。 尽管CFS在48毫秒的目标调度延迟（调度延迟）上并不能（完全）公平，但在达到较高CPU效率的同时，它还是很接近的。&lt;/p&gt;
+&lt;p&gt;请注意，CFS利用周期性的计时器中断，这意味着它只能以固定的时间间隔做出决定。 此中断频繁关闭（例如，每1毫秒一次），使CFS有机会唤醒并确定当前作业是否已达到运行结束。如果作业的时间片不是计时器中断间隔的完美倍数，则可以；CFS精确跟踪vruntime，这意味着从长远来看，它将最终接近理想的CPU共享。&lt;/p&gt;
+&lt;p&gt;加权（友善度）&lt;/p&gt;
+&lt;p&gt;CFS还可以控制进程优先级，从而使用户或管理员可以为某些进程分配更高的CPU份额。 它不是使用票证而是通过经典的UNIX机制（称为进程的&lt;strong&gt;友善级别&lt;/strong&gt;）来完成此任务。 可以将进程的&lt;strong&gt;友善参数&lt;/strong&gt;设置为-20到+19之间的任意值，默认值为0。正的友善值表示优先级较低，而负的值表示优先级较高； 当您太友善时，您只会得到很少的（安排）注意力。&lt;/p&gt;
+&lt;p&gt;CFS将每个进程的友善值映射为权重。这些权重使我们能够计算每个进程的有效时间片（就像我们之前所做的一样），但是现在考虑了它们的优先级差异。这样做的公式如下：&lt;/p&gt;
+&lt;p&gt;$time_slice_k = \frac{weight_k}{\sum\limits_{i=0}^{n-1}{weight_i}}*sched_latency$&lt;/p&gt;
+&lt;p&gt;让我们做一个例子，看看它是如何工作的。假设有两个作业A和B。A，因为它是我们最宝贵的工作，所以给它分配了一个友善值-5，从而得到了更高的优先级。B，因为我们讨厌它，所以它具有默认优先级（友善值等于0）。 这意味着weightA（从表中）为3121，而weightB为1024。如果然后计算每个作业的时间片，您会发现A的时间片约为计划延迟的3/4（因此为36 ms），并且 B大约为1/4（因此为12 ms）。&lt;/p&gt;
+&lt;p&gt;使用红黑树&lt;/p&gt;
+&lt;p&gt;如上所述，CFS的一个主要重点是效率。 对于调度程序而言，效率有很多方面，但其中一个很简单：当调度程序必须找到要运行的下一个作业时，它应该尽快完成。 像列表这样的简单数据结构无法扩展：现代系统有时由数千个进程组成，因此每隔几毫秒搜索一个长列表是很浪费的。&lt;/p&gt;
+&lt;p&gt;CFS通过将进程保留在红黑树中来解决此问题。 红黑树是许多平衡树中的一种。 与简单的二叉树（在最坏情况下的插入模式下可能退化为类似列表的性能）相反，平衡树做了一些额外的工作来保持较低的深度，从而确保操作在时间上是对数的（而不是线性的）。&lt;/p&gt;
+&lt;p&gt;CFS不会将所有进程都保留在此结构中； 而是仅将运行（或可运行）进程保留在其中。 如果某个进程进入睡眠状态（例如，等待I/O完成，或等待网络数据包到达），则会将其从树中删除并跟踪其他位置。&lt;/p&gt;
+&lt;p&gt;让我们看一个例子，以使这一点更加清楚。 假设有十个作业，并且它们具有以下vruntime值：1、5、9、10、14、18、17、21、22和24。如果我们将这些作业保留在有序列表中，查找下一个要运行的工作很简单：只需删除第一个元素。 但是，当将该作业放回列表中时（按顺序），我们将不得不扫描列表，寻找合适的位置将其插入，执行O（n）操作。 任何搜索的效率也很低，平均也要花费线性时间。&lt;/p&gt;
+&lt;p&gt;在红黑树中保持相同的值可使大多数操作更高效。 进程按vruntime在树中排序，并且大多数操作（例如插入和删除）在时间上都是对数的，即O（log n）。 当n为数千时，对数的效率明显高于线性的效率。&lt;/p&gt;
+&lt;p&gt;处理I/O和睡眠进程&lt;/p&gt;
+&lt;p&gt;选择要运行的最低vruntime的一个问题是长时间休眠的作业引起的。 想象一下两个过程，A和B，其中一个过程（A）连续运行，另一个过程（B）长时间睡眠（例如10秒）。 当B醒来时，其运行时间将比A落后10秒钟，因此（如果我们不小心的话），B在追赶时将在接下来的10秒钟内独占CPU，有效地使A饿了。&lt;/p&gt;
+&lt;p&gt;CFS通过在作业唤醒时更改其运行时间来处理这种情况。具体来说，&lt;strong&gt;CFS将该作业的vruntime设置为在树中找到的最小值（请记住，该树仅包含正在运行的作业）&lt;/strong&gt;。这样，CFS避免了饥饿，但并非没有代价：短时间睡眠的工作经常无法获得CPU的应有份额。&lt;/p&gt;
+&lt;h3 id=&#34;总结-4&#34;&gt;总结&lt;/h3&gt;
+&lt;p&gt;我们介绍了比例份额调度的概念，并简要讨论了三种方法：彩票调度，步幅调度和Linux的完全公平调度（CFS）。CFS是本章中讨论的唯一“真正的”调度程序，有点像带有动态时间片的加权轮询调度，但是可以在负载下扩展和良好地运行。 据我们所知，它是当今最广泛使用的公平份额调度程序。&lt;/p&gt;
+&lt;p&gt;CFS使用红黑树来保存进程&lt;/p&gt;
+&lt;h3 id=&#34;作业-5&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;10多处理器调度高级&#34;&gt;10、多处理器调度（高级）&lt;/h2&gt;
+&lt;p&gt;本章将介绍多处理器调度的基础。 由于该主题相对较高级，因此最好在详细研究并发主题（即，本书的第二个主要“容易的部分”）之后再进行介绍。&lt;/p&gt;
+&lt;h3 id=&#34;背景多处理器架构&#34;&gt;背景：多处理器架构&lt;/h3&gt;
+&lt;h3 id=&#34;不要忘记同步&#34;&gt;不要忘记同步&lt;/h3&gt;
+&lt;h3 id=&#34;最后一个问题缓存关联性&#34;&gt;最后一个问题：缓存关联性&lt;/h3&gt;
+&lt;h3 id=&#34;单队列调度&#34;&gt;单队列调度&lt;/h3&gt;
+&lt;h3 id=&#34;多队列调度&#34;&gt;多队列调度&lt;/h3&gt;
+&lt;h3 id=&#34;linux多处理器调度程序&#34;&gt;Linux多处理器调度程序&lt;/h3&gt;
+&lt;h3 id=&#34;总结-5&#34;&gt;总结&lt;/h3&gt;
+&lt;p&gt;我们已经看到了用于多处理器调度的各种方法。 单队列方法（SQMS）的构建非常简单，可以很好地平衡负载，但是固有地很难扩展到许多处理器并具有缓存相似性。 多队列方法（MQMS）可以更好地扩展并且可以很好地处理缓存相似性，但是在负载不平衡方面存在麻烦，并且更加复杂。 无论采用哪种方法，都没有简单的答案：构建通用调度程序仍然是一项艰巨的任务，因为小的代码更改可能会导致巨大的行为差异。 仅当您确切地知道自己在做什么或者至少为此而赚了很多钱时，才进行这样的练习。&lt;/p&gt;
+&lt;h3 id=&#34;作业-6&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;11总结cpu虚拟化&#34;&gt;11、总结：CPU虚拟化&lt;/h2&gt;
+&lt;p&gt;教授：那么，学生，您学到了什么吗？
+学生：好的，教授，这似乎是个很棘手的问题。 我想您只想让我说“是”。
+教授：是的。 但这也是一个诚实的问题。 来吧，请教授休息一下，好吗？
+学生：好的，好的。 我想我确实学到了一些东西。 首先，我了解了一些有关操作系统如何虚拟化CPU的知识。 为了理解这一点，我必须理解很多重要的机制：陷阱和陷阱处理程序，计时器中断，以及在进程之间切换时OS和硬件如何必须仔细保存和恢复状态。
+教授：好，好！
+学生：所有这些交互似乎都有些复杂； 我该如何学习？
+教授：嗯，这是一个很好的问题。 我认为无可替代。 仅阅读这些内容并不能完全正确地理解。做课堂项目，我敢打赌最后这一切都是有道理的。
+学生：听起来不错。 我还能告诉你什么？
+教授：嗯，在您了解操作系统的基本机制时，您是否对操作系统的哲学有所了解？
+学生：嗯&amp;hellip;我是这样认为的。 看来操作系统是相当偏执的。 它希望确保由机器负责。 虽然OS希望程序尽可能高效地运行（因此直接执行受到限制的整个原因），但OS还希望能够说“啊！ 如果发生错误或恶意的程序，请不要这么快。 偏执狂掌管着一天，并且肯定让操作系统负责机器。 也许这就是为什么我们将操作系统视为资源管理器。
+教授：是的，的确如此-听起来您已经开始把它们放在一起！ 真好 &lt;br&gt;
+学生：谢谢。
+教授：那这些机制之上的政策又如何呢？那里有什么有趣的教训？
+学生：那里肯定有一些教训。 也许有些明显，但明显可以是好的。 就像将短期工作放在队列中的想法一样，我知道这是一个好主意，因为有一次我在商店里买口香糖，而我前面的那个人有一张无效的信用卡。他不是空头，我告诉你。
+教授：对那个可怜的家伙听起来很粗鲁。 还有什么？
+学生：好吧，您可以构建一个智能调度程序，使其一次看起来像SJF和RR一样-MLFQ非常简洁。 建立一个真正的调度程序似乎很困难。
+教授：确实是。 这就是为什么在今天使用哪种调度程序方面仍然存在争议。 例如，请参见Linux在CFS，BFS和O（1）调度程序之间的斗争。 不，我不会说出BFS的全名。
+学生：我不会问你！ 这些政策战似乎可能永远持续下去。 真的有正确的答案吗？
+教授：可能不会。 毕竟，即使是我们自己的指标也存在矛盾：如果您的调度程序在周转时间方面表现出色，那么在响应时间方面就表现不好，反之亦然。正如兰普森所说，也许目标不是找到最佳解决方案，而是避免灾难。
+学生：有点令人沮丧。
+教授：好的工程就是这样。 而且也可以令人振奋！确实，这只是您的观点。 我个人认为，务实是一件好事，实用主义者意识到，并非所有问题都有解决方案。 还有其他吸引您的想法吗？
+学生：我真的很喜欢游戏调度程序的概念。 当我下次在Amazon EC2服务上运行作业时，似乎需要研究一下。 也许我可以从其他一些毫无戒心（更重要的是，对操作系统不了解）的客户那里窃取一些信息！
+教授：看来我可能创造了一个怪物！ 弗兰肯斯坦教授不是我想要的名字。
+学生：但这不是这个主意吗？ 为了让我们对某件事感到兴奋，以至于我们自己去研究它？ 点燃火等吗？
+教授：我想是的。 但我认为这行不通！&lt;/p&gt;
+&lt;h2 id=&#34;12绪论内存虚拟化&#34;&gt;12、绪论：内存虚拟化&lt;/h2&gt;
+&lt;p&gt;学生：那么，我们完成虚拟化了吗？
+教授：不！
+学生：嘿，没有理由变得如此兴奋。 我只是问一个问题。 学生应该这样做，对吗？
+教授：嗯，教授总是会这么说，但实际上他们的意思是：问问题，如果它们是好问题，实际上您已经对它们进行了一点思考。
+学生：好吧，那一定会使风吹散。
+教授：任务完成了。 无论如何，我们几乎都无法完成虚拟化！ 而是，您刚刚看到了如何虚拟化CPU，但是壁橱中确实有一个巨大的怪物在等待：内存。 虚拟化内存非常复杂，需要我们了解有关硬件和操作系统如何交互的更多复杂细节。
+学生：听起来不错。 为什么这么难？
+教授：好，有很多细节，您必须直截了当地，才能真正建立出正在发生的事情的心理模型。 我们将从基本/边界等非常基本的技术开始，然后逐渐增加复杂性以应对新的挑战，包括有趣的主题（如TLB和多级页表）。 最终，我们将能够描述功能齐全的现代虚拟内存管理器的工作原理。
+学生：整齐！ 对这名贫困学生的任何小贴士，都被所有这些信息所淹没，并且普遍缺乏睡眠？
+教授：对于睡眠不足，这很容易：多睡（少聚会）。为了理解虚拟内存，从此开始：&lt;strong&gt;用户程序生成的每个地址都是一个虚拟地址&lt;/strong&gt;。 操作系统只是给每个进程提供了一种错觉，像是它拥有自己的大型私有内存。 在某些硬件帮助下，OS会将这些伪装的虚拟地址转换为真实的物理地址，从而能够找到所需的信息。
+学生：好的，我想我可以记住&amp;hellip;（自我）用户程序中的每个地址都是虚拟的，用户程序中的每个地址都是虚拟的，每个&amp;hellip;       &lt;br&gt;
+教授：你在抱怨什么？
+学生：哦，什么都没有。&amp;hellip;（尴尬的停顿）&amp;hellip;无论如何，为什么操作系统要再次提供这种错觉？
+教授：大多数情况下易于使用：操作系统会给每个程序一个视图，即它有很大的连续地址空间可用于将其代码和数据放入其中。 因此，作为一名程序员，您不必担心“我应该在哪里存储此变量？”之类的问题。 因为程序的虚拟地址空间很大，并且有足够的空间容纳这种事情。 如果您不得不担心将所有代码数据放入一个很小的拥挤的内存中，那么对于程序员而言，生活变得更加棘手。
+学生：为什么呢？
+教授：隔离和保护也很重要。 我们不希望一个错误的程序能够读取或更糟的是覆盖其他程序的内存，是吗？
+学生：大概不会。 除非是您不喜欢的人编写的程序。
+教授：嗯。。。我认为我们可能需要在下学期的课程表中增加一门道德和道德课。 也许OS类无法正确传达信息。
+学生：也许我们应该。 但是请记住，不是我教会我们，操作系统对错误进程行为的正确响应是杀死有问题的进程！&lt;/p&gt;
+&lt;h2 id=&#34;13抽象概念地址空间&#34;&gt;13、抽象概念：地址空间&lt;/h2&gt;
+&lt;h3 id=&#34;早期系统&#34;&gt;早期系统&lt;/h3&gt;
+&lt;p&gt;从内存的角度来看，早期的机器并没有为用户提供太多抽象。&lt;/p&gt;
+&lt;p&gt;操作系统是一组位于内存中的例程（实际上是一个库）（在此示例中从物理地址0开始），并且当前有一个正在运行的程序（进程）在物理内存中（从物理地址开始），并使用了其余的内存。&lt;/p&gt;
+&lt;h3 id=&#34;多程序和时间共享&#34;&gt;多程序和时间共享&lt;/h3&gt;
+&lt;p&gt;一段时间之后，由于机器价格昂贵，人们开始更有效地共享机器。 因此，&lt;strong&gt;多重编程&lt;/strong&gt;时代诞生了，在该时代中，多个进程准备在给定的时间运行，并且OS将在它们之间切换，例如，当一个人决定执行I/O时。 这样做可以提高CPU的有效利用率。 在每台机器花费数十万甚至数百万美元的那些日子里，这种效率的提高尤其重要。&lt;/p&gt;
+&lt;p&gt;然而，很快人们就开始要求更多的机器，而&lt;strong&gt;时间共享&lt;/strong&gt;时代就此诞生了。 具体来说，许多人意识到批处理的局限性，特别是对程序员本人，他们厌倦了漫长的（因此无效的）程序调试周期。 交互性的概念变得很重要，因为许多用户可能正在同时使用计算机，每个用户都在等待（或希望）他们当前正在执行的任务的及时响应。&lt;/p&gt;
+&lt;p&gt;实现时间共享的一种方法是短暂运行一个进程，使其完全访问所有内存，然后停止它，将其所有状态保存到某种磁盘（包括所有物理内存）中。加载其他进程的状态，运行一段时间，从而实现对机器的某种粗略共享。&lt;/p&gt;
+&lt;p&gt;不幸的是，这种方法存在一个大问题：它太慢了，特别是随着内存的增长。虽然保存和恢复寄存器级状态（PC，通用寄存器等）相对较快，但将整个内存内容保存到磁盘上却是残酷的。 因此，我们宁愿将进程留在内存中，同时在它们之间进行切换，从而使操作系统能够有效地实现时间共享。&lt;/p&gt;
+&lt;p&gt;随着时间共享变得越来越流行，您可能会猜到对操作系统提出了新的要求。 特别是，允许​​多个程序同时驻留在内存中使&lt;strong&gt;保护&lt;/strong&gt;成为一个重要问题。 您不希望某个进程能够读取，或者更糟的是，写入其他进程的内存。&lt;/p&gt;
+&lt;h3 id=&#34;地址空间&#34;&gt;地址空间&lt;/h3&gt;
+&lt;p&gt;但是，我们必须牢记那些讨厌的用户，并且这样做需要操作系统创建易于使用的物理内存抽象。
+我们称这种抽象为&lt;strong&gt;地址空间&lt;/strong&gt;，它是运行程序在系统中的内存视图。了解内存的基本操作系统抽象是了解如何虚拟化内存的关键。&lt;/p&gt;
+&lt;p&gt;进程的地址空间包含正在运行的程序的所有内存状态。 例如，程序&lt;strong&gt;代码（指令）&lt;strong&gt;必须驻留在内存中的某个位置，因此它们位于地址空间中。该程序在运行时会使用&lt;/strong&gt;栈&lt;/strong&gt;来跟踪它在函数调用链中的位置，以及分配局部变量，并在例程之间传递参数以及返回值。 最后，&lt;strong&gt;堆&lt;/strong&gt;用于动态分配的，用户管理的内存，例如，您可能会从C语言中的malloc（）调用或以面向对象的语言（如C++或Java）中收到对new的调用中收到。 当然，其中也有其他内容（例如，静态初始化的变量），但是现在让我们仅假设这三个组件：&lt;strong&gt;代码，栈和堆&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在图13.3的示例中，我们有一个很小的地址空间（只有16KB）。程序代码位于地址空间的顶部（在此示例中，从0开始，并打包到地址空间的前1K中）。代码是静态的（因此很容易放在内存中），因此我们可以将其放在地址空间的顶部，并知道在程序运行时它不需要任何空间。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://slkyrim.github.io/images/os_intro/os_13_3.PNG&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://slkyrim.github.io/images/os_intro/os_13_3.PNG&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;接下来，我们在程序运行时拥有地址空间的两个区域，它们可能会增长（和收缩）。 这些是堆（在顶部）和栈（在底部）。 我们之所以这样放置它们，是因为这两者都希望能够增长，通过将它们放在地址空间的相对两端，我们可以允许这种增长：它们只需要朝相反的方向增长即可。 这样，堆就在代码之后（1KB）开始并向下增长（例如，当用户通过malloc（）请求更多内存时）； 栈从16KB开始并向上增长（例如，当用户进行过程调用时）。但是，这种栈和堆的放置只是一个约定。您可以根据需要以不同的方式安排地址空间（我们将在后面看到，当一个地址空间中同时存在多个线程时，再也没有一种很好的方法来划分地址空间了，可惜）。&lt;/p&gt;
+&lt;p&gt;当然，当我们描述地址空间时，我们所描述的是操作系统为正在运行的程序提供的抽象。该程序实际上不在内存中的物理地址0到16KB； 而是将其加载到某个任意物理地址。因此，问题是：操作系统如何在单个物理内存之上为多个正在运行的进程（所有进程共享内存）构建私有的，潜在的大型地址空间的抽象？&lt;/p&gt;
+&lt;p&gt;当操作系统执行此操作时，我们说操作系统正在虚拟化内存，因为正在运行的程序认为它已加载到特定地址（例如0）的内存中，并且具有很大的地址空间（例如32位或64位）; 现实是完全不同的。&lt;/p&gt;
+&lt;p&gt;例如，进程A尝试在地址0（我们将其称为&lt;strong&gt;虚拟地址&lt;/strong&gt;）上执行加载时，以某种方式，操作系统与某些硬件支持相结合，将必须确保加载实际上并没有转到物理地址0，而是物理地址320KB（内存中A实际所在位置）。这是内存虚拟化的关键，而内存虚拟化是世界上每个现代计算机系统的基础。&lt;/p&gt;
+&lt;h3 id=&#34;目标&#34;&gt;目标&lt;/h3&gt;
+&lt;p&gt;虚拟内存（VM）系统的一个主要目标是&lt;strong&gt;透明度&lt;/strong&gt;。操作系统应以对正在运行的程序不可见的方式实现虚拟内存。 因此，程序不应意识到内存已虚拟化。 而是，程序的行为就像具有自己的专用物理内存一样。 在后台，操作系统（和硬件）完成了所有工作，以在许多不同的作业之间多路复用内存，从而实现了这种错觉。&lt;/p&gt;
+&lt;p&gt;VM的另一个目标是&lt;strong&gt;效率&lt;/strong&gt;。 操作系统应努力在时间（即不让程序运行得更慢）和空间（即不为支持虚拟化的结构使用过多的内存）方面使虚拟化尽可能高效。 在实现高效的虚拟化时，操作系统将不得不依赖硬件支持，包括诸如TLB的硬件功能（我们将在适当的时候进行了解）。&lt;/p&gt;
+&lt;p&gt;最后，第三个VM目标是&lt;strong&gt;保护&lt;/strong&gt;。操作系统应确保互相保护进程，以及操作系统本身应防止进程相互影响。 当一个进程执行加载，存储或指令提取时，它不应以任何方式访问或影响任何其他进程或OS本身（即，其地址空间之外的任何内容）的内存内容。 因此，保护​​使我们能够在流程之间提供隔离的特性。每个进程都应在自己的隔离茧中运行，以免遭受其他故障甚至恶意进程的破坏。&lt;/p&gt;
+&lt;p&gt;在下一章中，我们将重点研究虚拟化内存所需的基本机制，包括硬件和操作系统支持。 我们还将研究您在操作系统中会遇到的一些更相关的策略，包括如何管理可用空间以及当空间不足时要从内存中踢出哪些页面。这样一来，我们将加深您对现代虚拟内存系统的工作原理的理解。&lt;/p&gt;
+&lt;h3 id=&#34;总结-6&#34;&gt;总结&lt;/h3&gt;
+&lt;p&gt;我们已经看到了一个主要的OS子系统的引入：虚拟内存。VM系统负责为程序提供庞大，稀疏的专用地址空间的幻觉，这些程序将其所有指令和数据保存在其中。 操作系统将在一些硬件帮助下获取每个虚拟内存引用，并将它们转换为物理地址，可以将其提供给物理内存，以获取所需的信息。 操作系统将一次对许多进程执行此操作，并确保相互保护程序并保护操作系统。 整个方法需要大量的机制（很多底层机制）以及一些关键的策略才能起作用。 我们将从头开始，首先描述关键机制。 因此，我们继续！&lt;/p&gt;
+&lt;p&gt;旁白：您看到的每个地址都是虚拟的&lt;/p&gt;
+&lt;p&gt;是否曾经编写过一个打印指针的C程序？ 您看到的值（一些较大的数字，通常以十六进制打印）是一个虚拟地址。
+有没有想过在哪里找到您的程序的代码？ 您也可以打印出来，是的，如果可以打印，它也是一个虚拟地址。实际上，作为程序员，您可以看到的用户级程序的任何地址都是虚拟地址。 只有操作系统通过其虚拟化内存的棘手技术，才能知道这些指令和数据值位于计算机的物理内存中。 因此，永远不要忘记：如果您在程序中打印出一个地址，那是一个虚拟的地址，这是对事物在内存中的布局的一种幻想；只有操作系统（和硬件）才知道真实情况。&lt;/p&gt;
+&lt;p&gt;一个例子，它打印出main()例程（代码所在的位置）的地址，从malloc()分配的值在堆上的地址值以及整数在栈上的地址：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;argc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[])&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;location of code : %p&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;location of heap : %p&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;malloc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;100e6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;location of stack: %p&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在64位Mac上运行时，我们得到以下输出：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Shell&#34; data-lang=&#34;Shell&#34;&gt;location of code : 0x1095afe50
+location of heap : 0x1096008c0
+location of stack: 0x7fff691aea64
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;由此可见，代码首先出现在地址空间中，然后出现在堆中，而栈一直到此大虚拟空间的另一端。所有这些地址都是虚拟的，将由OS和硬件进行转换，以便从其真实的物理位置获取值。&lt;/p&gt;
+&lt;h3 id=&#34;作业-7&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;14插曲内存api&#34;&gt;14、插曲：内存API&lt;/h2&gt;
+&lt;h3 id=&#34;内存类型&#34;&gt;内存类型&lt;/h3&gt;
+&lt;h3 id=&#34;malloc调用&#34;&gt;malloc（）调用&lt;/h3&gt;
+&lt;h3 id=&#34;free调用&#34;&gt;free（）调用&lt;/h3&gt;
+&lt;h3 id=&#34;常见错误&#34;&gt;常见错误&lt;/h3&gt;
+&lt;h3 id=&#34;底层操作系统支持&#34;&gt;底层操作系统支持&lt;/h3&gt;
+&lt;h3 id=&#34;其他调用&#34;&gt;其他调用&lt;/h3&gt;
+&lt;h3 id=&#34;总结-7&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-8&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;15机制地址翻译&#34;&gt;15、机制：地址翻译&lt;/h2&gt;
+&lt;p&gt;在开发CPU的虚拟化过程中，我们集中于一种称为**受限直接执行（LDE）**的通用机制。 LDE背后的想法很简单：在大多数情况下，让程序直接在硬件上运行； 但是，在某些关键的时间点（例如，当进程发出系统调用或发生计时器中断时），请安排好操作系统，以确保“正确”的事情发生。 因此，在几乎没有硬件支持的情况下，操作系统将尽最大努力摆脱正在运行的程序，从而提供有效的虚拟化。 但是，通过在这些关键的时间点进行插入，OS可以确保它保持对硬件的控制。 效率和控制是任何现代操作系统的两个主要目标。&lt;/p&gt;
+&lt;p&gt;在虚拟化内存中，我们将采用类似的策略，在提供所需的虚拟化的同时实现效率和控制力。 效率要求我们利用硬件支持，起初您会很基本（例如，只有几个寄存器），但会变得相当复杂（例如，TL​​B，页表支持等）。控制意味着操作系统确保任何应用程序除其自身的内存外不能访问其它任何内存； 因此，为了保护应用程序彼此之间以及操作系统与应用程序之间的相互保护，我们在这里也需要硬件的帮助。 最后，就灵活性而言，我们将需要从VM系统中获取更多信息。 具体来说，我们希望程序能够以任意方式使用其地址空间，从而使系统更易于编程。因此，我们得出了精要的关键问题：我们如何建立有效的内存虚拟化？ 我们如何提供应用程序所需的灵活性？ 我们如何保持对应用程序可以访问哪些内存位置的控制，从而确保适当限制应用程序的内存访问？ 我们如何有效地完成所有这些工作？&lt;/p&gt;
+&lt;p&gt;我们将使用的通用技术是有限直接执行的通用方法的补充，它被称为&lt;strong&gt;基于硬件的地址转换&lt;/strong&gt;，或者简称为&lt;strong&gt;地址转换&lt;/strong&gt;。 借助地址转换，硬件将转换每个存储器访问（例如，取指令，加载或存储指令），将指令提供的虚拟地址更改为所需信息实际所在的物理地址。 因此，在每个内存引用上，硬件都会执行地址转换，以将应用程序内存引用重定向到它们在内存中的实际位置。&lt;/p&gt;
+&lt;p&gt;当然，仅硬件本身不能虚拟化内存，因为它只是提供了低级机制来有效地进行虚拟化。 操作系统必须在关键点介入以设置硬件，以便进行正确的转换。 因此，它必须&lt;strong&gt;管理内存&lt;/strong&gt;，跟踪哪些位置空闲以及正在使用哪些位置，并明智地进行干预以保持对内存使用方式的控制。&lt;/p&gt;
+&lt;p&gt;所有这些工作的目标再次是营造一种美好的幻想：该程序具有自己的私有内存，并且自己的代码和数据驻留在该内存中。虚拟现实的背后隐藏着丑陋的物理事实：当一个或多个CPU在运行一个程序与运行另一个程序之间切换时，许多程序实际上在同时共享内存。通过虚拟化，该操作系统（在硬件的帮助下）将丑陋的机器现实变成了有用，强大且易于使用的抽象。&lt;/p&gt;
+&lt;h3 id=&#34;假设条件&#34;&gt;假设条件&lt;/h3&gt;
+&lt;p&gt;具体来说，我们现在假设用户的地址空间必须连续放置在物理内存中。 为了简单起见，我们还将假定地址空间的大小不是太大； 具体来说，它小于物理内存的大小。 最后，我们还将假定每个地址空间的大小完全相同。 如果这些假设听起来不切实际，请不要担心； 我们将在使用过程中放松它们，从而实现逼真的内存虚拟化。&lt;/p&gt;
+&lt;h3 id=&#34;一个例子-1&#34;&gt;一个例子&lt;/h3&gt;
+&lt;p&gt;为了更好地理解实现地址转换我们需要做的事情以及为什么需要这种机制，我们来看一个简单的例子。 想象有一个进程的地址空间如图15.1所示。 我们将在这里检查的是一个简短的代码序列，该序列从内存中加载一个值，将其增加三，然后将该值存储回内存中。 您可以想象此代码的C语言表示形式可能如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// thanks, Perry.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// line of code we are interested in
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;编译器将这一行代码转换为汇编，可能看起来像这样（在x86汇编中）。在Linux上使用objdump或&lt;strong&gt;在Mac上使用otool进行反汇编&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;128: movl 0x0&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;%ebx&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, %eax &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;load 0+ebx into eax
+132: addl &lt;span class=&#34;nv&#34;&gt;$0&lt;/span&gt;x03, %eax &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;add &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; to eax register
+135: movl %eax, 0x0&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;%ebx&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;store eax back to mem
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;该代码段相对简单。 假定x的地址已放置在寄存器ebx中，然后使用movl指令（用于“ longword”移动）将该地址的值加载到通用寄存器eax中。 下一条指令将eax加3，最后一条指令将eax中的值存储在同一位置的内存中。&lt;/p&gt;
+&lt;p&gt;在图15.1中，观察代码和数据在流程的地址空间中的布局方式； 三指令代码序列位于地址128（在顶部附近的代码部分）中，变量x的值位于地址15 KB（在底部附近的栈中）。在图中，x的初始值为3000，如其在栈中的位置所示。&lt;/p&gt;
+&lt;p&gt;当这些指令运行时，从过程的角度来看，将进行以下内存访问。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在地址128处取指令&lt;/li&gt;
+&lt;li&gt;执行此指令（从地址15 KB加载）&lt;/li&gt;
+&lt;li&gt;在地址132取指令&lt;/li&gt;
+&lt;li&gt;执行该指令（无存储器引用）&lt;/li&gt;
+&lt;li&gt;在地址135取指令&lt;/li&gt;
+&lt;li&gt;执行该指令（存储到地址15 KB）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://slkyrim.github.io/images/os_intro/os_15_1.PNG&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://slkyrim.github.io/images/os_intro/os_15_1.PNG&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;从程序的角度来看，其地址空间从地址0开始，最大增加到16 KB； 它生成的所有内存引用都应在这些范围之内。 但是，为了虚拟化内存，OS希望将进程放置在物理内存中的其他位置，而不必放在地址0上。因此，我们遇到了一个问题：如何以一种对进程透明的方式将该进程重新放置在内存中？ 当地址空间实际上位于其他物理地址时，我们如何提供从0开始的虚拟地址空间的错觉？&lt;/p&gt;
+&lt;p&gt;在图15.2中找到了一个示例，该示例的地址空间放置在内存中后，物理内存的外观将如何。在图中，您可以看到OS本身使用了物理内存的第一个插槽，并且它已将上述示例中的过程重新定位到从32 KB物理内存地址开始的插槽中。 其他两个插槽是空闲的（16 KB - 32 KB 和 48 KB - 64 KB）。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://slkyrim.github.io/images/os_intro/os_15_2.PNG&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://slkyrim.github.io/images/os_intro/os_15_2.PNG&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;动态基于硬件重定位&#34;&gt;动态（基于硬件）重定位&lt;/h3&gt;
+&lt;p&gt;为了对基于硬件的地址转换有一定的了解，我们将首先讨论其第一代产品。 在1950年代末期的第一台分时机中引入了一个简单的概念，即&lt;strong&gt;基准和边界&lt;/strong&gt;。 该技术也称为&lt;strong&gt;动态重定位&lt;/strong&gt;； 我们将两个术语互换使用。&lt;/p&gt;
+&lt;p&gt;具体来说，我们在每个CPU中需要两个硬件寄存器：一个称为&lt;strong&gt;基址寄存器&lt;/strong&gt;，另一个称为&lt;strong&gt;边界寄存器（有时称为限制寄存器）&lt;/strong&gt;。 这对寄存器将使我们能够将地址空间放置在物理内存中所需的任何位置，并确保进程只能访问自己的地址空间。&lt;/p&gt;
+&lt;p&gt;在这种设置中，每个程序都被编写和编译，就好像加载到地址零一样。 但是，当程序开始运行时，操作系统会决定将其加载到物理内存中的哪个位置，并将基址寄存器设置为该值。 在上面的示例中，操作系统决定将进程加载到32 KB的物理地址，因此将基址寄存器设置为该值。&lt;/p&gt;
+&lt;p&gt;进程运行时，有趣的事情开始发生。现在，当进程生成任何内存引用时，处理器将以以下方式对其进行转换：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;physical &lt;span class=&#34;nv&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; virtual address + base
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;进程生成的每个内存引用都是一个&lt;strong&gt;虚拟地址&lt;/strong&gt;。硬件又将基址寄存器的内容添加到该地址，结果是可以发布给存储系统的&lt;strong&gt;物理地址&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;为了更好地理解这一点，让我们追溯执行一条指令时发生的情况。具体来说，让我们看一下先前序列中的一条指令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;128: movl 0x0&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;%ebx&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, %eax
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;程序计数器（PC）设置为128； 当硬件需要提取此指令时，它首先将该值加到32 KB（32768）的基址寄存器值中，以得到32896的物理地址； 然后，硬件从该物理地址获取指令。 接下来，处理器开始执行指令。 然后，在某个时候，该过程从虚拟地址15 KB发出负载，处理器将其加载，并再次添加到基址寄存器（32 KB），从而获得47 KB的最终物理地址，从而获得所需的内容。&lt;/p&gt;
+&lt;p&gt;将虚拟地址转换为物理地址正是我们称为&lt;strong&gt;地址转换&lt;/strong&gt;的技术。 也就是说，硬件获取进程认为正在引用的虚拟地址，并将其转换为数据实际驻留的物理地址。 因为地址的这种重定位发生在运行时，并且因为即使进程开始运行后我们也可以移动地址空间，所以该技术通常称为&lt;strong&gt;动态重定位&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;基于硬件的动态重定位：使用动态重定位，只需少量硬件即可。 即，基址寄存器用于将虚拟地址（由程序生成）转换为物理地址。 边界（或限制）寄存器确保此类地址在地址空间的范围内。 它们一起提供了简单有效的内存虚拟化。&lt;/p&gt;
+&lt;h3 id=&#34;硬件支持总结&#34;&gt;硬件支持：总结&lt;/h3&gt;
+&lt;h3 id=&#34;操作系统问题&#34;&gt;操作系统问题&lt;/h3&gt;
+&lt;h3 id=&#34;总结-8&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-9&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;16分割&#34;&gt;16、分割&lt;/h2&gt;
+&lt;h3 id=&#34;细分广义基数界限&#34;&gt;细分：广义基数/界限&lt;/h3&gt;
+&lt;h3 id=&#34;我们指的是哪个细分市场&#34;&gt;我们指的是哪个细分市场？&lt;/h3&gt;
+&lt;h3 id=&#34;堆栈呢&#34;&gt;堆栈呢？&lt;/h3&gt;
+&lt;h3 id=&#34;支持分享&#34;&gt;支持分享&lt;/h3&gt;
+&lt;h3 id=&#34;细粒度与粗粒度细分&#34;&gt;细粒度与粗粒度细分&lt;/h3&gt;
+&lt;h3 id=&#34;操作系统支持&#34;&gt;操作系统支持&lt;/h3&gt;
+&lt;h3 id=&#34;总结-9&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-10&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;17自由空间管理&#34;&gt;17、自由空间管理&lt;/h2&gt;
+&lt;h3 id=&#34;假设条件-1&#34;&gt;假设条件&lt;/h3&gt;
+&lt;h3 id=&#34;低级机制&#34;&gt;低级机制&lt;/h3&gt;
+&lt;h3 id=&#34;基本策略&#34;&gt;基本策略&lt;/h3&gt;
+&lt;h3 id=&#34;其他方法&#34;&gt;其他方法&lt;/h3&gt;
+&lt;h3 id=&#34;总结-10&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-11&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;18分页简介&#34;&gt;18、分页：简介&lt;/h2&gt;
+&lt;h3 id=&#34;一个简单的例子和概述&#34;&gt;一个简单的例子和​​概述&lt;/h3&gt;
+&lt;h3 id=&#34;页表存储在哪里&#34;&gt;页表存储在哪里？&lt;/h3&gt;
+&lt;h3 id=&#34;页面表中实际上是什么&#34;&gt;页面表中实际上是什么？&lt;/h3&gt;
+&lt;h3 id=&#34;分页太慢&#34;&gt;分页：太慢&lt;/h3&gt;
+&lt;h3 id=&#34;内存跟踪&#34;&gt;内存跟踪&lt;/h3&gt;
+&lt;h3 id=&#34;总结-11&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-12&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;19分页更快的翻译tlb&#34;&gt;19、分页：更快的翻译（TLB）&lt;/h2&gt;
+&lt;h3 id=&#34;tlb基本算法&#34;&gt;TLB基本算法&lt;/h3&gt;
+&lt;h3 id=&#34;示例访问数组&#34;&gt;示例：访问数组&lt;/h3&gt;
+&lt;h3 id=&#34;谁处理tlb缺失&#34;&gt;谁处理TLB缺失？&lt;/h3&gt;
+&lt;h3 id=&#34;tlb内容里面有什么&#34;&gt;TLB内容：里面有什么？&lt;/h3&gt;
+&lt;h3 id=&#34;tlb问题上下文切换&#34;&gt;TLB问题：上下文切换&lt;/h3&gt;
+&lt;h3 id=&#34;问题更换政策&#34;&gt;问题：更换政策&lt;/h3&gt;
+&lt;h3 id=&#34;真正的tlb条目&#34;&gt;真正的TLB条目&lt;/h3&gt;
+&lt;h3 id=&#34;总结-12&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-13&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;20分页较小的表格&#34;&gt;20、分页：较小的表格&lt;/h2&gt;
+&lt;h3 id=&#34;简单的解决方案更大的页面&#34;&gt;简单的解决方案：更大的页面&lt;/h3&gt;
+&lt;h3 id=&#34;混合方法分页和细分&#34;&gt;混合方法：分页和细分&lt;/h3&gt;
+&lt;h3 id=&#34;多级页表&#34;&gt;多级页表&lt;/h3&gt;
+&lt;h3 id=&#34;倒页表&#34;&gt;倒页表&lt;/h3&gt;
+&lt;h3 id=&#34;将页表交换到磁盘&#34;&gt;将页表交换到磁盘&lt;/h3&gt;
+&lt;h3 id=&#34;总结-13&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-14&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;21超越物理内存机制&#34;&gt;21、超越物理内存：机制&lt;/h2&gt;
+&lt;h3 id=&#34;交换空间&#34;&gt;交换空间&lt;/h3&gt;
+&lt;h3 id=&#34;现在的位&#34;&gt;现在的位&lt;/h3&gt;
+&lt;h3 id=&#34;页面错误&#34;&gt;页面错误&lt;/h3&gt;
+&lt;h3 id=&#34;如果内存已满怎么办&#34;&gt;如果内存已满怎么办？&lt;/h3&gt;
+&lt;h3 id=&#34;页面故障控制流程&#34;&gt;页面故障控制流程&lt;/h3&gt;
+&lt;h3 id=&#34;真正发生替换时&#34;&gt;真正发生替换时&lt;/h3&gt;
+&lt;h3 id=&#34;总结-14&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-15&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;22超越物理内存策略&#34;&gt;22、超越物理内存：策略&lt;/h2&gt;
+&lt;h3 id=&#34;缓存管理&#34;&gt;缓存管理&lt;/h3&gt;
+&lt;h3 id=&#34;最佳替代政策&#34;&gt;最佳替代政策&lt;/h3&gt;
+&lt;h3 id=&#34;一个简单的策略fifo&#34;&gt;一个简单的策略：FIFO&lt;/h3&gt;
+&lt;h3 id=&#34;另一个简单的政策随机&#34;&gt;另一个简单的政策：随机&lt;/h3&gt;
+&lt;h3 id=&#34;使用历史记录lru&#34;&gt;使用历史记录：LRU&lt;/h3&gt;
+&lt;h3 id=&#34;工作量示例&#34;&gt;工作量示例&lt;/h3&gt;
+&lt;h3 id=&#34;实施历史算法&#34;&gt;实施历史算法&lt;/h3&gt;
+&lt;h3 id=&#34;近似lru&#34;&gt;近似LRU&lt;/h3&gt;
+&lt;h3 id=&#34;考虑脏页&#34;&gt;考虑脏页&lt;/h3&gt;
+&lt;h3 id=&#34;其他虚拟机策略&#34;&gt;其他虚拟机策略&lt;/h3&gt;
+&lt;h3 id=&#34;脱粒&#34;&gt;脱粒&lt;/h3&gt;
+&lt;h3 id=&#34;总结-15&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-16&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;23完整的虚拟内存系统&#34;&gt;23、完整的虚拟内存系统&lt;/h2&gt;
+&lt;h3 id=&#34;vax--vms虚拟内存&#34;&gt;VAX / VMS虚拟内存&lt;/h3&gt;
+&lt;h3 id=&#34;linux虚拟内存系统&#34;&gt;Linux虚拟内存系统&lt;/h3&gt;
+&lt;h3 id=&#34;总结-16&#34;&gt;总结&lt;/h3&gt;
+&lt;h2 id=&#34;24总结内存虚拟化&#34;&gt;24、总结：内存虚拟化&lt;/h2&gt;
+&lt;h1 id=&#34;第二部分并发&#34;&gt;第二部分：并发&lt;/h1&gt;
+&lt;h2 id=&#34;25绪论-并发&#34;&gt;25、绪论: 并发&lt;/h2&gt;
+&lt;h2 id=&#34;26并发简介&#34;&gt;26、并发：简介&lt;/h2&gt;
+&lt;h3 id=&#34;为什么要使用线程&#34;&gt;为什么要使用线程？&lt;/h3&gt;
+&lt;h3 id=&#34;示例线程创建&#34;&gt;示例：线程创建&lt;/h3&gt;
+&lt;h3 id=&#34;为什么变得更糟共享数据&#34;&gt;为什么变得更糟：共享数据&lt;/h3&gt;
+&lt;h3 id=&#34;问题的核心无节制的调度&#34;&gt;问题的核心：无节制的调度&lt;/h3&gt;
+&lt;h3 id=&#34;希望原子性&#34;&gt;希望原子性&lt;/h3&gt;
+&lt;h3 id=&#34;另一个问题等待另一个&#34;&gt;另一个问题：等待另一个&lt;/h3&gt;
+&lt;h3 id=&#34;总结-17&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-17&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;27插曲线程api&#34;&gt;27、插曲：线程API&lt;/h2&gt;
+&lt;h3 id=&#34;线程创建&#34;&gt;线程创建&lt;/h3&gt;
+&lt;h3 id=&#34;线程完成&#34;&gt;线程完成&lt;/h3&gt;
+&lt;h3 id=&#34;锁&#34;&gt;锁&lt;/h3&gt;
+&lt;h3 id=&#34;条件变量&#34;&gt;条件变量&lt;/h3&gt;
+&lt;h3 id=&#34;编译并运行&#34;&gt;编译并运行&lt;/h3&gt;
+&lt;h3 id=&#34;总结-18&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-18&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;28锁&#34;&gt;28、锁&lt;/h2&gt;
+&lt;h3 id=&#34;锁基本思想&#34;&gt;锁：基本思想&lt;/h3&gt;
+&lt;h3 id=&#34;pthread锁&#34;&gt;Pthread锁&lt;/h3&gt;
+&lt;h3 id=&#34;建立锁&#34;&gt;建立锁&lt;/h3&gt;
+&lt;h3 id=&#34;评估锁&#34;&gt;评估锁&lt;/h3&gt;
+&lt;h3 id=&#34;控制中断&#34;&gt;控制中断&lt;/h3&gt;
+&lt;h3 id=&#34;失败的尝试仅使用装入存储&#34;&gt;失败的尝试：仅使用装入/存储&lt;/h3&gt;
+&lt;h3 id=&#34;使用测试设置建立工作自旋锁&#34;&gt;使用测试设置建立工作自旋锁&lt;/h3&gt;
+&lt;h3 id=&#34;评估自旋锁&#34;&gt;评估自旋锁&lt;/h3&gt;
+&lt;h3 id=&#34;比较和交换&#34;&gt;比较和交换&lt;/h3&gt;
+&lt;h3 id=&#34;负载链接和存储条件&#34;&gt;负载链接和存储条件&lt;/h3&gt;
+&lt;h3 id=&#34;提取并添加&#34;&gt;提取并添加&lt;/h3&gt;
+&lt;h3 id=&#34;旋转太多现在怎么办&#34;&gt;旋转太多：现在怎么办？&lt;/h3&gt;
+&lt;h3 id=&#34;一种简单的方法宝贝只是收益&#34;&gt;一种简单的方法：宝贝，只是收益&lt;/h3&gt;
+&lt;h3 id=&#34;使用队列休眠而不是旋转&#34;&gt;使用队列：休眠而不是旋转&lt;/h3&gt;
+&lt;h3 id=&#34;不同的操作系统不同的支持&#34;&gt;不同的操作系统，不同的支持&lt;/h3&gt;
+&lt;h3 id=&#34;两相锁&#34;&gt;两相锁&lt;/h3&gt;
+&lt;h3 id=&#34;总结-19&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-19&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;29基于锁的并发数据结构&#34;&gt;29、基于锁的并发数据结构&lt;/h2&gt;
+&lt;h3 id=&#34;并发计数器&#34;&gt;并发计数器&lt;/h3&gt;
+&lt;h3 id=&#34;并发链接列表&#34;&gt;并发链接列表&lt;/h3&gt;
+&lt;h3 id=&#34;并发队列&#34;&gt;并发队列&lt;/h3&gt;
+&lt;h3 id=&#34;并发哈希表&#34;&gt;并发哈希表&lt;/h3&gt;
+&lt;h3 id=&#34;总结-20&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-20&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;30条件变量&#34;&gt;30、条件变量&lt;/h2&gt;
+&lt;h3 id=&#34;定义和例程&#34;&gt;定义和例程&lt;/h3&gt;
+&lt;h3 id=&#34;生产者消费者有界缓冲区问题&#34;&gt;生产者/消费者（有界缓冲区）问题&lt;/h3&gt;
+&lt;h3 id=&#34;承保条件&#34;&gt;承保条件&lt;/h3&gt;
+&lt;h3 id=&#34;总结-21&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-21&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;31信号量&#34;&gt;31、信号量&lt;/h2&gt;
+&lt;h3 id=&#34;信号量定义&#34;&gt;信号量：定义&lt;/h3&gt;
+&lt;h3 id=&#34;二进制信号量锁&#34;&gt;二进制信号量（锁）&lt;/h3&gt;
+&lt;h3 id=&#34;信号量订购&#34;&gt;信号量订购&lt;/h3&gt;
+&lt;h3 id=&#34;生产者消费者有界缓冲区问题-1&#34;&gt;生产者/消费者（有界缓冲区）问题&lt;/h3&gt;
+&lt;h3 id=&#34;读写器锁&#34;&gt;读写器锁&lt;/h3&gt;
+&lt;h3 id=&#34;餐饮哲学家&#34;&gt;餐饮哲学家&lt;/h3&gt;
+&lt;h3 id=&#34;如何实现信号量&#34;&gt;如何实现信号量&lt;/h3&gt;
+&lt;h3 id=&#34;总结-22&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-22&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;32常见的并发问题&#34;&gt;32、常见的并发问题&lt;/h2&gt;
+&lt;h3 id=&#34;存在哪些类型的错误&#34;&gt;存在哪些类型的错误？&lt;/h3&gt;
+&lt;h3 id=&#34;非死锁错误&#34;&gt;非死锁错误&lt;/h3&gt;
+&lt;h3 id=&#34;死锁错误&#34;&gt;死锁错误&lt;/h3&gt;
+&lt;h3 id=&#34;总结-23&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-23&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;33基于事件的并发高级&#34;&gt;33、基于事件的并发（高级）&lt;/h2&gt;
+&lt;h3 id=&#34;基本思想事件循环&#34;&gt;基本思想：事件循环&lt;/h3&gt;
+&lt;h3 id=&#34;重要的apiselect或poll&#34;&gt;重要的API：select（）（或poll（））&lt;/h3&gt;
+&lt;h3 id=&#34;使用select&#34;&gt;使用select（）&lt;/h3&gt;
+&lt;h3 id=&#34;为什么更简单-无需锁&#34;&gt;为什么更简单？ 无需锁&lt;/h3&gt;
+&lt;h3 id=&#34;问题阻止系统调用&#34;&gt;问题：阻止系统调用&lt;/h3&gt;
+&lt;h3 id=&#34;解决方案异步i--o&#34;&gt;解决方案：异步I / O&lt;/h3&gt;
+&lt;h3 id=&#34;另一个问题状态管理&#34;&gt;另一个问题：状态管理&lt;/h3&gt;
+&lt;h3 id=&#34;什么仍然是事件的难点&#34;&gt;什么仍然是事件的难点&lt;/h3&gt;
+&lt;h3 id=&#34;总结-24&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-24&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;34总结-并发&#34;&gt;34、总结: 并发&lt;/h2&gt;
+&lt;h1 id=&#34;第三部分持久化&#34;&gt;第三部分：持久化&lt;/h1&gt;
+&lt;h2 id=&#34;35绪论持久化&#34;&gt;35、绪论：持久化&lt;/h2&gt;
+&lt;h2 id=&#34;36i--o设备&#34;&gt;36、I / O设备&lt;/h2&gt;
+&lt;h3 id=&#34;系统架构&#34;&gt;系统架构&lt;/h3&gt;
+&lt;h3 id=&#34;规范的设备&#34;&gt;规范的设备&lt;/h3&gt;
+&lt;h3 id=&#34;规范协议&#34;&gt;规范协议&lt;/h3&gt;
+&lt;h3 id=&#34;通过中断降低cpu开销&#34;&gt;通过中断降低CPU开销&lt;/h3&gt;
+&lt;h3 id=&#34;使用dma进行更高效的数据移动&#34;&gt;使用DMA进行更高效的数据移动&lt;/h3&gt;
+&lt;h3 id=&#34;设备交互方法&#34;&gt;设备交互方法&lt;/h3&gt;
+&lt;h3 id=&#34;适应操作系统设备驱动程序&#34;&gt;适应操作系统：设备驱动程序&lt;/h3&gt;
+&lt;h3 id=&#34;案例研究一个简单的ide磁盘驱动程序&#34;&gt;案例研究：一个简单的IDE磁盘驱动程序&lt;/h3&gt;
+&lt;h3 id=&#34;历史笔记&#34;&gt;历史笔记&lt;/h3&gt;
+&lt;h3 id=&#34;总结-25&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-25&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;37硬盘驱动器&#34;&gt;37、硬盘驱动器&lt;/h2&gt;
+&lt;h3 id=&#34;接口&#34;&gt;接口&lt;/h3&gt;
+&lt;h3 id=&#34;基本几何&#34;&gt;基本几何&lt;/h3&gt;
+&lt;h3 id=&#34;一个简单的磁盘驱动器&#34;&gt;一个简单的磁盘驱动器&lt;/h3&gt;
+&lt;h3 id=&#34;i--o时间做数学&#34;&gt;I / O时间：做数学&lt;/h3&gt;
+&lt;h3 id=&#34;磁盘调度&#34;&gt;磁盘调度&lt;/h3&gt;
+&lt;h3 id=&#34;总结-26&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-26&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;38廉价磁盘冗余阵列raid&#34;&gt;38、廉价磁盘冗余阵列（RAID）&lt;/h2&gt;
+&lt;h3 id=&#34;接口和raid内部&#34;&gt;接口和RAID内部&lt;/h3&gt;
+&lt;h3 id=&#34;故障模型&#34;&gt;故障模型&lt;/h3&gt;
+&lt;h3 id=&#34;如何评估raid&#34;&gt;如何评估RAID&lt;/h3&gt;
+&lt;h3 id=&#34;raid级别0条带化&#34;&gt;RAID级别0：条带化&lt;/h3&gt;
+&lt;h3 id=&#34;raid级别1镜像&#34;&gt;RAID级别1：镜像&lt;/h3&gt;
+&lt;h3 id=&#34;raid级别4通过奇偶校验节省空间&#34;&gt;RAID级别4：通过奇偶校验节省空间&lt;/h3&gt;
+&lt;h3 id=&#34;raid级别5旋转奇偶校验&#34;&gt;RAID级别5：旋转奇偶校验&lt;/h3&gt;
+&lt;h3 id=&#34;raid比较摘要&#34;&gt;RAID比较：摘要&lt;/h3&gt;
+&lt;h3 id=&#34;其他有趣的raid问题&#34;&gt;其他有趣的RAID问题&lt;/h3&gt;
+&lt;h3 id=&#34;总结-27&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-27&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;39插曲文件和目录&#34;&gt;39、插曲：文件和目录&lt;/h2&gt;
+&lt;h3 id=&#34;文件和目录&#34;&gt;文件和目录&lt;/h3&gt;
+&lt;h3 id=&#34;文件系统界面&#34;&gt;文件系统界面&lt;/h3&gt;
+&lt;h3 id=&#34;创建文件&#34;&gt;创建文件&lt;/h3&gt;
+&lt;h3 id=&#34;读写文件&#34;&gt;读写文件&lt;/h3&gt;
+&lt;h3 id=&#34;读和写但不顺序&#34;&gt;读和写，但不顺序&lt;/h3&gt;
+&lt;h3 id=&#34;共享文件表条目fork和dup&#34;&gt;共享文件表条目：fork（）和dup（）&lt;/h3&gt;
+&lt;h3 id=&#34;立即使用fsync编写&#34;&gt;立即使用fsync（）编写&lt;/h3&gt;
+&lt;h3 id=&#34;重命名文件&#34;&gt;重命名文件&lt;/h3&gt;
+&lt;h3 id=&#34;获取有关文件的信息&#34;&gt;获取有关文件的信息&lt;/h3&gt;
+&lt;h3 id=&#34;删除文件&#34;&gt;删除文件&lt;/h3&gt;
+&lt;h3 id=&#34;制作目录&#34;&gt;制作目录&lt;/h3&gt;
+&lt;h3 id=&#34;阅读目录&#34;&gt;阅读目录&lt;/h3&gt;
+&lt;h3 id=&#34;删除目录&#34;&gt;删除目录&lt;/h3&gt;
+&lt;h3 id=&#34;硬链接&#34;&gt;硬链接&lt;/h3&gt;
+&lt;h3 id=&#34;符号链接&#34;&gt;符号链接&lt;/h3&gt;
+&lt;h3 id=&#34;权限位和访问控制列表&#34;&gt;权限位和访问控制列表&lt;/h3&gt;
+&lt;h3 id=&#34;制作和挂载文件系统&#34;&gt;制作和挂载文件系统&lt;/h3&gt;
+&lt;h3 id=&#34;总结-28&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-28&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;40文件系统实施&#34;&gt;40、文件系统实施&lt;/h2&gt;
+&lt;h3 id=&#34;思考方式&#34;&gt;思考方式&lt;/h3&gt;
+&lt;h3 id=&#34;整体组织&#34;&gt;整体组织&lt;/h3&gt;
+&lt;h3 id=&#34;文件组织the-inode&#34;&gt;文件组织：The Inode&lt;/h3&gt;
+&lt;h3 id=&#34;目录组织&#34;&gt;目录组织&lt;/h3&gt;
+&lt;h3 id=&#34;自由空间管理&#34;&gt;自由空间管理&lt;/h3&gt;
+&lt;h3 id=&#34;访问路径阅读和写作&#34;&gt;访问路径：阅读和写作&lt;/h3&gt;
+&lt;h3 id=&#34;缓存和缓冲&#34;&gt;缓存和缓冲&lt;/h3&gt;
+&lt;h3 id=&#34;总结-29&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-29&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;41位置和快速文件系统&#34;&gt;41、位置和快速文件系统&lt;/h2&gt;
+&lt;h3 id=&#34;问题性能不佳&#34;&gt;问题：性能不佳&lt;/h3&gt;
+&lt;h3 id=&#34;ffs磁盘感知是解决方案&#34;&gt;FFS：磁盘感知是解决方案&lt;/h3&gt;
+&lt;h3 id=&#34;组织结构圆柱组&#34;&gt;组织结构：圆柱组&lt;/h3&gt;
+&lt;h3 id=&#34;策略如何分配文件和目录&#34;&gt;策略：如何分配文件和目录&lt;/h3&gt;
+&lt;h3 id=&#34;测量文件位置&#34;&gt;测量文件位置&lt;/h3&gt;
+&lt;h3 id=&#34;大文件异常&#34;&gt;大文件异常&lt;/h3&gt;
+&lt;h3 id=&#34;关于ffs的其他一些事情&#34;&gt;关于FFS的其他一些事情&lt;/h3&gt;
+&lt;h3 id=&#34;总结-30&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-30&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;42崩溃一致性fsck和日记&#34;&gt;42、崩溃一致性：FSCK和日记&lt;/h2&gt;
+&lt;h3 id=&#34;一个详细的例子&#34;&gt;一个详细的例子&lt;/h3&gt;
+&lt;h3 id=&#34;解决方案1文件系统检查器&#34;&gt;解决方案1：文件系统检查器&lt;/h3&gt;
+&lt;h3 id=&#34;解决方案2日记或预写日志&#34;&gt;解决方案2：日记（或预写日志）&lt;/h3&gt;
+&lt;h3 id=&#34;解决方案3其他方法&#34;&gt;解决方案3：其他方法&lt;/h3&gt;
+&lt;h3 id=&#34;总结-31&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-31&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;43日志结构文件系统&#34;&gt;43、日志结构文件系统&lt;/h2&gt;
+&lt;h3 id=&#34;顺序写入磁盘&#34;&gt;顺序写入磁盘&lt;/h3&gt;
+&lt;h3 id=&#34;顺序有效地写作&#34;&gt;顺序有效地写作&lt;/h3&gt;
+&lt;h3 id=&#34;要缓冲多少&#34;&gt;要缓冲多少？&lt;/h3&gt;
+&lt;h3 id=&#34;间接解决方案inode映射&#34;&gt;间接解决方案：Inode映射&lt;/h3&gt;
+&lt;h3 id=&#34;完成解决方案检查点区域&#34;&gt;完成解决方案：检查点区域&lt;/h3&gt;
+&lt;h3 id=&#34;从磁盘读取文件回顾&#34;&gt;从磁盘读取文件：回顾&lt;/h3&gt;
+&lt;h3 id=&#34;那目录呢&#34;&gt;那目录呢？&lt;/h3&gt;
+&lt;h3 id=&#34;一个新问题垃圾回收&#34;&gt;一个新问题：垃圾回收&lt;/h3&gt;
+&lt;h3 id=&#34;确定区块活力&#34;&gt;确定区块活力&lt;/h3&gt;
+&lt;h3 id=&#34;一个政策问题哪些块需要清洁何时清洁&#34;&gt;一个政策问题：哪些块需要清洁，何时清洁？&lt;/h3&gt;
+&lt;h3 id=&#34;崩溃恢复和日志&#34;&gt;崩溃恢复和日志&lt;/h3&gt;
+&lt;h3 id=&#34;总结-32&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-32&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;44基于闪存的ssd&#34;&gt;44、基于闪存的SSD&lt;/h2&gt;
+&lt;h3 id=&#34;存放一位&#34;&gt;存放一位&lt;/h3&gt;
+&lt;h3 id=&#34;从位到银行飞机&#34;&gt;从位到银行/飞机&lt;/h3&gt;
+&lt;h3 id=&#34;基本flash操作&#34;&gt;基本Flash操作&lt;/h3&gt;
+&lt;h3 id=&#34;闪存性能和可靠性&#34;&gt;闪存性能和可靠性&lt;/h3&gt;
+&lt;h3 id=&#34;从原始闪存到基于闪存的ssd&#34;&gt;从原始闪存到基于闪存的SSD&lt;/h3&gt;
+&lt;h3 id=&#34;ftl组织一种错误的方法&#34;&gt;FTL组织：一种错误的方法&lt;/h3&gt;
+&lt;h3 id=&#34;对数结构的ftl&#34;&gt;对数结构的FTL&lt;/h3&gt;
+&lt;h3 id=&#34;垃圾收集&#34;&gt;垃圾收集&lt;/h3&gt;
+&lt;h3 id=&#34;映射表大小&#34;&gt;映射表大小&lt;/h3&gt;
+&lt;h3 id=&#34;磨损平衡&#34;&gt;磨损平衡&lt;/h3&gt;
+&lt;h3 id=&#34;ssd性能和成本&#34;&gt;SSD性能和成本&lt;/h3&gt;
+&lt;h3 id=&#34;总结-33&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-33&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;45数据完整性与保护&#34;&gt;45、数据完整性与保护&lt;/h2&gt;
+&lt;h3 id=&#34;磁盘故障模式&#34;&gt;磁盘故障模式&lt;/h3&gt;
+&lt;h3 id=&#34;处理潜在行业错误&#34;&gt;处理潜在行业错误&lt;/h3&gt;
+&lt;h3 id=&#34;检测腐败校验和&#34;&gt;检测腐败：校验和&lt;/h3&gt;
+&lt;h3 id=&#34;使用校验和&#34;&gt;使用校验和&lt;/h3&gt;
+&lt;h3 id=&#34;一个新问题写错了方向&#34;&gt;一个新问题：写错了方向&lt;/h3&gt;
+&lt;h3 id=&#34;最后一个问题失落的写作&#34;&gt;最后一个问题：失落的写作&lt;/h3&gt;
+&lt;h3 id=&#34;擦洗&#34;&gt;擦洗&lt;/h3&gt;
+&lt;h3 id=&#34;校验和的开销&#34;&gt;校验和的开销&lt;/h3&gt;
+&lt;h3 id=&#34;总结-34&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-34&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;46总结持久化&#34;&gt;46、总结：持久化&lt;/h2&gt;
+&lt;h2 id=&#34;47绪论分布式&#34;&gt;47、绪论：分布式&lt;/h2&gt;
+&lt;h2 id=&#34;48分布式系统&#34;&gt;48、分布式系统&lt;/h2&gt;
+&lt;h3 id=&#34;沟通基础&#34;&gt;沟通基础&lt;/h3&gt;
+&lt;h3 id=&#34;通讯层不可靠&#34;&gt;通讯层不可靠&lt;/h3&gt;
+&lt;h3 id=&#34;可靠的通讯层&#34;&gt;可靠的通讯层&lt;/h3&gt;
+&lt;h3 id=&#34;通讯抽象&#34;&gt;通讯抽象&lt;/h3&gt;
+&lt;h3 id=&#34;远程过程调用rpc&#34;&gt;远程过程调用（RPC）&lt;/h3&gt;
+&lt;h3 id=&#34;总结-35&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-35&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;49sun的网络文件系统nfs&#34;&gt;49、Sun的网络文件系统（NFS）&lt;/h2&gt;
+&lt;h3 id=&#34;基本的分布式文件系统&#34;&gt;基本的分布式文件系统&lt;/h3&gt;
+&lt;h3 id=&#34;转到nfs&#34;&gt;转到NFS&lt;/h3&gt;
+&lt;h3 id=&#34;重点简单快速的服务器崩溃恢复&#34;&gt;重点：简单快速的服务器崩溃恢复&lt;/h3&gt;
+&lt;h3 id=&#34;快速崩溃恢复的关键无状态&#34;&gt;快速崩溃恢复的关键：无状态&lt;/h3&gt;
+&lt;h3 id=&#34;nfsv2协议&#34;&gt;NFSv2协议&lt;/h3&gt;
+&lt;h3 id=&#34;从协议到分布式文件系统&#34;&gt;从协议到分布式文件系统&lt;/h3&gt;
+&lt;h3 id=&#34;使用幂等操作处理服务器故障&#34;&gt;使用幂等操作处理服务器故障&lt;/h3&gt;
+&lt;h3 id=&#34;提高性能客户端缓存&#34;&gt;提高性能：客户端缓存&lt;/h3&gt;
+&lt;h3 id=&#34;缓存一致性问题&#34;&gt;缓存一致性问题&lt;/h3&gt;
+&lt;h3 id=&#34;评估nfs缓存一致性&#34;&gt;评估NFS缓存一致性&lt;/h3&gt;
+&lt;h3 id=&#34;对服务器端写缓冲的影响&#34;&gt;对服务器端写缓冲的影响&lt;/h3&gt;
+&lt;h3 id=&#34;总结-36&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-36&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;50安德鲁文件系统afs&#34;&gt;50、安德鲁文件系统（AFS）&lt;/h2&gt;
+&lt;h3 id=&#34;afs版本1&#34;&gt;AFS版本1&lt;/h3&gt;
+&lt;h3 id=&#34;版本1的问题&#34;&gt;版本1的问题&lt;/h3&gt;
+&lt;h3 id=&#34;完善协议&#34;&gt;完善协议&lt;/h3&gt;
+&lt;h3 id=&#34;afs版本2&#34;&gt;AFS版本2&lt;/h3&gt;
+&lt;h3 id=&#34;缓存一致性&#34;&gt;缓存一致性&lt;/h3&gt;
+&lt;h3 id=&#34;崩溃恢复&#34;&gt;崩溃恢复&lt;/h3&gt;
+&lt;h3 id=&#34;afsv2的规模和性能&#34;&gt;AFSv2的规模和性能&lt;/h3&gt;
+&lt;h3 id=&#34;afs其他改进&#34;&gt;AFS：其他改进&lt;/h3&gt;
+&lt;h3 id=&#34;总结-37&#34;&gt;总结&lt;/h3&gt;
+&lt;h3 id=&#34;作业-37&#34;&gt;作业&lt;/h3&gt;
+&lt;h2 id=&#34;51总结分布式&#34;&gt;51、总结：分布式&lt;/h2&gt;
 </description>
       
     </item>
@@ -390,13 +1530,70 @@
         &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]),&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1e9&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;思路2-1&#34;&gt;思路2&lt;/h3&gt;
+&lt;p&gt;思路与思路1相同，不过优化了动态规划的维度。&lt;/p&gt;
+&lt;h3 id=&#34;代码2-1&#34;&gt;代码2&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;maxSum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nums1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nums2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;t1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;t2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]:&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;t1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]:&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;t2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;best&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;t2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;t1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;t2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;best&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;t1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;t2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;t2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1e9&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
 &lt;p&gt;AC前3题。&lt;br&gt;
 目前全国排名 2799 ，全球排名 12252 。            &lt;br&gt;
 得分 12 / 18 ，未完成，全国排名 1053 / 5474，全球排名 2652 / 15382。  &lt;br&gt;
 1、0:02:57，签到题，暴力枚举；&lt;br&gt;
 2、0:11:52，WA了1次，k=1的情况粗心没照顾好。模拟题。 &lt;br&gt;
-3、1:01:06，WA了3次，&lt;br&gt;
+3、1:01:06，WA了3次，思路一开始是错误的，之后通过百度才拿到正确思路AC。&lt;br&gt;
 4、未完成，比赛时整体思路方向正确，两数组切换的情况没处理好，主要还是代码写复杂了，要照顾的细节一多脑子就乱了。&lt;/p&gt;
 &lt;p&gt;因为目前基本算是没有刷题需求了，而这次刚好是第200场周赛，算是一个完整的谢幕吧。以后如果实在闲得没事干，就继续刷和复盘。&lt;/p&gt;
 </description>
@@ -6546,385 +7743,6 @@ dp[n][k][i] 代表长度为 n，搜索代价为k，最大值为 i的数组的数
 &lt;p&gt;依旧只AC了前两道，排位1153/5002。
 这回有字节的周边奖品，以及前200名有字节内推机会，所以参赛的人数比较多。&lt;br&gt;
 最后一题三维DP还有很多弄不清的地方。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Leetcode_20200418双周赛</title>
-      <link>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</link>
-      <pubDate>Fri, 31 Jul 2020 12:14:32 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</guid>
-      
-        <description>&lt;h2 id=&#34;目录&#34;&gt;目录&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#%E7%9B%AE%E5%BD%95&#34;&gt;目录&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E9%80%90%E6%AD%A5%E6%B1%82%E5%92%8C%E5%BE%97%E5%88%B0%E6%AD%A3%E6%95%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC&#34;&gt;逐步求和得到正数的最小值&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#%E7%A4%BA%E4%BE%8B&#34;&gt;示例&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E6%88%91%E7%9A%84%E6%80%9D%E8%B7%AF&#34;&gt;我的思路&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81&#34;&gt;我的代码&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E5%92%8C%E4%B8%BA-k-%E7%9A%84%E6%9C%80%E5%B0%91%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%AD%97%E6%95%B0%E7%9B%AE&#34;&gt;和为 K 的最少斐波那契数字数目&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#%E7%A4%BA%E4%BE%8B-1&#34;&gt;示例&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E6%88%91%E7%9A%84%E6%80%9D%E8%B7%AF-1&#34;&gt;我的思路&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81-1&#34;&gt;我的代码&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E9%95%BF%E5%BA%A6%E4%B8%BA-n-%E7%9A%84%E5%BC%80%E5%BF%83%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%AD%97%E5%85%B8%E5%BA%8F%E7%AC%AC-k-%E5%B0%8F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2&#34;&gt;长度为 n 的开心字符串中字典序第 k 小的字符串&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#%E7%A4%BA%E4%BE%8B-2&#34;&gt;示例&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E5%88%AB%E4%BA%BA%E7%9A%84%E6%80%9D%E8%B7%AF&#34;&gt;别人的思路&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E5%88%AB%E4%BA%BA%E7%9A%84%E4%BB%A3%E7%A0%81&#34;&gt;别人的代码&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E6%81%A2%E5%A4%8D%E6%95%B0%E7%BB%84&#34;&gt;恢复数组&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#%E7%A4%BA%E4%BE%8B-3&#34;&gt;示例&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E5%88%AB%E4%BA%BA%E7%9A%84%E6%80%9D%E8%B7%AF-1&#34;&gt;别人的思路&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E5%88%AB%E4%BA%BA%E7%9A%84%E4%BB%A3%E7%A0%81-1&#34;&gt;别人的代码&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E6%80%BB%E7%BB%93&#34;&gt;总结&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;逐步求和得到正数的最小值&#34;&gt;逐步求和得到正数的最小值&lt;/h2&gt;
-&lt;p&gt;给你一个整数数组 nums 。你可以选定任意的 正数 startValue 作为初始值。&lt;br&gt;
-你需要从左到右遍历 nums 数组，并将 startValue 依次累加上 nums 数组中的值。&lt;br&gt;
-请你在确保累加和始终大于等于 1 的前提下，选出一个最小的 正数 作为 startValue 。&lt;/p&gt;
-&lt;p&gt;来源：力扣（LeetCode）&lt;br&gt;
-链接：&lt;a href=&#34;https://leetcode-cn.com/problems/minimum-value-to-get-positive-step-by-step-sum&#34;&gt;https://leetcode-cn.com/problems/minimum-value-to-get-positive-step-by-step-sum&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;输入：nums = [-3,2,-3,4,2]&lt;br&gt;
-输出：5&lt;br&gt;
-解释：如果你选择 startValue = 4，在第三次累加时，和小于 1 。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;我的思路&#34;&gt;我的思路&lt;/h3&gt;
-&lt;p&gt;首先题目应该求 最小的”正整数“。&lt;br&gt;
-从左到右遍历nums执行累加过程，记录下该过程中累加和所能达到的最小值 &lt;strong&gt;tmp&lt;/strong&gt;。&lt;br&gt;
-所求即 1和 &lt;strong&gt;tmp&lt;/strong&gt; 的差值。&lt;br&gt;
-这里最初不小心被罚时了，未考虑 &lt;strong&gt;tmp&lt;/strong&gt; 为正的情况。&lt;/p&gt;
-&lt;h3 id=&#34;我的代码&#34;&gt;我的代码&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;minStartValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;float&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;inf&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;min&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;和为-k-的最少斐波那契数字数目&#34;&gt;和为 K 的最少斐波那契数字数目&lt;/h2&gt;
-&lt;p&gt;给你数字 k ，请你返回和为 k 的斐波那契数字的最少数目，其中，每个斐波那契数字都可以被使用多次。 &lt;br&gt;
-斐波那契数字定义为：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;$F_{1}$ = 1&lt;/li&gt;
-&lt;li&gt;$F_{2}$ = 1&lt;/li&gt;
-&lt;li&gt;$F_{n}$ = $F_{n-1}$ + $F_{n-2}$ ， 其中 n &amp;gt; 2 。
-数据保证对于给定的 k ，一定能找到可行解。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;来源：力扣（LeetCode）  &lt;br&gt;
-链接：&lt;a href=&#34;https://leetcode-cn.com/problems/find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k&#34;&gt;https://leetcode-cn.com/problems/find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;示例-1&#34;&gt;示例&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;输入：k = 7 &lt;br&gt;
-输出：2   &lt;br&gt;
-解释：斐波那契数字为：1，1，2，3，5，8，13，……； 对于 k = 7 ，我们可以得到 2 + 5 = 7 。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;输入：k = 19 &lt;br&gt;
-输出：3  &lt;br&gt;
-解释：对于 k = 19 ，我们可以得到 1 + 5 + 13 = 19 。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;我的思路-1&#34;&gt;我的思路&lt;/h3&gt;
-&lt;p&gt;用DP求斐波那契数列，直到求到第一个比 k 大的斐波那契数 &lt;strong&gt;cur&lt;/strong&gt;。若在此过程中有与 k 相等的斐波那契数，即只用一个斐波那契数即可加到 k ，则直接返回 1 即可。&lt;br&gt;
-&lt;strong&gt;cur&lt;/strong&gt; 前的斐波那契数列 &lt;strong&gt;dp&lt;/strong&gt; 可用于累加得 k。 &lt;br&gt;
-这里涉及 &lt;strong&gt;贪心&lt;/strong&gt; 。用 &lt;strong&gt;二分查找&lt;/strong&gt; 从数列 &lt;strong&gt;dp&lt;/strong&gt; 中找第一个小于等于 k 的数的下标索引，k 减去该数得到残余待累加部分。while循环重复此过程直到残余部分在 &lt;strong&gt;dp&lt;/strong&gt; 中或残余部分为0。&lt;/p&gt;
-&lt;h3 id=&#34;我的代码-1&#34;&gt;我的代码&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;findMinFibonacciNumbers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        
-        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        
-        &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;biSearch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;target&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-            &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;            在升序序列arr中找到第一个小于等于target的数的下标
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;            &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;left&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;right&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;ind&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;left&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;right&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;mid&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;left&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;right&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;left&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;target&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mid&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;target&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                    &lt;span class=&#34;n&#34;&gt;ind&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mid&lt;/span&gt;
-                    &lt;span class=&#34;n&#34;&gt;left&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mid&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;           
-                &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                    &lt;span class=&#34;n&#34;&gt;right&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mid&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ind&lt;/span&gt;
-        
-        &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;ind&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;biSearch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ind&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;  
-        
-        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;res&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;长度为-n-的开心字符串中字典序第-k-小的字符串&#34;&gt;长度为 n 的开心字符串中字典序第 k 小的字符串&lt;/h2&gt;
-&lt;p&gt;一个 「开心字符串」定义为：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;仅包含小写字母 [&amp;lsquo;a&amp;rsquo;, &amp;lsquo;b&amp;rsquo;, &amp;lsquo;c&amp;rsquo;].&lt;/li&gt;
-&lt;li&gt;对所有在 1 到 s.length - 1 之间的 i ，满足 s[i] != s[i + 1] （字符串的下标从 1 开始）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;比方说，字符串 &amp;ldquo;abc&amp;rdquo;，&amp;ldquo;ac&amp;rdquo;，&amp;ldquo;b&amp;rdquo; 和 &amp;ldquo;abcbabcbcb&amp;rdquo; 都是开心字符串，但是 &amp;ldquo;aa&amp;rdquo;，&amp;ldquo;baa&amp;rdquo; 和 &amp;ldquo;ababbc&amp;rdquo; 都不是开心字符串。 &lt;br&gt;
-给你两个整数 n 和 k ，你需要将长度为 n 的所有开心字符串按字典序排序。 &lt;br&gt;
-请你返回排序后的第 k 个开心字符串，如果长度为 n 的开心字符串少于 k 个，那么请你返回 空字符串 。&lt;/p&gt;
-&lt;p&gt;来源：力扣（LeetCode） &lt;br&gt;
-链接：&lt;a href=&#34;https://leetcode-cn.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n&#34;&gt;https://leetcode-cn.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;示例-2&#34;&gt;示例&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;输入：n = 3, k = 9&lt;br&gt;
-输出：&amp;ldquo;cab&amp;rdquo;&lt;br&gt;
-解释：长度为 3 的开心字符串总共有 12 个 [&amp;ldquo;aba&amp;rdquo;, &amp;ldquo;abc&amp;rdquo;, &amp;ldquo;aca&amp;rdquo;, &amp;ldquo;acb&amp;rdquo;, &amp;ldquo;bab&amp;rdquo;, &amp;ldquo;bac&amp;rdquo;, &amp;ldquo;bca&amp;rdquo;, &amp;ldquo;bcb&amp;rdquo;, &amp;ldquo;cab&amp;rdquo;, &amp;ldquo;cac&amp;rdquo;, &amp;ldquo;cba&amp;rdquo;, &amp;ldquo;cbc&amp;rdquo;] 。第 9 个字符串为 &amp;ldquo;cab&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;输入：n = 1, k = 4&lt;br&gt;
-输出：&amp;rdquo;&amp;rdquo;&lt;br&gt;
-解释：长度为 1 的开心字符串只有 3 个。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;别人的思路&#34;&gt;别人的思路&lt;/h3&gt;
-&lt;p&gt;DFS回溯。&lt;br&gt;
-先搜索出的字符串 &lt;strong&gt;cur&lt;/strong&gt; 长度满足要求的所有开心字符串。&lt;br&gt;
-如果 &lt;strong&gt;cur&lt;/strong&gt; 长度未满足要求则从 字母表[&amp;lsquo;a&amp;rsquo;, &amp;lsquo;b&amp;rsquo;, &amp;lsquo;c&amp;rsquo;] 中选。这里要注意有两个判断条件。一个是 &lt;strong&gt;cur&lt;/strong&gt; 长度为0时，直接按字典序加上字母表中的字符进行DFS，另一个是 当前新加字符不能与 &lt;strong&gt;cur&lt;/strong&gt; 的最后一个字符相同。&lt;/p&gt;
-&lt;h3 id=&#34;别人的代码&#34;&gt;别人的代码&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getHappyString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# 存储开心字符串&lt;/span&gt;
-
-        &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;dfs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-            &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;            cur: 当前字符串
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;            &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;
-                                
-            &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ch&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]:&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                    &lt;span class=&#34;n&#34;&gt;dfs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ch&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]:&lt;/span&gt;
-                    &lt;span class=&#34;n&#34;&gt;dfs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-
-        &lt;span class=&#34;n&#34;&gt;dfs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;恢复数组&#34;&gt;恢复数组&lt;/h2&gt;
-&lt;p&gt;某个程序本来应该输出一个整数数组。但是这个程序忘记输出空格了以致输出了一个数字字符串，我们所知道的信息只有：数组中所有整数都在 [1, k] 之间，且数组中的数字都没有前导 0 。&lt;/p&gt;
-&lt;p&gt;给你字符串 s 和整数 k 。可能会有多种不同的数组恢复结果。&lt;/p&gt;
-&lt;p&gt;按照上述程序，请你返回所有可能输出字符串 s 的数组方案数。&lt;/p&gt;
-&lt;p&gt;由于数组方案数可能会很大，请你返回它对 10^9 + 7 取余 后的结果。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;1 &amp;lt;= s.length &amp;lt;= 10^5&lt;br&gt;
-s 只包含数字且不包含前导 0&lt;br&gt;
-1 &amp;lt;= k &amp;lt;= 10^9.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;来源：力扣（LeetCode）&lt;br&gt;
-链接：&lt;a href=&#34;https://leetcode-cn.com/problems/restore-the-array&#34;&gt;https://leetcode-cn.com/problems/restore-the-array&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;示例-3&#34;&gt;示例&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;输入：s = &amp;ldquo;1317&amp;rdquo;, k = 2000&lt;br&gt;
-输出：8&lt;br&gt;
-解释：可行的数组方案为 [1317]，[131,7]，[13,17]，[1,317]，[13,1,7]，[1,31,7]，[1,3,17]，[1,3,1,7]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;输入：s = &amp;ldquo;1000&amp;rdquo;, k = 10&lt;br&gt;
-输出：0&lt;br&gt;
-解释：不存在任何数组方案满足所有整数都 &amp;gt;= 1 且 &amp;lt;= 10 同时输出结果为 s 。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;别人的思路-1&#34;&gt;别人的思路&lt;/h3&gt;
-&lt;p&gt;自底向上的DP。&lt;br&gt;
-dp[i]表示从 s 下标索引为 i 的字符开始到 s 最后一个字符结束的字符串的拆分方案数。
-例如求对字符串“1234567890”的子串“7890”，k = 100时，其拆分方案数为dp[6]：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;求拆分“7”与“890&amp;quot;的拆分方案数，即为”890“的拆分方案数dp[7]&lt;/li&gt;
-&lt;li&gt;求拆分”78“与”90“的拆分方案数，即为”90“的拆分方案数dp[8]&lt;/li&gt;
-&lt;li&gt;求拆分”789“与”0“的拆分方案数，由于789大于k，同时0不能做前导，故dp[9] = 0&lt;/li&gt;
-&lt;li&gt;最后dp[6] = dp[7] + dp[8] + dp[9] + dp[10]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;可以看到转移方程为 dp[i] = $\sum\limits_{j=1}^{n-i}dp[j]$。&lt;br&gt;
-其中的约束条件说明：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;j $\in$ [1, n - i], 因为子串只取到 s 的末尾&lt;/li&gt;
-&lt;li&gt;j &amp;lt;= 10，因为1 &amp;lt;= k &amp;lt;= 10^9，故子串长度不能超过10&lt;/li&gt;
-&lt;li&gt;子串数字 &lt;strong&gt;int(cur)&lt;/strong&gt; 不能超过 k&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;至于边界dp[10]为何要取1，暂时还想不到好的解释来说明。&lt;/p&gt;
-&lt;h3 id=&#34;别人的代码-1&#34;&gt;别人的代码&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;numberOfArrays&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;c1&#34;&gt;# 开多一个位置，将末位设为1，避免额外的边界判断&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
-        &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;c1&#34;&gt;# 前导0是不允许的&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;continue&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                    &lt;span class=&#34;c1&#34;&gt;# 若大于k，则再加数必然更大，故跳出while循环&lt;/span&gt;
-                    &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
-                &lt;span class=&#34;c1&#34;&gt;# 在运行过程中取模，避免dp中保存过大的数造成较大的时间和空间损失&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;9&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
-&lt;p&gt;仅AC前两道题，排位956/1898。&lt;br&gt;
-还是死在第三题 &lt;strong&gt;5374. 长度为 n 的开心字符串中字典序第 k 小的字符串&lt;/strong&gt; 的DFS回溯和第四题 &lt;strong&gt;5375. 恢复数组&lt;/strong&gt; 的DP。&lt;/p&gt;
 </description>
       
     </item>
