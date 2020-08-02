@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 01 Aug 2020 23:15:50 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 13:24:48 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode_20200802周赛</title>
+      <link>https://slkyrim.github.io/post/leetcode_20200802_weekly/</link>
+      <pubDate>Sun, 02 Aug 2020 13:24:48 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20200802_weekly/</guid>
+      <description>目录 统计好三元组 找出数组游戏的赢家 排布二进制网格的最少交换次数 最大得分 总结 统计好三元组 给你一个整数数组 arr ，以及 a、b 、c 三个整数。请你统计其</description>
+    </item>
     
     <item>
       <title>牛客编程巅峰赛S1第8场 - 青铜&amp;白银</title>
@@ -180,15 +189,6 @@
       
       <guid>https://slkyrim.github.io/post/leetcode_2020_spring/</guid>
       <description>目录 拿硬币 传递信息 剧情触发事件 最小跳跃次数 二叉树任务调度 拿硬币 在数组coins中有n个数，每个数表示一堆硬币包含的硬币数。每次任选一堆，那种</description>
-    </item>
-    
-    <item>
-      <title>Hugo搭建博客</title>
-      <link>https://slkyrim.github.io/post/hugo-blog/</link>
-      <pubDate>Thu, 30 Jul 2020 16:56:43 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/hugo-blog/</guid>
-      <description>自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug</description>
     </item>
     
   </channel>
