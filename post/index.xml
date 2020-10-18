@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 02 Aug 2020 18:40:05 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2020 14:24:12 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode_20201018_Weekly</title>
+      <link>https://slkyrim.github.io/post/leetcode_20201018_weekly/</link>
+      <pubDate>Sun, 18 Oct 2020 14:24:12 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20201018_weekly/</guid>
+      <description>目录 目录 两个相同字符之间的最长子字符串 示例 思路1 代码1 执行操作后字典序最小的字符串 示例 思路1 代码1 无矛盾的最佳球队 示例 思路1 代码1 带阈值的图</description>
+    </item>
     
     <item>
       <title>《操作系统导论》读书笔记</title>
@@ -180,15 +189,6 @@
       
       <guid>https://slkyrim.github.io/post/leetcode_20200419_weekly/</guid>
       <description>目录 重新格式化字符串 点菜展示表 数青蛙 生成数组 总结 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请你将该字符</description>
-    </item>
-    
-    <item>
-      <title>Leetcode_20200418双周赛</title>
-      <link>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</link>
-      <pubDate>Fri, 31 Jul 2020 12:14:32 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/leetcode_20200418_biweekly/</guid>
-      <description>目录 目录 逐步求和得到正数的最小值 示例 我的思路 我的代码 和为 K 的最少斐波那契数字数目 示例 我的思路 我的代码 长度为 n 的开心字符串中字典序第 k 小的字符</description>
     </item>
     
   </channel>

@@ -6,10 +6,19 @@
     <description>Recent content in DFS on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 31 Jul 2020 12:21:32 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2020 14:24:12 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/tags/dfs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode_20201018_Weekly</title>
+      <link>https://slkyrim.github.io/post/leetcode_20201018_weekly/</link>
+      <pubDate>Sun, 18 Oct 2020 14:24:12 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/leetcode_20201018_weekly/</guid>
+      <description>目录 目录 两个相同字符之间的最长子字符串 示例 思路1 代码1 执行操作后字典序最小的字符串 示例 思路1 代码1 无矛盾的最佳球队 示例 思路1 代码1 带阈值的图</description>
+    </item>
     
     <item>
       <title>Leetcode_20200531周赛</title>
