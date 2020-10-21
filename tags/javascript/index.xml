@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CopyTranslator on Single Long</title>
-    <link>https://slkyrim.github.io/tags/copytranslator/</link>
-    <description>Recent content in CopyTranslator on Single Long</description>
+    <title>JavaScript on Single Long</title>
+    <link>https://slkyrim.github.io/tags/javascript/</link>
+    <description>Recent content in JavaScript on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 21 Oct 2020 11:24:03 +0800</lastBuildDate>
     
-	<atom:link href="https://slkyrim.github.io/tags/copytranslator/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://slkyrim.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://slkyrim.github.io/post/professional_javascript_for_web_developers/</guid>
       <description>1、什么是JavaScript？ 简史 随着网络的普及，对客户端脚本语言的需求逐渐增长。 当时，即使网页的大小和复杂性不断增加，大多数Intern</description>
-    </item>
-    
-    <item>
-      <title>《操作系统导论》阅读记录</title>
-      <link>https://slkyrim.github.io/post/os_intro/</link>
-      <pubDate>Sun, 02 Aug 2020 18:40:05 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/os_intro/</guid>
-      <description>前言 本文是针对Remzi H. Arpaci-Dusseau等人专著的《Operating Systems: Three Easy Pieces》(中文译名《操作系统导论》)的英文原</description>
     </item>
     
   </channel>

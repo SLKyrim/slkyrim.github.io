@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 18 Oct 2020 14:24:12 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2020 11:24:03 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>《JavaScript高级程序设计》(第4版) 阅读记录</title>
+      <link>https://slkyrim.github.io/post/professional_javascript_for_web_developers/</link>
+      <pubDate>Wed, 21 Oct 2020 11:24:03 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/professional_javascript_for_web_developers/</guid>
+      <description>1、什么是JavaScript？ 简史 随着网络的普及，对客户端脚本语言的需求逐渐增长。 当时，即使网页的大小和复杂性不断增加，大多数Intern</description>
+    </item>
     
     <item>
       <title>Leetcode_20201018_Weekly</title>
@@ -21,7 +30,7 @@
     </item>
     
     <item>
-      <title>《操作系统导论》读书笔记</title>
+      <title>《操作系统导论》阅读记录</title>
       <link>https://slkyrim.github.io/post/os_intro/</link>
       <pubDate>Sun, 02 Aug 2020 18:40:05 +0800</pubDate>
       
@@ -180,15 +189,6 @@
       
       <guid>https://slkyrim.github.io/post/leetcode_20200426_weekly/</guid>
       <description>目录 分割字符串的最大得分 可获得的最大点数 对角线遍历ii 带限制的子序列和 总结 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请你计算并</description>
-    </item>
-    
-    <item>
-      <title>Leetcode_20200419周赛</title>
-      <link>https://slkyrim.github.io/post/leetcode_20200419_weekly/</link>
-      <pubDate>Fri, 31 Jul 2020 12:15:32 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/leetcode_20200419_weekly/</guid>
-      <description>目录 重新格式化字符串 点菜展示表 数青蛙 生成数组 总结 重新格式化字符串 给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请你将该字符</description>
     </item>
     
   </channel>
