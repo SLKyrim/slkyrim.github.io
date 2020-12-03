@@ -37,6 +37,7 @@
         <description>&lt;h1 id=&#34;markdown图片技巧&#34;&gt;Markdown图片技巧&lt;/h1&gt;
 &lt;p&gt;首先可以利用有道云笔记作为图床：先把图片上传到有道云笔记中，然后分享笔记得到连接，进入网页端的笔记后右击图片即可得到图片的网络地址。&lt;/p&gt;
 &lt;h2 id=&#34;1普通方法&#34;&gt;1、普通方法&lt;/h2&gt;
+&lt;p&gt;该方法引用图片既可以在博客中显示，也可以在Markdown预览中显示。可为首选方法。&lt;/p&gt;
 &lt;p&gt;一个感叹号+一个方括号+一个圆括号。&lt;/p&gt;
 &lt;p&gt;其中方括号为图片在Markdown中的名称，圆括号为图片的网络地址。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -49,6 +50,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;例子：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://note.youdao.com/yws/public/resource/6ecb190774deb8c413c65893203b9ad3/xmlnote/34C35CB1F52C4339BB79ADE4C6241B00/3251&#34; alt=&#34;普通方法&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://note.youdao.com/yws/public/resource/6ecb190774deb8c413c65893203b9ad3/xmlnote/63D9FA6EAE0E4E79BBCAD379CF86AE79/3257&#34; alt=&#34;普通方法在网页端博客也可显示&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;2html语法&#34;&gt;2、HTML语法&lt;/h2&gt;
 &lt;p&gt;用html标记语言描述，好处是可以设置图片大小，图注等图片属性。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -68,23 +70,23 @@
 &lt;/div&gt;&lt;p&gt;例子：&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;3博客图片&#34;&gt;3、博客图片&lt;/h2&gt;
-&lt;p&gt;前两种方法的图片都无法在Github博客上显示。若想在博客内显示，但是不会Markdown预览中显示。需先将图片放到博客目录static路径下，在进行引用。先用两个花括号和一个尖括号括起来，然后标签名为figure，再填写引用图片路径src：&lt;/p&gt;
+&lt;p&gt;用此方法可稳定在博客内显示图片，但是不会在Markdown预览中显示。需先将图片放到博客目录static路径下，在进行引用。先用两个花括号和一个尖括号括起来，然后标签名为figure，再填写引用图片路径src：&lt;/p&gt;
 
 &lt;link rel=&#34;stylesheet&#34; href=&#34;https://slkyrim.github.io/css/hugo-easy-gallery.css&#34; /&gt;
 &lt;div class=&#34;box&#34;&gt;
 &lt;figure  itemprop=&#34;associatedMedia&#34;
   itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
     &lt;div class=&#34;img&#34;&gt;
-      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;images/Note_Markdown_Image/sample.png&#34; /&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://slkyrim.github.io/images/Note_Markdown_Image/sample.png&#34; /&gt;
     &lt;/div&gt;
-    &lt;a href=&#34;images/Note_Markdown_Image/sample.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+    &lt;a href=&#34;https://slkyrim.github.io/images/Note_Markdown_Image/sample.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
       &lt;figcaption&gt;&lt;h4&gt;博客图片&lt;/h4&gt;
       &lt;/figcaption&gt;
   &lt;/figure&gt;
 &lt;/div&gt;
 
 &lt;p&gt;例子：&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;img src=&#34;http://note.youdao.com/yws/public/resource/6ecb190774deb8c413c65893203b9ad3/xmlnote/EA0DAF34236D49AF928B37BEF5DA0BEA/3261&#34; alt=&#34;博客图片&#34;&gt;&lt;/p&gt;
 </description>
       
     </item>

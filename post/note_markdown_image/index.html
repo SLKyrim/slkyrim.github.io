@@ -64,12 +64,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/note_markdown_image/" />
 <meta property="article:published_time" content="2020-12-03T15:05:33+08:00" />
-<meta property="article:modified_time" content="2020-12-03T15:05:33+08:00" />
+<meta property="article:modified_time" content="2020-12-03T15:51:33+08:00" />
 <meta itemprop="name" content="Markdown图片技巧">
 <meta itemprop="description" content="Markdown图片技巧 首先可以利用有道云笔记作为图床：先把图片上传到有道云笔记中，然后分享笔记得到连接，进入网页端的笔记后右击图片即可得到">
 <meta itemprop="datePublished" content="2020-12-03T15:05:33+08:00" />
-<meta itemprop="dateModified" content="2020-12-03T15:05:33+08:00" />
-<meta itemprop="wordCount" content="430">
+<meta itemprop="dateModified" content="2020-12-03T15:51:33+08:00" />
+<meta itemprop="wordCount" content="456">
 
 
 
@@ -306,7 +306,7 @@
             <a href="https://slkyrim.github.io/categories/%E5%A4%87%E5%BF%98/"> 备忘 </a>
             
           </div>
-        <span class="more-meta"> 约 430 字 </span>
+        <span class="more-meta"> 约 456 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
 
         
@@ -341,6 +341,7 @@
       <h1 id="markdown图片技巧">Markdown图片技巧</h1>
 <p>首先可以利用有道云笔记作为图床：先把图片上传到有道云笔记中，然后分享笔记得到连接，进入网页端的笔记后右击图片即可得到图片的网络地址。</p>
 <h2 id="1普通方法">1、普通方法</h2>
+<p>该方法引用图片既可以在博客中显示，也可以在Markdown预览中显示。可为首选方法。</p>
 <p>一个感叹号+一个方括号+一个圆括号。</p>
 <p>其中方括号为图片在Markdown中的名称，圆括号为图片的网络地址。</p>
 <div class="highlight"><div class="chroma">
@@ -353,6 +354,7 @@
 </div>
 </div><p>例子：</p>
 <p><img src="http://note.youdao.com/yws/public/resource/6ecb190774deb8c413c65893203b9ad3/xmlnote/34C35CB1F52C4339BB79ADE4C6241B00/3251" alt="普通方法"></p>
+<p><img src="http://note.youdao.com/yws/public/resource/6ecb190774deb8c413c65893203b9ad3/xmlnote/63D9FA6EAE0E4E79BBCAD379CF86AE79/3257" alt="普通方法在网页端博客也可显示"></p>
 <h2 id="2html语法">2、HTML语法</h2>
 <p>用html标记语言描述，好处是可以设置图片大小，图注等图片属性。</p>
 <div class="highlight"><div class="chroma">
@@ -372,23 +374,23 @@
 </div><p>例子：</p>
 <!-- raw HTML omitted -->
 <h2 id="3博客图片">3、博客图片</h2>
-<p>前两种方法的图片都无法在Github博客上显示。若想在博客内显示，但是不会Markdown预览中显示。需先将图片放到博客目录static路径下，在进行引用。先用两个花括号和一个尖括号括起来，然后标签名为figure，再填写引用图片路径src：</p>
+<p>用此方法可稳定在博客内显示图片，但是不会在Markdown预览中显示。需先将图片放到博客目录static路径下，在进行引用。先用两个花括号和一个尖括号括起来，然后标签名为figure，再填写引用图片路径src：</p>
 
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box">
 <figure  itemprop="associatedMedia"
   itemscope itemtype="http://schema.org/ImageObject" >
     <div class="img">
-      <img itemprop="thumbnail" src="images/Note_Markdown_Image/sample.png" />
+      <img itemprop="thumbnail" src="/images/Note_Markdown_Image/sample.png" />
     </div>
-    <a href="images/Note_Markdown_Image/sample.png" itemprop="contentUrl"></a>
+    <a href="/images/Note_Markdown_Image/sample.png" itemprop="contentUrl"></a>
       <figcaption><h4>博客图片</h4>
       </figcaption>
   </figure>
 </div>
 
 <p>例子：</p>
-<!-- raw HTML omitted -->
+<p><img src="http://note.youdao.com/yws/public/resource/6ecb190774deb8c413c65893203b9ad3/xmlnote/EA0DAF34236D49AF928B37BEF5DA0BEA/3261" alt="博客图片"></p>
 
     </div>
 
@@ -403,6 +405,13 @@
     <span class="item-title">上次更新</span>
     <span class="item-content">
       2020-12-03
+      
+        <a href="https://github.com/SLKyrim/myBlog/commit/d41f4c52f205747ba776a564656dddaba25fdfef" title="Created Note_Markdown_Image.md">
+          (d41f4c5)
+        </a>
+        
+          <br>Created Note_Markdown_Image.md
+        
       
     </span>
   </p>
