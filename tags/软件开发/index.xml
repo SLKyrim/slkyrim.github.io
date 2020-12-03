@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>软件开发 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/</link>
+    <description>Recent content in 软件开发 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 03 Dec 2020 09:57:55 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WPF应用程序调用C编译生成的DLL动态链接库</title>
+      <link>https://slkyrim.github.io/post/note_csharp_call_c_dll/</link>
+      <pubDate>Thu, 03 Dec 2020 09:57:55 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/note_csharp_call_c_dll/</guid>
+      <description>WPF应用程序调用C编译生成的DLL动态链接库 由于项目分为上位机（WPF C#）和嵌入式（C和Python）两大版本，同时项目成员的技术栈涉及</description>
+    </item>
+    
+  </channel>
+</rss>

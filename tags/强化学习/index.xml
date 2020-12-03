@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>强化学习 on Single Long</title>
+    <link>https://slkyrim.github.io/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 强化学习 on Single Long</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 16 Nov 2020 10:12:42 +0800</lastBuildDate>
+    
+	<atom:link href="https://slkyrim.github.io/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>《强化学习》(第2版)读书笔记</title>
+      <link>https://slkyrim.github.io/post/book_reinforcement_learning/</link>
+      <pubDate>Mon, 16 Nov 2020 10:12:42 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/book_reinforcement_learning/</guid>
+      <description>1、导论 1.1、强化学习 1、强化学习：学习“做什么”（即如何把当前的情景映射成动作）才能使得数值化的收益信号最大化。 2、强化学习最重要的两个</description>
+    </item>
+    
+  </channel>
+</rss>

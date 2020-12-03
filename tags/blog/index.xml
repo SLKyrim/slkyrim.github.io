@@ -6,17 +6,26 @@
     <description>Recent content in blog on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 30 Jul 2020 16:56:43 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Dec 2020 15:05:33 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Markdown图片技巧</title>
+      <link>https://slkyrim.github.io/post/note_markdown_image/</link>
+      <pubDate>Thu, 03 Dec 2020 15:05:33 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/note_markdown_image/</guid>
+      <description>Markdown图片技巧 首先可以利用有道云笔记作为图床：先把图片上传到有道云笔记中，然后分享笔记得到连接，进入网页端的笔记后右击图片即可得到</description>
+    </item>
+    
+    <item>
       <title>Hugo搭建博客</title>
-      <link>https://slkyrim.github.io/post/hugo-blog/</link>
+      <link>https://slkyrim.github.io/post/note_hugo-blog/</link>
       <pubDate>Thu, 30 Jul 2020 16:56:43 +0800</pubDate>
       
-      <guid>https://slkyrim.github.io/post/hugo-blog/</guid>
+      <guid>https://slkyrim.github.io/post/note_hugo-blog/</guid>
       <description>自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug</description>
     </item>
     

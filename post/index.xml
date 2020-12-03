@@ -6,17 +6,53 @@
     <description>Recent content in Posts on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 21 Oct 2020 11:24:03 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Dec 2020 15:05:33 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Markdown图片技巧</title>
+      <link>https://slkyrim.github.io/post/note_markdown_image/</link>
+      <pubDate>Thu, 03 Dec 2020 15:05:33 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/note_markdown_image/</guid>
+      <description>Markdown图片技巧 首先可以利用有道云笔记作为图床：先把图片上传到有道云笔记中，然后分享笔记得到连接，进入网页端的笔记后右击图片即可得到</description>
+    </item>
+    
+    <item>
+      <title>WPF应用程序调用C编译生成的DLL动态链接库</title>
+      <link>https://slkyrim.github.io/post/note_csharp_call_c_dll/</link>
+      <pubDate>Thu, 03 Dec 2020 09:57:55 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/note_csharp_call_c_dll/</guid>
+      <description>WPF应用程序调用C编译生成的DLL动态链接库 由于项目分为上位机（WPF C#）和嵌入式（C和Python）两大版本，同时项目成员的技术栈涉及</description>
+    </item>
+    
+    <item>
+      <title>《精通 C# 7》(2017版)阅读记录</title>
+      <link>https://slkyrim.github.io/post/book_pro_csharp_7/</link>
+      <pubDate>Wed, 02 Dec 2020 11:00:41 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/book_pro_csharp_7/</guid>
+      <description>Pro C# 7 with .NET and .NET Core - Andrew Troelsen et al. 第VII部分 Windows Presentation Foundation 第24章 Windows Presentation Foundation和XAML简介 当.NET平台的1.0版发布时，需要构建图形桌面应</description>
+    </item>
+    
+    <item>
+      <title>《强化学习》(第2版)读书笔记</title>
+      <link>https://slkyrim.github.io/post/book_reinforcement_learning/</link>
+      <pubDate>Mon, 16 Nov 2020 10:12:42 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/book_reinforcement_learning/</guid>
+      <description>1、导论 1.1、强化学习 1、强化学习：学习“做什么”（即如何把当前的情景映射成动作）才能使得数值化的收益信号最大化。 2、强化学习最重要的两个</description>
+    </item>
+    
+    <item>
       <title>《JavaScript高级程序设计》(第4版) 阅读记录</title>
-      <link>https://slkyrim.github.io/post/professional_javascript_for_web_developers/</link>
+      <link>https://slkyrim.github.io/post/book_professional_javascript_for_web_developers/</link>
       <pubDate>Wed, 21 Oct 2020 11:24:03 +0800</pubDate>
       
-      <guid>https://slkyrim.github.io/post/professional_javascript_for_web_developers/</guid>
+      <guid>https://slkyrim.github.io/post/book_professional_javascript_for_web_developers/</guid>
       <description>1、什么是JavaScript？ 简史 随着网络的普及，对客户端脚本语言的需求逐渐增长。 当时，即使网页的大小和复杂性不断增加，大多数Intern</description>
     </item>
     
@@ -31,10 +67,10 @@
     
     <item>
       <title>《操作系统导论》阅读记录</title>
-      <link>https://slkyrim.github.io/post/os_intro/</link>
+      <link>https://slkyrim.github.io/post/book_os_intro/</link>
       <pubDate>Sun, 02 Aug 2020 18:40:05 +0800</pubDate>
       
-      <guid>https://slkyrim.github.io/post/os_intro/</guid>
+      <guid>https://slkyrim.github.io/post/book_os_intro/</guid>
       <description>前言 本文是针对Remzi H. Arpaci-Dusseau等人专著的《Operating Systems: Three Easy Pieces》(中文译名《操作系统导论》)的英文原</description>
     </item>
     
@@ -58,19 +94,19 @@
     
     <item>
       <title>阿里20200727技术岗笔试</title>
-      <link>https://slkyrim.github.io/post/alibaba_20200727/</link>
+      <link>https://slkyrim.github.io/post/test_alibaba_20200727/</link>
       <pubDate>Fri, 31 Jul 2020 15:28:32 +0800</pubDate>
       
-      <guid>https://slkyrim.github.io/post/alibaba_20200727/</guid>
+      <guid>https://slkyrim.github.io/post/test_alibaba_20200727/</guid>
       <description>目录 数字序列博弈游戏 二维背包问题 数字序列博弈游戏 A和B两个人进行博弈游戏。有一个非递减数字序列，由A先手，每次选择一个当前序列中的数字，把该</description>
     </item>
     
     <item>
       <title>腾讯PCG2020春招后台开发笔试</title>
-      <link>https://slkyrim.github.io/post/tencent_pcg_backend2020/</link>
+      <link>https://slkyrim.github.io/post/test_tencent_pcg_backend2020/</link>
       <pubDate>Fri, 31 Jul 2020 14:28:32 +0800</pubDate>
       
-      <guid>https://slkyrim.github.io/post/tencent_pcg_backend2020/</guid>
+      <guid>https://slkyrim.github.io/post/test_tencent_pcg_backend2020/</guid>
       <description>目录 电话号码格式 房屋涂色 差异最小的环形队列 最少的上漆次数 指令序列可达的最远距离 总结 电话号码格式 合法的电话号码格式是11位且第一个数必须是8。</description>
     </item>
     
@@ -153,42 +189,6 @@
       
       <guid>https://slkyrim.github.io/post/leetcode_20200524_weekly/</guid>
       <description>目录 检查单词是否为句中其他单词的前缀 定长子串中元音的最大数目 二叉树中的伪回文路径 两个子序列的最大点积 总结 检查单词是否为句中其他单词的前缀 给一</description>
-    </item>
-    
-    <item>
-      <title>Leetcode_20200517周赛</title>
-      <link>https://slkyrim.github.io/post/leetcode_20200517_weekly/</link>
-      <pubDate>Fri, 31 Jul 2020 12:19:32 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/leetcode_20200517_weekly/</guid>
-      <description>目录 目录 在既定时间做作业的学生人数 示例 思路 代码 重新排列句子中的单词 示例 思路 代码 收藏清单 示例 思路 代码 圆形靶内的最大飞镖数量 示例 思路 代码 总结 在既</description>
-    </item>
-    
-    <item>
-      <title>Leetcode_20200510周赛</title>
-      <link>https://slkyrim.github.io/post/leetcode_20200510_weekly/</link>
-      <pubDate>Fri, 31 Jul 2020 12:18:32 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/leetcode_20200510_weekly/</guid>
-      <description>目录 用栈操作构建数组 形成两个异或相等数组的三元组数目 收集树上所有苹果的最少时间 切披萨的方案数 总结 用栈操作构建数组 给你一个目标数组 target 和一个整数</description>
-    </item>
-    
-    <item>
-      <title>Leetcode_20200503周赛</title>
-      <link>https://slkyrim.github.io/post/leetcode_20200503_weekly/</link>
-      <pubDate>Fri, 31 Jul 2020 12:17:32 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/leetcode_20200503_weekly/</guid>
-      <description>目录 旅行终点站 是否所有1都至少相隔k个元素 绝对值不超过限制的最长连续子数组 有序矩阵中的第k个最小数组和 总结 旅行终点站 给你一份旅游线路图，该线</description>
-    </item>
-    
-    <item>
-      <title>Leetcode_20200426周赛</title>
-      <link>https://slkyrim.github.io/post/leetcode_20200426_weekly/</link>
-      <pubDate>Fri, 31 Jul 2020 12:16:32 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/leetcode_20200426_weekly/</guid>
-      <description>目录 分割字符串的最大得分 可获得的最大点数 对角线遍历ii 带限制的子序列和 总结 分割字符串的最大得分 给你一个由若干 0 和 1 组成的字符串 s ，请你计算并</description>
     </item>
     
   </channel>

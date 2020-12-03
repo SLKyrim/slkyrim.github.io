@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hugo搭建博客 - Single Long</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Single Long" />
+  <meta name="description" content="自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug" />
+
+  <meta name="keywords" content="Single Long, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<link rel="canonical" href="https://slkyrim.github.io/post/note_hugo-blog/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="Hugo搭建博客" />
+<meta property="og:description" content="自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://slkyrim.github.io/post/note_hugo-blog/" />
+<meta property="article:published_time" content="2020-07-30T16:56:43+08:00" />
+<meta property="article:modified_time" content="2020-12-03T15:03:38+08:00" />
+<meta itemprop="name" content="Hugo搭建博客">
+<meta itemprop="description" content="自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug">
+<meta itemprop="datePublished" content="2020-07-30T16:56:43+08:00" />
+<meta itemprop="dateModified" content="2020-12-03T15:03:38+08:00" />
+<meta itemprop="wordCount" content="2516">
+
+
+
+<meta itemprop="keywords" content="Hugo,github,utterances,blog,博客," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hugo搭建博客"/>
+<meta name="twitter:description" content="自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。 截至本文写成日期，本博客主要基于hug"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">龍</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      龍
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://slkyrim.github.io/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Hugo搭建博客</h1>
+      
+      <div class="post-meta">
+        <time datetime="2020-07-30" class="post-time">
+          2020-07-30
+        </time>
+        <div class="post-category">
+            <a href="https://slkyrim.github.io/categories/%E5%A4%87%E5%BF%98/"> 备忘 </a>
+            
+          </div>
+        <span class="more-meta"> 约 2516 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1安装环境">1、安装环境</a></li>
+    <li><a href="#2安装hugo">2、安装Hugo</a></li>
+    <li><a href="#3本地部署博客">3、本地部署博客</a>
+      <ul>
+        <li><a href="#31生成博客">3.1、生成博客</a></li>
+        <li><a href="#32配置主题">3.2、配置主题</a></li>
+        <li><a href="#33本地部署">3.3、本地部署</a></li>
+      </ul>
+    </li>
+    <li><a href="#4远端部署博客">4、远端部署博客</a>
+      <ul>
+        <li><a href="#41在github上建立博客远端仓库">4.1、在github上建立博客远端仓库</a></li>
+        <li><a href="#42写博文">4.2、写博文</a></li>
+        <li><a href="#43建立博客主体的git仓库">4.3、建立博客主体的git仓库</a></li>
+        <li><a href="#44将修改后的博客同步到远端">4.4、将修改后的博客同步到远端</a></li>
+      </ul>
+    </li>
+    <li><a href="#5额外功能评论功能">5、额外功能：评论功能</a></li>
+    <li><a href="#6补充windows搭建流程">6、补充：Windows搭建流程</a>
+      <ul>
+        <li><a href="#61安装hugo">6.1、安装Hugo</a></li>
+        <li><a href="#62同步博客">6.2、同步博客</a></li>
+      </ul>
+    </li>
+    <li><a href="#7结语">7、结语</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>自己的个人博客部署好了。具备写博文，归档，读者评论等主要功能。第一篇博文记录自己搭建博客的过程以备忘。</p>
+<p>截至本文写成日期，本博客主要基于<a href="https://github.com/xianmin/hugo-theme-jane">hugo-theme-jane</a>搭建，感谢作者<a href="https://github.com/xianmin">xianmin</a></p>
+<h2 id="1安装环境">1、安装环境</h2>
+<p>macOS Catalina 10.15.4</p>
+<p>确保本地已安装Git和Homebrew。</p>
+<h2 id="2安装hugo">2、安装Hugo</h2>
+<p>视频参考：<a href="https://www.bilibili.com/video/BV1q4411i7gL">点击这里</a></p>
+<p>在终端输入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">brew install hugo
+</code></pre></td></tr></table>
+</div>
+</div><p>每次用brew安装都会卡在更新上，有两种解决方法：</p>
+<ul>
+<li>1、开另一个终端重新输入以上命令。如果第一个终端更新完成，则会下载更新版本的软件，那么之后再更新软件</li>
+<li>2、按Control+C停止更新，直接开始下载软件</li>
+</ul>
+<p>在终端输入以下命令:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo version
+</code></pre></td></tr></table>
+</div>
+</div><p>如果出现如下安装的hugo版本号则说明hugo已安装成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">Hugo Static Site Generator v0.74.3/extended darwin/amd64 BuildDate: unknown
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3本地部署博客">3、本地部署博客</h2>
+<h3 id="31生成博客">3.1、生成博客</h3>
+<p>输入以下命令生成博客：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo new site myBlog
+</code></pre></td></tr></table>
+</div>
+</div><p>这样便会生成一个名字为myBlog（根据个人需要自行命名）的文件夹，里面是博客的框架。</p>
+<h3 id="32配置主题">3.2、配置主题</h3>
+<p>Hugo有很多主题可以直接拿来用，这里采用的是<a href="https://github.com/xianmin">xianmin</a>的<a href="https://github.com/xianmin/hugo-theme-jane">jane</a>主题，可以去他的Github库里看具体配置流程。</p>
+<p>这里简述一下流程，先cd到博客文件夹路径下，我这里是myBlog，进入后输入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">git clone https://github.com/xianmin/hugo-theme-jane.git --depth<span class="o">=</span><span class="m">1</span> themes/jane
+</code></pre></td></tr></table>
+</div>
+</div><p>下载好主题后要在myBlog路径下对<strong>config.toml</strong>配置文件进行配置，这里推荐直接拷贝<a href="https://github.com/xianmin">xianmin</a>的<a href="https://github.com/xianmin/xianmin.org/blob/master/config.toml">配置文件</a>。因为现在还没有建立远端git仓库，所以里面的<strong>enableGitInfo</strong>要先设置为false，不然之后会报错。</p>
+<h3 id="33本地部署">3.3、本地部署</h3>
+<p>输入以下命令开始部署博客：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo server
+</code></pre></td></tr></table>
+</div>
+</div><p>这时在浏览器中输入<a href="http://localhost:1313/">http://localhost:1313/</a>就可以看到博客部署到本地上了。</p>
+<h2 id="4远端部署博客">4、远端部署博客</h2>
+<h3 id="41在github上建立博客远端仓库">4.1、在github上建立博客远端仓库</h3>
+<p>比如我的Github用户名为SLKyrim，那么需要建立一个名为 slkyrim.github.io 的仓库（大小写不区分）作为博客的远端仓库。</p>
+<p>然后需要更改config.toml中的<strong>baseURL</strong>设置为建立的这个仓库的域名，这里是&quot;https://slkyrim.github.io/&quot;。</p>
+<p>输入以下命令生成博客在前端的文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo --buildDrafts
+</code></pre></td></tr></table>
+</div>
+</div><p>这时应该会在myBlog路径下生成一个public文件夹，这里面存放博客的前端文件。</p>
+<p>然后cd进public文件夹，依次输入以下命令将这些前端文件推到Github的远端仓库中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">git init
+git add .
+git commit -m <span class="s2">&#34;First Commit&#34;</span>
+git remote add origin https://github.com/SLKyrim/slkyrim.github.io.git 【注意这里要换成你的远程仓库的地址】
+git push -u origin master
+</code></pre></td></tr></table>
+</div>
+</div><p>这时在浏览其中输入你远端博客的域名即可访问你的博客，这里是我的博客的域名<a href="https://slkyrim.github.io/">https://slkyrim.github.io/</a>。</p>
+<h3 id="42写博文">4.2、写博文</h3>
+<p>这时博客空空如也，自然要写些博文。</p>
+<p>下图是我所理解的基于Hugo的博客文件结构</p>
+
+<link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
+<div class="box">
+<figure  itemprop="associatedMedia"
+  itemscope itemtype="http://schema.org/ImageObject" >
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/Hugo-blog/blog_file_struct.png" />
+    </div>
+    <a href="/images/Hugo-blog/blog_file_struct.png" itemprop="contentUrl"></a>
+      <figcaption><h4>Hugo博客文件结构</h4>
+      </figcaption>
+  </figure>
+</div>
+
+<p>所以我们应该在content文件夹下的post文件夹里放置我们的Markdown博文文件。</p>
+<h3 id="43建立博客主体的git仓库">4.3、建立博客主体的git仓库</h3>
+<p>之前我们把配置文件config.toml中的enableGitInfo设为false，是因为我们还没给博客主体建立git仓库，于是我们cd回博客的主路径myBlog，然后输入命令建立博客主体的git仓库。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">git init
+</code></pre></td></tr></table>
+</div>
+</div><p>建<strong>主体仓库</strong>好后，我直接用<a href="https://desktop.github.com/">Github Desktop</a>将博客主体推到我的Github上，并把主题theme/jane和前端文件public都设置进gitignore。这样我们就能把config.toml中的enableGitInfo设为true，并将[params.gitInfo]中gitRepo设为<strong>主体仓库</strong>的路径，这样我们每次修改博文的时候同步到<strong>主体仓库</strong>后都会自动更新修改时间。</p>
+<h3 id="44将修改后的博客同步到远端">4.4、将修改后的博客同步到远端</h3>
+<p>写好博文后，输入以下命令重新生成新的public文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo
+</code></pre></td></tr></table>
+</div>
+</div><p>把新生成的public推送到远端仓库即可将修改同步到远端博客。</p>
+<h2 id="5额外功能评论功能">5、额外功能：评论功能</h2>
+<p>博客有评论功能会觉得和读者有互动（真希望会有呢），可以一起交流进步。</p>
+<p>这里选用<a href="https://utteranc.es/">utterances</a>通过Github issue来支持静态博客评论功能。轻量且安全。</p>
+<p>又要在Github上创建一个仓库专门用来存放评论的issue。创建好<strong>评论仓库</strong>后，安装<a href="https://github.com/apps/utterances">utterances APP</a>，并选择安装在<strong>评论仓库</strong>上。并在配置文件config.toml里[params.utteranc]中的repo路径设置为<strong>评论仓库</strong>。这样我们的博客便拥有评论功能了。</p>
+<h2 id="6补充windows搭建流程">6、补充：Windows搭建流程</h2>
+<p>一篇非常详细的参考博文：<a href="https://www.cnblogs.com/Codemandyk/p/10855891.html">点击这里</a></p>
+<p>由于写这一节时，我已在MacOS部署好这个博客，所以我在这一节主要讲如何在另一台电脑的Windows操作系统上将博客同步过来。</p>
+<h3 id="61安装hugo">6.1、安装Hugo</h3>
+<p>到Hugo官网下载对应操作系统的<a href="https://github.com/gohugoio/hugo/releases">安装包</a>进行手动安装。我在G盘中创建一个路径<strong>G:\Hugo\bin</strong>，并将安装包内解压出来的<strong>hugo.exe</strong>文件放到该路径下。在系统环境变量<strong>path</strong>中添加路径<strong>G:\Hugo\bin</strong>即可安装完成。可以在终端中输入如下命令查看Hugo是否安装完成：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo version
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="62同步博客">6.2、同步博客</h3>
+<h4 id="621同步主题">6.2.1、同步主题</h4>
+<p>采用<a href="https://desktop.github.com/">Github Desktop</a>先将博客主体仓库同步到本地，由于gitignore掉了主题和远端，所以需要进入博客主体路径重新将主题clone下来：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">git clone https://github.com/xianmin/hugo-theme-jane.git --depth<span class="o">=</span><span class="m">1</span> themes/jane
+</code></pre></td></tr></table>
+</div>
+</div><p>这里我看xianmin的<a href="https://github.com/xianmin/xianmin.org">博客主体</a>中是带有主题的，不过是直接指向<a href="https://github.com/xianmin/hugo-theme-jane/tree/2666d94d46c1f2e690aacefe51e81b13d07500c6">主题仓库</a>，暂时不知道如何实现，希望有读者可以解答。如果实现的话，以后在不同电脑同步就可以不用重新clone主题了。</p>
+<h4 id="622同步远端">6.2.2、同步远端</h4>
+<p>在博客主体路径下新建public文件夹，然后进入public文件夹依次输入以下命令同步远端文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">git init
+git remote add origin https://github.com/SLKyrim/slkyrim.github.io.git 【注意这里换成你自己的远端仓库路径】
+git pull origin master
+</code></pre></td></tr></table>
+</div>
+</div><p>这样在博客主体路径下输入以下命令即可更新远端文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">hugo
+</code></pre></td></tr></table>
+</div>
+</div><p>剩下的操作与MacOS的无异。</p>
+<h2 id="7结语">7、结语</h2>
+<p>建立个人博客，一共在Github上创建了三个仓库：</p>
+<ul>
+<li>远端仓库：存放博客public前端文件的，只有把更新的配置同步到这个仓库，远端博客才会更新</li>
+<li>主体仓库：存放博客主体文件的，包括博文，图片等。</li>
+<li>评论仓库：存放基于Github issue的评论的仓库，轻量且安全。</li>
+</ul>
+<p>一些写博文的技巧：</p>
+<ul>
+<li>例如我要创建一篇名为<strong>example.md</strong>的博文时，在博客主体路径输入命令 <strong>hugo new post/example.md</strong> 创建，会自动生成创建博文的时间。</li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Single Long</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-12-03
+      
+        <a href="https://github.com/SLKyrim/myBlog/commit/6525e595026bee59c66248ec5b6d298ff9777d6e" title="Draft (#1)">
+          (6525e59)
+        </a>
+        
+          <br>Draft (#1)
+        
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://slkyrim.github.io/tags/hugo/">Hugo</a>
+          <a href="https://slkyrim.github.io/tags/github/">github</a>
+          <a href="https://slkyrim.github.io/tags/utterances/">utterances</a>
+          <a href="https://slkyrim.github.io/tags/blog/">blog</a>
+          <a href="https://slkyrim.github.io/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/leetcode_2020_spring/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">力扣杯2020春季全国编程大赛_个人赛</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "SLKyrim/comments-for-myBlog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:623962644@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/SLKyrim" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://slkyrim.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2020
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Single Long
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -6,26 +6,44 @@
     <description>Recent content in 技术书籍 on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 21 Oct 2020 11:24:03 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 02 Dec 2020 11:00:41 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/categories/%E6%8A%80%E6%9C%AF%E4%B9%A6%E7%B1%8D/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>《精通 C# 7》(2017版)阅读记录</title>
+      <link>https://slkyrim.github.io/post/book_pro_csharp_7/</link>
+      <pubDate>Wed, 02 Dec 2020 11:00:41 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/book_pro_csharp_7/</guid>
+      <description>Pro C# 7 with .NET and .NET Core - Andrew Troelsen et al. 第VII部分 Windows Presentation Foundation 第24章 Windows Presentation Foundation和XAML简介 当.NET平台的1.0版发布时，需要构建图形桌面应</description>
+    </item>
+    
+    <item>
+      <title>《强化学习》(第2版)读书笔记</title>
+      <link>https://slkyrim.github.io/post/book_reinforcement_learning/</link>
+      <pubDate>Mon, 16 Nov 2020 10:12:42 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/book_reinforcement_learning/</guid>
+      <description>1、导论 1.1、强化学习 1、强化学习：学习“做什么”（即如何把当前的情景映射成动作）才能使得数值化的收益信号最大化。 2、强化学习最重要的两个</description>
+    </item>
+    
+    <item>
       <title>《JavaScript高级程序设计》(第4版) 阅读记录</title>
-      <link>https://slkyrim.github.io/post/professional_javascript_for_web_developers/</link>
+      <link>https://slkyrim.github.io/post/book_professional_javascript_for_web_developers/</link>
       <pubDate>Wed, 21 Oct 2020 11:24:03 +0800</pubDate>
       
-      <guid>https://slkyrim.github.io/post/professional_javascript_for_web_developers/</guid>
+      <guid>https://slkyrim.github.io/post/book_professional_javascript_for_web_developers/</guid>
       <description>1、什么是JavaScript？ 简史 随着网络的普及，对客户端脚本语言的需求逐渐增长。 当时，即使网页的大小和复杂性不断增加，大多数Intern</description>
     </item>
     
     <item>
       <title>《操作系统导论》阅读记录</title>
-      <link>https://slkyrim.github.io/post/os_intro/</link>
+      <link>https://slkyrim.github.io/post/book_os_intro/</link>
       <pubDate>Sun, 02 Aug 2020 18:40:05 +0800</pubDate>
       
-      <guid>https://slkyrim.github.io/post/os_intro/</guid>
+      <guid>https://slkyrim.github.io/post/book_os_intro/</guid>
       <description>前言 本文是针对Remzi H. Arpaci-Dusseau等人专著的《Operating Systems: Three Easy Pieces》(中文译名《操作系统导论》)的英文原</description>
     </item>
     
