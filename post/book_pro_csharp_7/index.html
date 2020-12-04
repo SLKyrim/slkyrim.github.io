@@ -64,12 +64,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://slkyrim.github.io/post/book_pro_csharp_7/" />
 <meta property="article:published_time" content="2020-12-02T11:00:41+08:00" />
-<meta property="article:modified_time" content="2020-12-03T15:03:38+08:00" />
+<meta property="article:modified_time" content="2020-12-03T20:23:40+08:00" />
 <meta itemprop="name" content="《精通 C# 7》(2017版)阅读记录">
 <meta itemprop="description" content="Pro C# 7 with .NET and .NET Core - Andrew Troelsen et al. 第VII部分 Windows Presentation Foundation 第24章 Windows Presentation Foundation和XAML简介 当.NET平台的1.0版发布时，需要构建图形桌面应">
 <meta itemprop="datePublished" content="2020-12-02T11:00:41+08:00" />
-<meta itemprop="dateModified" content="2020-12-03T15:03:38+08:00" />
-<meta itemprop="wordCount" content="18109">
+<meta itemprop="dateModified" content="2020-12-03T20:23:40+08:00" />
+<meta itemprop="wordCount" content="28246">
 
 
 
@@ -306,8 +306,8 @@
             <a href="https://slkyrim.github.io/categories/%E6%8A%80%E6%9C%AF%E4%B9%A6%E7%B1%8D/"> 技术书籍 </a>
             
           </div>
-        <span class="more-meta"> 约 18109 字 </span>
-          <span class="more-meta"> 预计阅读 37 分钟 </span>
+        <span class="more-meta"> 约 28246 字 </span>
+          <span class="more-meta"> 预计阅读 57 分钟 </span>
 
         
         
@@ -337,7 +337,7 @@
         <li><a href="#概要">概要</a></li>
       </ul>
     </li>
-    <li><a href="#wpf控件布局事件和数据绑定">WPF控件，布局，事件和数据绑定</a>
+    <li><a href="#第25章-wpf控件布局事件和数据绑定">第25章 WPF控件，布局，事件和数据绑定</a>
       <ul>
         <li><a href="#wpf核心控件概述">WPF核心控件概述</a></li>
         <li><a href="#使用面板控制内容布局">使用面板控制内容布局</a></li>
@@ -345,6 +345,9 @@
         <li><a href="#了解wpf命令">了解WPF命令</a></li>
         <li><a href="#了解路由事件">了解路由事件</a></li>
         <li><a href="#深入了解wpf-api和控件">深入了解WPF API和控件</a></li>
+        <li><a href="#构建ink-api标签">构建Ink API标签</a></li>
+        <li><a href="#介绍wpf数据绑定模型">介绍WPF数据绑定模型</a></li>
+        <li><a href="#了解依赖属性的作用">了解依赖属性的作用</a></li>
         <li><a href="#概要-1">概要</a></li>
       </ul>
     </li>
@@ -1046,7 +1049,7 @@ xmlns:myCtrls=&quot;clr-namespace:SomeNamespaceInMyApp&rdquo;</p>
 <p>Windows Presentation Foundation（WPF）是 .NET 3.0发行版中引入的用户界面工具包。WPF的主要目标是将许多以前不相关的桌面技术（2D图形，3D图形，窗口和控件开发等）集成和统一到一个统一的编程模型中。除此之外，WPF程序通常使用XAML，它允许您通过标记声明WPF元素的外观。</p>
 <p>回想一下XAML允许您使用声明性语法描述.NET对象的树。在本章对XAML的研究中，您接触到了一些新的语法，包括属性元素语法和附加属性，以及类型转换器和XAML标记扩展的作用。</p>
 <p>XAML是任何生产级WPF应用程序的关键方面。本章的最后一个示例使您有机会构建一个WPF应用程序，该应用程序显示了本章讨论的许多概念。下一章将深入探讨这些概念，并介绍更多概念。</p>
-<h2 id="wpf控件布局事件和数据绑定">WPF控件，布局，事件和数据绑定</h2>
+<h2 id="第25章-wpf控件布局事件和数据绑定">第25章 WPF控件，布局，事件和数据绑定</h2>
 <p>第24章为WPF编程模型提供了基础，包括检查Window和Application类，XAML语法以及代码文件的使用。第24章还向您介绍了使用Visual Studio设计器构建WPF应用程序的过程。在本章中，您将使用几个新的控件和布局管理器来研究更复杂的图形用户界面的构造，并逐步了解Visual Studio的WPF设计器的其他功能。</p>
 <p>本章还将研究一些重要的WPF相关控制主题，例如数据绑定编程模型和控制命令的使用。您还将学习如何使用Ink和Documents API，使用它们可以捕获手写笔（或鼠标）输入并分别使用XML Paper Specification生成RTF文档。</p>
 <h3 id="wpf核心控件概述">WPF核心控件概述</h3>
@@ -1335,11 +1338,812 @@ xmlns:myCtrls=&quot;clr-namespace:SomeNamespaceInMyApp&rdquo;</p>
 </div><p>注意，您不会停止任何事件处理程序的事件冒泡。如果运行此应用程序，则将根据单击按钮的位置显示唯一的消息框。图25-15显示了单击外部Ellipse对象的结果。</p>
 <!-- raw HTML omitted -->
 <p>那么，为什么WPF事件通常倾向于成对出现（一个隧道和一个冒泡）？ 答案是，通过预览事件，您可以在启动冒泡对象之前执行任何特殊的逻辑（数据验证，禁用冒泡操作等）。举例来说，假设您有一个TextBox，它只应包含数字数据。您可以处理PreviewKeyDown事件，并且如果看到用户输入了非数字数据，则可以通过将Handled属性设置为true来取消冒泡事件。</p>
-<p>就像您猜到的那样，当您构建包含自定义事件的自定义控件时，您可以通过以下方式创作事件：事件可以在XAML树中冒泡（或隧穿）。就本章而言，我不会研究如何构建自定义路由事件（但是，该过程与构建自定义依赖项属性没有什么不同）。如果您有兴趣，请查看.NET Framework 4.7 SDK文档中的“路由事件概述”主题。 在其中，您会找到许多可以帮助您的教程。</p>
+<p>就像您猜到的那样，当您构建包含自定义事件的自定义控件时，您可以通过以下方式创作事件：事件可以在XAML树中冒泡（或隧穿）。就本章而言，我不会研究如何构建自定义路由事件（但是，该过程与构建自定义依赖项属性没有什么不同）。如果您有兴趣，请查看 .NET Framework 4.7 SDK文档中的“路由事件概述”主题。 在其中，您会找到许多可以帮助您的教程。</p>
 <h3 id="深入了解wpf-api和控件">深入了解WPF API和控件</h3>
 <p>本章的其余部分将使您有机会使用Visual Studio构建新的WPF应用程序。目标是创建一个由包含一组选项卡的TabControl小部件组成的UI。每个选项卡将说明您可能希望在软件项目中使用的一些新的WPF控件和有趣的API。在此过程中，您还将学习Visual Studio WPF设计器的其他功能。</p>
 <h4 id="使用tabcontrol">使用TabControl</h4>
 <p>首先，创建一个名为WpfControlsAndAPIs的新WPF应用程序。如前所述，您的初始窗口将包含一个带有三个不同选项卡的TabControl，每个选项卡都展示了一组相关的控件和/或WPF API。 将窗口的宽度更新为800，高度更新为350。</p>
+<p>在Visual Studio工具箱中找到TabControl控件，将其放到设计器中，然后将标记更新为以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="p">&lt;</span><span class="n">TabControl</span> <span class="n">Name</span><span class="p">=</span><span class="s">&#34;MyTabControl&#34;</span> <span class="n">HorizontalAlignment</span><span class="p">=</span><span class="s">&#34;Stretch&#34;</span> <span class="n">VerticalAlignment</span><span class="p">=</span><span class="s">&#34;Stretch&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">TabItem</span> <span class="n">Header</span><span class="p">=</span><span class="s">&#34;TabItem&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="n">Grid</span> <span class="n">Background</span><span class="p">=</span><span class="s">&#34;#FFE5E5E5&#34;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="n">TabItem</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">TabItem</span> <span class="n">Header</span><span class="p">=</span><span class="s">&#34;TabItem&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="n">Grid</span> <span class="n">Background</span><span class="p">=</span><span class="s">&#34;#FFE5E5E5&#34;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="n">TabItem</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="n">TabControl</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>您会注意到，系统将自动为您提供两个选项卡项。要添加其他选项卡，只需在Document Outline窗口中右键单击TabControl节点，然后选择Add TabItem菜单选项（也可以在设计器上右键单击TabControl来激活相同的菜单选项），或者只是开始输入 在XAML编辑器中。使用任一方法添加一个附加选项卡。</p>
+<p>现在，通过XAML编辑器更新每个TabItem控件，并更改每个选项卡的Header属性，将它们命名为Ink API，Data Binding和DataGrid。此时，您的窗口设计器应如图25-16所示。</p>
+<!-- raw HTML omitted -->
+<p>要知道，当你选择一个标签进行编辑，该选项卡成为活动选项卡，你可以从工具箱窗口中拖动控制设计该选项卡。现在，您已经定义了核心的TabControl，您可以逐个标签地制定详细信息，并逐步了解WPF API的更多功能。</p>
+<h3 id="构建ink-api标签">构建Ink API标签</h3>
+<p>第一个标签将用于显示WPF数字墨水API的总体作用，使您可以轻松地将绘画功能整合到程序中。当然，该应用程序实际上不需要是绘画应用程序；您可以将此API用于多种用途，包括捕获手写输入。</p>
+<blockquote>
+<p>注意: 对于本章的其余大部分（以及WPF的下一章），我将直接编辑XAML，而不是使用各种窗口。尽管控件可以工作，但布局不是您想要的（Visual Studio根据控件的放置位置增加了边距和内边距），这样你将花费大量时间清理XAML。</p>
+</blockquote>
+<p>首先将Ink API TabItem下的Grid标记更改为StackPanel并添加一个结束标记（确保从开始标记中删除“ /”）。 您的标记应如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;TabItem</span> <span class="na">Header=</span><span class="s">&#34;Ink API&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;StackPanel</span> <span class="na">Background=</span><span class="s">&#34;#FFE5E5E5&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+<span class="nt">&lt;/TabItem&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="设计工具栏">设计工具栏</h4>
+<p>添加一个名为InkToolbar的新工具栏控件（使用XAML编辑器），高度为60。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;ToolBar</span> <span class="na">Name=</span><span class="s">&#34;InkToolBar&#34;</span> <span class="na">Height=</span><span class="s">&#34;60&#34;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/ToolBar&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在Border控件内部的WrapPanel内部添加三个RadioButton控件，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;Border</span> <span class="na">Margin=</span><span class="s">&#34;0,2,0,2.4&#34;</span> <span class="na">Width=</span><span class="s">&#34;280&#34;</span> <span class="na">VerticalAlignment=</span><span class="s">&#34;Center&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;WrapPanel&gt;</span>
+        <span class="nt">&lt;RadioButton</span> <span class="na">x:Name=</span><span class="s">&#34;inkRadio&#34;</span> <span class="na">Margin=</span><span class="s">&#34;5,10&#34;</span> <span class="na">Content=</span><span class="s">&#34;Ink Mode!&#34;</span> <span class="na">IsChecked=</span><span class="s">&#34;True&#34;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;RadioButton</span> <span class="na">x:Name=</span><span class="s">&#34;eraseRadio&#34;</span> <span class="na">Margin=</span><span class="s">&#34;5,10&#34;</span> <span class="na">Content=</span><span class="s">&#34;Erase Mode!&#34;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;RadioButton</span> <span class="na">x:Name=</span><span class="s">&#34;selectRadio&#34;</span> <span class="na">Margin=</span><span class="s">&#34;5,10&#34;</span> <span class="na">Content=</span><span class="s">&#34;Select Mode!&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/WrapPanel&gt;</span>
+<span class="nt">&lt;/Border&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当RadioButton控件未放置在父面板控件内部时，它将具有与Button控件相同的UI！ 这就是为什么我将RadioButton控件包装在WrapPanel中的原因。</p>
+<p>接下来，添加一个分隔符，然后添加一个宽度为175，边距为10,0,0,0的ComboBox。 添加三个具有红色，绿色和蓝色内容的ComboBoxItem标签，并在整个ComboBox后面添加另一个Separator控件，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;Separator/&gt;</span>
+    <span class="nt">&lt;ComboBox</span> <span class="na">x:Name=</span><span class="s">&#34;comboColors&#34;</span> <span class="na">Width=</span><span class="s">&#34;175&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10,0,0,0&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ComboBoxItem</span> <span class="na">Content=</span><span class="s">&#34;Red&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;ComboBoxItem</span> <span class="na">Content=</span><span class="s">&#34;Green&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;ComboBoxItem</span> <span class="na">Content=</span><span class="s">&#34;Blue&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/ComboBox&gt;</span>
+<span class="nt">&lt;Separator/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="单选按钮控件">单选按钮控件</h4>
+<p>在此示例中，您希望这三个RadioButton控件互斥。在其他GUI框架中，要确保一组相关控件（例如单选按钮）是互斥的，则需要将它们放在同一组框中。您无需在WPF下执行此操作。相反，您可以简单地将它们全部分配给相同的组名。 这很有用，因为相关项目不需要实际收集在同一区域中，而是可以放置在窗口中的任何位置。</p>
+<p>RadioButton类包含一个IsChecked属性，当最终用户单击UI元素时，该属性将在true和false之间切换。 此外，RadioButton提供了两个事件（“Checked”和“Unchecked”），可用于拦截此状态更改。</p>
+<h4 id="添加保存加载和删除按钮">添加保存，加载和删除按钮</h4>
+<p>ToolBar控件中的最终控件将是一个网格，其中包含三个Button控件。在最后一个Separator控件之后添加以下标记：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;Grid&gt;</span>
+    <span class="nt">&lt;Grid.ColumnDefinitions&gt;</span>
+        <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&#34;Auto&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&#34;Auto&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&#34;Auto&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Grid.ColumnDefinitions&gt;</span>
+    <span class="nt">&lt;Button</span> <span class="na">Grid.Column=</span><span class="s">&#34;0&#34;</span> <span class="na">x:Name=</span><span class="s">&#34;btnSave&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10,10&#34;</span> <span class="na">Width=</span><span class="s">&#34;70&#34;</span> <span class="na">Content=</span><span class="s">&#34;Save Data&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Button</span> <span class="na">Grid.Column=</span><span class="s">&#34;1&#34;</span> <span class="na">x:Name=</span><span class="s">&#34;btnLoad&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10,10&#34;</span> <span class="na">Width=</span><span class="s">&#34;70&#34;</span> <span class="na">Content=</span><span class="s">&#34;Load Data&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Button</span> <span class="na">Grid.Column=</span><span class="s">&#34;2&#34;</span> <span class="na">x:Name=</span><span class="s">&#34;btnClear&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10,10&#34;</span> <span class="na">Width=</span><span class="s">&#34;70&#34;</span> <span class="na">Content=</span><span class="s">&#34;Clear&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="添加inkcanvas控件">添加InkCanvas控件</h4>
+<p>TabControl的最终控件是InkCanvas控件。 在结束的ToolBar标记之后和结束的StackPanel标记之前添加以下标记，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;InkCanvas</span> <span class="na">x:Name=</span><span class="s">&#34;MyInkCanvas&#34;</span> <span class="na">Background=</span><span class="s">&#34;#FFB6F4F1&#34;</span> <span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="预览窗口">预览窗口</h4>
+<p>此时，您可以测试程序了，您可以按F5键。现在，您应该看到三个互斥的单选按钮，一个带有三个选项的组合框和三个按钮（见图25-17）。</p>
+<!-- raw HTML omitted -->
+<h4 id="处理ink-api选项卡的事件">处理Ink API选项卡的事件</h4>
+<p>Ink API选项卡的下一步是处理每个RadioButton控件的Click事件。就像在本书的其他WPF项目中所做的那样，只需单击Visual Studio属性编辑器的闪电图标即可输入事件处理程序的名称。使用这种方法，将每个按钮的Click事件路由到名为RadioButtonClicked的同一处理程序。处理所有三个Click事件之后，使用名为ColorChanged的处理程序处理ComboBox的SelectionChanged事件。完成后，您应该具有以下C＃代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">MainWindow</span> <span class="p">:</span> <span class="n">Window</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">MainWindow</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">InitializeComponent</span><span class="p">();</span>
+        <span class="c1">// Insert code required on object creation below this point.
+</span><span class="c1"></span>    <span class="p">}</span>
+    <span class="k">private</span> <span class="k">void</span> <span class="n">RadioButtonClicked</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span><span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// TODO: Add event handler implementation here.
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="n">ColorChanged</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span><span class="n">SelectionChangedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// TODO: Add event handler implementation here.
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>您将在以后的步骤中实现这些处理程序，因此暂时将它们留空。</p>
+<h4 id="将控件添加到工具箱">将控件添加到工具箱</h4>
+<p>您通过直接编辑XAML添加了InkCanvas控件。如果要使用UI进行添加，则默认情况下，Visual Studio工具箱不会向您显示所有可能的WPF组件。但是您可以更新工具箱中显示的项目。</p>
+<p>这样做，右键单击“工具箱”区域中的任何位置，然后选择“选择项目”菜单选项。 一两分钟后，您将看到要添加到工具箱的可能组件的列表。为了您的目的，您有兴趣添加InkCanvas控件（请参见图25-18）。</p>
+<h4 id="inkcanvas控件">InkCanvas控件</h4>
+<p>只需添加InkCanvas，即可在窗口中绘图。您可以使用鼠标，或者，如果您有启用触摸的设备，则可以使用手指或数字笔。运行该应用程序并绘制到框中（请参见图25-19）。</p>
+<p><img src="http://note.youdao.com/yws/public/resource/cb5db1b8454acbb910a8ffbc7d9d4d1f/xmlnote/1C45EFB81A524D6981F7C9A767DB8AD9/3285" alt="图25-19"></p>
+<p>InkCanvas的功能不只是绘制鼠标（或手写笔）的笔划。 它还支持许多独特的编辑模式，这些模式由EditingMode属性控制。您可以从相关的InkCanvasEditingMode枚举中为该属性分配任何值。在此示例中，您对Ink Mode感兴趣，这是您刚刚看到的默认选项。Select Mode，允许用户使用鼠标选择区域以移动或调整大小；和EraseByStoke，这将删除先前的鼠标笔触。</p>
+<blockquote>
+<p>注意: 笔触是​​一次鼠标下移/鼠标上移操作期间发生的渲染。InkCanvas将所有笔划存储在StrokeCollection对象中，您可以使用Strokes属性对其进行访问。</p>
+</blockquote>
+<p>使用以下逻辑更新您的RadioButtonClicked()处理程序，该逻辑根据选定的RadioButton将InkCanvas置于正确的模式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">private</span> <span class="k">void</span> <span class="n">RadioButtonClicked</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span><span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Based on which button sent the event, place the InkCanvas in a unique
+</span><span class="c1"></span>    <span class="c1">// mode of operation.
+</span><span class="c1"></span>    <span class="k">switch</span><span class="p">((</span><span class="n">sender</span> <span class="k">as</span> <span class="n">RadioButton</span><span class="p">)?.</span><span class="n">Content</span><span class="p">.</span><span class="n">ToString</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="c1">// These strings must be the same as the Content values for each
+</span><span class="c1"></span>        <span class="c1">// RadioButton.
+</span><span class="c1"></span>        <span class="k">case</span> <span class="s">&#34;Ink Mode!&#34;</span><span class="p">:</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">MyInkCanvas</span><span class="p">.</span><span class="n">EditingMode</span> <span class="p">=</span> <span class="n">InkCanvasEditingMode</span><span class="p">.</span><span class="n">Ink</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s">&#34;Erase Mode!&#34;</span><span class="p">:</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">MyInkCanvas</span><span class="p">.</span><span class="n">EditingMode</span> <span class="p">=</span> <span class="n">InkCanvasEditingMode</span><span class="p">.</span><span class="n">EraseByStroke</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s">&#34;Select Mode!&#34;</span><span class="p">:</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">MyInkCanvas</span><span class="p">.</span><span class="n">EditingMode</span> <span class="p">=</span> <span class="n">InkCanvasEditingMode</span><span class="p">.</span><span class="n">Select</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>另外，在窗口的构造函数中，默认情况下将模式设置为“Ink”。在使用它时，请为ComboBox设置一个默认选择（下一节中有关此控件的更多详细信息），如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">public</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">InitializeComponent</span><span class="p">();</span>
+
+    <span class="c1">// Be in Ink mode by default.
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="n">MyInkCanvas</span><span class="p">.</span><span class="n">EditingMode</span> <span class="p">=</span> <span class="n">InkCanvasEditingMode</span><span class="p">.</span><span class="n">Ink</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">inkRadio</span><span class="p">.</span><span class="n">IsChecked</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">comboColors</span><span class="p">.</span><span class="n">SelectedIndex</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>现在，按F5再次运行程序。进入墨水模式并绘制一些数据。接下来，进入“擦除”模式并删除您输入的上一个鼠标笔划（您会注意到鼠标图标自动看起来像一个橡皮擦）。最后，进入“选择”模式，然后使用鼠标作为套索来选择一些笔触。</p>
+<p>圈出项目后，可以在画布上移动它并调整其尺寸。 图25-20显示了您的工作编辑模式。</p>
+<p><img src="http://note.youdao.com/yws/public/resource/cb5db1b8454acbb910a8ffbc7d9d4d1f/xmlnote/3930ED0E28B84143B6E4C0DE61C6C384/3287" alt="图25-20"></p>
+<h4 id="combobox控件">ComboBox控件</h4>
+<p>填充ComboBox控件（或ListBox）后，可以通过三种方法确定所选项目。首先，如果要查找所选项目的数字索引，可以使用SelectedIndex属性（从零开始；值-1表示没有选择）。其次，如果要在已选择的列表中获取对象，则SelectedItem属性很合适。第三，SelectedValue允许您获取所选对象的值（通常使用对ToString（）的调用获得）。</p>
+<p>您需要为此选项卡添加代码的最后一位，以更改在InkCanvas上输入的笔触颜色。InkCanvas的DefaultDrawingAttributes属性返回一个DrawingAttributes对象，该对象使您可以配置笔尖的多个方面，包括其大小和颜色（以及其他设置）。使用ColorChanged（）方法的以下实现更新您的C＃代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">private</span> <span class="k">void</span> <span class="n">ColorChanged</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">SelectionChangedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Get the selected value in the combo box.
+</span><span class="c1"></span>    <span class="kt">string</span> <span class="n">colorToUse</span> <span class="p">=</span>
+        <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">comboColors</span><span class="p">.</span><span class="n">SelectedItem</span> <span class="k">as</span> <span class="n">ComboBoxItem</span><span class="p">)?.</span><span class="n">Content</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+    <span class="c1">// Change the color used to render the strokes.
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="n">MyInkCanvas</span><span class="p">.</span><span class="n">DefaultDrawingAttributes</span><span class="p">.</span><span class="n">Color</span> <span class="p">=</span>
+        <span class="p">(</span><span class="n">Color</span><span class="p">)</span><span class="n">ColorConverter</span><span class="p">.</span><span class="n">ConvertFromString</span><span class="p">(</span><span class="n">colorToUse</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>现在回想一下，ComboBox具有ComboBoxItems的集合。如果您查看生成的XAML，则会看到以下定义：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;ComboBox</span> <span class="na">x:Name=</span><span class="s">&#34;comboColors&#34;</span> <span class="na">Width=</span><span class="s">&#34;100&#34;</span> <span class="na">SelectionChanged=</span><span class="s">&#34;ColorChanged&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ComboBoxItem</span> <span class="na">Content=</span><span class="s">&#34;Red&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;ComboBoxItem</span> <span class="na">Content=</span><span class="s">&#34;Green&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;ComboBoxItem</span> <span class="na">Content=</span><span class="s">&#34;Blue&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ComboBox&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>调用SelectedItem时，将获取选定的ComboBoxItem，该ComboBoxItem存储为常规对象。将对象强制转换为ComboBoxItem之后，您将拔出Content的值，该值将为字符串Red，Green或Blue。然后，使用方便的ColorConverter实用程序类将此字符串转换为Color对象。现在再次运行您的程序。渲染图像时，您应该能够在颜色之间进行更改。</p>
+<p>请注意，ComboBox和ListBox控件也可以包含复杂的内容，而不是文本数据列表。您可以通过打开窗口的XAML编辑器并更改ComboBox的定义来了解可能发生的事情，以便它包含一组StackPanel元素，每个元素都包含一个Ellipse和Label（请注意，组合框的宽度为175）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;ComboBox</span> <span class="na">x:Name=</span><span class="s">&#34;comboColors&#34;</span> <span class="na">Width=</span><span class="s">&#34;175&#34;</span> <span class="na">Margin=</span><span class="s">”10,0,0,0”</span> <span class="na">SelectionChanged=</span><span class="s">&#34;ColorChang
+</span><span class="s">ed&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;StackPanel</span> <span class="na">Orientation =</span><span class="s">&#34;Horizontal&#34;</span> <span class="na">Tag=</span><span class="s">&#34;Red&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Ellipse</span> <span class="na">Fill =</span><span class="s">&#34;Red&#34;</span> <span class="na">Height =</span><span class="s">&#34;50&#34;</span> <span class="na">Width =</span><span class="s">&#34;50&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Label</span> <span class="na">FontSize =</span><span class="s">&#34;20&#34;</span> <span class="na">HorizontalAlignment=</span><span class="s">&#34;Center&#34;</span> <span class="na">VerticalAlignment=</span><span class="s">&#34;Center&#34;</span> <span class="na">Content=</span><span class="s">&#34;Red&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+
+    <span class="nt">&lt;StackPanel</span> <span class="na">Orientation =</span><span class="s">&#34;Horizontal&#34;</span> <span class="na">Tag=</span><span class="s">&#34;Green&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Ellipse</span> <span class="na">Fill =</span><span class="s">&#34;Green&#34;</span> <span class="na">Height =</span><span class="s">&#34;50&#34;</span> <span class="na">Width =</span><span class="s">&#34;50&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Label</span> <span class="na">FontSize =</span><span class="s">&#34;20&#34;</span> <span class="na">HorizontalAlignment=</span><span class="s">&#34;Center&#34;</span> <span class="na">VerticalAlignment=</span><span class="s">&#34;Center&#34;</span> <span class="na">Content=</span><span class="s">&#34;Green&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+
+    <span class="nt">&lt;StackPanel</span> <span class="na">Orientation =</span><span class="s">&#34;Horizontal&#34;</span> <span class="na">Tag=</span><span class="s">&#34;Blue&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Ellipse</span> <span class="na">Fill =</span><span class="s">&#34;Blue&#34;</span> <span class="na">Height =</span><span class="s">&#34;50&#34;</span> <span class="na">Width =</span><span class="s">&#34;50&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Label</span> <span class="na">FontSize =</span><span class="s">&#34;20&#34;</span> <span class="na">HorizontalAlignment=</span><span class="s">&#34;Center&#34;</span> <span class="na">VerticalAlignment=</span><span class="s">&#34;Center&#34;</span> <span class="na">Content=</span><span class="s">&#34;Blue&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+<span class="nt">&lt;/ComboBox&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>请注意，每个StackPanel都为其Tag属性分配一个值，这是一种简单，快速且方便的方法来发现用户已选择的项目堆栈（有更好的方法，但是现在可以这样做）。进行此调整后，您需要更改ColorChanged（）方法的实现，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">private</span> <span class="k">void</span> <span class="n">ColorChanged</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">SelectionChangedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Get the Tag of the selected StackPanel.
+</span><span class="c1"></span>    <span class="kt">string</span> <span class="n">colorToUse</span> <span class="p">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">comboColors</span><span class="p">.</span><span class="n">SelectedItem</span>
+    <span class="k">as</span> <span class="n">StackPanel</span><span class="p">).</span><span class="n">Tag</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>现在再次运行程序，并记下您独特的ComboBox（见图25-21）。</p>
+<h4 id="保存加载和清除inkcanvas数据">保存，加载和清除InkCanvas数据</h4>
+<p>此选项卡的最后一部分将使您能够保存和加载画布数据，以及通过为工具栏中的按钮添加事件处理程序清除其所有内容。 通过为单击事件添加标记来更新按钮的XAML，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;Button</span> <span class="na">Grid.Column=</span><span class="s">&#34;0&#34;</span> <span class="na">x:Name=</span><span class="s">&#34;btnSave&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10,10&#34;</span> <span class="na">Width=</span><span class="s">&#34;70&#34;</span> <span class="na">Content=</span><span class="s">&#34;Save Data&#34;</span>
+<span class="na">Click=</span><span class="s">&#34;SaveData&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Button</span> <span class="na">Grid.Column=</span><span class="s">&#34;1&#34;</span> <span class="na">x:Name=</span><span class="s">&#34;btnLoad&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10,10&#34;</span> <span class="na">Width=</span><span class="s">&#34;70&#34;</span> <span class="na">Content=</span><span class="s">&#34;Load Data&#34;</span>
+<span class="na">Click=</span><span class="s">&#34;LoadData&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Button</span> <span class="na">Grid.Column=</span><span class="s">&#34;2&#34;</span> <span class="na">x:Name=</span><span class="s">&#34;btnClear&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10,10&#34;</span> <span class="na">Width=</span><span class="s">&#34;70&#34;</span> <span class="na">Content=</span><span class="s">&#34;Clear&#34;</span>
+<span class="na">Click=</span><span class="s">&#34;Clear&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>接下来，将System.IO和System.Windows.Ink命名空间导入到您的代码文件中。实现处理程序，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">private</span> <span class="k">void</span> <span class="n">SaveData</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Save all data on the InkCanvas to a local file.
+</span><span class="c1"></span>    <span class="k">using</span> <span class="p">(</span><span class="n">FileStream</span> <span class="n">fs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FileStream</span><span class="p">(</span><span class="s">&#34;StrokeData.bin&#34;</span><span class="p">,</span> <span class="n">FileMode</span><span class="p">.</span><span class="n">Create</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">MyInkCanvas</span><span class="p">.</span><span class="n">Strokes</span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="n">fs</span><span class="p">);</span>
+        <span class="n">fs</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="k">void</span> <span class="n">LoadData</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Fill StrokeCollection from file.
+</span><span class="c1"></span>    <span class="n">using</span><span class="p">(</span><span class="n">FileStream</span> <span class="n">fs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FileStream</span><span class="p">(</span><span class="s">&#34;StrokeData.bin&#34;</span><span class="p">,</span> <span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">,</span> <span class="n">FileAccess</span><span class="p">.</span><span class="n">Read</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">StrokeCollection</span> <span class="n">strokes</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StrokeCollection</span><span class="p">(</span><span class="n">fs</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">MyInkCanvas</span><span class="p">.</span><span class="n">Strokes</span> <span class="p">=</span> <span class="n">strokes</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="k">void</span> <span class="n">Clear</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Clear all strokes.
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="n">MyInkCanvas</span><span class="p">.</span><span class="n">Strokes</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>现在，您应该能够将数据保存到文件中，从文件中加载它，并清除所有数据的InkCanvas。 这包含了TabControl的第一个选项卡，以及对WPF数字墨水API的检查。 可以肯定的是，关于这项技术还有更多的话要说。但是，如果您感兴趣，您应该处于很好的位置，可以进一步深入研究该主题。接下来，您将学习如何使用WPF数据绑定。</p>
+<h3 id="介绍wpf数据绑定模型">介绍WPF数据绑定模型</h3>
+<p>控件通常是各种数据绑定操作的目标。简而言之，<strong>数据绑定是将控件属性连接到在应用程序生命周期中可能发生变化的数据值的行为</strong>。这样做<strong>可以使用户界面元素在代码中显示变量的状态</strong>。例如，您可以使用数据绑定来完成以下任务：</p>
+<ul>
+<li>根据给定对象的布尔属性检查CheckBox控件</li>
+<li>从关系数据库表中显示DataGrid对象中的数据</li>
+<li>将Label连接到代表文件夹中文件数的整数</li>
+</ul>
+<p>使用内部WPF数据绑定引擎时，必须注意绑定操作的源和目标之间的区别。如您所料，数据绑定操作的<strong>源</strong>是数据本身（例如，布尔属性或关系数据），而<strong>目标</strong>是使用数据内容的UI控件属性（例如，CheckBox或TextBox控件）。</p>
+<p>如前面的示例所述，除了绑定到传统数据外，WPF还支持元素绑定。这意味着您可以基于复选框的选中属性绑定（例如）属性的可见性。您当然可以在WinForms中执行此操作，但是必须通过代码来完成。WPF框架提供了一个丰富的数据绑定生态系统，几乎可以完全在标记中处理它。这也使您可以确保源和目标的值中的任何一个更改时都保持同步。</p>
+<h4 id="构建数据绑定选项卡">构建数据绑定选项卡</h4>
+<p>使用文档大纲编辑器，将第二个选项卡的网格更改为StackPanel。现在，使用Visual Studio的“工具箱”和“属性”编辑器来构建以下初始布局：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;TabItem</span> <span class="na">x:Name=</span><span class="s">&#34;tabDataBinding&#34;</span> <span class="na">Header=</span><span class="s">&#34;Data Binding&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;StackPanel</span> <span class="na">Width=</span><span class="s">&#34;250&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Label</span> <span class="na">Content=</span><span class="s">&#34;Move the scroll bar to see the current value&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- The scrollbar&#39;s value is the source of this data bind. --&gt;</span>
+        <span class="nt">&lt;ScrollBar</span> <span class="na">x:Name=</span><span class="s">&#34;mySB&#34;</span> <span class="na">Orientation=</span><span class="s">&#34;Horizontal&#34;</span> <span class="na">Height=</span><span class="s">&#34;30&#34;</span> <span class="na">Minimum =</span> <span class="s">&#34;1&#34;</span> <span class="na">Maximum =</span> <span class="s">&#34;100&#34;</span> <span class="na">LargeChange=</span><span class="s">&#34;1&#34;</span> <span class="na">SmallChange=</span><span class="s">&#34;1&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- The label&#39;s content will be bound to the scroll bar! --&gt;</span>
+        <span class="nt">&lt;Label</span> <span class="na">x:Name=</span><span class="s">&#34;labelSBThumb&#34;</span> <span class="na">Height=</span><span class="s">&#34;30&#34;</span> <span class="na">BorderBrush=</span><span class="s">&#34;Blue&#34;</span> <span class="na">BorderThickness=</span><span class="s">&#34;2&#34;</span> <span class="na">Content =</span> <span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+<span class="nt">&lt;/TabItem&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>请注意，ScrollBar对象（在此处名为mySB）已配置为1到100之间的范围。目标是确保在重新放置滚动条的拇指（或单击向左或向右箭头）时，Label将自动用当前值更新。当前，Label控件的Content属性设置为值“0”；默认值为0。 但是，您将通过数据绑定操作来更改此设置。</p>
+<h4 id="建立数据绑定">建立数据绑定</h4>
+<p>可以在XAML中定义绑定的粘合剂是{Binding}标记扩展。尽管您可以通过Visual Studio定义绑定，但是直接在标记中进行操作同样容易。将名为labelSBThumb的Label的Content属性编辑为以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;Label</span> <span class="na">x:Name=</span><span class="s">&#34;labelSBThumb&#34;</span> <span class="na">Height=</span><span class="s">&#34;30&#34;</span> <span class="na">BorderBrush=</span><span class="s">&#34;Blue&#34;</span> <span class="na">BorderThickness=</span><span class="s">&#34;2&#34;</span> <span class="na">Content =</span> <span class="s">&#34;{Binding Path=Value, ElementName=mySB}&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>请注意分配给标签的内容属性的值。{Binding}语句表示数据绑定操作。<strong>ElementName</strong>值表示数据绑定操作的源（ScrollBar对象），而<strong>Path</strong>表示要绑定到的属性，在这种情况下为滚动条的Value。</p>
+<p>如果再次运行程序，您会发现在移动拇指时，标签的内容会根据滚动条的值进行更新！</p>
+<h4 id="datacontext属性">DataContext属性</h4>
+<p>您可以使用另一种格式在XAML中定义数据绑定操作，在该格式中，可以通过将DataContext属性显式设置为绑定操作的源，从而突破{Binding}标记扩展所指定的值，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- Breaking object/value apart via DataContext --&gt;</span>
+<span class="nt">&lt;Label</span> <span class="na">x:Name=</span><span class="s">&#34;labelSBThumb&#34;</span> <span class="na">Height=</span><span class="s">&#34;30&#34;</span> <span class="na">BorderBrush=</span><span class="s">&#34;Blue&#34;</span> <span class="na">BorderThickness=</span><span class="s">&#34;2&#34;</span> <span class="na">DataContext =</span> <span class="s">&#34;{Binding ElementName=mySB}&#34;</span> <span class="na">Content =</span> <span class="s">&#34;{Binding Path=Value}&#34;</span> <span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在当前示例中，如果您要以这种方式修改标记，则输出将是相同的。鉴于此，您可能想知道何时要显式设置DataContext属性。这样做会有所帮助，因为子元素可以在标记树中继承其值。</p>
+<p>这样，您可以轻松地将相同的数据源设置为一系列控件，而不必对多个控件重复一堆多余的“ {Binding ElementName = X，Path = Y}” XAML值。例如，假设您已将以下新按钮添加到此选项卡的StackPanel中（稍后您将看到为什么它如此之大）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&#34;Click&#34;</span> <span class="na">Height=</span><span class="s">&#34;200&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>您可以使用Visual Studio为多个控件生成数据绑定，但是可以尝试使用XAML编辑器手动输入修改后的标记，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- Note the StackPanel sets the DataContext property. --&gt;</span>
+<span class="nt">&lt;StackPanel</span> <span class="na">Background=</span><span class="s">&#34;#FFE5E5E5&#34;</span> <span class="na">DataContext =</span> <span class="s">&#34;{Binding ElementName=mySB}&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Label</span> <span class="na">Content=</span><span class="s">&#34;Move the scroll bar to see the current value&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;ScrollBar</span> <span class="na">Orientation=</span><span class="s">&#34;Horizontal&#34;</span> <span class="na">Height=</span><span class="s">&#34;30&#34;</span> <span class="na">Name=</span><span class="s">&#34;mySB&#34;</span> <span class="na">Maximum =</span> <span class="s">&#34;100&#34;</span> <span class="na">LargeChange=</span><span class="s">&#34;1&#34;</span> <span class="na">SmallChange=</span><span class="s">&#34;1&#34;</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!-- Now both UI elements use the scrollbar&#39;s value in unique ways. --&gt;</span>
+    <span class="nt">&lt;Label</span> <span class="na">x:Name=</span><span class="s">&#34;labelSBThumb&#34;</span> <span class="na">Height=</span><span class="s">&#34;30&#34;</span> <span class="na">BorderBrush=</span><span class="s">&#34;Blue&#34;</span> <span class="na">BorderThickness=</span><span class="s">&#34;2&#34;</span> <span class="na">Content =</span> <span class="s">&#34;{Binding Path=Value}&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&#34;Click&#34;</span> <span class="na">Height=</span><span class="s">&#34;200&#34;</span> <span class="na">FontSize =</span> <span class="s">&#34;{Binding Path=Value}&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/StackPanel&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在这里，您可以直接在StackPanel上设置DataContext属性。因此，当您移动拇指时，不仅会看到Label上的当前值，而且还会看到Button的字体大小根据相同的值相应地增大和缩小（图25-22显示了一种可能的输出）。</p>
+<h4 id="格式化绑定数据">格式化绑定数据</h4>
+<p>ScrollBar类型使用双精度表示拇指的值，而不是期望的整数（例如整数）。因此，当您拖动拇指时，您会在“标签”中找到各种浮点数（例如61.0576923076923）。 最终用户会发现这不太直观，因为他最有可能期望看到整数（例如61、62和63）。</p>
+<p>如果要格式化数据，则可以添加ContentStringFormat属性，并传入自定义字符串和.NET格式说明符，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;Label</span> <span class="na">x:Name=</span><span class="s">&#34;labelSBThumb&#34;</span> <span class="na">Height=</span><span class="s">&#34;30&#34;</span> <span class="na">BorderBrush=</span><span class="s">&#34;Blue&#34;</span> <span class="na">BorderThickness=</span><span class="s">&#34;2&#34;</span> <span class="na">Content =</span> <span class="s">&#34;{Binding Path=Value}&#34;</span> <span class="na">ContentStringFormat=</span><span class="s">&#34;The value is: {0:F0}&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果格式说明中没有任何文本，则需要以空括号开头，这是XAML的例外顺序。例如，这使处理器知道下一个字符是文字​​，而不是绑定语句。这是更新的XAML：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;Label</span> <span class="na">x:Name=</span><span class="s">&#34;labelSBThumb&#34;</span> <span class="na">Height=</span><span class="s">&#34;30&#34;</span> <span class="na">BorderBrush=</span><span class="s">&#34;Blue&#34;</span> <span class="na">BorderThickness=</span><span class="s">&#34;2&#34;</span> <span class="na">Content =</span> <span class="s">&#34;{Binding Path=Value}&#34;</span> <span class="na">ContentStringFormat=</span><span class="s">&#34;{}{0:F0}&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>注意: 如果要绑定控件的Text属性，则可以在绑定语句中添加StringFormat名称/值对。对于内容属性，只需将其分开。</p>
+</blockquote>
+<h4 id="使用ivalueconverter进行数据转换">使用IValueConverter进行数据转换</h4>
+<p>如果您需要做的不仅仅是格式化数据，还可以创建一个自定义类，该类实现System.Windows.Data命名空间的IValueConverter接口。此接口定义了两个成员，这些成员使您可以执行往返于目标和目的地的转换（在双向数据绑定的情况下）。定义此类后，可以使用它来进一步限定数据绑定操作的处理。</p>
+<p>您可以使用值转换器在Label控件中显示整数，而不是使用format属性。为此，将一个新类（名为MyDoubleConverter）添加到项目类中。接下来，添加以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">class</span> <span class="nc">MyDoubleConverter</span> <span class="p">:</span> <span class="n">IValueConverter</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">object</span> <span class="n">Convert</span><span class="p">(</span><span class="kt">object</span> <span class="k">value</span><span class="p">,</span> <span class="n">Type</span> <span class="n">targetType</span><span class="p">,</span> <span class="kt">object</span> <span class="n">parameter</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Globalization</span><span class="p">.</span><span class="n">CultureInfo</span> <span class="n">culture</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Convert the double to an int.
+</span><span class="c1"></span>        <span class="kt">double</span> <span class="n">v</span> <span class="p">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="k">value</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">v</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">object</span> <span class="n">ConvertBack</span><span class="p">(</span><span class="kt">object</span> <span class="k">value</span><span class="p">,</span> <span class="n">Type</span> <span class="n">targetType</span><span class="p">,</span> <span class="kt">object</span> <span class="n">parameter</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Globalization</span><span class="p">.</span><span class="n">CultureInfo</span> <span class="n">culture</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// You won&#39;t worry about &#34;two-way&#34; bindings here, so just return the value.
+</span><span class="c1"></span>        <span class="k">return</span> <span class="k">value</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当值从源（ScrollBar）传输到目标（TextBox的Text属性）时，将调用Convert（）方法。您将收到许多传入的参数，但是您只需为此转换操作传入的对象，这是当前double的值。您可以使用此类型将类型转换为整数并返回新数字。</p>
+<p>将值从目标传递到源时（如果启用了双向绑定模式），将调用ConvertBack（）方法。在这里，您只需直接返回值。 这样做可以让您在TextBox中输入浮点值（例如99.9），并在用户关闭控件时将其自动转换为整数值（例如99）。之所以发生这种“免费”转换，是因为在调用ConvertBack（）之后再次调用了Convert（）方法。如果仅从ConvertBack（）返回null，则绑定似乎不同步，因为文本框仍将显示浮点数。</p>
+<p>要在标记中使用此转换器，首先必须创建一个本地资源，该资源代表刚构建的自定义类。不必担心增加资源的机制； 接下来的几章将更深入地探讨该主题。在打开的Window标记之后添加以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;Window.Resources&gt;</span>
+    <span class="nt">&lt;local:MyDoubleConverter</span> <span class="na">x:Key=</span><span class="s">&#34;DoubleConverter&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Window.Resources&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>接下来，将Label控件的绑定语句更新为以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;Label</span> <span class="na">x:Name=</span><span class="s">&#34;labelSBThumb&#34;</span> <span class="na">Height=</span><span class="s">&#34;30&#34;</span> <span class="na">BorderBrush=</span><span class="s">&#34;Blue&#34;</span> <span class="na">BorderThickness=</span><span class="s">&#34;2&#34;</span> <span class="na">Content =</span> <span class="s">&#34;{Binding Path=Value,Converter={StaticResource DoubleConverter}}&#34;</span> <span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>现在，当您运行该应用程序时，您只会看到整数。</p>
+<h4 id="在代码中建立数据绑定">在代码中建立数据绑定</h4>
+<p>您也可以在代码中注册数据转换类。首先清理数据绑定选项卡中Label控件的当前定义，以使其不再使用{Binding}标记扩展名。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;Label</span> <span class="na">x:Name=</span><span class="s">&#34;labelSBThumb&#34;</span> <span class="na">Height=</span><span class="s">&#34;30&#34;</span> <span class="na">BorderBrush=</span><span class="s">&#34;Blue&#34;</span> <span class="na">BorderThickness=</span><span class="s">&#34;2&#34;</span> <span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>确保System.Windows.Data有一个using；然后在窗口的构造函数中，调用一个名为SetBindings（）的新私有帮助器函数。在此方法中，添加以下代码（并确保从构造函数中调用它）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">private</span> <span class="k">void</span> <span class="n">SetBindings</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Create a Binding object.
+</span><span class="c1"></span>    <span class="n">Binding</span> <span class="n">b</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Binding</span><span class="p">();</span>
+
+    <span class="c1">// Register the converter, source, and path.
+</span><span class="c1"></span>    <span class="n">b</span><span class="p">.</span><span class="n">Converter</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyDoubleConverter</span><span class="p">();</span>
+    <span class="n">b</span><span class="p">.</span><span class="n">Source</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">mySB</span><span class="p">;</span>
+    <span class="n">b</span><span class="p">.</span><span class="n">Path</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PropertyPath</span><span class="p">(</span><span class="s">&#34;Value&#34;</span><span class="p">);</span>
+    
+    <span class="c1">// Call the SetBinding method on the Label.
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="n">labelSBThumb</span><span class="p">.</span><span class="n">SetBinding</span><span class="p">(</span><span class="n">Label</span><span class="p">.</span><span class="n">ContentProperty</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>该函数唯一看起来可能有点过时的部分是对SetBinding（）的调用。注意，第一个参数调用Label类的名为ContentProperty的静态只读字段。正如您将在本章稍后学习的那样，您将指定所谓的依赖项属性。就目前而言，只知道在代码中设置绑定时，第一个参数几乎总是需要您指定需要绑定的类的名称（在本例中为Label），然后调用基础属性后缀为Property的属性。无论如何，运行该应用程序都说明了Label仅打印出整数。</p>
+<h4 id="构建数据网格选项卡">构建数据网格选项卡</h4>
+<p>前面的数据绑定示例说明了如何配置两个（或多个）控件以参与数据绑定操作。尽管这很有用，但也可以从XML文件，数据库数据和内存中对象绑定数据。要完成此示例，您将设计选项卡控件的最终选项卡，以便它显示从AutoLot数据库的“库存”表获得的数据。</p>
+<p>与其他选项卡一样，首先将当前的Grid更改为StackPanel。为此，可以使用Visual Studio直接更新XAML。现在，在新StackPanel中定义一个名为gridInventory的DataGrid控件，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;TabItem</span> <span class="na">x:Name=</span><span class="s">&#34;tabDataGrid&#34;</span> <span class="na">Header=</span><span class="s">&#34;DataGrid&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;StackPanel&gt;</span>
+        <span class="nt">&lt;DataGrid</span> <span class="na">x:Name=</span><span class="s">&#34;gridInventory&#34;</span> <span class="na">Height=</span><span class="s">&#34;288&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+<span class="nt">&lt;/TabItem&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>使用NuGet程序包管理器将实体框架添加到您的项目。接下来，右键单击该解决方案，选择“添加”➤“现有项目”，然后从第22章添加AutoLotDAL项目。从WpfControlsAndAPIs项目中添加对AutoLotDAL项目的引用。将连接字符串添加到App.config文件中。我的如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;connectionStrings&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&#34;AutoLotConnection&#34;</span> <span class="na">connectionString=</span><span class="s">&#34;data source=(LocalDb)\MSSQLLocalDB; initial catalog=AutoLot; integrated security=True;MultipleActiveResultSets=True; App=EntityFramework&#34;</span> <span class="na">providerName=</span><span class="s">&#34;System.Data.SqlClient&#34;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/connectionStrings&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>打开您的窗口的代码文件，并添加一个名为ConfigureGrid（）的最终帮助程序函数；确保从构造函数调用此函数。 假设您确实导入了AutoLotDAL命名空间，您所需要做的就是添加几行代码，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">AutoLotDAL.Repos</span><span class="p">;</span>
+<span class="k">private</span> <span class="k">void</span> <span class="n">ConfigureGrid</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">repo</span> <span class="p">=</span> <span class="k">new</span> <span class="n">InventoryRepo</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="c1">// Build a LINQ query that gets back some data from the Inventory table.
+</span><span class="c1"></span>        <span class="n">gridInventory</span><span class="p">.</span><span class="n">ItemsSource</span> <span class="p">=</span>
+            <span class="n">repo</span><span class="p">.</span><span class="n">GetAll</span><span class="p">().</span><span class="n">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span> <span class="n">x</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">Make</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">Color</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">PetName</span> <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>LINQ查询会创建一个新的匿名对象，该对象不包含Timestamp属性，因为对于用户而言，查看该字段没有任何价值。 如果要运行项目，则会看到数据填充网格。如果要使网格更加美观，可以使用Visual Studio属性窗口来编辑网格以使其更具吸引力。</p>
+<p>总结了当前示例。在后面的章节中，您将看到其他一些正在使用的控件。但是，此时，您应该对在Visual Studio中构建UI以及手动使用XAML和C＃代码的过程感到满意。</p>
+<h3 id="了解依赖属性的作用">了解依赖属性的作用</h3>
+<p>像任何 .NET API一样，WPF使用 .NET 类型系统的每个成员（类，结构，接口，委托，枚举）和每个类型成员（属性，方法，事件，常量数据，只读字段等）。但是，WPF还支持称为<strong>依赖属性</strong>的独特编程概念。</p>
+<p>就像“普通” .NET属性（在WPF文献中通常称为<strong>CLR属性</strong>）一样，可以使用XAML声明式设置或在代码文件中以编程方式设置依赖项属性。此外，依赖属性（如CLR属性）最终存在以封装类的数据字段，并且可以配置为只读，只写或读写。</p>
+<p>使事情变得更有趣的是，几乎在每种情况下，您都会幸福地意识到实际上已设置（或访问）了一个依赖属性而不是CLR属性！ 例如，WPF控件从FrameworkElement继承的Height和Width属性以及从ControlContent继承的Content成员实际上都是依赖项属性。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- Set three dependency properties! --&gt;</span>
+<span class="nt">&lt;Button</span> <span class="na">x:Name =</span> <span class="s">&#34;btnMyButton&#34;</span> <span class="na">Height =</span> <span class="s">&#34;50&#34;</span> <span class="na">Width =</span> <span class="s">&#34;100&#34;</span> <span class="na">Content =</span> <span class="s">&#34;OK&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>鉴于所有这些相似之处，为什么WPF会为这种熟悉的概念定义一个新术语？答案在于在类中如何实现依赖项属性。您将很快看到一个编码示例；但是，从高层次来看，所有依赖项属性都是按以下方式创建的：</p>
+<ul>
+<li>首先，定义依赖项属性的类在其继承链中必须具有DependencyObject。</li>
+<li>单个依赖项属性在DependencyProperty类型的类中表示为公共，静态，只读字段。按照惯例，通过在CLR包装器的名称后添加单词Property来命名该字段（请参见最后的要点）。</li>
+<li>通过对DependencyProperty.Register（）的静态调用来注册DependencyProperty变量，该调用通常发生在静态构造函数中，或者在声明该变量时内联。</li>
+<li>最后，该类将定义XAML友好的CLR属性，该属性将调用DependencyObject提供的方法以获取和设置值。</li>
+</ul>
+<p>一旦实现，依赖项属性将提供各种WPF技术所使用的许多强大功能，包括数据绑定，动画服务，样式，模板等。简而言之，依赖属性的动机是提供一种基于其他输入值来计算属性值的方法。下面列出了其中一些关键的好处，这些好处远远超出了使用CLR属性发现的简单数据封装的好处：</p>
+<ul>
+<li>依赖项属性可以从父元素的XAML定义继承其值。例如，如果您在窗口的开始标记中为FontSize属性定义了一个值，则默认情况下，该窗口中的所有控件的字体大小都相同。</li>
+<li>依赖关系属性支持通过其XAML范围内包含的元素来设置值的功能，例如Button设置DockPanel父级的Dock属性。  （请记住，附加属性之所以能做到这一点，是因为附加属性是依赖属性的一种形式。）</li>
+<li>依赖属性允许WPF基于多个外部值来计算一个值，这对于动画和数据绑定服务而言很重要。</li>
+<li>依赖关系属性为WPF触发器提供基础结构支持（在处理动画和数据绑定时也经常使用）。</li>
+</ul>
+<p>现在请记住，在许多情况下，您将以与普通CLR属性相同的方式与现有的依赖项属性进行交互（这要归功于XAML包装器）。在上一节讨论了数据绑定的部分中，您看到了如果需要在代码中建立数据绑定，则必须在作为操作目标的对象上调用SetBinding（）方法，并指定它将操作的依赖项属性。像这样：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">private</span> <span class="k">void</span> <span class="n">SetBindings</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Binding</span> <span class="n">b</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Binding</span><span class="p">();</span>
+    <span class="n">b</span><span class="p">.</span><span class="n">Converter</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyDoubleConverter</span><span class="p">();</span>
+    <span class="n">b</span><span class="p">.</span><span class="n">Source</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">mySB</span><span class="p">;</span>
+    <span class="n">b</span><span class="p">.</span><span class="n">Path</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PropertyPath</span><span class="p">(</span><span class="s">&#34;Value&#34;</span><span class="p">);</span>
+
+    <span class="c1">// Specify the dependency property!
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="n">labelSBThumb</span><span class="p">.</span><span class="n">SetBinding</span><span class="p">(</span><span class="n">Label</span><span class="p">.</span><span class="n">ContentProperty</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在第27章的代码中检查如何启动动画时，将看到类似的代码。</p>
+<p>唯一需要构建自己的自定义依赖项属性的时间是在编写自定义WPF控件时。例如，如果要构建定义四个自定义属性的UserControl，并且希望这些属性在WPF API中很好地集成，则应使用依赖项属性逻辑来编写它们。</p>
+<p>具体来说，如果您的属性需要成为数据绑定或动画操作的目标，则该属性是否必须在更改后进行广播，是否必须能够以WPF样式用作Setter或是否必须能够要从父元素接收其值，普通的CLR属性是不够的。如果要使用普通的CLR属性，则其他程序员可能确实可以获取并设置一个值。但是，如果他们尝试在WPF服务的上下文中使用您的属性，则事情将无法按预期进行。因为您永远无法知道其他人可能如何与自定义UserControl类的属性进行交互，所以您应该养成在构建自定义控件时始终定义依赖项属性的习惯。</p>
+<h4 id="检查现有的依赖项属性">检查现有的依赖项属性</h4>
 <h3 id="概要-1">概要</h3>
 <p>本章从控件工具包的概述和布局管理器（面板）的作用开始，研究了WPF控件的几个方面。第一个示例使您有机会构建一个简单的文字处理器应用程序，该应用程序说明了WPF的集成拼写检查功能，以及如何构建具有菜单系统，状态栏和工具栏的主窗口。</p>
 <p>更重要的是，您研究了如何使用WPF命令。回想一下，您可以将这些不可知的事件附加到UI元素或输入手势，以自动继承现成的服务（例如剪贴板操作）。</p>
@@ -1360,11 +2164,11 @@ xmlns:myCtrls=&quot;clr-namespace:SomeNamespaceInMyApp&rdquo;</p>
     <span class="item-content">
       2020-12-03
       
-        <a href="https://github.com/SLKyrim/myBlog/commit/6525e595026bee59c66248ec5b6d298ff9777d6e" title="Draft (#1)">
-          (6525e59)
+        <a href="https://github.com/SLKyrim/myBlog/commit/0d326c5b174b157553f0bfbdd2a069c12bc552c8" title="Update Book_Pro_CSharp_7.md">
+          (0d326c5)
         </a>
         
-          <br>Draft (#1)
+          <br>Update Book_Pro_CSharp_7.md
         
       
     </span>

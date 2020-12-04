@@ -415,7 +415,9 @@
 </div>
 </div><p>在该C源码中，设置了sum(), sub(), test()为入口点，可被C#调用。其中sum()和sub()会调用C源码中的t1()和t2()函数，这两个函数因为没有入口点声明，因此是不能直接被C#调用的，但是通过C#调用sum()和sub()可以间接地使用t1()和t2()的功能。另外C#调用test()，间接调用了tmpHandler()，使C源码中的tmp变量的值发生了改变。</p>
 <p>C源码可以用Visual Studio的Prompt来编译生成DLL。有两种方法打开VS Prompt，一是在VS工具选项卡中直接打开，二是通过Everything搜索command prompt后选择VS的prompt。</p>
+<p><img src="http://note.youdao.com/yws/public/resource/bc2f9ff64e59f97c783950020dbba424/xmlnote/3F308221F9EC4416A96E5AF22DB679F9/3236" alt=""></p>
 <!-- raw HTML omitted -->
+<p><img src="http://note.youdao.com/yws/public/resource/bc2f9ff64e59f97c783950020dbba424/xmlnote/A389A4A5A8A342C3A7D23CA4DBE3257C/3231" alt=""></p>
 <!-- raw HTML omitted -->
 <p>在VS Prompt中输入以下命令来编程生成DLL：</p>
 <div class="highlight"><div class="chroma">
@@ -430,7 +432,8 @@
 link /dll Test.obj 
 </code></pre></td></tr></table>
 </div>
-</div><!-- raw HTML omitted -->
+</div><p><img src="http://note.youdao.com/yws/public/resource/bc2f9ff64e59f97c783950020dbba424/xmlnote/B2AFF3A25837469999F9E9D39771AB9D/3233" alt=""></p>
+<!-- raw HTML omitted -->
 <h2 id="2在wpf中引用c代码生成的动态链接库dll">2、在WPF中引用C代码生成的动态链接库DLL</h2>
 <p>由于由C编译生成的DLL是非托管DLL（非 .NET 环境下生成的DLL），所以无法直接通过在WPF项目结构树中添加引用。需要通过System.Runtime.InteropServices命名空间下的属性类DllImport来调用非托管DLL中的函数。</p>
 <div class="highlight"><div class="chroma">
@@ -474,6 +477,7 @@ link /dll Test.obj
 </code></pre></td></tr></table>
 </div>
 </div><p>上面的代码中，用DllImport分别对应入口点sum, sub, test，将它们的功能分别交给dllsum(), dllsub(), dlltest()。在按钮点击事件处理函数clearRecvTextBlockButton_Click()中依次引用了dllsum(), dllsub(), dlltest()，然后将它们返回的结果打印到文本框中。</p>
+<p><img src="http://note.youdao.com/yws/public/resource/bc2f9ff64e59f97c783950020dbba424/xmlnote/3A999D9F2AF2411296C5362FD33F1CEB/3228" alt=""></p>
 <!-- raw HTML omitted -->
 <p>如图所示，成功实现在WPF上位机中调用C的函数功能。</p>
 

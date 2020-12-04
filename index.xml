@@ -176,7 +176,9 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;在该C源码中，设置了sum(), sub(), test()为入口点，可被C#调用。其中sum()和sub()会调用C源码中的t1()和t2()函数，这两个函数因为没有入口点声明，因此是不能直接被C#调用的，但是通过C#调用sum()和sub()可以间接地使用t1()和t2()的功能。另外C#调用test()，间接调用了tmpHandler()，使C源码中的tmp变量的值发生了改变。&lt;/p&gt;
 &lt;p&gt;C源码可以用Visual Studio的Prompt来编译生成DLL。有两种方法打开VS Prompt，一是在VS工具选项卡中直接打开，二是通过Everything搜索command prompt后选择VS的prompt。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://note.youdao.com/yws/public/resource/bc2f9ff64e59f97c783950020dbba424/xmlnote/3F308221F9EC4416A96E5AF22DB679F9/3236&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;img src=&#34;http://note.youdao.com/yws/public/resource/bc2f9ff64e59f97c783950020dbba424/xmlnote/A389A4A5A8A342C3A7D23CA4DBE3257C/3231&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;在VS Prompt中输入以下命令来编程生成DLL：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -191,7 +193,8 @@
 link /dll Test.obj 
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://note.youdao.com/yws/public/resource/bc2f9ff64e59f97c783950020dbba424/xmlnote/B2AFF3A25837469999F9E9D39771AB9D/3233&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;2在wpf中引用c代码生成的动态链接库dll&#34;&gt;2、在WPF中引用C代码生成的动态链接库DLL&lt;/h2&gt;
 &lt;p&gt;由于由C编译生成的DLL是非托管DLL（非 .NET 环境下生成的DLL），所以无法直接通过在WPF项目结构树中添加引用。需要通过System.Runtime.InteropServices命名空间下的属性类DllImport来调用非托管DLL中的函数。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -235,6 +238,7 @@ link /dll Test.obj
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;上面的代码中，用DllImport分别对应入口点sum, sub, test，将它们的功能分别交给dllsum(), dllsub(), dlltest()。在按钮点击事件处理函数clearRecvTextBlockButton_Click()中依次引用了dllsum(), dllsub(), dlltest()，然后将它们返回的结果打印到文本框中。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://note.youdao.com/yws/public/resource/bc2f9ff64e59f97c783950020dbba424/xmlnote/3A999D9F2AF2411296C5362FD33F1CEB/3228&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;如图所示，成功实现在WPF上位机中调用C的函数功能。&lt;/p&gt;
 </description>
@@ -939,7 +943,7 @@ xmlns:myCtrls=&amp;quot;clr-namespace:SomeNamespaceInMyApp&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Windows Presentation Foundation（WPF）是 .NET 3.0发行版中引入的用户界面工具包。WPF的主要目标是将许多以前不相关的桌面技术（2D图形，3D图形，窗口和控件开发等）集成和统一到一个统一的编程模型中。除此之外，WPF程序通常使用XAML，它允许您通过标记声明WPF元素的外观。&lt;/p&gt;
 &lt;p&gt;回想一下XAML允许您使用声明性语法描述.NET对象的树。在本章对XAML的研究中，您接触到了一些新的语法，包括属性元素语法和附加属性，以及类型转换器和XAML标记扩展的作用。&lt;/p&gt;
 &lt;p&gt;XAML是任何生产级WPF应用程序的关键方面。本章的最后一个示例使您有机会构建一个WPF应用程序，该应用程序显示了本章讨论的许多概念。下一章将深入探讨这些概念，并介绍更多概念。&lt;/p&gt;
-&lt;h2 id=&#34;wpf控件布局事件和数据绑定&#34;&gt;WPF控件，布局，事件和数据绑定&lt;/h2&gt;
+&lt;h2 id=&#34;第25章-wpf控件布局事件和数据绑定&#34;&gt;第25章 WPF控件，布局，事件和数据绑定&lt;/h2&gt;
 &lt;p&gt;第24章为WPF编程模型提供了基础，包括检查Window和Application类，XAML语法以及代码文件的使用。第24章还向您介绍了使用Visual Studio设计器构建WPF应用程序的过程。在本章中，您将使用几个新的控件和布局管理器来研究更复杂的图形用户界面的构造，并逐步了解Visual Studio的WPF设计器的其他功能。&lt;/p&gt;
 &lt;p&gt;本章还将研究一些重要的WPF相关控制主题，例如数据绑定编程模型和控制命令的使用。您还将学习如何使用Ink和Documents API，使用它们可以捕获手写笔（或鼠标）输入并分别使用XML Paper Specification生成RTF文档。&lt;/p&gt;
 &lt;h3 id=&#34;wpf核心控件概述&#34;&gt;WPF核心控件概述&lt;/h3&gt;
@@ -1228,11 +1232,812 @@ xmlns:myCtrls=&amp;quot;clr-namespace:SomeNamespaceInMyApp&amp;rdquo;&lt;/p&gt;
 &lt;/div&gt;&lt;p&gt;注意，您不会停止任何事件处理程序的事件冒泡。如果运行此应用程序，则将根据单击按钮的位置显示唯一的消息框。图25-15显示了单击外部Ellipse对象的结果。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;那么，为什么WPF事件通常倾向于成对出现（一个隧道和一个冒泡）？ 答案是，通过预览事件，您可以在启动冒泡对象之前执行任何特殊的逻辑（数据验证，禁用冒泡操作等）。举例来说，假设您有一个TextBox，它只应包含数字数据。您可以处理PreviewKeyDown事件，并且如果看到用户输入了非数字数据，则可以通过将Handled属性设置为true来取消冒泡事件。&lt;/p&gt;
-&lt;p&gt;就像您猜到的那样，当您构建包含自定义事件的自定义控件时，您可以通过以下方式创作事件：事件可以在XAML树中冒泡（或隧穿）。就本章而言，我不会研究如何构建自定义路由事件（但是，该过程与构建自定义依赖项属性没有什么不同）。如果您有兴趣，请查看.NET Framework 4.7 SDK文档中的“路由事件概述”主题。 在其中，您会找到许多可以帮助您的教程。&lt;/p&gt;
+&lt;p&gt;就像您猜到的那样，当您构建包含自定义事件的自定义控件时，您可以通过以下方式创作事件：事件可以在XAML树中冒泡（或隧穿）。就本章而言，我不会研究如何构建自定义路由事件（但是，该过程与构建自定义依赖项属性没有什么不同）。如果您有兴趣，请查看 .NET Framework 4.7 SDK文档中的“路由事件概述”主题。 在其中，您会找到许多可以帮助您的教程。&lt;/p&gt;
 &lt;h3 id=&#34;深入了解wpf-api和控件&#34;&gt;深入了解WPF API和控件&lt;/h3&gt;
 &lt;p&gt;本章的其余部分将使您有机会使用Visual Studio构建新的WPF应用程序。目标是创建一个由包含一组选项卡的TabControl小部件组成的UI。每个选项卡将说明您可能希望在软件项目中使用的一些新的WPF控件和有趣的API。在此过程中，您还将学习Visual Studio WPF设计器的其他功能。&lt;/p&gt;
 &lt;h4 id=&#34;使用tabcontrol&#34;&gt;使用TabControl&lt;/h4&gt;
 &lt;p&gt;首先，创建一个名为WpfControlsAndAPIs的新WPF应用程序。如前所述，您的初始窗口将包含一个带有三个不同选项卡的TabControl，每个选项卡都展示了一组相关的控件和/或WPF API。 将窗口的宽度更新为800，高度更新为350。&lt;/p&gt;
+&lt;p&gt;在Visual Studio工具箱中找到TabControl控件，将其放到设计器中，然后将标记更新为以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TabControl&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;MyTabControl&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HorizontalAlignment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Stretch&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;VerticalAlignment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Stretch&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TabItem&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Header&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;TabItem&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Grid&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Background&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#FFE5E5E5&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TabItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TabItem&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Header&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;TabItem&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Grid&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Background&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#FFE5E5E5&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TabItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TabControl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;您会注意到，系统将自动为您提供两个选项卡项。要添加其他选项卡，只需在Document Outline窗口中右键单击TabControl节点，然后选择Add TabItem菜单选项（也可以在设计器上右键单击TabControl来激活相同的菜单选项），或者只是开始输入 在XAML编辑器中。使用任一方法添加一个附加选项卡。&lt;/p&gt;
+&lt;p&gt;现在，通过XAML编辑器更新每个TabItem控件，并更改每个选项卡的Header属性，将它们命名为Ink API，Data Binding和DataGrid。此时，您的窗口设计器应如图25-16所示。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;要知道，当你选择一个标签进行编辑，该选项卡成为活动选项卡，你可以从工具箱窗口中拖动控制设计该选项卡。现在，您已经定义了核心的TabControl，您可以逐个标签地制定详细信息，并逐步了解WPF API的更多功能。&lt;/p&gt;
+&lt;h3 id=&#34;构建ink-api标签&#34;&gt;构建Ink API标签&lt;/h3&gt;
+&lt;p&gt;第一个标签将用于显示WPF数字墨水API的总体作用，使您可以轻松地将绘画功能整合到程序中。当然，该应用程序实际上不需要是绘画应用程序；您可以将此API用于多种用途，包括捕获手写输入。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 对于本章的其余大部分（以及WPF的下一章），我将直接编辑XAML，而不是使用各种窗口。尽管控件可以工作，但布局不是您想要的（Visual Studio根据控件的放置位置增加了边距和内边距），这样你将花费大量时间清理XAML。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先将Ink API TabItem下的Grid标记更改为StackPanel并添加一个结束标记（确保从开始标记中删除“ /”）。 您的标记应如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;TabItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Header=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Ink API&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;StackPanel&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Background=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#FFE5E5E5&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/StackPanel&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/TabItem&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;设计工具栏&#34;&gt;设计工具栏&lt;/h4&gt;
+&lt;p&gt;添加一个名为InkToolbar的新工具栏控件（使用XAML编辑器），高度为60。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ToolBar&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;InkToolBar&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;60&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/ToolBar&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在Border控件内部的WrapPanel内部添加三个RadioButton控件，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Border&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0,2,0,2.4&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;280&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;VerticalAlignment=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;WrapPanel&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;RadioButton&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;inkRadio&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;5,10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Ink Mode!&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsChecked=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;True&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;RadioButton&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;eraseRadio&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;5,10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Erase Mode!&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;RadioButton&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;selectRadio&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;5,10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Select Mode!&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/WrapPanel&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/Border&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;当RadioButton控件未放置在父面板控件内部时，它将具有与Button控件相同的UI！ 这就是为什么我将RadioButton控件包装在WrapPanel中的原因。&lt;/p&gt;
+&lt;p&gt;接下来，添加一个分隔符，然后添加一个宽度为175，边距为10,0,0,0的ComboBox。 添加三个具有红色，绿色和蓝色内容的ComboBoxItem标签，并在整个ComboBox后面添加另一个Separator控件，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Separator/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;comboColors&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;175&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10,0,0,0&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBoxItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Red&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBoxItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Green&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBoxItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/ComboBox&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;Separator/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;单选按钮控件&#34;&gt;单选按钮控件&lt;/h4&gt;
+&lt;p&gt;在此示例中，您希望这三个RadioButton控件互斥。在其他GUI框架中，要确保一组相关控件（例如单选按钮）是互斥的，则需要将它们放在同一组框中。您无需在WPF下执行此操作。相反，您可以简单地将它们全部分配给相同的组名。 这很有用，因为相关项目不需要实际收集在同一区域中，而是可以放置在窗口中的任何位置。&lt;/p&gt;
+&lt;p&gt;RadioButton类包含一个IsChecked属性，当最终用户单击UI元素时，该属性将在true和false之间切换。 此外，RadioButton提供了两个事件（“Checked”和“Unchecked”），可用于拦截此状态更改。&lt;/p&gt;
+&lt;h4 id=&#34;添加保存加载和删除按钮&#34;&gt;添加保存，加载和删除按钮&lt;/h4&gt;
+&lt;p&gt;ToolBar控件中的最终控件将是一个网格，其中包含三个Button控件。在最后一个Separator控件之后添加以下标记：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Grid&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;Grid.ColumnDefinitions&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;ColumnDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;ColumnDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;ColumnDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/Grid.ColumnDefinitions&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;btnSave&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10,10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;70&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Save Data&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;btnLoad&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10,10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;70&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Load Data&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;btnClear&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10,10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;70&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Clear&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/Grid&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;添加inkcanvas控件&#34;&gt;添加InkCanvas控件&lt;/h4&gt;
+&lt;p&gt;TabControl的最终控件是InkCanvas控件。 在结束的ToolBar标记之后和结束的StackPanel标记之前添加以下标记，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;InkCanvas&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;MyInkCanvas&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Background=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#FFB6F4F1&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;预览窗口&#34;&gt;预览窗口&lt;/h4&gt;
+&lt;p&gt;此时，您可以测试程序了，您可以按F5键。现在，您应该看到三个互斥的单选按钮，一个带有三个选项的组合框和三个按钮（见图25-17）。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h4 id=&#34;处理ink-api选项卡的事件&#34;&gt;处理Ink API选项卡的事件&lt;/h4&gt;
+&lt;p&gt;Ink API选项卡的下一步是处理每个RadioButton控件的Click事件。就像在本书的其他WPF项目中所做的那样，只需单击Visual Studio属性编辑器的闪电图标即可输入事件处理程序的名称。使用这种方法，将每个按钮的Click事件路由到名为RadioButtonClicked的同一处理程序。处理所有三个Click事件之后，使用名为ColorChanged的处理程序处理ComboBox的SelectionChanged事件。完成后，您应该具有以下C＃代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;partial&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MainWindow&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Window&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MainWindow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InitializeComponent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// Insert code required on object creation below this point.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RadioButtonClicked&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RoutedEventArgs&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// TODO: Add event handler implementation here.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ColorChanged&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SelectionChangedEventArgs&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// TODO: Add event handler implementation here.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;您将在以后的步骤中实现这些处理程序，因此暂时将它们留空。&lt;/p&gt;
+&lt;h4 id=&#34;将控件添加到工具箱&#34;&gt;将控件添加到工具箱&lt;/h4&gt;
+&lt;p&gt;您通过直接编辑XAML添加了InkCanvas控件。如果要使用UI进行添加，则默认情况下，Visual Studio工具箱不会向您显示所有可能的WPF组件。但是您可以更新工具箱中显示的项目。&lt;/p&gt;
+&lt;p&gt;这样做，右键单击“工具箱”区域中的任何位置，然后选择“选择项目”菜单选项。 一两分钟后，您将看到要添加到工具箱的可能组件的列表。为了您的目的，您有兴趣添加InkCanvas控件（请参见图25-18）。&lt;/p&gt;
+&lt;h4 id=&#34;inkcanvas控件&#34;&gt;InkCanvas控件&lt;/h4&gt;
+&lt;p&gt;只需添加InkCanvas，即可在窗口中绘图。您可以使用鼠标，或者，如果您有启用触摸的设备，则可以使用手指或数字笔。运行该应用程序并绘制到框中（请参见图25-19）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://note.youdao.com/yws/public/resource/cb5db1b8454acbb910a8ffbc7d9d4d1f/xmlnote/1C45EFB81A524D6981F7C9A767DB8AD9/3285&#34; alt=&#34;图25-19&#34;&gt;&lt;/p&gt;
+&lt;p&gt;InkCanvas的功能不只是绘制鼠标（或手写笔）的笔划。 它还支持许多独特的编辑模式，这些模式由EditingMode属性控制。您可以从相关的InkCanvasEditingMode枚举中为该属性分配任何值。在此示例中，您对Ink Mode感兴趣，这是您刚刚看到的默认选项。Select Mode，允许用户使用鼠标选择区域以移动或调整大小；和EraseByStoke，这将删除先前的鼠标笔触。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 笔触是​​一次鼠标下移/鼠标上移操作期间发生的渲染。InkCanvas将所有笔划存储在StrokeCollection对象中，您可以使用Strokes属性对其进行访问。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用以下逻辑更新您的RadioButtonClicked()处理程序，该逻辑根据选定的RadioButton将InkCanvas置于正确的模式：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RadioButtonClicked&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RoutedEventArgs&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Based on which button sent the event, place the InkCanvas in a unique
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// mode of operation.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;switch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sender&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RadioButton&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)?.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Content&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ToString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// These strings must be the same as the Content values for each
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;// RadioButton.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Ink Mode!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyInkCanvas&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;EditingMode&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InkCanvasEditingMode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Ink&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Erase Mode!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyInkCanvas&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;EditingMode&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InkCanvasEditingMode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;EraseByStroke&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Select Mode!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyInkCanvas&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;EditingMode&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InkCanvasEditingMode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Select&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;另外，在窗口的构造函数中，默认情况下将模式设置为“Ink”。在使用它时，请为ComboBox设置一个默认选择（下一节中有关此控件的更多详细信息），如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MainWindow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InitializeComponent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;// Be in Ink mode by default.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyInkCanvas&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;EditingMode&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InkCanvasEditingMode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Ink&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inkRadio&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IsChecked&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;comboColors&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SelectedIndex&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;现在，按F5再次运行程序。进入墨水模式并绘制一些数据。接下来，进入“擦除”模式并删除您输入的上一个鼠标笔划（您会注意到鼠标图标自动看起来像一个橡皮擦）。最后，进入“选择”模式，然后使用鼠标作为套索来选择一些笔触。&lt;/p&gt;
+&lt;p&gt;圈出项目后，可以在画布上移动它并调整其尺寸。 图25-20显示了您的工作编辑模式。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://note.youdao.com/yws/public/resource/cb5db1b8454acbb910a8ffbc7d9d4d1f/xmlnote/3930ED0E28B84143B6E4C0DE61C6C384/3287&#34; alt=&#34;图25-20&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;combobox控件&#34;&gt;ComboBox控件&lt;/h4&gt;
+&lt;p&gt;填充ComboBox控件（或ListBox）后，可以通过三种方法确定所选项目。首先，如果要查找所选项目的数字索引，可以使用SelectedIndex属性（从零开始；值-1表示没有选择）。其次，如果要在已选择的列表中获取对象，则SelectedItem属性很合适。第三，SelectedValue允许您获取所选对象的值（通常使用对ToString（）的调用获得）。&lt;/p&gt;
+&lt;p&gt;您需要为此选项卡添加代码的最后一位，以更改在InkCanvas上输入的笔触颜色。InkCanvas的DefaultDrawingAttributes属性返回一个DrawingAttributes对象，该对象使您可以配置笔尖的多个方面，包括其大小和颜色（以及其他设置）。使用ColorChanged（）方法的以下实现更新您的C＃代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ColorChanged&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SelectionChangedEventArgs&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Get the selected value in the combo box.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;colorToUse&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;comboColors&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SelectedItem&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ComboBoxItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)?.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Content&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ToString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Change the color used to render the strokes.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyInkCanvas&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DefaultDrawingAttributes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ColorConverter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ConvertFromString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;colorToUse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;现在回想一下，ComboBox具有ComboBoxItems的集合。如果您查看生成的XAML，则会看到以下定义：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;comboColors&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;100&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;SelectionChanged=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;ColorChanged&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBoxItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Red&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBoxItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Green&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBoxItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/ComboBox&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;调用SelectedItem时，将获取选定的ComboBoxItem，该ComboBoxItem存储为常规对象。将对象强制转换为ComboBoxItem之后，您将拔出Content的值，该值将为字符串Red，Green或Blue。然后，使用方便的ColorConverter实用程序类将此字符串转换为Color对象。现在再次运行您的程序。渲染图像时，您应该能够在颜色之间进行更改。&lt;/p&gt;
+&lt;p&gt;请注意，ComboBox和ListBox控件也可以包含复杂的内容，而不是文本数据列表。您可以通过打开窗口的XAML编辑器并更改ComboBox的定义来了解可能发生的事情，以便它包含一组StackPanel元素，每个元素都包含一个Ellipse和Label（请注意，组合框的宽度为175）。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;comboColors&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;175&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;”10,0,0,0”&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;SelectionChanged=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;ColorChang
+&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;ed&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;StackPanel&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Orientation =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Horizontal&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Tag=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Red&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Ellipse&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Fill =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Red&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;50&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;50&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;FontSize =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;20&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;HorizontalAlignment=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;VerticalAlignment=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Red&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/StackPanel&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;StackPanel&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Orientation =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Horizontal&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Tag=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Green&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Ellipse&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Fill =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Green&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;50&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;50&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;FontSize =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;20&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;HorizontalAlignment=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;VerticalAlignment=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Green&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/StackPanel&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;StackPanel&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Orientation =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Horizontal&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Tag=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Ellipse&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Fill =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;50&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;50&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;FontSize =&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;20&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;HorizontalAlignment=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;VerticalAlignment=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/StackPanel&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/ComboBox&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;请注意，每个StackPanel都为其Tag属性分配一个值，这是一种简单，快速且方便的方法来发现用户已选择的项目堆栈（有更好的方法，但是现在可以这样做）。进行此调整后，您需要更改ColorChanged（）方法的实现，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ColorChanged&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SelectionChangedEventArgs&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Get the Tag of the selected StackPanel.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;colorToUse&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;comboColors&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SelectedItem&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;StackPanel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Tag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ToString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;现在再次运行程序，并记下您独特的ComboBox（见图25-21）。&lt;/p&gt;
+&lt;h4 id=&#34;保存加载和清除inkcanvas数据&#34;&gt;保存，加载和清除InkCanvas数据&lt;/h4&gt;
+&lt;p&gt;此选项卡的最后一部分将使您能够保存和加载画布数据，以及通过为工具栏中的按钮添加事件处理程序清除其所有内容。 通过为单击事件添加标记来更新按钮的XAML，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;btnSave&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10,10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;70&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Save Data&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Click=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;SaveData&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;btnLoad&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10,10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;70&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Load Data&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Click=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;LoadData&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;btnClear&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10,10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;70&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Clear&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Click=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Clear&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;接下来，将System.IO和System.Windows.Ink命名空间导入到您的代码文件中。实现处理程序，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SaveData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RoutedEventArgs&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Save all data on the InkCanvas to a local file.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FileStream&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fs&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FileStream&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;StrokeData.bin&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FileMode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Create&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyInkCanvas&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Strokes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Save&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;fs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Close&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LoadData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RoutedEventArgs&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Fill StrokeCollection from file.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;using&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FileStream&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fs&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FileStream&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;StrokeData.bin&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FileMode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FileAccess&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Read&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;StrokeCollection&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;strokes&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;StrokeCollection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyInkCanvas&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Strokes&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;strokes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Clear&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RoutedEventArgs&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Clear all strokes.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyInkCanvas&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Strokes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Clear&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;现在，您应该能够将数据保存到文件中，从文件中加载它，并清除所有数据的InkCanvas。 这包含了TabControl的第一个选项卡，以及对WPF数字墨水API的检查。 可以肯定的是，关于这项技术还有更多的话要说。但是，如果您感兴趣，您应该处于很好的位置，可以进一步深入研究该主题。接下来，您将学习如何使用WPF数据绑定。&lt;/p&gt;
+&lt;h3 id=&#34;介绍wpf数据绑定模型&#34;&gt;介绍WPF数据绑定模型&lt;/h3&gt;
+&lt;p&gt;控件通常是各种数据绑定操作的目标。简而言之，&lt;strong&gt;数据绑定是将控件属性连接到在应用程序生命周期中可能发生变化的数据值的行为&lt;/strong&gt;。这样做&lt;strong&gt;可以使用户界面元素在代码中显示变量的状态&lt;/strong&gt;。例如，您可以使用数据绑定来完成以下任务：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;根据给定对象的布尔属性检查CheckBox控件&lt;/li&gt;
+&lt;li&gt;从关系数据库表中显示DataGrid对象中的数据&lt;/li&gt;
+&lt;li&gt;将Label连接到代表文件夹中文件数的整数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用内部WPF数据绑定引擎时，必须注意绑定操作的源和目标之间的区别。如您所料，数据绑定操作的&lt;strong&gt;源&lt;/strong&gt;是数据本身（例如，布尔属性或关系数据），而&lt;strong&gt;目标&lt;/strong&gt;是使用数据内容的UI控件属性（例如，CheckBox或TextBox控件）。&lt;/p&gt;
+&lt;p&gt;如前面的示例所述，除了绑定到传统数据外，WPF还支持元素绑定。这意味着您可以基于复选框的选中属性绑定（例如）属性的可见性。您当然可以在WinForms中执行此操作，但是必须通过代码来完成。WPF框架提供了一个丰富的数据绑定生态系统，几乎可以完全在标记中处理它。这也使您可以确保源和目标的值中的任何一个更改时都保持同步。&lt;/p&gt;
+&lt;h4 id=&#34;构建数据绑定选项卡&#34;&gt;构建数据绑定选项卡&lt;/h4&gt;
+&lt;p&gt;使用文档大纲编辑器，将第二个选项卡的网格更改为StackPanel。现在，使用Visual Studio的“工具箱”和“属性”编辑器来构建以下初始布局：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;TabItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;tabDataBinding&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Header=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Data Binding&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;StackPanel&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;250&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Move the scroll bar to see the current value&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;c&#34;&gt;&amp;lt;!-- The scrollbar&amp;#39;s value is the source of this data bind. --&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;ScrollBar&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;mySB&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Orientation=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Horizontal&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Minimum =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Maximum =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;100&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;LargeChange=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;SmallChange=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;c&#34;&gt;&amp;lt;!-- The label&amp;#39;s content will be bound to the scroll bar! --&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;labelSBThumb&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderBrush=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderThickness=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/StackPanel&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/TabItem&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;请注意，ScrollBar对象（在此处名为mySB）已配置为1到100之间的范围。目标是确保在重新放置滚动条的拇指（或单击向左或向右箭头）时，Label将自动用当前值更新。当前，Label控件的Content属性设置为值“0”；默认值为0。 但是，您将通过数据绑定操作来更改此设置。&lt;/p&gt;
+&lt;h4 id=&#34;建立数据绑定&#34;&gt;建立数据绑定&lt;/h4&gt;
+&lt;p&gt;可以在XAML中定义绑定的粘合剂是{Binding}标记扩展。尽管您可以通过Visual Studio定义绑定，但是直接在标记中进行操作同样容易。将名为labelSBThumb的Label的Content属性编辑为以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;labelSBThumb&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderBrush=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderThickness=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Path=Value, ElementName=mySB}&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;请注意分配给标签的内容属性的值。{Binding}语句表示数据绑定操作。&lt;strong&gt;ElementName&lt;/strong&gt;值表示数据绑定操作的源（ScrollBar对象），而&lt;strong&gt;Path&lt;/strong&gt;表示要绑定到的属性，在这种情况下为滚动条的Value。&lt;/p&gt;
+&lt;p&gt;如果再次运行程序，您会发现在移动拇指时，标签的内容会根据滚动条的值进行更新！&lt;/p&gt;
+&lt;h4 id=&#34;datacontext属性&#34;&gt;DataContext属性&lt;/h4&gt;
+&lt;p&gt;您可以使用另一种格式在XAML中定义数据绑定操作，在该格式中，可以通过将DataContext属性显式设置为绑定操作的源，从而突破{Binding}标记扩展所指定的值，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!-- Breaking object/value apart via DataContext --&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;labelSBThumb&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderBrush=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderThickness=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;DataContext =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding ElementName=mySB}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Path=Value}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在当前示例中，如果您要以这种方式修改标记，则输出将是相同的。鉴于此，您可能想知道何时要显式设置DataContext属性。这样做会有所帮助，因为子元素可以在标记树中继承其值。&lt;/p&gt;
+&lt;p&gt;这样，您可以轻松地将相同的数据源设置为一系列控件，而不必对多个控件重复一堆多余的“ {Binding ElementName = X，Path = Y}” XAML值。例如，假设您已将以下新按钮添加到此选项卡的StackPanel中（稍后您将看到为什么它如此之大）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Click&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;200&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;您可以使用Visual Studio为多个控件生成数据绑定，但是可以尝试使用XAML编辑器手动输入修改后的标记，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!-- Note the StackPanel sets the DataContext property. --&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;StackPanel&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Background=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#FFE5E5E5&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;DataContext =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding ElementName=mySB}&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Move the scroll bar to see the current value&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;ScrollBar&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Orientation=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Horizontal&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;mySB&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Maximum =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;100&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;LargeChange=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;SmallChange=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;c&#34;&gt;&amp;lt;!-- Now both UI elements use the scrollbar&amp;#39;s value in unique ways. --&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;labelSBThumb&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderBrush=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderThickness=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Path=Value}&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Click&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;200&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;FontSize =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Path=Value}&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/StackPanel&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在这里，您可以直接在StackPanel上设置DataContext属性。因此，当您移动拇指时，不仅会看到Label上的当前值，而且还会看到Button的字体大小根据相同的值相应地增大和缩小（图25-22显示了一种可能的输出）。&lt;/p&gt;
+&lt;h4 id=&#34;格式化绑定数据&#34;&gt;格式化绑定数据&lt;/h4&gt;
+&lt;p&gt;ScrollBar类型使用双精度表示拇指的值，而不是期望的整数（例如整数）。因此，当您拖动拇指时，您会在“标签”中找到各种浮点数（例如61.0576923076923）。 最终用户会发现这不太直观，因为他最有可能期望看到整数（例如61、62和63）。&lt;/p&gt;
+&lt;p&gt;如果要格式化数据，则可以添加ContentStringFormat属性，并传入自定义字符串和.NET格式说明符，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;labelSBThumb&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderBrush=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderThickness=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Path=Value}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;ContentStringFormat=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;The value is: {0:F0}&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果格式说明中没有任何文本，则需要以空括号开头，这是XAML的例外顺序。例如，这使处理器知道下一个字符是文字​​，而不是绑定语句。这是更新的XAML：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;labelSBThumb&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderBrush=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderThickness=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Path=Value}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;ContentStringFormat=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{}{0:F0}&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;注意: 如果要绑定控件的Text属性，则可以在绑定语句中添加StringFormat名称/值对。对于内容属性，只需将其分开。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;使用ivalueconverter进行数据转换&#34;&gt;使用IValueConverter进行数据转换&lt;/h4&gt;
+&lt;p&gt;如果您需要做的不仅仅是格式化数据，还可以创建一个自定义类，该类实现System.Windows.Data命名空间的IValueConverter接口。此接口定义了两个成员，这些成员使您可以执行往返于目标和目的地的转换（在双向数据绑定的情况下）。定义此类后，可以使用它来进一步限定数据绑定操作的处理。&lt;/p&gt;
+&lt;p&gt;您可以使用值转换器在Label控件中显示整数，而不是使用format属性。为此，将一个新类（名为MyDoubleConverter）添加到项目类中。接下来，添加以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyDoubleConverter&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IValueConverter&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Convert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Type&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;targetType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parameter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Globalization&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CultureInfo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;culture&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// Convert the double to an int.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;v&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ConvertBack&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Type&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;targetType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parameter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Globalization&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CultureInfo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;culture&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// You won&amp;#39;t worry about &amp;#34;two-way&amp;#34; bindings here, so just return the value.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;当值从源（ScrollBar）传输到目标（TextBox的Text属性）时，将调用Convert（）方法。您将收到许多传入的参数，但是您只需为此转换操作传入的对象，这是当前double的值。您可以使用此类型将类型转换为整数并返回新数字。&lt;/p&gt;
+&lt;p&gt;将值从目标传递到源时（如果启用了双向绑定模式），将调用ConvertBack（）方法。在这里，您只需直接返回值。 这样做可以让您在TextBox中输入浮点值（例如99.9），并在用户关闭控件时将其自动转换为整数值（例如99）。之所以发生这种“免费”转换，是因为在调用ConvertBack（）之后再次调用了Convert（）方法。如果仅从ConvertBack（）返回null，则绑定似乎不同步，因为文本框仍将显示浮点数。&lt;/p&gt;
+&lt;p&gt;要在标记中使用此转换器，首先必须创建一个本地资源，该资源代表刚构建的自定义类。不必担心增加资源的机制； 接下来的几章将更深入地探讨该主题。在打开的Window标记之后添加以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Window.Resources&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;local:MyDoubleConverter&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;DoubleConverter&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/Window.Resources&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;接下来，将Label控件的绑定语句更新为以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;labelSBThumb&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderBrush=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderThickness=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Path=Value,Converter={StaticResource DoubleConverter}}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;现在，当您运行该应用程序时，您只会看到整数。&lt;/p&gt;
+&lt;h4 id=&#34;在代码中建立数据绑定&#34;&gt;在代码中建立数据绑定&lt;/h4&gt;
+&lt;p&gt;您也可以在代码中注册数据转换类。首先清理数据绑定选项卡中Label控件的当前定义，以使其不再使用{Binding}标记扩展名。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;labelSBThumb&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderBrush=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;BorderThickness=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;确保System.Windows.Data有一个using；然后在窗口的构造函数中，调用一个名为SetBindings（）的新私有帮助器函数。在此方法中，添加以下代码（并确保从构造函数中调用它）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SetBindings&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Create a Binding object.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Binding&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Binding&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;// Register the converter, source, and path.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Converter&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MyDoubleConverter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Source&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mySB&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Path&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PropertyPath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Value&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    
+    &lt;span class=&#34;c1&#34;&gt;// Call the SetBinding method on the Label.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;labelSBThumb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SetBinding&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Label&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ContentProperty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;该函数唯一看起来可能有点过时的部分是对SetBinding（）的调用。注意，第一个参数调用Label类的名为ContentProperty的静态只读字段。正如您将在本章稍后学习的那样，您将指定所谓的依赖项属性。就目前而言，只知道在代码中设置绑定时，第一个参数几乎总是需要您指定需要绑定的类的名称（在本例中为Label），然后调用基础属性后缀为Property的属性。无论如何，运行该应用程序都说明了Label仅打印出整数。&lt;/p&gt;
+&lt;h4 id=&#34;构建数据网格选项卡&#34;&gt;构建数据网格选项卡&lt;/h4&gt;
+&lt;p&gt;前面的数据绑定示例说明了如何配置两个（或多个）控件以参与数据绑定操作。尽管这很有用，但也可以从XML文件，数据库数据和内存中对象绑定数据。要完成此示例，您将设计选项卡控件的最终选项卡，以便它显示从AutoLot数据库的“库存”表获得的数据。&lt;/p&gt;
+&lt;p&gt;与其他选项卡一样，首先将当前的Grid更改为StackPanel。为此，可以使用Visual Studio直接更新XAML。现在，在新StackPanel中定义一个名为gridInventory的DataGrid控件，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;TabItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;tabDataGrid&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Header=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;DataGrid&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;StackPanel&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;DataGrid&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;gridInventory&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;288&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/StackPanel&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/TabItem&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;使用NuGet程序包管理器将实体框架添加到您的项目。接下来，右键单击该解决方案，选择“添加”➤“现有项目”，然后从第22章添加AutoLotDAL项目。从WpfControlsAndAPIs项目中添加对AutoLotDAL项目的引用。将连接字符串添加到App.config文件中。我的如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;connectionStrings&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;add&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;AutoLotConnection&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;connectionString=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;data source=(LocalDb)\MSSQLLocalDB; initial catalog=AutoLot; integrated security=True;MultipleActiveResultSets=True; App=EntityFramework&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;providerName=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;System.Data.SqlClient&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/connectionStrings&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;打开您的窗口的代码文件，并添加一个名为ConfigureGrid（）的最终帮助程序函数；确保从构造函数调用此函数。 假设您确实导入了AutoLotDAL命名空间，您所需要做的就是添加几行代码，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;AutoLotDAL.Repos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ConfigureGrid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;repo&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InventoryRepo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// Build a LINQ query that gets back some data from the Inventory table.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;gridInventory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ItemsSource&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;repo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GetAll&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Select&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Make&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PetName&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;LINQ查询会创建一个新的匿名对象，该对象不包含Timestamp属性，因为对于用户而言，查看该字段没有任何价值。 如果要运行项目，则会看到数据填充网格。如果要使网格更加美观，可以使用Visual Studio属性窗口来编辑网格以使其更具吸引力。&lt;/p&gt;
+&lt;p&gt;总结了当前示例。在后面的章节中，您将看到其他一些正在使用的控件。但是，此时，您应该对在Visual Studio中构建UI以及手动使用XAML和C＃代码的过程感到满意。&lt;/p&gt;
+&lt;h3 id=&#34;了解依赖属性的作用&#34;&gt;了解依赖属性的作用&lt;/h3&gt;
+&lt;p&gt;像任何 .NET API一样，WPF使用 .NET 类型系统的每个成员（类，结构，接口，委托，枚举）和每个类型成员（属性，方法，事件，常量数据，只读字段等）。但是，WPF还支持称为&lt;strong&gt;依赖属性&lt;/strong&gt;的独特编程概念。&lt;/p&gt;
+&lt;p&gt;就像“普通” .NET属性（在WPF文献中通常称为&lt;strong&gt;CLR属性&lt;/strong&gt;）一样，可以使用XAML声明式设置或在代码文件中以编程方式设置依赖项属性。此外，依赖属性（如CLR属性）最终存在以封装类的数据字段，并且可以配置为只读，只写或读写。&lt;/p&gt;
+&lt;p&gt;使事情变得更有趣的是，几乎在每种情况下，您都会幸福地意识到实际上已设置（或访问）了一个依赖属性而不是CLR属性！ 例如，WPF控件从FrameworkElement继承的Height和Width属性以及从ControlContent继承的Content成员实际上都是依赖项属性。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!-- Set three dependency properties! --&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;btnMyButton&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;50&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;100&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;OK&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;鉴于所有这些相似之处，为什么WPF会为这种熟悉的概念定义一个新术语？答案在于在类中如何实现依赖项属性。您将很快看到一个编码示例；但是，从高层次来看，所有依赖项属性都是按以下方式创建的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先，定义依赖项属性的类在其继承链中必须具有DependencyObject。&lt;/li&gt;
+&lt;li&gt;单个依赖项属性在DependencyProperty类型的类中表示为公共，静态，只读字段。按照惯例，通过在CLR包装器的名称后添加单词Property来命名该字段（请参见最后的要点）。&lt;/li&gt;
+&lt;li&gt;通过对DependencyProperty.Register（）的静态调用来注册DependencyProperty变量，该调用通常发生在静态构造函数中，或者在声明该变量时内联。&lt;/li&gt;
+&lt;li&gt;最后，该类将定义XAML友好的CLR属性，该属性将调用DependencyObject提供的方法以获取和设置值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一旦实现，依赖项属性将提供各种WPF技术所使用的许多强大功能，包括数据绑定，动画服务，样式，模板等。简而言之，依赖属性的动机是提供一种基于其他输入值来计算属性值的方法。下面列出了其中一些关键的好处，这些好处远远超出了使用CLR属性发现的简单数据封装的好处：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;依赖项属性可以从父元素的XAML定义继承其值。例如，如果您在窗口的开始标记中为FontSize属性定义了一个值，则默认情况下，该窗口中的所有控件的字体大小都相同。&lt;/li&gt;
+&lt;li&gt;依赖关系属性支持通过其XAML范围内包含的元素来设置值的功能，例如Button设置DockPanel父级的Dock属性。  （请记住，附加属性之所以能做到这一点，是因为附加属性是依赖属性的一种形式。）&lt;/li&gt;
+&lt;li&gt;依赖属性允许WPF基于多个外部值来计算一个值，这对于动画和数据绑定服务而言很重要。&lt;/li&gt;
+&lt;li&gt;依赖关系属性为WPF触发器提供基础结构支持（在处理动画和数据绑定时也经常使用）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;现在请记住，在许多情况下，您将以与普通CLR属性相同的方式与现有的依赖项属性进行交互（这要归功于XAML包装器）。在上一节讨论了数据绑定的部分中，您看到了如果需要在代码中建立数据绑定，则必须在作为操作目标的对象上调用SetBinding（）方法，并指定它将操作的依赖项属性。像这样：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SetBindings&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;Binding&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Binding&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Converter&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MyDoubleConverter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Source&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mySB&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Path&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PropertyPath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Value&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;// Specify the dependency property!
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;labelSBThumb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SetBinding&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Label&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ContentProperty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在第27章的代码中检查如何启动动画时，将看到类似的代码。&lt;/p&gt;
+&lt;p&gt;唯一需要构建自己的自定义依赖项属性的时间是在编写自定义WPF控件时。例如，如果要构建定义四个自定义属性的UserControl，并且希望这些属性在WPF API中很好地集成，则应使用依赖项属性逻辑来编写它们。&lt;/p&gt;
+&lt;p&gt;具体来说，如果您的属性需要成为数据绑定或动画操作的目标，则该属性是否必须在更改后进行广播，是否必须能够以WPF样式用作Setter或是否必须能够要从父元素接收其值，普通的CLR属性是不够的。如果要使用普通的CLR属性，则其他程序员可能确实可以获取并设置一个值。但是，如果他们尝试在WPF服务的上下文中使用您的属性，则事情将无法按预期进行。因为您永远无法知道其他人可能如何与自定义UserControl类的属性进行交互，所以您应该养成在构建自定义控件时始终定义依赖项属性的习惯。&lt;/p&gt;
+&lt;h4 id=&#34;检查现有的依赖项属性&#34;&gt;检查现有的依赖项属性&lt;/h4&gt;
 &lt;h3 id=&#34;概要-1&#34;&gt;概要&lt;/h3&gt;
 &lt;p&gt;本章从控件工具包的概述和布局管理器（面板）的作用开始，研究了WPF控件的几个方面。第一个示例使您有机会构建一个简单的文字处理器应用程序，该应用程序说明了WPF的集成拼写检查功能，以及如何构建具有菜单系统，状态栏和工具栏的主窗口。&lt;/p&gt;
 &lt;p&gt;更重要的是，您研究了如何使用WPF命令。回想一下，您可以将这些不可知的事件附加到UI元素或输入手势，以自动继承现成的服务（例如剪贴板操作）。&lt;/p&gt;
@@ -4266,7 +5071,7 @@ delete import try&lt;/p&gt;
     </item>
     
     <item>
-      <title>Leetcode_20201018_Weekly</title>
+      <title>Leetcode_20201018周赛</title>
       <link>https://slkyrim.github.io/post/leetcode_20201018_weekly/</link>
       <pubDate>Sun, 18 Oct 2020 14:24:12 +0800</pubDate>
       
