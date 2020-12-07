@@ -253,13 +253,387 @@ link /dll Test.obj
       <guid>https://slkyrim.github.io/post/book_pro_csharp_7/</guid>
       
         <description>&lt;h1 id=&#34;pro-c-7-with-net-and-net-core---andrew-troelsen-et-al&#34;&gt;Pro C# 7 with .NET and .NET Core - Andrew Troelsen et al.&lt;/h1&gt;
-&lt;h2 id=&#34;第vii部分-windows-presentation-foundation&#34;&gt;第VII部分 Windows Presentation Foundation&lt;/h2&gt;
-&lt;h3 id=&#34;第24章-windows-presentation-foundation和xaml简介&#34;&gt;第24章 Windows Presentation Foundation和XAML简介&lt;/h3&gt;
-&lt;p&gt;当.NET平台的1.0版发布时，需要构建图形桌面应用程序的程序员使用了两个API，它们分别名为Windows Forms和GDI+，这些API主要打包在System.Windows.Forms.dll和System.Drawing.dll程序集。尽管Windows Forms / GDI+仍然是用于构建传统桌面GUI的可行API，但是Microsoft从.NET 3.0版本开始提供了另一种名为Windows Presentation Foundation（WPF）的GUI桌面API。&lt;/p&gt;
+&lt;h1 id=&#34;目录&#34;&gt;目录&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#pro-c-7-with-net-and-net-core---andrew-troelsen-et-al&#34;&gt;Pro C# 7 with .NET and .NET Core - Andrew Troelsen et al.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%9B%AE%E5%BD%95&#34;&gt;目录&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%ACi%E9%83%A8%E5%88%86-%E4%BB%8B%E7%BB%8Dc%E5%92%8Cnet%E5%B9%B3%E5%8F%B0&#34;&gt;第I部分 介绍C#和.NET平台&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC1%E7%AB%A0-net%E7%9A%84%E5%93%B2%E5%AD%A6&#34;&gt;第1章 .NET的哲学&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC2%E7%AB%A0-%E6%9E%84%E5%BB%BAc%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F&#34;&gt;第2章 构建C#应用程序&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%9C%A8%E9%9D%9Ewindows%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%9E%84%E5%BB%BAnet%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F&#34;&gt;在非Windows操作系统上构建.NET应用程序&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81-1&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%ACii%E9%83%A8%E5%88%86-%E6%A0%B8%E5%BF%83c%E7%A8%8B%E5%BC%8F%E8%AE%BE%E8%AE%A1&#34;&gt;第II部分 核心C#程式设计&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC3%E7%AB%A0-%E6%A0%B8%E5%BF%83c%E7%BC%96%E7%A8%8B%E6%9E%84%E9%80%A0%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86&#34;&gt;第3章 核心C＃编程构造，第一部分&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81-2&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC4%E7%AB%A0-%E6%A0%B8%E5%BF%83c%E7%BC%96%E7%A8%8B%E6%9E%84%E9%80%A0%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86&#34;&gt;第4章 核心C＃编程构造，第二部分&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81-3&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%ACiii%E9%83%A8%E5%88%86-%E7%94%A8c%E8%BF%9B%E8%A1%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BC%96%E7%A8%8B&#34;&gt;第III部分 用C＃进行面向对象的编程&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC5%E7%AB%A0-%E4%BA%86%E8%A7%A3%E5%B0%81%E8%A3%85&#34;&gt;第5章 了解封装&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81-4&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC6%E7%AB%A0-%E4%BA%86%E8%A7%A3%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81&#34;&gt;第6章 了解继承和多态&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81-5&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC7%E7%AB%A0-%E4%BA%86%E8%A7%A3%E7%BB%93%E6%9E%84%E5%8C%96%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86&#34;&gt;第7章 了解结构化异常处理&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81-6&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC8%E7%AB%A0-%E4%BD%BF%E7%94%A8%E6%8E%A5%E5%8F%A3&#34;&gt;第8章 使用接口&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81-7&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%ACiv%E9%83%A8%E5%88%86-%E9%AB%98%E7%BA%A7c%E7%BC%96%E7%A8%8B&#34;&gt;第IV部分 高级C＃编程&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC9%E7%AB%A0-%E9%9B%86%E5%90%88%E5%92%8C%E6%B3%9B%E5%9E%8B&#34;&gt;第9章 集合和泛型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC10%E7%AB%A0-%E5%A7%94%E6%89%98%E4%BA%8B%E4%BB%B6%E5%92%8Clambda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#34;&gt;第10章 委托，事件和Lambda表达式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC11%E7%AB%A0-%E5%85%88%E8%BF%9B%E7%9A%84c%E8%AF%AD%E8%A8%80%E5%8A%9F%E8%83%BD&#34;&gt;第11章 先进的C＃语言功能&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC12%E7%AB%A0-linq%E5%AF%B9%E8%B1%A1&#34;&gt;第12章 LINQ对象&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC13%E7%AB%A0-%E4%BA%86%E8%A7%A3%E5%AF%B9%E8%B1%A1%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F&#34;&gt;第13章 了解对象生命周期&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%ACv%E9%83%A8%E5%88%86-net%E7%A8%8B%E5%BA%8F%E9%9B%86%E7%BC%96%E7%A8%8B&#34;&gt;第V部分 .NET程序集编程&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC14%E7%AB%A0-%E6%9E%84%E5%BB%BA%E5%92%8C%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%BA%93&#34;&gt;第14章 构建和配置类库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC15%E7%AB%A0-%E7%B1%BB%E5%9E%8B%E5%8F%8D%E5%B0%84%E5%90%8E%E6%9C%9F%E7%BB%91%E5%AE%9A%E5%92%8C%E5%9F%BA%E4%BA%8E%E5%B1%9E%E6%80%A7%E7%9A%84%E7%BC%96%E7%A8%8B&#34;&gt;第15章 类型反射，后期绑定和基于属性的编程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC16%E7%AB%A0-%E5%8A%A8%E6%80%81%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8A%A8%E6%80%81%E8%AF%AD%E8%A8%80%E8%BF%90%E8%A1%8C%E6%97%B6&#34;&gt;第16章 动态类型和动态语言运行时&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC17%E7%AB%A0-%E8%BF%9B%E7%A8%8Bappdomain%E5%92%8C%E5%AF%B9%E8%B1%A1%E4%B8%8A%E4%B8%8B%E6%96%87&#34;&gt;第17章 进程，AppDomain和对象上下文&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC18%E7%AB%A0-%E4%BA%86%E8%A7%A3cil%E5%92%8C%E5%8A%A8%E6%80%81%E7%A8%8B%E5%BA%8F%E9%9B%86%E7%9A%84%E4%BD%9C%E7%94%A8&#34;&gt;第18章 了解CIL和动态程序集的作用&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%ACvi%E9%83%A8%E5%88%86-net%E5%9F%BA%E7%B1%BB%E5%BA%93%E7%AE%80%E4%BB%8B&#34;&gt;第VI部分 .NET基类库简介&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC19%E7%AB%A0-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E8%A1%8C%E5%92%8C%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B&#34;&gt;第19章 多线程，并行和异步编程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC20%E7%AB%A0-%E6%96%87%E4%BB%B6io%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96&#34;&gt;第20章 文件I/O和对象序列化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC21%E7%AB%A0-%E4%BD%BF%E7%94%A8adonet%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE&#34;&gt;第21章 使用ADO.NET进行数据访问&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC22%E7%AB%A0-%E5%AE%9E%E4%BD%93%E6%A1%86%E6%9E%B66%E7%AE%80%E4%BB%8B&#34;&gt;第22章 实体框架6简介&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC23%E7%AB%A0-windows-communication-foundation%E7%AE%80%E4%BB%8B&#34;&gt;第23章 Windows Communication Foundation简介&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%ACvii%E9%83%A8%E5%88%86-windows-presentation-foundation&#34;&gt;第VII部分 Windows Presentation Foundation&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC24%E7%AB%A0-windows-presentation-foundation%E5%92%8Cxaml%E7%AE%80%E4%BB%8B&#34;&gt;第24章 Windows Presentation Foundation和XAML简介&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#wpf%E8%83%8C%E5%90%8E%E7%9A%84%E5%8A%A8%E6%9C%BA&#34;&gt;WPF背后的动机&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BB%9F%E4%B8%80%E5%90%84%E7%A7%8Dapi&#34;&gt;统一各种API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%80%9A%E8%BF%87xaml%E6%8F%90%E4%BE%9B%E5%85%B3%E6%B3%A8%E7%82%B9%E5%88%86%E7%A6%BB&#34;&gt;通过XAML提供关注点分离&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%8F%90%E4%BE%9B%E4%BC%98%E5%8C%96%E7%9A%84%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%9E%8B&#34;&gt;提供优化的渲染模型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AE%80%E5%8C%96%E5%A4%8D%E6%9D%82%E7%9A%84ui%E7%BC%96%E7%A8%8B&#34;&gt;简化复杂的UI编程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%A0%94%E7%A9%B6wpf%E7%A8%8B%E5%BA%8F%E9%9B%86&#34;&gt;研究WPF程序集&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#application%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8&#34;&gt;Application类的作用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%9E%84%E9%80%A0application%E7%B1%BB&#34;&gt;构造Application类&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%9E%9A%E4%B8%BEwindows%E9%9B%86%E5%90%88&#34;&gt;枚举Windows集合&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AA%97%E5%8F%A3%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8&#34;&gt;窗口类的作用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#systemwindowscontrolscontentcontrol%E7%9A%84%E8%A7%92%E8%89%B2&#34;&gt;System.Windows.Controls.ContentControl的角色&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#systemwindowscontrolscontrol%E7%9A%84%E8%A7%92%E8%89%B2&#34;&gt;System.Windows.Controls.Control的角色&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#systemwindowsframeworkelement%E7%9A%84%E8%A7%92%E8%89%B2&#34;&gt;System.Windows.FrameworkElement的角色&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#systemwindowsuielement%E7%9A%84%E8%A7%92%E8%89%B2&#34;&gt;System.Windows.UIElement的角色&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#systemwindowsthreadingdispatcherobject%E7%9A%84%E8%A7%92%E8%89%B2&#34;&gt;System.Windows.Threading.DispatcherObject的角色&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BA%86%E8%A7%A3wpf-xaml%E7%9A%84%E8%AF%AD%E6%B3%95&#34;&gt;了解WPF XAML的语法&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BB%8B%E7%BB%8Dkaxaml&#34;&gt;介绍Kaxaml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#xaml-xml%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8Cxaml%E5%85%B3%E9%94%AE%E5%AD%97&#34;&gt;XAML XML命名空间和XAML“关键字”&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%8E%A7%E5%88%B6%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%8F%AF%E8%A7%81%E6%80%A7&#34;&gt;控制类和成员变量可见性&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#xaml%E5%85%83%E7%B4%A0xaml%E5%B1%9E%E6%80%A7%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%99%A8&#34;&gt;XAML元素，XAML属性和类型转换器&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BA%86%E8%A7%A3xaml%E5%B1%9E%E6%80%A7%E5%85%83%E7%B4%A0%E8%AF%AD%E6%B3%95&#34;&gt;了解XAML属性元素语法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BA%86%E8%A7%A3xaml%E9%99%84%E5%8A%A0%E5%B1%9E%E6%80%A7&#34;&gt;了解XAML附加属性&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BA%86%E8%A7%A3xaml%E6%A0%87%E8%AE%B0%E6%89%A9%E5%B1%95&#34;&gt;了解XAML标记扩展&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%B5%8F%E8%A7%88wpf%E6%96%87%E6%A1%A3&#34;&gt;浏览WPF文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81-8&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC25%E7%AB%A0-wpf%E6%8E%A7%E4%BB%B6%E5%B8%83%E5%B1%80%E4%BA%8B%E4%BB%B6%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A&#34;&gt;第25章 WPF控件，布局，事件和数据绑定&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#wpf%E6%A0%B8%E5%BF%83%E6%8E%A7%E4%BB%B6%E6%A6%82%E8%BF%B0&#34;&gt;WPF核心控件概述&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#wpf-ink-%E6%8E%A7%E4%BB%B6&#34;&gt;WPF Ink 控件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#wpf%E6%96%87%E6%A1%A3%E6%8E%A7%E4%BB%B6&#34;&gt;WPF文档控件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#wpf%E9%80%9A%E7%94%A8%E5%AF%B9%E8%AF%9D%E6%A1%86&#34;&gt;WPF通用对话框&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8%E9%9D%A2%E6%9D%BF%E6%8E%A7%E5%88%B6%E5%86%85%E5%AE%B9%E5%B8%83%E5%B1%80&#34;&gt;使用面板控制内容布局&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8%E5%B5%8C%E5%A5%97%E9%9D%A2%E6%9D%BF%E6%9E%84%E5%BB%BA%E7%AA%97%E5%8F%A3%E6%A1%86%E6%9E%B6&#34;&gt;使用嵌套面板构建窗口框架&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BA%86%E8%A7%A3wpf%E5%91%BD%E4%BB%A4&#34;&gt;了解WPF命令&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BA%86%E8%A7%A3%E8%B7%AF%E7%94%B1%E4%BA%8B%E4%BB%B6&#34;&gt;了解路由事件&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%B7%AF%E7%94%B1%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BD%9C%E7%94%A8&#34;&gt;路由冒泡事件的作用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BB%A7%E7%BB%AD%E6%88%96%E5%81%9C%E6%AD%A2%E5%86%92%E6%B3%A1&#34;&gt;继续或停止冒泡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%B7%AF%E7%94%B1%E9%9A%A7%E9%81%93%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BD%9C%E7%94%A8&#34;&gt;路由隧道事件的作用&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3wpf-api%E5%92%8C%E6%8E%A7%E4%BB%B6&#34;&gt;深入了解WPF API和控件&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8tabcontrol&#34;&gt;使用TabControl&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%9E%84%E5%BB%BAink-api%E6%A0%87%E7%AD%BE&#34;&gt;构建Ink API标签&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%AE%BE%E8%AE%A1%E5%B7%A5%E5%85%B7%E6%A0%8F&#34;&gt;设计工具栏&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8D%95%E9%80%89%E6%8C%89%E9%92%AE%E6%8E%A7%E4%BB%B6&#34;&gt;单选按钮控件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%B7%BB%E5%8A%A0%E4%BF%9D%E5%AD%98%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%88%A0%E9%99%A4%E6%8C%89%E9%92%AE&#34;&gt;添加保存，加载和删除按钮&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%B7%BB%E5%8A%A0inkcanvas%E6%8E%A7%E4%BB%B6&#34;&gt;添加InkCanvas控件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%A2%84%E8%A7%88%E7%AA%97%E5%8F%A3&#34;&gt;预览窗口&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%A4%84%E7%90%86ink-api%E9%80%89%E9%A1%B9%E5%8D%A1%E7%9A%84%E4%BA%8B%E4%BB%B6&#34;&gt;处理Ink API选项卡的事件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%B0%86%E6%8E%A7%E4%BB%B6%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%B7%A5%E5%85%B7%E7%AE%B1&#34;&gt;将控件添加到工具箱&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#inkcanvas%E6%8E%A7%E4%BB%B6&#34;&gt;InkCanvas控件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#combobox%E6%8E%A7%E4%BB%B6&#34;&gt;ComboBox控件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BF%9D%E5%AD%98%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%B8%85%E9%99%A4inkcanvas%E6%95%B0%E6%8D%AE&#34;&gt;保存，加载和清除InkCanvas数据&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BB%8B%E7%BB%8Dwpf%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E6%A8%A1%E5%9E%8B&#34;&gt;介绍WPF数据绑定模型&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%9E%84%E5%BB%BA%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E9%80%89%E9%A1%B9%E5%8D%A1&#34;&gt;构建数据绑定选项卡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A&#34;&gt;建立数据绑定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#datacontext%E5%B1%9E%E6%80%A7&#34;&gt;DataContext属性&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%BB%91%E5%AE%9A%E6%95%B0%E6%8D%AE&#34;&gt;格式化绑定数据&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8ivalueconverter%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2&#34;&gt;使用IValueConverter进行数据转换&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A&#34;&gt;在代码中建立数据绑定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%9E%84%E5%BB%BA%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC%E9%80%89%E9%A1%B9%E5%8D%A1&#34;&gt;构建数据网格选项卡&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BA%86%E8%A7%A3%E4%BE%9D%E8%B5%96%E5%B1%9E%E6%80%A7%E7%9A%84%E4%BD%9C%E7%94%A8&#34;&gt;了解依赖属性的作用&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A3%80%E6%9F%A5%E7%8E%B0%E6%9C%89%E7%9A%84%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%B1%9E%E6%80%A7&#34;&gt;检查现有的依赖项属性&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81-9&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC26%E7%AB%A0-wpf%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93%E6%9C%8D%E5%8A%A1&#34;&gt;第26章 WPF图形渲染服务&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81-10&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC27%E7%AB%A0-wpf%E8%B5%84%E6%BA%90%E5%8A%A8%E7%94%BB%E6%A0%B7%E5%BC%8F%E5%92%8C%E6%A8%A1%E6%9D%BF&#34;&gt;第27章 WPF资源，动画，样式和模板&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A6%82%E8%A6%81-11&#34;&gt;概要&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC28%E7%AB%A0-wpf%E9%80%9A%E7%9F%A5%E9%AA%8C%E8%AF%81%E5%91%BD%E4%BB%A4%E5%92%8Cmvvm&#34;&gt;第28章 WPF通知，验证，命令和MVVM&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BB%8B%E7%BB%8Dmodel-view-viewmodel&#34;&gt;介绍Model-View-ViewModel&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A8%A1%E5%9E%8B&#34;&gt;模型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%A7%86%E5%9B%BE&#34;&gt;视图&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%A7%86%E5%9B%BE%E6%A8%A1%E5%9E%8B&#34;&gt;视图模型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%B4%AB%E8%A1%80%E6%A8%A1%E5%9E%8B%E6%88%96%E8%B4%AB%E8%A1%80%E8%A7%86%E5%9B%BE%E6%A8%A1%E5%9E%8B&#34;&gt;贫血模型或贫血视图模型&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#wpf%E7%BB%91%E5%AE%9A%E9%80%9A%E7%9F%A5%E7%B3%BB%E7%BB%9F&#34;&gt;WPF绑定通知系统&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8F%AF%E8%A7%82%E5%AF%9F%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%92%8C%E9%9B%86%E5%90%88&#34;&gt;可观察的模型和集合&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%B7%BB%E5%8A%A0%E7%BB%91%E5%AE%9A%E5%92%8C%E6%95%B0%E6%8D%AE&#34;&gt;添加绑定和数据&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%ACviii%E9%83%A8%E5%88%86-aspnet&#34;&gt;第VIII部分 ASP.NET&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC29%E7%AB%A0-%E4%BB%8B%E7%BB%8D-aspnet-mvc&#34;&gt;第29章 介绍 ASP.NET MVC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC30%E7%AB%A0-%E4%BB%8B%E7%BB%8D-aspnet-web-api&#34;&gt;第30章 介绍 ASP.NET Web API&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%ACix%E9%83%A8%E5%88%86-net-core&#34;&gt;第IX部分 .NET Core&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC31%E7%AB%A0-net-core%E7%9A%84%E5%93%B2%E5%AD%A6&#34;&gt;第31章 .NET Core的哲学&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC32%E7%AB%A0-%E5%AE%9E%E4%BD%93%E6%A1%86%E6%9E%B6%E6%A0%B8%E5%BF%83%E4%BB%8B%E7%BB%8D&#34;&gt;第32章 实体框架核心介绍&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC33%E7%AB%A0-%E4%BB%8B%E7%BB%8D-aspnet-core-web%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F&#34;&gt;第33章 介绍 ASP.NET Core Web应用程序&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AC%AC34%E7%AB%A0-%E4%BB%8B%E7%BB%8D-aspnet-core%E6%9C%8D%E5%8A%A1%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F&#34;&gt;第34章 介绍 ASP.NET Core服务应用程序&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;第i部分-介绍c和net平台&#34;&gt;第I部分 介绍C#和.NET平台&lt;/h1&gt;
+&lt;h2 id=&#34;第1章-net的哲学&#34;&gt;第1章 .NET的哲学&lt;/h2&gt;
+&lt;p&gt;Microsoft的.NET平台（和相关的C＃编程语言）于2002年左右正式引入，并迅速成为现代软件开发的中流砥柱。如本书的简介中所述，本文的目的是双重的。首先要为您提供C＃语法和语义的深入详细的检查。业务的第二个（同样重要的）顺序是说明许多 .NET API的使用，包括使用ADO .NET和实体框架（EF）进行数据库访问，使用&lt;strong&gt;Windows Presentation Foundation（WPF）&lt;strong&gt;进行用户界面开发，使用 Windows Communication Foundation（WCF），以及使用ASP .NET MVC的Web服务和网站开发。本书的最后部分介绍了 .NET家族的最新成员 &lt;strong&gt;.NET Core&lt;/strong&gt;，它是.NET平台的&lt;/strong&gt;跨平台版本&lt;/strong&gt;。正如他们所说，千里之行始于一步。因此，我欢迎您进入第一章。&lt;/p&gt;
+&lt;p&gt;第一章的重点是为本书的其余部分奠定概念基础。在这里，您将找到许多与 .NET相关的主题的高级讨论，例如程序集，公共中间语言（CIL）和即时（JIT）编译。除了预览C#编程语言的一些关键字之外，您还将了解 .NET Framework各个方面之间的关系，例如公共语言运行时（CLR），公共类型系统（CTS）和公共 语言规范（CLS）。&lt;/p&gt;
+&lt;p&gt;本章还为您概述了.NET基类库（有时缩写为BCL）提供的功能。 在这里，您将获得.NET平台的语言无关和平台无关性质的概述。 正如您希望的那样，在本文的其余部分中，将进一步详细探讨其中的许多主题。&lt;/p&gt;
+&lt;h3 id=&#34;概要&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;本章的重点是提出本书其余部分所需的概念框架。首先，我研究了 .NET之前的技术中存在的许多局限性和复杂性，然后概述了.NET和C#如何尝试简化当前的事务状态。&lt;/p&gt;
+&lt;p&gt;.NET基本上可以归结为运行时执行引擎（mscoree.dll）和基类库（mscorlib.dll及其关联）。公共语言运行时能够托管遵守托管代码规则的任何 .NET二进制文件（即程序集）。如您所见，程序集包含CIL指令（除了类型元数据和程序集清单之外），这些指令可以使用即时编译器编译为特定于平台的指令。此外，您还探讨了公共语言规范和公共类型系统的作用。 然后检查ildasm.exe对象浏览工具。&lt;/p&gt;
+&lt;p&gt;在下一章中，您将浏览构建C#编程项目时可以使用的常见集成开发环境。您会很高兴地知道，在本书中，您将使用完全免费的（且功能丰富的）IDE，因此您可以在不花钱的情况下开始探索.NET领域。&lt;/p&gt;
+&lt;h2 id=&#34;第2章-构建c应用程序&#34;&gt;第2章 构建C#应用程序&lt;/h2&gt;
+&lt;p&gt;作为C#程序员，您可以从众多工具中进行选择以构建.NET应用程序。您选择的一种或多种工具将主要基于三个因素：与之相关的成本，用于开发软件的操作系统以及目标平台。本章的重点是概述支持C#语言的最常见的集成开发环境（IDE）。要了解，本章不会介绍每个IDE的每个细节。在阅读本文时，它将为您提供足够的信息来选择您的编程环境，并为您提供基础。&lt;/p&gt;
+&lt;p&gt;本章的第一部分将研究Microsoft提供的一组IDE，这些IDE可以在Windows操作系统（7、8.x和10）上开发.NET应用程序。就像您将看到的那样，这些IDE中的一些只能用于构建以Windows为中心的应用程序，而其他的则支持为其他操作系统和设备（例如macOS，Linux或Android）构建C#应用程序。然后，本章的后半部分将介绍一些可以在非Windows操作系统上运行的IDE。这使开发人员可以使用Apple计算机以及Linux发行版来构建C#程序。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 本章将为您提供大量IDE的概述。但是，本书将假定您正在使用（完全免费的）Visual Studio 2017社区IDE。如果要在其他OS（macOS或Linux）上构建应用程序，本章将指导您正确的方向。但是，您的IDE将不同于本文中的各种屏幕截图。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;在非windows操作系统上构建net应用程序&#34;&gt;在非Windows操作系统上构建.NET应用程序&lt;/h3&gt;
+&lt;p&gt;在非Windows操作系统上有几种用于构建.NET应用程序的选项。 除了Xamarin Studio，还有Mac专用的Visual Studio和Visual Studio Code（也可在Linux上运行）。可以使用这些开发环境构建的应用程序类型仅限于使用 .NET Core（适用于Mac的Visual Studio Code和Visual Studio）或针对移动应用（适用于Mac的Visual Studio，Xamarin Studio）进行开发的应用程序。&lt;/p&gt;
+&lt;p&gt;这就是本书中非Windows开发工具的全部内容。但是请放心，Microsoft正在拥抱所有开发人员，而不仅仅是拥有基于Windows的计算机的开发人员。&lt;/p&gt;
+&lt;h3 id=&#34;概要-1&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;如您所见，您可以使用许多新玩具！本章的重点是向您介绍C＃程序员在开发过程中可能利用的主要编程工具。如前所述，如果您只对在Windows开发计算机上构建.NET应用程序感兴趣，那么最好的选择是下载Visual Studio Community。也如前所述，本书的此版本将继续使用此特定的IDE。 因此，即将出现的屏幕截图，菜单选项和视觉设计器都将假定您正在使用Visual Studio社区。&lt;/p&gt;
+&lt;p&gt;如果要在非Windows操作系统上构建 .NET Core应用程序或跨平台移动应用程序，则Mac的Visual Studio，Visual Studio Code或Xamarin Studio将是您的最佳选择。&lt;/p&gt;
+&lt;h1 id=&#34;第ii部分-核心c程式设计&#34;&gt;第II部分 核心C#程式设计&lt;/h1&gt;
+&lt;h2 id=&#34;第3章-核心c编程构造第一部分&#34;&gt;第3章 核心C＃编程构造，第一部分&lt;/h2&gt;
+&lt;p&gt;本章通过介绍一些在探索 .NET Framework时必须熟悉的小规模独立主题，开始对C＃编程语言的正式研究。首先要做的是了解如何构建程序的应用程序对象，并检查可执行程序的入口点的组成：Main（）方法。接下来，您将研究基本的C＃数据类型（及其在System名称空间中的等效类型），包括检查System.String和System.Text.StringBuilder类。&lt;/p&gt;
+&lt;p&gt;在了解基本的.NET数据类型的详细信息之后，您将研究许多数据类型转换技术，包括缩小操作，扩大操作以及使用checked和unchecked关键字。&lt;/p&gt;
+&lt;p&gt;本章还将研究C＃var关键字的作用，它允许您隐式定义局部变量。正如您将在本书的后面看到的那样，在使用LINQ技术集时，隐式类型是非常有用的，即使有时不是强制性的。您将通过快速检查C＃关键字和运算符来结束本章，这些关键字和运算符使您可以使用各种循环和决策结构来控制应用程序的流程。&lt;/p&gt;
+&lt;h3 id=&#34;概要-2&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;本章的目的是向您介绍C＃编程语言的许多核心方面。您已在可能感兴趣的任何应用程序中检查了通用结构。在检查了应用程序对象的角色之后，您了解到每个C＃可执行程序都必须具有定义Main（）方法的类型，该方法用作程序的入口点。在Main（）的范围内，通常可以创建任意数量的对象，这些对象可以协同工作，为应用程序注入生命。&lt;/p&gt;
+&lt;p&gt;接下来，您深入研究了C＃内置数据类型的细节，并了解了每个数据类型关键字（例如int）实际上是System名称空间（System.Int32，在这种情况下）。鉴于此，每种C＃数据类型都有许多内置成员。同样，您还了解了扩大和缩小的作用以及checked和unchecked关键字的作用。&lt;/p&gt;
+&lt;p&gt;本章最后介绍了使用var关键字的隐式键入的作用。如上所述，隐式类型最有用的地方是使用LINQ编程模型时。最后，您快速检查了C＃支持的各种迭代和决策构造。&lt;/p&gt;
+&lt;p&gt;现在您已经了解了一些基本的基本知识，下一章（第4章）将完成对核心语言功能的检查。之后，您将准备好从第5章开始研究C＃的面向对象功能。&lt;/p&gt;
+&lt;h2 id=&#34;第4章-核心c编程构造第二部分&#34;&gt;第4章 核心C＃编程构造，第二部分&lt;/h2&gt;
+&lt;p&gt;本章从第3章开始讨论，并完成了对C＃编程语言核心方面的研究。您将开始研究使用C＃语法处理数组背后的细节，并了解相关System.Array类类型中包含的功能。&lt;/p&gt;
+&lt;p&gt;接下来，您将检查有关C＃方法构造的各种细节，探索out，ref和params关键字。在此过程中，您还将检查可选参数和命名参数的作用。我将通过方法重载来结束有关方法的讨论。&lt;/p&gt;
+&lt;p&gt;接下来，本章讨论枚举和结构类型的构造，包括相当详细地检查值类型和引用类型之间的区别。本章通过检查可空数据类型和相关运算符的作用来结束。&lt;/p&gt;
+&lt;p&gt;在完成本章之后，从第5章开始，您将处在学习C＃的面向对象功能的完美位置。&lt;/p&gt;
+&lt;h3 id=&#34;概要-3&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;本章从检查数组开始。然后，我们讨论了允许您构建自定义方法的C＃关键字。回想一下，默认情况下参数是通过值传递的； 但是，如果您用ref或out标记参数，则可以按引用传递参数。您还了解了可选参数或命名参数的作用，以及如何定义和调用采用参数数组的方法。&lt;/p&gt;
+&lt;p&gt;在研究了方法重载的主题之后，本章的大部分内容研究了一些有关如何在C＃中定义枚举和结构并在.NET基类库中表示的细节。在此过程中，您检查了一些有关值类型和引用类型的详细信息，包括它们在将其作为参数传递给方法时如何响应以及如何与可为空的数据类型和可能为空的变量（例如，引用型变量和可为空的值）进行交互 类型变量）使用？ 和?? 操作员。&lt;/p&gt;
+&lt;p&gt;本章的最后部分介绍了C＃中期待已久的功能，元组。在了解它们是什么以及它们如何工作之后，就可以使用它们从方法中返回多个值以及解构自定义类型。&lt;/p&gt;
+&lt;h1 id=&#34;第iii部分-用c进行面向对象的编程&#34;&gt;第III部分 用C＃进行面向对象的编程&lt;/h1&gt;
+&lt;h2 id=&#34;第5章-了解封装&#34;&gt;第5章 了解封装&lt;/h2&gt;
+&lt;p&gt;在第3章和第4章中，您研究了许多核心语法结构，这些结构在您可能正在开发的任何.NET应用程序中都很常见。在这里，您将开始研究C＃的面向对象功能。首要任务是检查构建支持任何数量构造函数的定义明确的类类型的过程。在理解了定义类和分配对象的基础之后，本章的其余部分将研究封装的作用。在此过程中，您将学习如何定义类属性，并了解static关键字，对象初始化语法，只读字段，常量数据和部分类的详细信息。&lt;/p&gt;
+&lt;h3 id=&#34;概要-4&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;本章的重点是向您介绍C＃类类型的角色。如您所见，&lt;strong&gt;类可以采用任意数量的构造函数&lt;/strong&gt;，这些构造函数使对象用户可以在创建对象时建立对象的状态。本章还说明了几种类设计技术（和相关的关键字）。回想一下，this关键字可用于获取对当前对象的访问权限，static关键字允许您定义在类（非对象）级别绑定的字段和成员，而const关键字（和readonly修饰符）使您能够 定义在初始分配后永远不会改变的数据点。&lt;/p&gt;
+&lt;p&gt;本章的大部分内容将深入探讨OOP的第一个支柱：封装。您了解了C＃的访问修饰符以及类型属性，对象初始化语法和局部类的作用。有了它，您现在可以转到下一章，在该章中，您将学习使用继承和多态性构建一系列相关类。&lt;/p&gt;
+&lt;h2 id=&#34;第6章-了解继承和多态&#34;&gt;第6章 了解继承和多态&lt;/h2&gt;
+&lt;p&gt;第5章研究了OOP的第一个支柱：封装。那时，您学习了如何使用构造函数和各种成员（字段，属性，方法，常量和只读字段）构建一个定义明确的类类型。本章将重点介绍OOP的其余两个支柱：继承和多态性。&lt;/p&gt;
+&lt;p&gt;首先，您将学习如何使用继承构建相关类的族。正如您将看到的，这种形式的代码重用使您可以在父类中定义通用功能，而子类可以利用这些通用功能，也可以对其进行更改。在此过程中，您将学习如何使用虚拟成员和抽象成员将多态接口建立到类层次结构中，以及显式转换的作用。&lt;/p&gt;
+&lt;p&gt;本章将通过检查.NET基类库：System.Object中最终父类的作用来结束本章。&lt;/p&gt;
+&lt;h3 id=&#34;概要-5&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;本章探讨了继承和多态性的作用和细节。在这些页面上，向您介绍了许多新关键字和令牌，以支持上述每种技术。例如，回想一下冒号标记用于建立给定类型的父类。父类型能够定义任何数量的虚拟和/或抽象成员以建立多态接口。派生类型使用override关键字覆盖此类成员。&lt;/p&gt;
+&lt;p&gt;除了构建大量的类层次结构之外，本章还研究了如何在基类型和派生类型之间进行显式转换，并通过深入研究.NET基类库System.Object中的宇宙父类的细节来进行包装。&lt;/p&gt;
+&lt;h2 id=&#34;第7章-了解结构化异常处理&#34;&gt;第7章 了解结构化异常处理&lt;/h2&gt;
+&lt;p&gt;在本章中，您将学习如何通过使用结构化异常处理来处理C＃代码中的运行时异常。您不仅会检查可让您处理此类事件的C＃关键字(Try, catch, throw, finally, when)，而且您还将了解应用程序级异常与系统级异常之间的区别以及 System.Exception基类的角色。该讨论将引发构建自定义异常的主题，最后，快速浏览一下Visual Studio的一些以异常为中心的调试工具。&lt;/p&gt;
+&lt;h3 id=&#34;概要-6&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;在本章中，您研究了结构化异常处理的作用。当方法需要将错误对象发送给调用方时，它将通过C＃throw关键字分配，配置并抛出特定的System.Exception派生类型。调用者可以使用C＃catch关键字和可选的finally范围来处理任何可能的传入异常。从C＃6.0开始，添加了使用可选的when关键字创建异常过滤器的功能，并且C＃7扩展了可以引发异常的位置。&lt;/p&gt;
+&lt;p&gt;创建自己的自定义异常时，最终将创建一个派生自System.ApplicationException的类类型，该类类型表示从当前正在执行的应用程序引发的异常。相反，从System.SystemException派生的错误对象表示CLR引发的严重（和致命）错误。最后但并非最不重要的一点是，本章说明了Visual Studio中的各种工具，这些工具可用于创建自定义异常（根据.NET最佳实践）以及调试异常。&lt;/p&gt;
+&lt;h2 id=&#34;第8章-使用接口&#34;&gt;第8章 使用接口&lt;/h2&gt;
+&lt;p&gt;本章通过研究基于接口的编程主题，以当前对面向对象开发的理解为基础。在这里，您将学习如何定义和实现接口，并了解支持多种行为的建筑类型的好处。在此过程中，您还将研究许多相关主题，例如获取接口引用，显式接口实现以及接口层次结构的构建。您还将检查.NET基类库中定义的许多标准接口。正如您将看到的，您的自定义类和结构可以自由地实现这些预定义的接口，以支持许多有用的行为，例如对象克隆，对象枚举和对象排序。&lt;/p&gt;
+&lt;h3 id=&#34;概要-7&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;可以将接口定义为抽象成员的命名集合。因为接口不提供任何实现细节，所以通常将接口视为给定类型可能支持的行为。当两个或多个类实现相同的接口时，即使在唯一的类层次结构中定义了类型，也可以以相同的方式对待每个类型（基于接口的多态性）。&lt;/p&gt;
+&lt;p&gt;C＃提供了interface关键字，以允许您定义新接口。如您所见，类型可以使用逗号分隔的列表来支持尽可能多的接口。此外，允许构建从多个基本接口派生的接口。&lt;/p&gt;
+&lt;p&gt;.NET库除了构建自定义接口外，还定义了许多标准（即框架提供的）接口。如您所见，您可以自由构建实现这些预定义接口的自定义类型，以获取许多理想的特性，例如克隆，排序和枚举。&lt;/p&gt;
+&lt;h1 id=&#34;第iv部分-高级c编程&#34;&gt;第IV部分 高级C＃编程&lt;/h1&gt;
+&lt;h2 id=&#34;第9章-集合和泛型&#34;&gt;第9章 集合和泛型&lt;/h2&gt;
+&lt;p&gt;您使用.NET平台创建的任何应用程序都将需要解决维护和操作内存中一组数据点的问题。这些数据点可以来自任何位置，包括关系数据库，本地文本文件，XML文档，Web服务调用或用户提供的输入。&lt;/p&gt;
+&lt;p&gt;.NET平台首次发布时，程序员经常使用System的类。集合名称空间，用于存储应用程序内使用的数据并与之交互。在 .NET 2.0中，增强了C＃编程语言以支持称为泛型的功能。并进行了更改，在基类库System.Collections.Generic中引入了新的命名空间。&lt;/p&gt;
+&lt;p&gt;本章将概述.NET基类库中的各种集合（通用和非通用）名称空间和类型。如您所见，通用容器通常比非通用容器更受青睐，因为它们通常提供更大的类型安全性和性能优势。学习了如何创建和操作框架中的通用项目后，本章的其余部分将研究如何构建自己的通用方法和通用类型。当您执行此操作时，您将了解约束的作用（以及相应的C＃where关键字），这些约束使您可以构建非常类型安全的类。&lt;/p&gt;
+&lt;h2 id=&#34;第10章-委托事件和lambda表达式&#34;&gt;第10章 委托，事件和Lambda表达式&lt;/h2&gt;
+&lt;p&gt;到目前为止，您开发的大多数应用程序都向Main（）添加了各种代码，这些代码以某种方式将请求发送到给定的对象。但是，许多应用程序要求对象能够使用回调机制与创建该对象的实体进行通信。尽管回调机制可以在任何应用程序中使用，但它们对于图形用户界面尤为重要，因为控件（例如按钮）需要在正确的情况下（单击按钮，鼠标进入按钮表面时）调用外部方法。依此类推。&lt;/p&gt;
+&lt;p&gt;在 .NET平台下，委托类型是在应用程序内定义和响应回调的首选方法。本质上， .NET委托类型是一种类型安全的对象，它“指向”可以在以后调用的方法或方法列表。与传统的C++函数指针不同， .NET委托是具有对多播和异步方法调用的内置支持的类。&lt;/p&gt;
+&lt;p&gt;在本章中，您将学习如何创建和操作委托类型，然后研究C＃event关键字，该关键字简化了使用委托类型的过程。在此过程中，您还将检查C＃的几种以委托和事件为中心的语言功能，包括匿名方法和方法组转换。&lt;/p&gt;
+&lt;p&gt;我通过检查lambda表达式来结束本章。使用C＃lambda运算符（=&amp;gt;），可以在需要强类型委托的任何地方指定代码语句块（以及传递给这些代码语句的参数）。就像您将看到的那样，lambda表达式只是变相的匿名方法而已，它为使用委托提供了简化的方法。此外，此相同的操作（自 .NET 4.6起）可用于使用简洁语法实现单语句方法或属性。&lt;/p&gt;
+&lt;h2 id=&#34;第11章-先进的c语言功能&#34;&gt;第11章 先进的C＃语言功能&lt;/h2&gt;
+&lt;p&gt;在本章中，您将通过研究许多更高级的主题来加深对C＃编程语言的理解。首先，您将学习如何实现和使用索引器方法。这种C＃机制使您可以构建自定义类型，以使用类似于数组的语法访问内部子项。学习了如何建立索引器方法后，您将看到如何重载各种运算符（+，-，&amp;lt;，&amp;gt;等），以及如何为类型创建自定义的显式和隐式转换例程（并且您将了解为什么您可能想要这样做）。&lt;/p&gt;
+&lt;p&gt;接下来，您将研究在使用以LINQ为中心的API时特别有用的主题（尽管您可以在LINQ的上下文之外使用它们），特别是扩展方法和匿名类型&lt;/p&gt;
+&lt;p&gt;总结一下，您将学习如何创建“不安全”代码上下文来直接操作非托管指针。虽然在C＃应用程序中使用指针确实是很少见的活动，但是了解如何做到这一点在涉及复杂互操作性场景的某些情况下可能会有所帮助。&lt;/p&gt;
+&lt;h2 id=&#34;第12章-linq对象&#34;&gt;第12章 LINQ对象&lt;/h2&gt;
+&lt;p&gt;无论使用 .NET平台创建的应用程序类型如何，程序在执行时肯定需要访问某种形式的数据。当然，可以在许多位置找到数据，包括XML文件，关系数据库，内存中的集合和原始数组。从历史上讲，基于所述数据的位置，程序员需要使用不同且不相关的API。最初在 .NET 3.5中引入的语言集成查询（LINQ）技术集提供了一种简洁，对称和强类型化的方式来访问各种数据存储。在本章中，您将专注于LINQ to Objects，从而开始对LINQ的研究。&lt;/p&gt;
+&lt;p&gt;在深入研究LINQ to Objects之前，本章的第一部分将快速回顾启用LINQ的关键C＃编程结构。在学习本章的过程中，您会发现隐式类型的局部变量，对象初始化语法，lambda表达式，扩展方法和匿名类型将非常有用（如果有时不是强制性的）&lt;/p&gt;
+&lt;p&gt;在回顾了该支持基础结构之后，本章的其余部分将向您介绍LINQ编程模型及其在.NET平台中的作用。在这里，您将学习查询运算符和查询表达式的作用，这使您可以定义查询数据源以产生请求的结果集的语句。在此过程中，您将构建大量LINQ示例，这些示例与数组中包含的数据以及各种集合类型（通用和非通用）进行交互，并理解代表LINQ to Objects API的程序集，名称空间和类型。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意本章中的信息是本书未来各节和各章的基础，包括并行LINQ（第19章），实体框架（第22章）和实体框架核心（第30章）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;第13章-了解对象生命周期&#34;&gt;第13章 了解对象生命周期&lt;/h2&gt;
+&lt;p&gt;在本书的这一点上，您已经学到了很多有关如何使用C＃构建自定义类类型的知识。
+现在，您将看到CLR如何通过垃圾回收管理分配的类实例（又名对象）。C＃程序员从不直接从内存中释放托管对象（请记住，C＃语言中没有delete关键字）。而是将 .NET对象分配到称为托管堆的内存区域，在将来某个时候它们将被垃圾收集器自动销毁。&lt;/p&gt;
+&lt;p&gt;在查看了收集过程的核心细节之后，您将学习如何使用System.GC类类型与垃圾收集器进行编程交互（对于大多数，通常不需要这样做 .NET项目）。接下来，您将研究虚拟System.Object。Finalize（）方法和IDisposable接口可用于构建以可预测的及时方式释放内部非托管资源的类。&lt;/p&gt;
+&lt;p&gt;您还将研究 .NET 4.0中引入的垃圾收集器的一些功能，包括后台垃圾收集和使用通用System.Lazy&amp;lt;&amp;gt;类的惰性实例化。在完成本章时，您将对CLR如何管理 .NET对象有深入的了解。&lt;/p&gt;
+&lt;h1 id=&#34;第v部分-net程序集编程&#34;&gt;第V部分 .NET程序集编程&lt;/h1&gt;
+&lt;h2 id=&#34;第14章-构建和配置类库&#34;&gt;第14章 构建和配置类库&lt;/h2&gt;
+&lt;p&gt;在本书的前四部分中，您创建了许多“独立”可执行应用程序，其中所有编程逻辑都打包在一个可执行文件（.exe）中。这些可执行程序集所使用的只不过是主要的.NET类库mscorlib.dll。尽管可能仅使用.NET基类库来构造一些简单的.NET程序，但您（或您的队友）很可能将可重用的编程逻辑隔离到自定义类库（.dll文件）中，从而可以在应用程序之间共享。&lt;/p&gt;
+&lt;p&gt;在本章中，您将学习将类型打包到自定义代码库中的各种方法。首先，您将学习将类型划分为 .NET名称空间的详细信息。之后，您将检查Visual Studio的类库项目模板，并了解私有程序集和共享程序集之间的区别。&lt;/p&gt;
+&lt;p&gt;接下来，您将确切地探索 .NET运行时如何解析程序集的位置，并且您将了解全局程序集缓存，XML应用程序配置文件（.config文件），发布者策略程序集和System.Configuration名称空间。&lt;/p&gt;
+&lt;h2 id=&#34;第15章-类型反射后期绑定和基于属性的编程&#34;&gt;第15章 类型反射，后期绑定和基于属性的编程&lt;/h2&gt;
+&lt;p&gt;如第14章所示，程序集是 .NET Universe中部署的基本单元。使用Visual Studio（和许多其他IDE）的集成对象浏览器，您可以检查项目引用的程序集中的类型。此外，使用ildasm.exe之类的外部工具，您可以查看给定.NET二进制文件的基础CIL代码，类型元数据和程序集清单。除了对.NET程序集进行设计时调查之外，您还可以使用System.Reflection命名空间以编程方式获取相同的信息。 为此，本章的首要任务是定义反射的作用以及 .NET元数据的必要性。&lt;/p&gt;
+&lt;p&gt;本章的其余部分研究了许多紧密相关的主题，所有这些主题都取决于反射服务。例如，您将学习 .NET客户端如何使用动态加载和后期绑定来激活其不具有编译时知识的类型。您还将学习如何通过使用系统提供的属性和自定义属性将自定义元数据插入.NET程序集。为了使所有这些（看似深奥的）主题都得到透视，本章以演示如何构建可插入可扩展的桌面GUI应用程序中的几个“快照对象”作为结尾。&lt;/p&gt;
+&lt;h2 id=&#34;第16章-动态类型和动态语言运行时&#34;&gt;第16章 动态类型和动态语言运行时&lt;/h2&gt;
+&lt;p&gt;NET 4.0为C＃语言引入了一个新的关键字，即dynamic关键字。此关键字允许您将类似脚本的行为合并到类型安全，分号和大括号的强类型世界中。使用这种松散类型，您可以大大简化一些复杂的编码任务，还可以与多种.NET精通的动态语言进行互操作。&lt;/p&gt;
+&lt;p&gt;在本章中，将向您介绍C＃dynamic关键字，并了解如何使用动态语言运行时（DLR）将松散类型的调用映射到正确的内存对象。了解DLR提供的服务后，您将看到使用动态类型来简化如何执行后期方法调用（通过反射服务）并轻松与旧式COM库进行通信的示例。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意不要将C＃dynamic关键字与动态程序集的概念混淆（请参阅第18章）。虽然在构建动态程序集时可以使用dynamic关键字，但它们最终是两个独立的概念。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;第17章-进程appdomain和对象上下文&#34;&gt;第17章 进程，AppDomain和对象上下文&lt;/h2&gt;
+&lt;p&gt;在第14和15章中，您研究了CLR为解析引用的外部程序集的位置以及 .NET元数据的作用而采取的步骤。在本章中，您将更深入地了解CLR如何托管程序集的详细信息，并了解进程，应用程序域和对象上下文之间的关系。&lt;/p&gt;
+&lt;p&gt;简而言之，应用程序域（或简称为AppDomain）是给定进程中的逻辑细分，这些细分承载了一组相关的 .NET程序集。如您所见，AppDomain进一步细分为上下文边界，这些上下文边界用于将志趣相投的 .NET对象进行分组。使用上下文的概念，CLR能够确保适当处理具有特殊运行时要求的对象。&lt;/p&gt;
+&lt;p&gt;的确，您的许多日常编程任务可能并不涉及直接处理进程，AppDomain或对象上下文，但是在使用许多 .NET API（包括Windows Communication Foundation（WCF））时，了解这些主题很重要，多线程和并行处理以及对象序列化。&lt;/p&gt;
+&lt;h2 id=&#34;第18章-了解cil和动态程序集的作用&#34;&gt;第18章 了解CIL和动态程序集的作用&lt;/h2&gt;
+&lt;p&gt;考虑到C＃（或类似的托管语言，如Visual Basic）的固有生产力和易用性，在构建全面的 .NET应用程序时，您肯定会使用C＃。但是，正如您在第一章中了解到的那样，托管编译器的作用是将 .cs 代码文件转换为CIL代码，类型元数据和程序集清单。事实证明，CIL是一种成熟的 .NET编程语言，具有自己的语法，语义和编译器（ilasm.exe）&lt;/p&gt;
+&lt;p&gt;在本章中，您将了解 .NET的母语。在这里，您将了解CIL指令，CIL属性和CIL操作码之间的区别。然后，您将了解.NET程序集和各种CIL编程工具的双向工程的作用。然后，本章的其余部分将带您了解使用CIL语法定义名称空间，类型和成员的基础知识。本章将探讨System.Reflection.Emit命名空间的作用，并说明如何在运行时动态构造程序集（使用CIL指令）&lt;/p&gt;
+&lt;p&gt;当然，很少有程序员会每天需要处理原始的CIL代码。因此，我将通过研究一些原因来开始本章，其中一些原因为什么使您值得花点时间了解这种底层.NET语言的语法和语义。&lt;/p&gt;
+&lt;h1 id=&#34;第vi部分-net基类库简介&#34;&gt;第VI部分 .NET基类库简介&lt;/h1&gt;
+&lt;h2 id=&#34;第19章-多线程并行和异步编程&#34;&gt;第19章 多线程，并行和异步编程&lt;/h2&gt;
+&lt;p&gt;没有人喜欢在执行过程中运行缓慢的应用程序。而且，没有人喜欢在应用程序中启动任务（可能通过单击工具栏项来启动），该任务会阻止程序的其他部分尽可能地响应。在 .NET发行之前，构建具有执行多项任务能力的应用程序通常需要编写使用Windows线程API的复杂C++代码。值得庆幸的是，.NET平台为您提供了多种方法来构建可以在唯一的执行路径上执行复杂操作的软件，而痛苦要少得多。&lt;/p&gt;
+&lt;p&gt;本章从定义“多线程应用程序”的整体性质开始。接下来，您将重新访问 .NET委托类型，以研究其对异步方法调用的内在支持。如您所见，该技术使您可以在辅助执行线程上调用方法，而无需手动创建或配置线程本身。&lt;/p&gt;
+&lt;p&gt;接下来，将向您介绍 .NET 1.0以来提供的原始线程命名空间，特别是System.Threading。在这里，您将研究多种类型（线程，线程启动等），这些类型使您可以显式创建其他执行线程并同步共享资源，这有助于确保多个线程可以非易失性方式共享数据。&lt;/p&gt;
+&lt;p&gt;本章其余部分将研究.NET开发人员可以用来构建多线程软件的三种最新技术，特别是任务并行库（TPL），并行LINQ（PLINQ）和新的（自C＃6起）内在异步关键字（async并await）。 如您所见，这些功能可以极大地简化您构建响应式多线程软件应用程序的方式。&lt;/p&gt;
+&lt;h2 id=&#34;第20章-文件io和对象序列化&#34;&gt;第20章 文件I/O和对象序列化&lt;/h2&gt;
+&lt;p&gt;创建桌面应用程序时，在用户会话之间保存信息的能力很常见。本章研究了从 .NET Framework的角度来看许多与I/O相关的主题。首先要做的是探索System.IO命名空间中定义的核心类型，并学习如何以编程方式修改计算机的目录和文件结构。下一个任务是探索各种读取和写入基于字符，基于二进制，基于字符串和基于内存的数据存储的方式。&lt;/p&gt;
+&lt;p&gt;学习了如何使用核心I/O类型操作文件和目录之后，您将研究对象序列化的相关主题。您可以使用对象序列化来持久化对象，并从（或从）任何System.IO.Stream派生类型检索对象的状态。当您想使用各种远程处理技术（例如Windows Communication Foundation）将对象复制到远程计算机时，序列化对象的能力至关重要。但是，序列化本身很有用，并且可能会在您的许多 .NET应用程序中（不管是否分布式）都起作用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：为确保可以运行本章中的每个示例，请以管理权限启动Visual Studio（只需右键单击Visual Studio图标，然后选择“以管理员身份运行”。否则，在访问时可能会遇到运行时安全性异常） 计算机文件系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;第21章-使用adonet进行数据访问&#34;&gt;第21章 使用ADO.NET进行数据访问&lt;/h2&gt;
+&lt;p&gt;.NET平台定义了许多命名空间，使您可以与关系数据库系统进行交互。总体而言，这些命名空间称为&lt;strong&gt;ADO.NET&lt;/strong&gt;。在本章中，您将了解ADO.NET的总体作用以及核心类型和名称空间，然后继续讨论ADO.NET数据提供程序这一主题。.NET平台支持众多数据提供程序（均作为 .NET Framework的一部分提供，并且可从第三方来源获得），每个数据提供程序都经过优化以与特定的数据库管理系统（例如Microsoft SQL Server，Oracle和 MySQL）。&lt;/p&gt;
+&lt;p&gt;了解了各种数据提供者提供的通用功能之后，您将查看数据提供者工厂模式。如您将看到的，使用System.Data.Common命名空间（和相关的App.config文件）中的类型，您可以构建一个代码库，该代码库可以动态地选择和选择基础数据提供程序，而无需重新编译或重新部署应用程序的代码库。&lt;/p&gt;
+&lt;p&gt;接下来，您将学习如何直接与SQL Server数据库提供程序一起使用，创建和打开连接以检索数据，然后继续进行插入，更新和删除数据，然后研究数据库事务主题。最后，您将使用ADO.NET执行SQL Server的批量复制功能，以将记录列表加载到数据库中。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 本章重点介绍原始&lt;strong&gt;ADO.NET&lt;/strong&gt;。第22章介绍了实体框架（EF），这是Microsoft的&lt;strong&gt;对象关系映射（ORM）框架&lt;/strong&gt;。像实体框架一样，ORM使创建数据访问代码变得更加简单（和快速）。但是他们仍然依靠ADO.NET进行数据访问。在对数据访问问题进行故障排除时，尤其是当它是由框架创建而不是由您编写的时，对ADO.NET的工作原理有扎实的了解至关重要。此外，您会遇到EF无法解决的情况（例如执行SQL批量复制），并且您需要了解ADO.NET才能解决这些问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;第22章-实体框架6简介&#34;&gt;第22章 实体框架6简介&lt;/h2&gt;
+&lt;p&gt;上一章研究了ADO.NET的基础。自.NET平台最初发布以来，ADO.NET使.NET程序员能够使用关系数据（以相对简单的方式）进行处理。但是，Microsoft在 .NET 3.5 Service Pack 1中引入了 &lt;strong&gt;ADO.NET&lt;/strong&gt; API的新组件，称为实体框架（或简称为EF）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 虽然EF的第一个版本受到广泛批评，但Microsoft的EF团队一直在努力发布新版本。完整的 .NET Framework的EF当前版本为6.1.3（在撰写本文时），该版本包含了较早版本的功能和性能增强。实体框架核心（以前称为EF 7）也可用，并且在第IX部分中与 .NET Core一起进行了介绍。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;EF的总体目标是允许您使用直接映射到应用程序中的业务对象（或域对象）的对象模型与关系数据库中的数据进行交互。例如，您可以对称为实体的强类型对象的集合进行操作，而不是将一批数据视为行和列的集合。这些实体本身也是LINQ感知的，您可以使用在第12章中了解到的相同LINQ语法来对它们进行查询。EF运行时引擎代表您将LINQ查询转换为适当的SQL查询。&lt;/p&gt;
+&lt;p&gt;本章将向您介绍使用实体框架的数据访问。您将学习有关创建域模型，将模型类映射到数据库以及DbContext类的角色的知识。您还将了解导航属性，事务和并发检查。&lt;/p&gt;
+&lt;p&gt;在完成本章时，您将拥有AutoLotDAL.dll的最终版本。本书其余部分将使用此版本的AutoLotDAL.dll（直到本书稍后使用EF .NET Core对其进行重建）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：使用实体设计器创建实体数据模型XML（EDMX）文件时，所有版本的Entity Framework（不超过EF 6.x）都支持。从4.1版开始，EF使用称为“代码优先”的技术添加了对纯旧CLR对象（PO​​CO）的支持。EF Core将仅支持Code First范例，而放弃所有EDMX支持。由于这个原因（以及EDMX范式的许多其他问题），本章仅使用Code First范式。  Code First名称实际上很糟糕，因为它给人的印象是您无法在现有数据库中使用它 我更喜欢“以代码为中心”一词，但是Microsoft并未征求我的意见！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;第23章-windows-communication-foundation简介&#34;&gt;第23章 Windows Communication Foundation简介&lt;/h2&gt;
+&lt;p&gt;Windows Communication Foundation（WCF）是专门为构建分布式系统的过程而设计的API的名称。与您过去可能使用过的其他特定分布式API（例如，DCOM，.NET远程处理，XML Web服务，消息队列）不同，WCF提供了一个单一，统一且可扩展​​的编程对象模型，您可以使用该模型与许多对象进行交互。以前多样化的分布式技术。&lt;/p&gt;
+&lt;p&gt;本章首先确定对WCF的需求，并研究其打算解决的问题。查看WCF提供的服务之后，您将把注意力转向检查代表此编程模型的关键 .NET程序集，名称空间和类型。在本章的其余部分，您将使用各种WCF开发工具来构建多个WCF服务，主机和客户端。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 在本章中，您将编写要求使用管理特权（此外，您必须具有管理特权）启动Visual Studio的代码。要以正确的管理员权限启动Visual Studio，请右键单击Visual Studio图标，然后选择“以管理员身份运行”。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;第vii部分-windows-presentation-foundation&#34;&gt;第VII部分 Windows Presentation Foundation&lt;/h1&gt;
+&lt;h2 id=&#34;第24章-windows-presentation-foundation和xaml简介&#34;&gt;第24章 Windows Presentation Foundation和XAML简介&lt;/h2&gt;
+&lt;p&gt;当.NET平台的1.0版发布时，需要构建图形桌面应用程序的程序员使用了两个API，它们分别名为Windows Forms和GDI+，这些API主要打包在System.Windows.Forms.dll和System.Drawing.dll程序集。尽管Windows Forms / GDI+仍然是用于构建传统桌面GUI的可行API，但是Microsoft从 .NET 3.0版本开始提供了另一种名为Windows Presentation Foundation（WPF）的GUI桌面API。&lt;/p&gt;
 &lt;p&gt;WPF最初的这一章首先探讨了这个新GUI框架背后的动机，这将帮助您了解Windows Forms / GDI+和WPF编程模型之间的区别。接下来，您将了解几个重要类的角色，包括Application，Window，ContentControl，Control，UIElement和FrameworkElement。&lt;/p&gt;
 &lt;p&gt;然后，本章将向您介绍名为Extensible Application Markup Language（XAML；发音为“ zammel”）的基于XML的语法。在这里，您将学习XAML的语法和语义（包括附加的属性语法以及类型转换器和标记扩展的作用）&lt;/p&gt;
 &lt;p&gt;本章最后通过构建第一个WPF应用程序来研究Visual Studio的集成WPF设计器。在这段时间里，您将学习如何拦截键盘和鼠标活动，定义应用程序范围的数据以及执行其他常见的WPF任务。&lt;/p&gt;
-&lt;h4 id=&#34;wpf背后的动机&#34;&gt;WPF背后的动机&lt;/h4&gt;
+&lt;h3 id=&#34;wpf背后的动机&#34;&gt;WPF背后的动机&lt;/h3&gt;
 &lt;p&gt;多年来，Microsoft创建了许多图形用户界面工具包（原始C/C++/Windows API开发，VB6，MFC等）来构建桌面可执行文件。 这些API均提供了一个代码库来表示GUI应用程序的基本方面，包括主窗口，对话框，控件，菜单系统和其他基本必需品。 随着.NET平台的最初发行，Windows Forms API凭借其简单而强大的对象模型迅速成为UI开发的首选模型。&lt;/p&gt;
 &lt;p&gt;尽管已经使用Windows Forms成功创建了许多功能齐全的桌面应用程序，但事实是该编程模型相当不对称。简而言之，System.Windows.Forms.dll和System.Drawing.dll不为构建功能丰富的桌面应用程序所需的许多其他技术提供直接支持。为了说明这一点，请考虑WPF发行之前的GUI桌面开发的特殊性质（请参阅表24-1）。&lt;/p&gt;
 &lt;p&gt;如您所见，Windows Forms开发人员必须从许多不相关的API和对象模型中提取类型。虽然在语法上看起来确实可以使用这些不同的API（毕竟只是C＃代码），但是您可能还同意每种技术都需要完全不同的思维方式。例如，使用DirectX创建3D渲染动画所需的技能与用于将数据绑定到网格的技能完全不同。可以肯定的是，Windows Forms程序员很难掌握每个API的多样性。&lt;/p&gt;
@@ -939,7 +1313,7 @@ xmlns:myCtrls=&amp;quot;clr-namespace:SomeNamespaceInMyApp&amp;rdquo;&lt;/p&gt;
 &lt;h3 id=&#34;浏览wpf文档&#34;&gt;浏览WPF文档&lt;/h3&gt;
 &lt;p&gt;在结束本章时，我想指出。.NET4.7 Framework SDK文档提供了专门讨论WPF主题的整个部分。在探索此API并阅读其余以WPF为中心的章节时，如果您尽早并经常咨询帮助系统，将会为您提供出色的服务。在这里，您将找到大量的XAML示例以及有关从3D图形编程到复杂的数据绑定操作的各种主题的详细教程。&lt;/p&gt;
 &lt;p&gt;您可以通过“文档”➤ .NET➤.NET Framework➤Windows Presentation Foundation菜单访问WPF文档。它位于 &lt;a href=&#34;https://docs.microsoft.com/zh-cn/dotnet/framework/wpf/index&#34;&gt;https://docs.microsoft.com/zh-cn/dotnet/framework/wpf/index&lt;/a&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;概要&#34;&gt;概要&lt;/h3&gt;
+&lt;h3 id=&#34;概要-8&#34;&gt;概要&lt;/h3&gt;
 &lt;p&gt;Windows Presentation Foundation（WPF）是 .NET 3.0发行版中引入的用户界面工具包。WPF的主要目标是将许多以前不相关的桌面技术（2D图形，3D图形，窗口和控件开发等）集成和统一到一个统一的编程模型中。除此之外，WPF程序通常使用XAML，它允许您通过标记声明WPF元素的外观。&lt;/p&gt;
 &lt;p&gt;回想一下XAML允许您使用声明性语法描述.NET对象的树。在本章对XAML的研究中，您接触到了一些新的语法，包括属性元素语法和附加属性，以及类型转换器和XAML标记扩展的作用。&lt;/p&gt;
 &lt;p&gt;XAML是任何生产级WPF应用程序的关键方面。本章的最后一个示例使您有机会构建一个WPF应用程序，该应用程序显示了本章讨论的许多概念。下一章将深入探讨这些概念，并介绍更多概念。&lt;/p&gt;
@@ -2038,11 +2412,352 @@ xmlns:myCtrls=&amp;quot;clr-namespace:SomeNamespaceInMyApp&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;唯一需要构建自己的自定义依赖项属性的时间是在编写自定义WPF控件时。例如，如果要构建定义四个自定义属性的UserControl，并且希望这些属性在WPF API中很好地集成，则应使用依赖项属性逻辑来编写它们。&lt;/p&gt;
 &lt;p&gt;具体来说，如果您的属性需要成为数据绑定或动画操作的目标，则该属性是否必须在更改后进行广播，是否必须能够以WPF样式用作Setter或是否必须能够要从父元素接收其值，普通的CLR属性是不够的。如果要使用普通的CLR属性，则其他程序员可能确实可以获取并设置一个值。但是，如果他们尝试在WPF服务的上下文中使用您的属性，则事情将无法按预期进行。因为您永远无法知道其他人可能如何与自定义UserControl类的属性进行交互，所以您应该养成在构建自定义控件时始终定义依赖项属性的习惯。&lt;/p&gt;
 &lt;h4 id=&#34;检查现有的依赖项属性&#34;&gt;检查现有的依赖项属性&lt;/h4&gt;
-&lt;h3 id=&#34;概要-1&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;在学习如何构建自定义依赖项属性之前，让我们看一下如何在内部实现FrameworkElement类的Height属性。相关代码如下所示（并附有我的评论）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// FrameworkElement is-a DependencyObject.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;FrameworkElement&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UIElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IFrameworkInputElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IInputElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ISupportInitialize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IHaveResources&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IQueryAmbient&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 类型DependencyProperty的静态只读字段。
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;readonly&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DependencyProperty&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HeightProperty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;// DependencyProperty字段通常在类的静态构造函数中注册。
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FrameworkElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;HeightProperty&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DependencyProperty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Register&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+            &lt;span class=&#34;s&#34;&gt;&amp;#34;Height&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;typeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;typeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FrameworkElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FrameworkPropertyMetadata&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1.0&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;FrameworkPropertyMetadataOptions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AffectsMeasure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PropertyChangedCallback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FrameworkElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnTransformDirty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)),&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ValidateValueCallback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FrameworkElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IsWidthHeightValid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;// CLR包装器，使用继承的GetValue() / SetValue()方法实现。
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Height&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;get&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;base&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GetValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;HeightProperty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;base&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SetValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;HeightProperty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如您所见，依赖项属性需要普通CLR属性中的大量附加代码！实际上，依赖关系甚至比您在这里看到的复杂（幸运的是，许多实现比Height更简单）。&lt;/p&gt;
+&lt;p&gt;首先，请记住，如果一个类要定义一个依赖项属性，则它必须在继承链中具有DependencyObject，因为这是定义CLR包装器中使用的GetValue（）和SetValue（）方法的类。因为FrameworkElement是一个DependencyObject，所以可以满足此要求。&lt;/p&gt;
+&lt;p&gt;接下来，回想一下将保留属性实际值的实体（在Height情况下为double）表示为DependencyProperty类型的公共，静态，只读字段。按照惯例，应始终通过在相关CLR包装器的名称后加上单词Property来命名该字段的名称，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;readonly&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DependencyProperty&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HeightProperty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;给定依赖项属性声明为静态字段，它们通常在类的静态构造函数中创建（并注册）。DependencyProperty对象是通过调用静态DependencyProperty.Register（）方法创建的。这种方法已经被重载了很多次。但是，在Height的情况下，DependencyProperty.Register（）的调用方式如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;n&#34;&gt;HeightProperty&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DependencyProperty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Register&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;s&#34;&gt;&amp;#34;Height&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;typeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;typeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FrameworkElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FrameworkPropertyMetadata&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1.0&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;FrameworkPropertyMetadataOptions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AffectsMeasure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PropertyChangedCallback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FrameworkElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnTransformDirty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)),&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ValidateValueCallback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FrameworkElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IsWidthHeightValid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;概要-9&#34;&gt;概要&lt;/h3&gt;
 &lt;p&gt;本章从控件工具包的概述和布局管理器（面板）的作用开始，研究了WPF控件的几个方面。第一个示例使您有机会构建一个简单的文字处理器应用程序，该应用程序说明了WPF的集成拼写检查功能，以及如何构建具有菜单系统，状态栏和工具栏的主窗口。&lt;/p&gt;
 &lt;p&gt;更重要的是，您研究了如何使用WPF命令。回想一下，您可以将这些不可知的事件附加到UI元素或输入手势，以自动继承现成的服务（例如剪贴板操作）。&lt;/p&gt;
 &lt;p&gt;您还学到了很多有关在XAML中构建复杂UI的知识，并且同时了解了WPF Ink API。您还收到了WPF数据绑定操作的介绍，包括如何使用WPF DataGrid类显示自定义AutoLot数据库中的数据。&lt;/p&gt;
 &lt;p&gt;最后，您研究了WPF如何对传统.NET编程原语（特别是属性和事件）施加独特的影响。如您所见，依赖项属性使您可以构建可以集成到WPF服务集（动画，数据绑定，样式等）中的属性。与此相关的是，路由事件为事件提供了一种在标记树上向上或向下流动的方式。&lt;/p&gt;
+&lt;h2 id=&#34;第26章-wpf图形渲染服务&#34;&gt;第26章 WPF图形渲染服务&lt;/h2&gt;
+&lt;p&gt;在本章中，您将研究WPF的图形渲染功能。如您所见，WPF提供了三种独立的方式来呈现图形数据：形状，工程图和视觉效果。了解每种方法的利弊之后，您将开始使用System.Windows.Shapes中的类学习交互式2D图形的世界。之后，您将看到图形和几何形状如何允许您以更轻便的方式渲染2D数据。最后但并非最不重要的一点，您将学习视觉层如何为您提供最大的功能和性能。&lt;/p&gt;
+&lt;p&gt;在此过程中，您将探索许多相关主题，例如如何创建自定义画笔和笔，如何将图形转换应用于渲染以及如何执行点击测试操作。 特别是，您将看到Visual Studio的集成工具和名为Inkscape的其他工具如何简化您的图形编码工作。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 图形是WPF开发的关键方面。即使您没有构建大量图形应用程序（例如视频游戏或多媒体应用程序），当您使用诸如控制模板，动画和数据绑定自定义之类的服务时，本章中的主题也至关重要。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;概要-10&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;由于Windows Presentation Foundation是图形密集型GUI API，因此我们获得了多种呈现图形输出的方法也就不足为奇了。本章以检查WPF应用程序可以采用的三种方式（形状，图形和视觉效果）开始，并讨论了各种渲染图元，例如画笔，笔和变换。&lt;/p&gt;
+&lt;p&gt;请记住，当您需要构建交互式2D渲染时，形状使过程非常简单。但是，可以通过使用图形和几何图形以更好的方式渲染静态非交互式渲染，而可视层（仅在代码中可访问）可为您提供最大的控制和性能。&lt;/p&gt;
+&lt;h2 id=&#34;第27章-wpf资源动画样式和模板&#34;&gt;第27章 WPF资源，动画，样式和模板&lt;/h2&gt;
+&lt;p&gt;本章向您介绍三个重要的（且相互关联的）主题，它们将加深您对Windows Presentation Foundation（WPF）API的理解。业务的首要任务是学习&lt;strong&gt;逻辑资源&lt;/strong&gt;的角色。 正如您将看到的，&lt;strong&gt;逻辑资源&lt;/strong&gt;（也称为对象资源）系统是在WPF应用程序中命名和引用常用对象的一种方式。 尽管逻辑资源通常是用XAML编写的，但是它们也可以在过程代码中定义。&lt;/p&gt;
+&lt;p&gt;接下来，您将学习如何定义，执行和控制动画序列。尽管您可能会想到，但WPF动画不仅限于视频游戏或多媒体应用程序。在WPF API下，动画可以像使按钮在获得焦点或扩展DataGrid中所选行的大小时看起来发光一样微妙。了解动画是构建自定义控件模板的关键方面（如本章稍后所述）。&lt;/p&gt;
+&lt;p&gt;然后，您将探索WPF样式和模板的作用。与使用CSS或ASP.NET主题引擎的网页非常相似，WPF应用程序可以为一组控件定义通用的外观。您可以在标记中定义这些样式，并将它们存储为对象资源以备后用，也可以在运行时动态地应用它们。最后一个示例将教您如何构建自定义控件模板。&lt;/p&gt;
+&lt;h3 id=&#34;概要-11&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;本章的第一部分研究了WPF的资源管理系统。您首先研究如何使用二进制资源，然后研究对象资源的作用。如您所知，对象资源被称为XAML的Blob，可以将其存储在各个位置，以便重用内容。&lt;/p&gt;
+&lt;p&gt;接下来，您了解了WPF的动画框架。在这里，您有机会使用C＃代码以及XAML创建了一些动画。您了解到，如果您在标记中定义了动画，则可以使用Storyboard元素和触发器来控制执行。然后，您研究了WPF样式的机制，该机制大量使用了图形，对象资源和动画。&lt;/p&gt;
+&lt;p&gt;您检查了逻辑树和可视树之间的关系。逻辑树基本上是您编写的用于描述WPF根元素的标记的一一对应关系。在此逻辑树的后面是一棵更深的可视树，其中包含详细的渲染指令。&lt;/p&gt;
+&lt;p&gt;然后检查了默认模板的作用。请记住，在构建自定义模板时，实际上是从控件的可视树中剥离所有（或部分）并将其替换为您自己的自定义实现。&lt;/p&gt;
+&lt;h2 id=&#34;第28章-wpf通知验证命令和mvvm&#34;&gt;第28章 WPF通知，验证，命令和MVVM&lt;/h2&gt;
+&lt;p&gt;本章将通过介绍支持&lt;strong&gt;Model-View-ViewModel（MVVM）模式&lt;/strong&gt;的功能来结束对WPF编程模型的研究。第一部分介绍Model-View-ViewModel模式。接下来，您将通过可观察模型和可观察集合来了解WPF通知系统及其对可观察模式的实现。使UI中的数据准确地描绘出数据的当前状态会自动显着改善用户体验，并减少旧技术（例如WinForms）中为达到相同结果所需的手动编码。&lt;/p&gt;
+&lt;p&gt;在Observable模式的基础上，您将检查将验证添加到应用程序中的机制。验证是任何应用程序的重要组成部分-不仅要让用户知道有什么问题，还要让他们知道有什么问题。为了通知用户错误是什么，您还将学习如何将验证合并到视图标记中。&lt;/p&gt;
+&lt;p&gt;接下来，您将更深入地研究WPF命令系统并创建自定义命令来封装程序逻辑，就像在第25章中使用内置命令所做的一样。创建自定义命令有几个优点，包括（但不限于）启用代码重用，逻辑封装和关注点分离。&lt;/p&gt;
+&lt;p&gt;最后，您将在一个示例MVVM应用程序中将所有这些结合在一起。&lt;/p&gt;
+&lt;h3 id=&#34;介绍model-view-viewmodel&#34;&gt;介绍Model-View-ViewModel&lt;/h3&gt;
+&lt;p&gt;在深入了解WPF中的通知，验证和命令之前，最好了解本章的最终目标，即Model-View-ViewModel模式（MVVM）。MVVM源自Martin Fowler的Presentation Model模式，它利用本章讨论的XAML特定功能来使您的WPF开发更快，更干净。名称本身描述了模式的主要组成部分：模型，视图，视图模型。&lt;/p&gt;
+&lt;h4 id=&#34;模型&#34;&gt;模型&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;模型&lt;/strong&gt;是数据的对象表示。在MVVM中，模型在概念上与数据访问层（DAL）中的模型相同。有时它们是相同的物理类别，但是对此没有要求。阅读本章时，您将学习如何决定是否可以使用DAL模型或是否需要创建新模型。&lt;/p&gt;
+&lt;p&gt;模型通常通过数据注释和INotifyDataErrorInfo接口利用内置的（或自定义的）验证，并被配置为可观察到以绑定到WPF通知系统。您将在本章后面看到所有这些内容。&lt;/p&gt;
+&lt;h4 id=&#34;视图&#34;&gt;视图&lt;/h4&gt;
+&lt;p&gt;视图是应用程序的UI，它的设计非常轻巧。想一想直通车餐厅的菜单板。该板显示菜单项和价格，并且具有一种机制，使用户可以与后端系统进行通信。但是，除非特别针对用户界面逻辑，例如在黑暗中打开灯，否则板子上没有内置任何智能。&lt;/p&gt;
+&lt;p&gt;MVVM视图在开发时应牢记相同的目标。任何智能都应内置到其他应用程序中。代码隐藏文件（例如MainWindow.xaml.cs）中的唯一代码应与操作UI直接相关。它不应基于业务规则或将来需要保留的任何内容。尽管这不是MVVM的主要目标，但完善的MVVM应用程序通常在其背后的代码中只有很少的代码。&lt;/p&gt;
+&lt;h4 id=&#34;视图模型&#34;&gt;视图模型&lt;/h4&gt;
+&lt;p&gt;在WPF和其他XAML技术中，视图模型有两个作用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;视图模型为视图所需的所有数据提供了一个单一的停留点。这并不意味着视图模型负责获取实际数据；相反，它&lt;strong&gt;只是将数据从数据存储区移动到视图的一种传输机制&lt;/strong&gt;。通常，视图和视图模型之间存在一对一的关联，但是存在架构差异，并且里程可能会有所不同。&lt;/li&gt;
+&lt;li&gt;第二项工作是充当视图的控制器。就像菜单板一样，视图模型从用户那里得到指示，并中继调用相关代码以确保采取了正确的措施。此代码通常以自定义命令的形式出现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;贫血模型或贫血视图模型&#34;&gt;贫血模型或贫血视图模型&lt;/h4&gt;
+&lt;p&gt;在WPF成立之初，当开发人员仍在研究如何最好地实施MVVM模式时，就在何处实施验证和Observable模式等项目进行了大量（有时甚至是激烈的）讨论。 一个阵营（贫血的模型阵营）认为，所有这些都应该放在视图模型中，因为将这些功能添加到模型中可以打破关注点的分离。另一个阵营（贫血的视图模型阵营）认为这应该全部包含在模型中，因为这样可以减少代码重复。&lt;/p&gt;
+&lt;p&gt;真正的答案当然取决于它。在模型类上实现INotifyPropertyChanged，IDataErrorInfo和INotifyDataErrorInfo时，这将确保相关代码接近代码的目标（如本章所述），并且对于每个模型仅实现一次。话虽这么说，有时您的视图模型类需要自己开发为可观察对象。最终，您需要确定最适合您的应用程序的内容，而又不会使您的代码过于复杂或牺牲MVVM的优势。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：有多种可用于WPF的MVVM框架，例如MVVMLite，Caliburn.Micro和Prism（尽管Prism不仅仅是一个MVVM框架）。本章讨论MVVM模式以及WPF中支持实现该模式的功能。我将它留给读者（读者），以研究不同的框架并选择最能满足您应用程序需求的框架。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;wpf绑定通知系统&#34;&gt;WPF绑定通知系统&lt;/h3&gt;
+&lt;p&gt;WinForms绑定系统中的一个重大缺陷是缺少通知。如果以编程方式更新视图中表示的数据，则还必须以编程方式刷新UI，以使其保持同步。这导致在控件上对Refresh（）的大量调用，通常要比为了安全起见绝对要多。尽管通常不会包含太多对Refresh（）的调用而引起的重大性能问题，但如果包含的调用过多，则可能会对用户的体验造成负面影响。&lt;/p&gt;
+&lt;p&gt;基于XAML的应用程序中内置的绑定系统通过使您可以将数据对象和集合开发为可观察对象，从而将它们挂接到通知系统中，从而解决了此问题。每当属性的值在可观察模型上更改或集合在可观察集合上更改（例如，添加，删除或重新排序项目）时，都会引发事件（NotifyPropertyChanged或NotifyCollectionChanged）。 绑定框架会自动侦听那些事件的发生，并在激发它们时更新绑定的控件。更好的是，作为开发人员，您可以控制哪些属性引发通知。听起来很完美吧？好吧，这还不是很完美。如果您手动完成所有工作，那么为可观察模型进行设置可能涉及大量代码。幸运的是，正如您将很快看到的，有一个开源框架使其变得更加简单。&lt;/p&gt;
+&lt;h4 id=&#34;可观察的模型和集合&#34;&gt;可观察的模型和集合&lt;/h4&gt;
+&lt;p&gt;在本部分中，您将创建一个使用可观察模型和集合的应用程序。首先，创建一个名为WpfNotifications的新WPF应用程序。该应用程序将是主从表单，允许用户使用ComboBox选择特定的汽车，然后该汽车的详细信息将显示在下面的TextBox控件中。将MainWindow.xaml更新为以下标记：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Grid&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsSharedSizeScope=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;True&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;5,0,5,5&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;Grid.RowDefinitions&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;RowDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;RowDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/Grid.RowDefinitions&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;Grid&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Grid.ColumnDefinitions&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;ColumnDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;SharedSizeGroup=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;CarLabels&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;ColumnDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;*&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/Grid.ColumnDefinitions&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Vehicle&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;cboCars&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;DisplayMemberPath=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;PetName&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/Grid&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;Grid&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;DetailsGrid&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Grid.ColumnDefinitions&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;ColumnDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;SharedSizeGroup=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;CarLabels&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;ColumnDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;*&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/Grid.ColumnDefinitions&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Grid.RowDefinitions&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;RowDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;RowDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;RowDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;RowDefinition&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/Grid.RowDefinitions&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Make&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Color&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;Label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Pet Name&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;StackPanel&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.ColumnSpan=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;HorizontalAlignment=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Right&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Orientation=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Horizontal&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0,5,0,5&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;btnAddCar&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Add Car&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;5,0,5,0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Padding=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;4, 2&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;btnChangeColor&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Change Color&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;5,0,5,0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Padding=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;4, 2&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/StackPanel&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/Grid&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/Grid&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Grid控件上的&lt;strong&gt;IsSharedSizeScope标记设置子网格以共享尺寸&lt;/strong&gt;。标记为SharedSizeGroup的ColumnDefinitions将自动调整为相同的宽度，而无需进行任何编程。在此示例中，如果将“宠物名称”标签更改为更长的时间，则“车辆”列（位于不同的“网格”控件中）的大小将与之匹配，从而使窗口的外观保持整洁。&lt;/p&gt;
+&lt;p&gt;接下来，在解决方案资源管理器中右键单击项目名称，选择“添加”➤“新建文件夹”，然后将文件夹命名为“Models”。在这个新文件夹中，创建一个名为Inventory的类。初始类在这里列出：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Inventory&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CarId&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Make&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PetName&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;添加绑定和数据&#34;&gt;添加绑定和数据&lt;/h4&gt;
+&lt;p&gt;下一步是为控件添加绑定语句。请记住，数据绑定语句围绕数据上下文，并且可以在控件本身或父控件上进行设置。在这里，您将在DetailsGrid上设置上下文，因此包含的每个控件都将继承该数据上下文。&lt;/p&gt;
+&lt;p&gt;将DataContext设置为ComboBox的SelectedItem属性。将包含详细信息控件的网格更新为以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Grid&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;DetailsGrid&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;DataContext=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding ElementName=cboCars, Path=SelectedItem}&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;DetailsGrid中的文本框将显示所选汽车的各个属性。将适当的文本属性和相关绑定添加到TextBox控件，如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Path=Make}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Path=Color}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Column=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Path=PetName}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;最后，将数据添加到ComboBox。在MainWindow.xaml.cs中，创建一个新的清单记录列表，并将ComboBox的ItemsSource设置为该列表。另外，为Notifications.Models命名空间添加using语句。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;WpfNotifications.Models&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;//omitted for brevity
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;partial&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MainWindow&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Window&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;readonly&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Inventory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_cars&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Inventory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;();&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MainWindow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;InitializeComponent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;_cars&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Inventory&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CarId&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Blue&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Make&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Chevy&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PetName&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Kit&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;_cars&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Inventory&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CarId&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Red&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Make&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Ford&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PetName&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Red Rider&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;cboCars&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ItemsSource&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_cars&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;运行应用程序。您会看到车辆选择器有两辆车可供选择。选择其中之一，文本框将自动填充车辆详细信息。更改其中一辆车的颜色，选择另一辆车，然后返回到您编辑的车。您会看到新颜色的确仍然附着在车辆上。这没什么了不起的；您已经在前面的示例中看到了XAML数据绑定的强大功能。&lt;/p&gt;
+&lt;h1 id=&#34;第viii部分-aspnet&#34;&gt;第VIII部分 ASP.NET&lt;/h1&gt;
+&lt;h2 id=&#34;第29章-介绍-aspnet-mvc&#34;&gt;第29章 介绍 ASP.NET MVC&lt;/h2&gt;
+&lt;p&gt;本章介绍ASP.MVC，这是一个&lt;strong&gt;用于创建Web应用程序&lt;/strong&gt;的.NET框架。ASP.NET MVC从用户社区（特别是ALT.NET运动）发展而来，要求建立一个更紧密地遵循HTTP租户，更具可测试性并且遵循关注点分离的框架。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：本书的上一版详细介绍了 ASP.NET Web窗体。在此版本中，“Web表单”章节已移至附录，以供您参考。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本章从对MVC模式的简要说明开始，然后深入探讨如何创建MVC项目。在对MVC和生成的脚手架有了扎实的了解之后，您将为CarLotMVC构建清单页面。&lt;/p&gt;
+&lt;h2 id=&#34;第30章-介绍-aspnet-web-api&#34;&gt;第30章 介绍 ASP.NET Web API&lt;/h2&gt;
+&lt;p&gt;上一章介绍了 ASP.NET MVC，模式和 .NET实现。本章向您介绍 ASP.NET Web API，这是一个主要建立在MVC机箱上的服务框架，它共享许多概念，包括路由，控制器和操作。ASP.NET Web API允许您利用您的MVC知识来构建&lt;strong&gt;RESTful服务&lt;/strong&gt;，而无需进行WCF（第23章）所需的配置和检查。您将创建一个称为CarLotWebAPI的RESTful服务，该服务公开清单记录上的所有创建，读取，更新和删除（CRUD）功能。最后，您将通过更新CarLotMVC以使用CarLotWebAPI作为数据源，而不是直接调用数据访问层来完成本章。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 本章将不重复上一章的内容，而是重点介绍使用 ASP.NET Web API项目创建RESTful服务的细节。如果您不熟悉 ASP.NET MVC，建议您在继续本章之前先阅读第29章。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;第ix部分-net-core&#34;&gt;第IX部分 .NET Core&lt;/h1&gt;
+&lt;h2 id=&#34;第31章-net-core的哲学&#34;&gt;第31章 .NET Core的哲学&lt;/h2&gt;
+&lt;p&gt;2016年6月27日，Microsoft宣布发布 .NET Core 1.0版，这是一个遍及全球的.NET开发人员的革命性新平台。这个新平台是同时为Windows，macOS和Linux发布的，它基于C＃和 .NET Framework，您已在最近30章中学习过。初始版本包括 .NET Core运行时，ASP.NET Core和Entity Framework Core。从那时起，又有两个附加版本：1.1和2.0（当前版本）。&lt;/p&gt;
+&lt;p&gt;除了跨平台部署功能，还引入了另一个重大更改。.NET Core平台和相关框架是&lt;strong&gt;完全开源的&lt;/strong&gt;。它们不仅是开放源代码，您可以在其中查看和使用代码，而且是功能完善的开放源代码项目。拉取请求被接受，并且实际上是预期的。开发社区做出了巨大贡献，超过10,000名开发人员为 .NET Core的初始版本做出了贡献。Microsoft团队是一个相对较小的团队，他们开发.NET和相关框架，而现在，更广泛的开发社区可以提供其他功能，性能改进和错误修复。这个开源计划不仅涵盖软件，还涵盖文档。实际上，本书前面各章中提供的文档链接都指向位于 &lt;a href=&#34;http://docs.microsoft.com&#34;&gt;http://docs.microsoft.com&lt;/a&gt;的新的开源文档平台。&lt;/p&gt;
+&lt;p&gt;本章向您介绍 .NET Core的原理。然后，其余三章将介绍Entity Framework Core（第32章）和 ASP.NET Core（第33至34章）。&lt;/p&gt;
+&lt;h2 id=&#34;第32章-实体框架核心介绍&#34;&gt;第32章 实体框架核心介绍&lt;/h2&gt;
+&lt;p&gt;微软发布了Entity Framework Core以及 .NET Core和 ASP.NET Core。EF Core是对EF的完全重写，它利用了.NET Core的所有优点。但是，作为重写，没有时间在 .NET Core 1.0发行的时间表内重新创建EF 6中的所有功能。根据功能比较，很简单地说，第一个版本较弱。确实没有足够的功能来将其视为可投入生产的产品。&lt;/p&gt;
+&lt;p&gt;随着EF Core 1.1的发布，这一切都发生了变化。该版本带来了EF 6在线上的更多功能，并且还引入了新功能。虽然还没有完成，但对于ASP来说已经足够了。.NET开发人员开始在实际项目中使用它。EF Core 2.0在线提供了更多功能，提高了性能，并扩展了ASP.NET之外的用途。如果EF Core 1.1的功能不足以满足您的需求，那么EF Core 2.0很有可能。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 本章假定您具有Entity Framework 6的使用知识。否则，请在继续之前阅读第22章。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本章的第一部分比较了EF 6和EF Core 2的功能。本章的其余部分显示了如何构建AutoLotDAL的EF Core 2版本，在接下来的两章中将使用 ASP.NET Core 2。&lt;/p&gt;
+&lt;h2 id=&#34;第33章-介绍-aspnet-core-web应用程序&#34;&gt;第33章 介绍 ASP.NET Core Web应用程序&lt;/h2&gt;
+&lt;p&gt;这是介绍 ASP.NET Core的两章中的第一章。如第31章所述，随着 ASP.NET Core的发布，ASP.NET MVC和 ASP.NET Web API最终已完全合并为一个框架。MVC 5和Web API之间的细微差别（有些不是那么细微）已经消失。巧合的是，命名差异也是如此。它只是 ASP.NET Core。&lt;/p&gt;
+&lt;p&gt;ASP.NET Core建立在 .NET Core之上，以使用C＃（当然还有Razor，HTML，JavaScript等）提供Web应用程序和RESTful服务的跨平台开发和部署。与EF Core一样，ASP.NET Core也不仅仅是端口。这是重建。这使团队可以大量清理代码库，集中精力于性能和功能增强。&lt;/p&gt;
+&lt;p&gt;本章从为Web应用程序构建 ASP.NET Core解决方案开始，然后介绍 ASP.NET Core的功能，并从消除CarLotMVC应用程序的画龙点睛结束。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 本章假定您具有 ASP.NET MVC 5的工作知识。否则，请在继续操作之前先阅读第28章。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;第34章-介绍-aspnet-core服务应用程序&#34;&gt;第34章 介绍 ASP.NET Core服务应用程序&lt;/h2&gt;
+&lt;p&gt;上一章在构建AutoLotMVC_Core2 Web应用程序时详细介绍了 ASP.NET Core。本章通过创建AutoLotAPI_Core2 RESTful服务来完成 ASP.NET Core的介绍。&lt;/p&gt;
+&lt;p&gt;您将首先使用 ASP.NET Core Web API模板（是的，即使现在是全框架，该模板仍被命名为Web API）来创建解决方案和项目。然后，您将检查项目的组织和启动选项，更新NuGet程序包，并从第32章中添加AutoLotDAL_Core2数据访问库。接下来，您将检查第33章中 ASP.NET Web API 2.2未涉及的更改，然后完成RESTful服务。&lt;/p&gt;
+&lt;p&gt;最后，您将更新AutoLotMVC_Core2 Web应用程序，以将AutoLotAPI_Core2服务用作后端数据源，而不是使用AutoLotDAL_Core2。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 本章假定您已经具有 ASP.NET Web API 2.2（从第30章开始）的知识，并且已经阅读并通读了 ASP.NET Core的第33章。如果不是这种情况，请先阅读第28和33章，然后再继续。&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
       
     </item>
