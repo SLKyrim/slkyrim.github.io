@@ -6959,7 +6959,8 @@ VerticalAlignment=&amp;#34;Top&amp;#34; Name=&amp;#34;playAgainstComputerCheck&a
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;20.运行该应用程序。默认情况下，ComputerPlayer类处于启用状态，并且玩家数量设置为两个。这意味着您可以在“开始游戏”对话框中选择一个名称。之后，您应该能够看到如图15-5所示的内容。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://note.youdao.com/yws/public/resource/f4b09d15daa4622af99ebfe19f26a8ac/xmlnote/B1E294D1CB734CDFA9EA63DE65679755/3454&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;双击卡片组或可用的卡片以抽出，然后从您的手中单击卡片以将其丢弃。&lt;/p&gt;
+&lt;p&gt;双击卡片组或可用的卡片以抽出，然后从您的手中单击卡片以将其丢弃。最后通过抽换牌，先把所有手牌换成同一花色的玩家获胜：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://note.youdao.com/yws/public/resource/f4b09d15daa4622af99ebfe19f26a8ac/xmlnote/EC18094D373F4913AB075B2F7F96D22F/3599&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;代码原理-11&#34;&gt;代码原理&lt;/h4&gt;
 &lt;p&gt;尽管此示例中有很多代码，但其中大多数是依赖项属性，而XAML都是关于数据绑定这些属性的。 CardsInHandControl创建了三个用于显示自身并对更改做出反应的属性：Game，Owner和PlayerState。  Game和Owner通常用于绘制，但是PlayerState也用于控制ComputerPlayer动作。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
