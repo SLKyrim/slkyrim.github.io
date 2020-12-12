@@ -6,10 +6,28 @@
     <description>Recent content in C# on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 03 Dec 2020 09:57:55 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Dec 2020 09:45:08 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/tags/c#/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C#入门经典(第8版)阅读记录</title>
+      <link>https://slkyrim.github.io/post/book_beginning_csharp_7_programming/</link>
+      <pubDate>Tue, 08 Dec 2020 09:45:08 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/book_beginning_csharp_7_programming/</guid>
+      <description>C#入门经典(第8版)阅读记录 目录 C#入门经典(第8版)阅读记录 目录 第I部分 C#语言 第10章 定义类成员 实现卡牌类库 实践 卡牌类库的客户端应用程</description>
+    </item>
+    
+    <item>
+      <title>WPF应用程序调用MATLAB编译生成的DLL动态链接库 - 测试记录</title>
+      <link>https://slkyrim.github.io/post/note_csharp_call_matlab_dll/</link>
+      <pubDate>Mon, 07 Dec 2020 19:37:03 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/note_csharp_call_matlab_dll/</guid>
+      <description>WPF应用程序调用MATLAB编译生成的DLL动态链接库 - 测试记录 新的运动学解算最初是在MATLAB上编写，方便绘图进行测试和验证。其中的线</description>
+    </item>
     
     <item>
       <title>WPF应用程序调用C编译生成的DLL动态链接库</title>

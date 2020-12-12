@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 03 Dec 2020 15:05:33 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Dec 2020 09:45:08 +0800</lastBuildDate>
     
 	<atom:link href="https://slkyrim.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C#入门经典(第8版)阅读记录</title>
+      <link>https://slkyrim.github.io/post/book_beginning_csharp_7_programming/</link>
+      <pubDate>Tue, 08 Dec 2020 09:45:08 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/book_beginning_csharp_7_programming/</guid>
+      <description>C#入门经典(第8版)阅读记录 目录 C#入门经典(第8版)阅读记录 目录 第I部分 C#语言 第10章 定义类成员 实现卡牌类库 实践 卡牌类库的客户端应用程</description>
+    </item>
+    
+    <item>
+      <title>WPF应用程序调用MATLAB编译生成的DLL动态链接库 - 测试记录</title>
+      <link>https://slkyrim.github.io/post/note_csharp_call_matlab_dll/</link>
+      <pubDate>Mon, 07 Dec 2020 19:37:03 +0800</pubDate>
+      
+      <guid>https://slkyrim.github.io/post/note_csharp_call_matlab_dll/</guid>
+      <description>WPF应用程序调用MATLAB编译生成的DLL动态链接库 - 测试记录 新的运动学解算最初是在MATLAB上编写，方便绘图进行测试和验证。其中的线</description>
+    </item>
     
     <item>
       <title>Markdown图片技巧</title>
@@ -171,24 +189,6 @@
       
       <guid>https://slkyrim.github.io/post/leetcode_20200614_weekly/</guid>
       <description>目录 一维数组的动态和 不同整数的最少数目 制作m束花所需的最少天数 树节点的第k个祖先 总结 一维数组的动态和 给你一个数组 nums 。数组「动态和」的计算公式</description>
-    </item>
-    
-    <item>
-      <title>Leetcode_20200531周赛</title>
-      <link>https://slkyrim.github.io/post/leetcode_20200531_weekly/</link>
-      <pubDate>Fri, 31 Jul 2020 12:21:32 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/leetcode_20200531_weekly/</guid>
-      <description>目录 数组中两元素的最大乘积 切割后面积最大的蛋糕 重新规划路线 两个盒子中球的颜色数相同的概率 总结 数组中两元素的最大乘积 给你一个整数数组 nums，</description>
-    </item>
-    
-    <item>
-      <title>Leetcode_20200524周赛</title>
-      <link>https://slkyrim.github.io/post/leetcode_20200524_weekly/</link>
-      <pubDate>Fri, 31 Jul 2020 12:20:32 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/leetcode_20200524_weekly/</guid>
-      <description>目录 检查单词是否为句中其他单词的前缀 定长子串中元音的最大数目 二叉树中的伪回文路径 两个子序列的最大点积 总结 检查单词是否为句中其他单词的前缀 给一</description>
     </item>
     
   </channel>

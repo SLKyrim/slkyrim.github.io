@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DLL on Single Long</title>
-    <link>https://slkyrim.github.io/tags/dll/</link>
-    <description>Recent content in DLL on Single Long</description>
+    <title>MATLAB on Single Long</title>
+    <link>https://slkyrim.github.io/tags/matlab/</link>
+    <description>Recent content in MATLAB on Single Long</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 07 Dec 2020 19:37:03 +0800</lastBuildDate>
     
-	<atom:link href="https://slkyrim.github.io/tags/dll/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://slkyrim.github.io/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://slkyrim.github.io/post/note_csharp_call_matlab_dll/</guid>
       <description>WPF应用程序调用MATLAB编译生成的DLL动态链接库 - 测试记录 新的运动学解算最初是在MATLAB上编写，方便绘图进行测试和验证。其中的线</description>
-    </item>
-    
-    <item>
-      <title>WPF应用程序调用C编译生成的DLL动态链接库</title>
-      <link>https://slkyrim.github.io/post/note_csharp_call_c_dll/</link>
-      <pubDate>Thu, 03 Dec 2020 09:57:55 +0800</pubDate>
-      
-      <guid>https://slkyrim.github.io/post/note_csharp_call_c_dll/</guid>
-      <description>WPF应用程序调用C编译生成的DLL动态链接库 由于项目分为上位机（WPF C#）和嵌入式（C和Python）两大版本，同时项目成员的技术栈涉及</description>
     </item>
     
   </channel>
